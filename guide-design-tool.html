@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>デザインツールの使い方 — プリントワールド</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="mobile.css" />
+</head>
+<body class="guide-design-tool-page">
+  <header class="fv-header">
+    <a class="fv-logo" href="index.html">
+      <img src="images/logo.png" width="320" height="auto" alt="プリントワールド" />
+    </a>
+
+    <div class="fv-header__right">
+      <div class="fv-header__actions">
+        <div class="fv-header__main">
+          <p class="fv-pill" role="note">相談しながら作りたい人はこちら！</p>
+          <div class="fv-header__links">
+            <a class="phone-box" href="tel:0566785885">
+              <span class="phone-box__body">
+                <span class="phone-box__top">
+                  <img class="phone-box__icon" src="images/icon-phone.png" alt="" aria-hidden="true" />
+                  <span class="phone-box__number">0566-78-5885</span>
+                </span>
+                <span class="phone-box__label">電話受付:平日 9:00〜17:30</span>
+              </span>
+            </a>
+            <a class="cta cta--contact" href="#">
+              <img class="cta__icon" src="images/icon-mail.png" alt="" aria-hidden="true" />
+              <span class="cta__label">お問い合わせ</span>
+            </a>
+            <a class="cta cta--line" href="#" rel="noopener">
+              <img class="cta__icon" src="images/icon-line.png" alt="" aria-hidden="true" />
+              <span class="cta__label">LINE相談</span>
+            </a>
+          </div>
+        </div>
+        <button type="button" class="menu-btn" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="guide-design-tool-main">
+    <section class="guide-hero" aria-labelledby="guide-design-tool-hero-title">
+      <div class="guide-flow-inner guide-hero__inner">
+        <img
+          class="guide-hero__kicker"
+          src="images/guide-flow-kicker.png"
+          alt="ご利用ガイド"
+          width="260"
+          height="auto"
+        />
+        <h1 id="guide-design-tool-hero-title" class="guide-hero__title-img-wrap">
+          <img
+            src="images/guide-design-tool-title.png"
+            alt="デザインツールの使い方"
+            width="920"
+            height="auto"
+          />
+        </h1>
+      </div>
+    </section>
+
+    <section class="guide-design-tool-nav" aria-label="デザインツールの使い方のメニュー">
+      <div class="guide-flow-inner guide-design-tool-nav__inner">
+        <p class="guide-design-tool-nav__lead">
+          メイクルの「デザインシミュレータ」は、Web上で文字やイラスト、写真等を自由にレイアウトデザインができます。特別な知識がなくても簡単にオリジナルデザインのアイテムを作ることができます。ここでは「デザインシュミレータ」の基本の使い方をご紹介しています。
+        </p>
+        <ul class="guide-design-tool-nav__grid" aria-label="使い方カテゴリ">
+          <li><a class="guide-design-tool-nav__card" href="#design-simulator-title"><span class="guide-design-tool-nav__label">デザインシミュレーターの使い方</span></a></li>
+          <li><a class="guide-design-tool-nav__card" href="#text-guide-title"><span class="guide-design-tool-nav__label">文字入力ガイド</span></a></li>
+          <li><a class="guide-design-tool-nav__card" href="#transform-guide-title"><span class="guide-design-tool-nav__label">変形・複製・整列</span></a></li>
+          <li><a class="guide-design-tool-nav__card" href="#image-guide-title"><span class="guide-design-tool-nav__label">画像の挿入・使用画像ガイド</span></a></li>
+          <li><a class="guide-design-tool-nav__card" href="#stamp-guide-title"><span class="guide-design-tool-nav__label">スタンプガイド</span></a></li>
+          <li><a class="guide-design-tool-nav__card" href="#save-guide-title"><span class="guide-design-tool-nav__label">デザインの保存方法</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="design-simulator" aria-labelledby="design-simulator-title">
+      <div class="guide-flow-inner design-simulator__inner">
+        <h2 id="design-simulator-title" class="design-simulator__title">
+          <img
+            class="design-simulator__title-img"
+            src="images/guide-design-tool-simulator-title.png"
+            alt="デザインシミュレーターの使い方"
+            width="1054"
+            height="80"
+          />
+        </h2>
+
+        <article class="design-simulator__block" aria-labelledby="design-simulator-pc">
+          <header class="design-simulator__head">
+            <div class="design-simulator__head-left">
+              <img class="design-simulator__head-icon" src="images/guide-design-tool-icon-pc.png" alt="" width="114" height="121" />
+              <h3 id="design-simulator-pc" class="design-simulator__head-title">デザインシミュレーターの使い方【パソコン編】</h3>
+            </div>
+          </header>
+          <p class="design-simulator__desc">
+            オンライン上で文字やイラスト、写真等を自由にレイアウトデザインができるツールです。<br>
+            パソコンやスマホでどなたでも簡単に思いのままのデザインを作ることができます。
+          </p>
+          <div class="design-simulator__screen">
+            <img src="images/guide-design-tool-screen-pc.png" alt="" width="2141" height="1129" />
+          </div>
+        </article>
+
+        <article class="design-simulator__block" aria-labelledby="design-simulator-phone">
+          <header class="design-simulator__head">
+            <div class="design-simulator__head-left">
+              <img class="design-simulator__head-icon" src="images/guide-design-tool-icon-phone.png" alt="" width="138" height="138" />
+              <h3 id="design-simulator-phone" class="design-simulator__head-title">デザインシミュレーターの使い方【スマートフォン編】</h3>
+            </div>
+          </header>
+          <p class="design-simulator__desc">
+            オンライン上で文字やイラスト、写真等を自由にレイアウトデザインができるツールです。<br>
+            パソコンやスマホでどなたでも簡単に思いのままのデザインを作ることができます。
+          </p>
+          <div class="design-simulator__screen design-simulator__screen--phone">
+            <img src="images/guide-design-tool-screen-phone.png" alt="" width="762" height="1206" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="text-guide" aria-labelledby="text-guide-title">
+      <div class="guide-flow-inner text-guide__inner">
+        <h2 id="text-guide-title" class="text-guide__title">
+          <img
+            class="text-guide__title-img"
+            src="images/guide-design-tool-text-title.png"
+            alt="文字入力ガイド"
+            width="543"
+            height="84"
+          />
+        </h2>
+
+        <ol class="text-guide__list">
+          <li class="text-guide__card">
+            <h3 class="text-guide__card-title">文字入力とフォント変更</h3>
+            <p class="text-guide__card-text">
+              メニューから「テキスト」を選択し、切り替わった画面にある「入力フォーム」にプリントしたい文字を入力してください。<br>  
+              画面中央の枠の中に、入力した文字が表示されます。<br>
+              複数行まとめてテキストを入力したい場合は、入力フォームの中で改行してテキストを入力してください。<br>
+              入力した複数行テキストは、「左寄せ」「中央」「右寄せ」に揃えることができます。<br><br>
+              入力した文字をカーソルで選択すると、下図のような文字ボックス(オレンジの四角)が表示されます。<br>
+              ドラッグしたり、十字キーでご希望の場所に移動させることができます。<br>
+              また、入力した文字のフォントを変更したい場合は、文字ボックスがついている状態で、「font」からご希望のフォントを選択してください。<br>
+              ※一度入力した文字において、かな書体とアルファベット書体の切り替えはできません。
+            </p>
+            <div class="text-guide__media">
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-01-form.png" alt="" width="751" height="417" />
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-01-result.png" alt="" width="353" height="507" />
+            </div>
+          </li>
+          <li class="text-guide__card">
+            <h3 class="text-guide__card-title">文字カラーの変更</h3>
+            <p class="text-guide__card-text">
+              文字のカラーを変更したい場合は、文字ボックスが選択されている状態で「カラーの選択」からご希望のカラーを選択してください。<br><br>
+              ※塗りカラーの数や設定色は、アイテム種類やプリント方法により異なります。<br>
+              ※塗りカラーの色味はモニター環境等によって異なります。<br>
+              ※アイテムやプリント特性により、塗りカラーと仕上がりの色味が異なることがあります。<br>
+            </p>
+            <div class="text-guide__media">
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-02-palette.png" alt="" width="478" height="732" />
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-02-result.png" alt="" width="641" height="297" />
+            </div>
+          </li>
+          <li class="text-guide__card">
+            <h3 class="text-guide__card-title">文字間隔の調整</h3>
+            <p class="text-guide__card-text">
+             文字と文字の間の間隔(隙間)を調整することができます。<br>
+            「文字の間隔調整」の [+] ボタンや[一]ボタンを押して調整してください。<br>
+            「一つ戻す」を押すと、元に戻ります。<br><br>
+            ※1文字ずつの設定はできません。その場合は、別の文字ボックスに切り分けて調整してください。<br>
+            </p>
+            <div class="text-guide__media">
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-03-spacing.png" alt="" width="751" height="691" />
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-03-result.png" alt="" width="641" height="611" />
+            </div>
+          </li>
+          <li class="text-guide__card">
+            <h3 class="text-guide__card-title">文字の行間の調整</h3>
+            <p class="text-guide__card-text">
+               行の間隔(隙間)を調整することができます。<br>
+              「行間の間隔調整」の[+] ボタンや[一]ボタンを押して調整してください。<br>
+              「一つ戻す」を押すと、元に戻ります。<br>
+            </p>
+            <div class="text-guide__media">
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-04-line-spacing.png" alt="" width="751" height="691" />
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-04-result.png" alt="" width="641" height="611" />
+            </div>
+          </li>
+          <li class="text-guide__card">
+            <h3 class="text-guide__card-title">文字の変形</h3>
+            <p class="text-guide__card-text">
+              デザインツールでは、縦書きやアーチ形状にすることができます。<br>
+              「変形」のプルダウンを押すと左図のような選択メニューが表示されるので、ご希望の形状を選択してください。 <br>
+              元に戻すときは選択メニュー内の「変形なし」を選択してください。<br>
+            </p>
+            <div class="text-guide__media">
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-05-transform-menu.png" alt="" width="751" height="811" />
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-05-result.png" alt="" width="641" height="611" />
+            </div>
+          </li>
+          <li class="text-guide__card">
+            <h3 class="text-guide__card-title">文字の変形</h3>
+            <p class="text-guide__card-text">
+              字の大きさを変更したい場合は、「大きさ」の[+]ボタンや[一]ボタンを押して調整していただくか、ご希望の数値を入力すると変更できます。<br>
+              または、文字ボックスが選択されている状態で四方にある四角をクリックしたままマウスを動かしても調整できます。<br><br>
+              ※拡大縮小できる範囲(数値)は、アイテム種類やプリント方法により異なります。<br>
+              ※文字サイズはアイテムに対して相対的に設定しています。<br>
+              ※同じ大きさでも、アイテムにより、プリントサイズは異なりますのでご注意ください。<br>
+            </p>
+            <div class="text-guide__media">
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-06-size.png" alt="" width="751" height="691" />
+              <img class="text-guide__media-img" src="images/guide-design-tool-text-06-result.png" alt="" width="641" height="611" />
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="transform-guide" aria-labelledby="transform-guide-title">
+      <div class="guide-flow-inner transform-guide__inner">
+        <h2 id="transform-guide-title" class="transform-guide__title">
+          <img
+            class="transform-guide__title-img"
+            src="images/guide-design-tool-transform-title.png"
+            alt="変形・複製・整列"
+            width="640"
+            height="84"
+          />
+        </h2>
+
+        <ol class="transform-guide__list">
+          <li class="transform-guide__card">
+            <h3 class="transform-guide__card-title">デザインの回転</h3>
+            <p class="transform-guide__card-text">
+              回転させたいデザインを選択し、メニューに表示される「回転」の真ん中にある四角をクリックしたままマウスを左右に動かしてください。<br>
+              または選択したデザインの上にある「回転アイコン」をクリックしても回転ができます。<br>
+              「shift」キーを押しながら動かすと45度ずつ回転します。
+            </p>
+            <div class="transform-guide__media">
+              <img class="transform-guide__media-img" src="images/guide-design-tool-transform-01-rotate.png" alt="" />
+             </div>
+          </li>
+          <li class="transform-guide__card">
+            <h3 class="transform-guide__card-title">デザインの整列</h3>
+            <p class="transform-guide__card-text">
+              整列させたいデザインをクリックし、「整列」メニューの揃え方の一覧からご希望の揃え位置をクリックするとキャンバスに合わせて<br>選択したデザインが整列されます。
+            </p>
+            <div class="transform-guide__media">
+              <img class="transform-guide__media-img" src="images/guide-design-tool-transform-02-align.png" alt="" />
+            </div>
+          </li>
+          <li class="transform-guide__card">
+            <h3 class="transform-guide__card-title">デザインの複製</h3>
+            <p class="transform-guide__card-text">
+              複製したいデザインを選択し、メニューに表示されている「コピー」のボタンをクリックしてください。<br>
+              コピー元の上に複製されますのでクリックしたまま動かしてください。
+            </p>
+            <div class="transform-guide__media">
+              <img class="transform-guide__media-img" src="images/guide-design-tool-transform-03-duplicate.png" alt="" />
+            </div>
+          </li>
+          <li class="transform-guide__card">
+            <h3 class="transform-guide__card-title">デザインの拡大縮小</h3>
+            <p class="transform-guide__card-text">
+              サイズを変更したいデザインを選択し、四方に表示される四角をクリックしたままマウスを動かしてください。比率を変えずに拡大・縮小できます。<br>
+              またはメニューにある「拡大」で拡大・縮小できます。<br>
+              四方の真ん中にある四角をクリックしたまま動かすと縦横の比率を変えて拡大・縮小できます。
+            </p>
+            <div class="transform-guide__media">
+              <img class="transform-guide__media-img" src="images/guide-design-tool-transform-04-duplicate.png" alt="" />
+            </div>
+          </li>
+          <li class="transform-guide__card">
+            <h3 class="transform-guide__card-title">デザインの反転</h3>
+            <p class="transform-guide__card-text">
+              「左右反転」と「上下反転」が可能です。反転させたいパーツを選択した後、メニューにある「反転ボタン」を押します。<br>
+              元に戻したいときはもう一度同じ反転ボタンか、一つ戻すボタンを押すと元に戻ります。<br>
+              ※一部加工方法では対応しておりません。あらかじめご了承ください。
+            </p>
+            <div class="transform-guide__media">
+              <img class="transform-guide__media-img" src="images/guide-design-tool-transform-05-duplicate.png" alt="" />
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="image-guide" aria-labelledby="image-guide-title">
+      <div class="guide-flow-inner image-guide__inner">
+        <h2 id="image-guide-title" class="image-guide__title">
+          <img
+            class="image-guide__title-img"
+            src="images/guide-design-tool-image-guide-title.png"
+            alt="画像の挿入・使用画像ガイド"
+            width="720"
+            height="84"
+          />
+        </h2>
+
+        <ol class="image-guide__list">
+          <li class="image-guide__card">
+            <h3 class="image-guide__card-title">画像のアップロード</h3>
+            <div class="image-guide__card-text">
+              <p>
+                メニューにある「写真・データ」より画像をアップロード出来ます。
+              </p>
+              <p>
+                ①「写真・データ」を選択<br>
+                ②写真やデータをドラッグするか、「またはファイルを選択」をクリック<br>
+                ③ウィンドウで使用する画像またはデータを選択して下さい。
+              </p>
+              <p>
+                カッティング圧着、レーザーなど加工方法によってはこの機能が使用できない場合もあります。
+              </p>
+              <p>
+                アップロードできる画像や解像度については下記の<a class="image-guide__in-page-link" href="#image-guide-file-types">「デザインツールで使用できる画像」</a>をご覧ください。
+              </p>
+            </div>
+            <div class="image-guide__media">
+              <img class="image-guide__media-img" src="images/guide-design-tool-image-01-upload.png" alt="" />
+            </div>
+          </li>
+
+          <li class="image-guide__card" id="image-guide-file-types">
+            <h3 class="image-guide__card-title">アップロードできる画像ファイルタイプ(形式)</h3>
+            <div class="image-guide__card-text">
+              <p>
+                アップロードする画像データは、以下のファイルタイプ(形式)にて作成してください。(.ps形式は非対応)
+              </p>
+              <p>
+                またデザインツールでアップロードできるファイルサイズは最大300MBまでです。
+              </p>
+            </div>
+            <div class="image-guide__media image-guide__media--file-types">
+              <img class="image-guide__file-type-img" src="images/guide-design-tool-image-02-ai.png" alt=".ai" />
+              <img class="image-guide__file-type-img" src="images/guide-design-tool-image-02-psd.png" alt=".psd" />
+              <img class="image-guide__file-type-img" src="images/guide-design-tool-image-02-pdf.png" alt=".pdf" />
+              <img class="image-guide__file-type-img" src="images/guide-design-tool-image-02-png.png" alt=".png" />
+              <img class="image-guide__file-type-img" src="images/guide-design-tool-image-02-jpg.png" alt=".jpg" />
+              <img class="image-guide__file-type-img" src="images/guide-design-tool-image-02-gif.png" alt=".gif" />
+              <img class="image-guide__file-type-img" src="images/guide-design-tool-image-02-bmp.png" alt=".bmp" />
+            </div>
+          </li>
+
+          <li class="image-guide__card">
+            <h3 class="image-guide__card-title">アップロードするデータのカラーモード</h3>
+            <div class="image-guide__card-text">
+              <p>
+                IllustratorやPhotoshopなどのグラフィックソフトを使ってデータを作成する際、ご入稿データ内に含まれる全てのオブジェクトやテキスト、画像などはCMYKカラーにて作成してください。
+              </p><br>
+              <p>
+                実際のプリントはCMYKカラーで表現されるため、オブジェクト等をRGBカラーにて作成されると、CMYKとRGBの色域の違いにより色味が異なったり全体的に暗く仕上がることがあります。
+              </p>
+              <p>
+                また、デザインツールに作成したデータをアップロードする際は、ファイル自体のカラーモードをRGBにて保存してからデザインツールにアップロードをしてください。
+              </p><br>
+              <p>
+                CMYKのままアップロードをしてしまうと、ご希望通りの仕上がりにならない可能性がありますのでご注意ください。
+              </p>
+            </div>
+            <div class="image-guide__media">
+              <img class="image-guide__media-img" src="images/guide-design-tool-image-03-color-mode.png" alt="" />
+            </div>
+          </li>
+
+          <li class="image-guide__card">
+            <h3 class="image-guide__card-title">PSD形式で入稿される場合のご注意</h3>
+            <div class="image-guide__card-text">
+              <p>
+                Adobe製品以外の画像編集アプリケーションから作成されたPSD形式画像を入稿すると、透過データでも白背景がついてプリントされる可能性があります。
+              </p>
+              <p>
+                透過部分をプリントでも再現したい場合はPNG形式で保存した画像をアップロードしてください。
+              </p>
+            </div>
+          </li>
+
+          <li class="image-guide__card">
+            <h3 class="image-guide__card-title">画像の解像度について</h3>
+            <div class="image-guide__card-text">
+              <p>
+                画像は、ドット(点)が集まって表示されています。<br>
+                画像ファイルの解像度とは、1インチ (≒2.54cm) あたりのドットの密度を数値化したもののことで「dpi」 (dots per inch) という単位で表現されます。
+              </p><br>
+              <p>
+                例えば72dpiというのは1インチあたり72個のドットで構成されていて、200dpiは200個のドットで構成されています。<br>
+                簡単にいうと、数値が高い方が密度が高く、画像の精度が高いということになります。
+              </p><br>
+              <p>
+                解像度が高いと、プリント密度も上がり、小さな文字や写真のディテールも表現することができます。
+              </p><br>
+              <p>
+                メイクルでは、アップロードされた画像をそのまま商品へプリントします。<br>
+                200dpiに満たない低解像度の画像でもアップロードは可能ですが、その場合プリントしたいサイズの3~5倍の大きさのものをアップロードしてください。<br>
+                それによって、プリント実寸の密度を高めることができ、仕上がりの品質も高まります。
+              </p><br>
+              <p>
+                低解像度や画像サイズが小さいデータは▲が左下に表示されます。そのまま印刷すると仕上がりが粗くなるため小さくするか解像度の高いデータへ差し替えをお勧めします。
+              </p><br>
+              <p class="image-guide__notes">
+                ※仕上がり品質を保証するものではありません。<br>
+                ※低解像度や画像サイズが小さいデータをそのままアップロードした場合、仕上がりがギザギザしたり、ぼやけたり、粗くなってしまいます。<br>
+                ※仕上がりの際の画像の粗さによる返品・交換は承れませんので、予めご了承ください。<br>
+                ※もともと小さいサイズの画像を大きく引き伸ばしてアップロードしても、プリント実寸密度は変わらず、仕上がり品質も高まりません。
+              </p>
+            </div>
+            <div class="image-guide__media">
+              <img class="image-guide__media-img" src="images/guide-design-tool-image-05-resolution.png" alt="" />
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="stamp-guide" aria-labelledby="stamp-guide-title">
+      <div class="guide-flow-inner stamp-guide__inner">
+        <h2 id="stamp-guide-title" class="stamp-guide__title">
+          <img
+            class="stamp-guide__title-img"
+            src="images/guide-design-tool-stamp-title.png"
+            alt="スタンプガイド"
+            width="640"
+            height="84"
+          />
+        </h2>
+
+        <ol class="stamp-guide__list">
+          <li class="stamp-guide__card">
+            <h3 class="stamp-guide__card-title">スタンプの挿入</h3>
+            <p class="stamp-guide__card-text">
+              メニューの「スタンプ」を選択すると左側画面が切り替わります。<br>
+              表示されたプルダウンメニューの中から興味のあるカテゴリーを選択し、ご希望のイラストをクリックすると画面中央の枠の中に、そのイラストが挿入されます。
+            </p>
+            <div class="stamp-guide__media">
+              <img class="stamp-guide__media-img" src="images/guide-design-tool-stamp-01-insert-panel.png" alt="" />
+              <img class="stamp-guide__media-img" src="images/guide-design-tool-stamp-01-insert-canvas.png" alt="" />
+            </div>
+          </li>
+          <li class="stamp-guide__card">
+            <h3 class="stamp-guide__card-title">スタンプカラーの変更</h3>
+            <p class="stamp-guide__card-text">
+              スタンプのカラーを変更したい場合は、そのスタンプが選択されている状態で、「カラー」からご希望のカラーを選択してください。
+            </p>
+            <p class="stamp-guide__notes">
+              ※塗りカラーの数や設定色は、アイテム種類やプリント方法により異なります。<br>
+              ※塗りカラーで色を選択すると、イラストは1色で塗りつぶされます。
+            </p>
+            <div class="stamp-guide__media">
+              <img class="stamp-guide__media-img" src="images/guide-design-tool-stamp-02-color-panel.png" alt="" />
+              <img class="stamp-guide__media-img" src="images/guide-design-tool-stamp-02-color-canvas.png" alt="" />
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="save-guide" aria-labelledby="save-guide-title">
+      <div class="guide-flow-inner save-guide__inner">
+        <h2 id="save-guide-title" class="save-guide__title">
+          <img
+            class="save-guide__title-img"
+            src="images/guide-design-tool-save-title.png"
+            alt="デザインの保存方法"
+            width="720"
+            height="84"
+          />
+        </h2>
+
+        <ol class="save-guide__list">
+          <li class="save-guide__card">
+            <h3 class="save-guide__card-title">デザインの保存</h3>
+            <div class="save-guide__card-text">
+              <p>
+                上部にあるメニューから「デザインの確認」を選択し、デザインの確認ページ画面にある「デザインを保存」をクリックするとデザイン名の入力フォームが表示されます。入力フォームにお好きな名前を入力して、下にある「保存する」をクリックするとデザインの保存ができます。
+              </p>
+              <p class="save-guide__aside">
+                (会員ログインがまだの方は一度ログイン画面に遷移します。)
+              </p>
+            </div>
+            <div class="save-guide__media">
+              <img class="save-guide__media-img" src="images/guide-design-tool-save-01-design-save.png" alt="" />
+            </div>
+          </li>
+          <li class="save-guide__card">
+            <h3 class="save-guide__card-title">デザインの読込</h3>
+            <div class="save-guide__card-text">
+              <p>
+                デザインの読み込みは、デザイン名を入力し保存した後に表示される「閉じる」ボタンの下にある「保存デザイン一覧へ」をクリックすると「保存デザイン一覧」のページに切り替わります。
+              </p>
+              <p>
+                または、上部にあるアカウントロゴをクリックして表示される「アカウント情報」からでも「保存デザイン一覧」を確認できます。
+              </p>
+              <p>
+                左側メニューの「保存デザイン一覧」を選択すると保存したデザインが表示されますので、ご希望のデザインの「編集」をクリックして読みだしてください。
+              </p>
+            </div>
+            <div class="save-guide__media">
+              <img class="save-guide__media-img" src="images/guide-design-tool-save-02-design-load.png" alt="" />
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="フッター">
+    <div class="site-footer__inner">
+      <div class="site-footer__col site-footer__brand">
+        <img class="site-footer__logo" src="images/logo-footer.png" alt="プリントワールド" />
+        <p class="site-footer__company">株式会社　コバヤシ商事</p>
+        <p class="site-footer__address">〒445-0873 愛知県西尾市川口町中切 87番地2</p>
+        <p class="site-footer__tel">0563-53-1066</p>
+      </div>
+
+      <nav class="site-footer__col site-footer__nav site-footer__nav--categories" aria-label="アイテムカテゴリ一覧">
+        <h2 class="site-footer__title site-footer__title--section">アイテムカテゴリ一覧</h2>
+        <p class="site-footer__lead"><a class="site-footer__leadlink" href="#">ご利用ガイド</a></p>
+        <p class="site-footer__lead"><a class="site-footer__leadlink" href="#">はじめての方へ</a></p>
+        <ul class="site-footer__list site-footer__list--dash">
+          <li><a href="guide-flow.html">ご注文から到着までの流れ</a></li>
+          <li><a href="guide-design-tool.html">デザインツールの使い方</a></li>
+          <li><a href="guide-data-submission.html">データ入稿ガイド(ai/psd/pdf/eps/tif/jpg/png...など)</a></li>
+          <li><a href="#">デザインにお悩みの方</a></li>
+          <li><a href="#">お届けまでの納期・配送について</a></li>
+          <li><a href="guide-print-method.html">プリント方法について</a></li>
+          <li><a href="#">よくある質問</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col site-footer__nav site-footer__nav--corp" aria-label="会社情報・法務">
+        <ul class="site-footer__list site-footer__list--corp">
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">利用規約</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">特定商取引法に基づく表示</a></li>
+          <li><a href="#">メール相談</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
