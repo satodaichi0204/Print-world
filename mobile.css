@@ -1239,22 +1239,27 @@
 /* TOP FV — sp.ai adjustments for 481–768px only (does not affect ≤480). */
 @media (min-width: 481px) and (max-width: 768px) {
   .home-page .fv-header {
-    padding: 14px 12px 14px 16px;
-    gap: 6px;
+    justify-content: space-between;
     align-items: center;
+    gap: 10px;
+    min-height: 76px;
+    padding: 12px 14px;
+    box-sizing: border-box;
   }
 
   .home-page .fv-logo {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-width: 0;
-    max-width: 56%;
   }
 
+  /* logo.png is 636×167 — scale by height so text matches icon row (not by width). */
   .home-page .fv-logo img {
-    width: 100%;
-    max-width: 340px;
-    height: auto;
     display: block;
+    width: auto;
+    height: 52px;
+    max-width: calc(100% - 8px);
+    object-fit: contain;
+    object-position: left center;
   }
 
   .home-page .fv-header__right {
@@ -1263,39 +1268,43 @@
 
   .home-page .fv-header__actions {
     align-items: center;
+    gap: 0;
   }
 
   .home-page .fv-header__compact {
     align-items: flex-end;
-    gap: 8px;
+    gap: 10px;
   }
 
   .home-page .fv-compact-action {
-    min-width: 46px;
-    gap: 5px;
-    padding: 0 3px;
-    font-size: 10px;
+    min-width: 40px;
+    gap: 4px;
+    padding: 0 2px;
+    font-size: 9px;
+    line-height: 1.15;
   }
 
   .home-page .fv-compact-action img {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .home-page .fv-header .menu-btn {
-    width: 40px;
-    height: 50px;
-    gap: 6px;
-    padding-left: 4px;
+    width: 34px;
+    height: 48px;
+    gap: 5px;
+    margin: 0;
+    padding: 0 0 0 2px;
+    align-self: flex-end;
   }
 
   .home-page .fv-header .menu-btn span {
-    width: 24px;
+    width: 22px;
     height: 3px;
   }
 
   .home-page .fv {
-    --fv-mobile-header-clear: 86px;
+    --fv-mobile-header-clear: 76px;
     /* Red-box margins in sp.ai: small gap below header and above bottom edge */
     --fv-shirt-edge-gap: 16px;
     /* sp.ai: wider gutters between shirt tiles (horizontal + vertical) */
