@@ -240,9 +240,10 @@
   }
 
   .home-page .fv {
-    --fv-mobile-header-clear: 100px;
-    --fv-shirts-pad: 16px;
-    --fv-shirts-available-h: calc(100svh - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2);
+    --fv-mobile-header-clear: 96px;
+    /* sp.ai: ~4 shirt tiles across 780px artboard */
+    --fv-shirt-gap: 6px;
+    --fv-shirt-col: clamp(52px, 11.2vw, 80px);
     height: 100svh;
     min-height: 100svh;
     max-height: 100svh;
@@ -255,14 +256,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 8px;
-    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
-    padding-bottom: var(--fv-shirts-pad);
+    gap: 5px;
     inset: 0;
     height: 100%;
-    --shirt-gap: 10px;
-    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
-    --marquee-duration: 44s;
+    padding-top: calc(var(--fv-mobile-header-clear) + 6px);
+    padding-bottom: 6px;
+    --shirt-gap: var(--fv-shirt-gap);
+    --shirt-col: var(--fv-shirt-col);
+    --marquee-duration: 40s;
   }
 
   .home-page .marquee {
@@ -274,8 +275,8 @@
   }
 
   .home-page .shirt-card {
-    border-radius: 10px;
-    padding: 12px;
+    border-radius: 7px;
+    padding: 4px;
   }
 
   .home-page .fv-content {
@@ -283,87 +284,82 @@
     inset: 0;
     z-index: 10;
     min-height: 0;
-    height: auto;
+    height: 100%;
     padding: 0;
     overflow: visible;
     pointer-events: none;
   }
 
+  /* sp.ai: shirts = full-bg band, maincopy = centered overlay, people/phone = bottom layer */
   .home-page .fv-foreground {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    width: 100%;
-    height: fit-content;
+    inset: 0;
     min-height: 0;
-    padding: 0;
-    box-sizing: border-box;
+    width: 100%;
     z-index: 12;
     pointer-events: none;
   }
 
   .home-page .fv-maincopy-wrap {
-    position: relative;
-    flex: 0 0 auto;
-    z-index: 13;
+    position: absolute;
+    left: 50%;
+    top: calc(var(--fv-mobile-header-clear) + 100px);
+    z-index: 16;
     display: flex;
     justify-content: center;
-    align-self: stretch;
-    width: 100%;
+    width: min(43vw, 328px);
     margin: 0;
-    transform: none;
-    left: auto;
-    top: auto;
+    transform: translateX(-50%);
   }
 
   .home-page .fv-maincopy {
     display: block;
-    width: 96%;
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    margin: 0 auto;
+    margin: 0;
     position: static;
     transform: none;
   }
 
-  /* Height follows people image; phone layers on top (absolute) */
   .home-page .fv-foreground__figures {
-    position: relative;
-    inset: auto;
-    flex: 0 0 auto;
-    width: 100%;
-    height: fit-content;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: min(38svh, 300px);
     overflow: visible;
     pointer-events: none;
   }
 
   .home-page .fv-people {
-    position: relative;
-    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
     z-index: 14;
-    margin-left: 2%;
-    width: 72%;
-    max-width: none;
+    display: block;
+    width: auto;
+    max-width: 36%;
+    max-height: 88%;
     height: auto;
+    margin: 0;
+    object-fit: contain;
+    object-position: left bottom;
     transform: none;
   }
 
   .home-page .fv-mobilephone {
     position: absolute;
     z-index: 24;
-    right: -9%;
+    right: 0;
     bottom: 0;
     top: auto;
-    width: 74%;
-    max-width: none;
+    width: auto;
+    max-width: 34%;
+    max-height: 94%;
     height: auto;
-    transform: translateY(24%);
+    object-fit: contain;
+    object-position: right bottom;
+    transform: none;
   }
 
   .home-page .sec2 {
