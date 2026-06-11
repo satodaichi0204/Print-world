@@ -1239,46 +1239,38 @@
 /* TOP FV — sp.ai adjustments for 481–768px only (does not affect ≤480). */
 @media (min-width: 481px) and (max-width: 768px) {
   .home-page .fv {
-    --fv-mobile-header-clear: 96px;
-    --fv-shirt-band-top-gap: 24px;
-    --fv-shirt-band-bottom-gap: min(36svh, 300px);
+    --fv-shirt-top-gap: 20px;
+    --fv-shirt-bottom-gap: min(34svh, 280px);
     --shirt-gap: 8px;
-    --fv-shirt-band-h: calc(
-      100svh - var(--fv-mobile-header-clear) - var(--fv-shirt-band-top-gap) - var(--fv-shirt-band-bottom-gap)
-    );
-    /* 4 columns across width, 3 rows within band — use whichever is smaller */
-    --shirt-col-w: calc((100vw - 3 * var(--shirt-gap)) / 4);
-    --shirt-col-h: calc((var(--fv-shirt-band-h) - 2 * var(--shirt-gap)) / 3);
-    --shirt-col: min(var(--shirt-col-w), var(--shirt-col-h));
   }
 
   .home-page .shirts-layer {
-    top: calc(var(--fv-mobile-header-clear) + var(--fv-shirt-band-top-gap));
-    right: 0;
-    bottom: auto;
-    left: 0;
-    width: 100%;
-    height: calc(3 * var(--shirt-col) + 2 * var(--shirt-gap));
-    padding: 0;
+    inset: 0;
+    height: 100%;
+    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirt-top-gap));
+    padding-bottom: var(--fv-shirt-bottom-gap);
+    padding-left: 0;
+    padding-right: 0;
     gap: var(--shirt-gap);
-    justify-content: flex-start;
+    box-sizing: border-box;
     --shirt-gap: 8px;
-    --shirt-col-w: calc((100vw - 3 * var(--shirt-gap)) / 4);
-    --shirt-col-h: calc((var(--fv-shirt-band-h) - 2 * var(--shirt-gap)) / 3);
+    --shirt-col-w: calc((100% - 3 * var(--shirt-gap)) / 4);
+    --shirt-col-h: calc(
+      (
+        100svh - var(--fv-mobile-header-clear) - var(--fv-shirt-top-gap) - var(--fv-shirt-bottom-gap) -
+          2 * var(--shirt-gap)
+      ) / 3
+    );
     --shirt-col: min(var(--shirt-col-w), var(--shirt-col-h));
     --marquee-duration: 48s;
   }
 
-  /* Center the visible shirt columns (half-tile clip on both edges like sp.ai). */
   .home-page .marquee {
     width: 100%;
     margin: 0;
-    padding-left: calc(var(--shirt-col) / 2);
-    padding-right: calc(var(--shirt-col) / 2);
-    box-sizing: border-box;
+    padding: 0;
   }
 
-  /* Row 2 was scrolling opposite direction — broke vertical column alignment. */
   .home-page .marquee--right .marquee__track {
     animation-direction: normal;
   }
