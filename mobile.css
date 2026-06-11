@@ -1238,10 +1238,69 @@
 
 /* TOP FV — sp.ai adjustments for 481–768px only (does not affect ≤480). */
 @media (min-width: 481px) and (max-width: 768px) {
+  .home-page .fv-header {
+    padding: 14px 12px 14px 16px;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .home-page .fv-logo {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 56%;
+  }
+
+  .home-page .fv-logo img {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+  }
+
+  .home-page .fv-header__right {
+    flex: 0 0 auto;
+  }
+
+  .home-page .fv-header__actions {
+    align-items: center;
+  }
+
+  .home-page .fv-header__compact {
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .home-page .fv-compact-action {
+    min-width: 46px;
+    gap: 5px;
+    padding: 0 3px;
+    font-size: 10px;
+  }
+
+  .home-page .fv-compact-action img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .home-page .fv-header .menu-btn {
+    width: 40px;
+    height: 50px;
+    gap: 6px;
+    padding-left: 4px;
+  }
+
+  .home-page .fv-header .menu-btn span {
+    width: 24px;
+    height: 3px;
+  }
+
   .home-page .fv {
+    --fv-mobile-header-clear: 86px;
     /* Red-box margins in sp.ai: small gap below header and above bottom edge */
     --fv-shirt-edge-gap: 16px;
-    --fv-shirt-row-gap: 8px;
+    /* sp.ai: wider gutters between shirt tiles (horizontal + vertical) */
+    --fv-shirt-row-gap: 14px;
+    --shirt-gap: 16px;
     --fv-shirt-band-h: calc(
       100svh - var(--fv-mobile-header-clear) - var(--fv-shirt-edge-gap) * 2
     );
@@ -1261,7 +1320,7 @@
     gap: var(--fv-shirt-row-gap);
     box-sizing: border-box;
     overflow: hidden;
-    --shirt-gap: var(--fv-shirt-row-gap);
+    --shirt-gap: 16px;
     --shirt-col: calc((var(--fv-shirt-band-h) - 2 * var(--fv-shirt-row-gap)) / 3);
     --marquee-duration: 48s;
   }
@@ -1285,8 +1344,9 @@
     width: var(--shirt-col);
     max-width: var(--shirt-col);
     height: var(--shirt-col);
-    border-radius: 10px;
-    padding: clamp(4px, 0.8vw, 10px);
+    margin-right: var(--shirt-gap);
+    border-radius: 12px;
+    padding: clamp(5px, 1vw, 10px);
   }
 
   .home-page .fv-maincopy {
