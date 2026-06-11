@@ -1239,36 +1239,41 @@
 /* TOP FV — sp.ai adjustments for 481–768px only (does not affect ≤480). */
 @media (min-width: 481px) and (max-width: 768px) {
   .home-page .fv {
-    --fv-shirt-top-gap: 20px;
-    --fv-shirt-bottom-gap: min(34svh, 280px);
-    --shirt-gap: 8px;
+    /* Red-box margins in sp.ai: small gap below header and above bottom edge */
+    --fv-shirt-edge-gap: 16px;
+    --fv-shirt-row-gap: 8px;
+    --fv-shirt-band-h: calc(
+      100svh - var(--fv-mobile-header-clear) - var(--fv-shirt-edge-gap) * 2
+    );
+    /* 3 rows fill the band exactly (height drives tile size; width scrolls) */
+    --shirt-col: calc((var(--fv-shirt-band-h) - 2 * var(--fv-shirt-row-gap)) / 3);
   }
 
   .home-page .shirts-layer {
-    inset: 0;
-    height: 100%;
-    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirt-top-gap));
-    padding-bottom: var(--fv-shirt-bottom-gap);
-    padding-left: 0;
-    padding-right: 0;
-    gap: var(--shirt-gap);
+    inset: auto;
+    top: calc(var(--fv-mobile-header-clear) + var(--fv-shirt-edge-gap));
+    right: 0;
+    bottom: var(--fv-shirt-edge-gap);
+    left: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    gap: var(--fv-shirt-row-gap);
     box-sizing: border-box;
-    --shirt-gap: 8px;
-    --shirt-col-w: calc((100% - 3 * var(--shirt-gap)) / 4);
-    --shirt-col-h: calc(
-      (
-        100svh - var(--fv-mobile-header-clear) - var(--fv-shirt-top-gap) - var(--fv-shirt-bottom-gap) -
-          2 * var(--shirt-gap)
-      ) / 3
-    );
-    --shirt-col: min(var(--shirt-col-w), var(--shirt-col-h));
+    overflow: hidden;
+    --shirt-gap: var(--fv-shirt-row-gap);
+    --shirt-col: calc((var(--fv-shirt-band-h) - 2 * var(--fv-shirt-row-gap)) / 3);
     --marquee-duration: 48s;
   }
 
   .home-page .marquee {
+    flex: 0 0 var(--shirt-col);
     width: 100%;
+    height: var(--shirt-col);
+    min-height: var(--shirt-col);
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   .home-page .marquee--right .marquee__track {
@@ -1276,8 +1281,12 @@
   }
 
   .home-page .shirt-card {
+    flex: 0 0 var(--shirt-col);
+    width: var(--shirt-col);
+    max-width: var(--shirt-col);
+    height: var(--shirt-col);
     border-radius: 10px;
-    padding: clamp(4px, 0.9vw, 8px);
+    padding: clamp(4px, 0.8vw, 10px);
   }
 
   .home-page .fv-maincopy {
