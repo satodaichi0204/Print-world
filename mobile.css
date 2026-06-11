@@ -1240,22 +1240,43 @@
 @media (min-width: 481px) and (max-width: 768px) {
   .home-page .fv {
     --fv-mobile-header-clear: 96px;
-    --fv-shirts-pad: 10px;
-    --fv-shirts-available-h: min(24svh, 196px);
+    --fv-shirts-pad: 8px;
+    --shirt-gap: 8px;
+    /* sp.ai 780px artboard: ~4 shirt tiles across viewport width */
+    --shirt-col: calc((100vw - 3 * var(--shirt-gap)) / 4);
   }
 
   .home-page .shirts-layer {
-    gap: 6px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    gap: var(--shirt-gap);
     padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
-    padding-bottom: var(--fv-shirts-pad);
-    --shirt-gap: 6px;
-    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
-    --marquee-duration: 40s;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    --shirt-gap: 8px;
+    --shirt-col: calc((100vw - 3 * var(--shirt-gap)) / 4);
+    --marquee-duration: 48s;
+  }
+
+  /* Center the visible shirt columns (half-tile clip on both edges like sp.ai). */
+  .home-page .marquee {
+    width: 100%;
+    margin: 0;
+    padding-left: calc(var(--shirt-col) / 2);
+    padding-right: calc(var(--shirt-col) / 2);
+    box-sizing: border-box;
+  }
+
+  /* Row 2 was scrolling opposite direction — broke vertical column alignment. */
+  .home-page .marquee--right .marquee__track {
+    animation-direction: normal;
   }
 
   .home-page .shirt-card {
-    border-radius: 8px;
-    padding: 6px;
+    border-radius: 10px;
+    padding: clamp(4px, 0.9vw, 8px);
   }
 
   .home-page .fv-maincopy {
