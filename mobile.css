@@ -1240,82 +1240,39 @@
 @media (min-width: 481px) and (max-width: 768px) {
   .home-page .fv {
     --fv-mobile-header-clear: 96px;
-    --fv-shirts-pad: 8px;
-    --fv-shirts-band-h: min(24svh, 200px);
+    --fv-shirts-pad: 10px;
+    --fv-shirts-available-h: min(24svh, 196px);
   }
 
   .home-page .shirts-layer {
-    gap: 5px;
+    gap: 6px;
     padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
-    padding-bottom: 0;
+    padding-bottom: var(--fv-shirts-pad);
     --shirt-gap: 6px;
-    --shirt-col: calc((var(--fv-shirts-band-h) - 2 * var(--shirt-gap)) / 3);
+    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
     --marquee-duration: 40s;
   }
 
-  .home-page .marquee {
-    width: 100%;
-    margin: 0;
-  }
-
   .home-page .shirt-card {
-    border-radius: 7px;
-    padding: 5px;
-  }
-
-  .home-page .fv-foreground {
-    position: absolute;
-    inset: 0;
-    display: block;
-    min-height: 0;
-  }
-
-  .home-page .fv-maincopy-wrap {
-    position: absolute;
-    left: 50%;
-    top: calc(var(--fv-mobile-header-clear) + 96px);
-    z-index: 16;
-    width: min(44vw, 330px);
-    transform: translateX(-50%);
+    border-radius: 8px;
+    padding: 6px;
   }
 
   .home-page .fv-maincopy {
-    width: 100%;
-    max-width: none;
+    width: min(88%, 320px);
+    max-width: 320px;
   }
 
-  .home-page .fv-foreground__figures {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: min(94%, 400px);
-    height: min(36svh, 290px);
-    transform: translateX(-50%);
-    margin: 0;
-  }
-
+  /* Keep 768 block layout (relative people + absolute phone); scale down for sp.ai */
   .home-page .fv-people {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: auto;
-    max-width: 50%;
-    max-height: 90%;
-    margin: 0;
-    object-fit: contain;
-    object-position: left bottom;
+    width: 60%;
+    margin-left: 1%;
   }
 
   .home-page .fv-mobilephone {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: auto;
-    max-width: 46%;
-    max-height: 96%;
-    transform: none;
-    object-fit: contain;
-    object-position: right bottom;
+    width: 56%;
+    right: -4%;
+    transform: translateY(18%);
   }
 }
 
