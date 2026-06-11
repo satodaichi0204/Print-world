@@ -1240,23 +1240,32 @@
 @media (min-width: 481px) and (max-width: 768px) {
   .home-page .fv {
     --fv-mobile-header-clear: 96px;
-    --fv-shirts-pad: 8px;
+    --fv-shirt-band-top-gap: 24px;
+    --fv-shirt-band-bottom-gap: min(36svh, 300px);
     --shirt-gap: 8px;
-    /* sp.ai 780px artboard: ~4 shirt tiles across viewport width */
-    --shirt-col: calc((100vw - 3 * var(--shirt-gap)) / 4);
+    --fv-shirt-band-h: calc(
+      100svh - var(--fv-mobile-header-clear) - var(--fv-shirt-band-top-gap) - var(--fv-shirt-band-bottom-gap)
+    );
+    /* 4 columns across width, 3 rows within band — use whichever is smaller */
+    --shirt-col-w: calc((100vw - 3 * var(--shirt-gap)) / 4);
+    --shirt-col-h: calc((var(--fv-shirt-band-h) - 2 * var(--shirt-gap)) / 3);
+    --shirt-col: min(var(--shirt-col-w), var(--shirt-col-h));
   }
 
   .home-page .shirts-layer {
-    left: 0;
+    top: calc(var(--fv-mobile-header-clear) + var(--fv-shirt-band-top-gap));
     right: 0;
+    bottom: auto;
+    left: 0;
     width: 100%;
+    height: calc(3 * var(--shirt-col) + 2 * var(--shirt-gap));
+    padding: 0;
     gap: var(--shirt-gap);
-    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
+    justify-content: flex-start;
     --shirt-gap: 8px;
-    --shirt-col: calc((100vw - 3 * var(--shirt-gap)) / 4);
+    --shirt-col-w: calc((100vw - 3 * var(--shirt-gap)) / 4);
+    --shirt-col-h: calc((var(--fv-shirt-band-h) - 2 * var(--shirt-gap)) / 3);
+    --shirt-col: min(var(--shirt-col-w), var(--shirt-col-h));
     --marquee-duration: 48s;
   }
 
