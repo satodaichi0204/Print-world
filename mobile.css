@@ -1614,34 +1614,37 @@
 
 /* TOP FV — 426–768 only: 768px = 100%, 426px = 90%, all FV images scale together. */
 @media (min-width: 426px) and (max-width: 768px) {
-  .home-page .fv {
-    --fv-sp-scale: calc(
-      0.9 + 0.1 * ((100vw - 426px) / (768px - 426px))
-    );
-  }
-
   .home-page .fv-foreground {
-    gap: calc(10px * var(--fv-sp-scale));
+    gap: calc(10px * (0.9 + (100vw - 426px) / 342px * 0.1));
   }
 
   .home-page .fv-maincopy {
-    width: calc(768px * 0.61 * var(--fv-sp-scale));
-    max-width: none;
-    margin: calc(768px * -0.06 * var(--fv-sp-scale)) auto 0;
+    width: min(
+      calc(468.48px * (0.9 + (100vw - 426px) / 342px * 0.1)),
+      100%
+    );
+    max-width: 100%;
+    margin: calc(-46.08px * (0.9 + (100vw - 426px) / 342px * 0.1)) auto 0;
   }
 
   .home-page .fv-people {
     position: relative;
-    width: calc(768px * 0.46 * var(--fv-sp-scale));
+    width: min(
+      calc(353.28px * (0.9 + (100vw - 426px) / 342px * 0.1)),
+      calc(100vw - 122.88px * (0.9 + (100vw - 426px) / 342px * 0.1) - 4px)
+    );
     max-width: none;
-    margin-left: calc(768px * 0.16 * var(--fv-sp-scale));
+    margin-left: calc(122.88px * (0.9 + (100vw - 426px) / 342px * 0.1));
   }
 
   .home-page .fv-mobilephone {
-    width: calc(768px * 0.45 * var(--fv-sp-scale));
+    width: min(
+      calc(345.6px * (0.9 + (100vw - 426px) / 342px * 0.1)),
+      calc(100vw - 115.2px * (0.9 + (100vw - 426px) / 342px * 0.1) - 4px)
+    );
     max-width: none;
     left: auto;
-    right: calc(768px * 0.15 * var(--fv-sp-scale));
+    right: calc(115.2px * (0.9 + (100vw - 426px) / 342px * 0.1));
     top: auto;
     bottom: 0;
     margin: 0;
