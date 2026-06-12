@@ -1612,30 +1612,34 @@
   }
 }
 
-/* TOP FV — 426–768 only: 768px layout; people/phone scale with viewport so nothing is clipped. */
+/* TOP FV — 426–768 only: 768px = 100%, 426px = 90%, all FV images scale together. */
 @media (min-width: 426px) and (max-width: 768px) {
+  .home-page .fv {
+    --fv-sp-scale: calc(0.9 + (100vw - 426px) / 3420);
+  }
+
   .home-page .fv-foreground {
-    gap: 10px;
+    gap: calc(10px * var(--fv-sp-scale));
   }
 
   .home-page .fv-maincopy {
-    width: calc(768px * 0.61);
+    width: calc(768px * 0.61 * var(--fv-sp-scale));
     max-width: none;
-    margin: calc(768px * -0.06) auto 0;
+    margin: calc(768px * -0.06 * var(--fv-sp-scale)) auto 0;
   }
 
   .home-page .fv-people {
     position: relative;
-    width: 46vw;
+    width: calc(768px * 0.46 * var(--fv-sp-scale));
     max-width: none;
-    margin-left: 16vw;
+    margin-left: calc(768px * 0.16 * var(--fv-sp-scale));
   }
 
   .home-page .fv-mobilephone {
-    width: 45vw;
+    width: calc(768px * 0.45 * var(--fv-sp-scale));
     max-width: none;
     left: auto;
-    right: 15vw;
+    right: calc(768px * 0.15 * var(--fv-sp-scale));
     top: auto;
     bottom: 0;
     margin: 0;
