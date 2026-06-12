@@ -1374,7 +1374,7 @@
   .home-page .fv-maincopy-wrap {
     position: absolute;
     left: 50%;
-    top: clamp(188px, 36svh, 320px);
+    top: 160px;
     z-index: 16;
     width: min(47vw, 362px);
     margin: 0;
@@ -1383,7 +1383,7 @@
 
   .home-page .fv-maincopy {
     display: block;
-    width: 100%;
+    width: 132%;
     max-width: none;
     height: auto;
     margin: 0;
