@@ -1305,8 +1305,7 @@
 
   .home-page .fv {
     --fv-mobile-header-clear: 76px;
-    /* Maincopy scale: 0 at 434px → 1 at 768px (768px tune: top 160px, img width 132%) */
-    --fv-sp-progress: clamp(0, (100vw - 434px) / 334, 1);
+    /* Maincopy scale 434px→768px (768px tune: top 160px, display width ≈132% of wrap) */
     /* Red-box margins in sp.ai: small gap below header and above bottom edge */
     --fv-shirt-edge-gap: 16px;
     /* sp.ai: wider gutters between shirt tiles (horizontal + vertical) */
@@ -1376,7 +1375,7 @@
   .home-page .fv-maincopy-wrap {
     position: absolute;
     left: 50%;
-    top: calc(90px + var(--fv-sp-progress) * 70px);
+    top: clamp(90px, calc(90px + (100vw - 434px) * 70 / 334), 160px);
     z-index: 16;
     width: min(47vw, 362px);
     margin: 0;
@@ -1385,10 +1384,10 @@
 
   .home-page .fv-maincopy {
     display: block;
-    width: calc(100% + var(--fv-sp-progress) * 32%);
-    max-width: none;
+    width: clamp(100%, calc(204px + (100vw - 434px) * 272 / 334), 132%);
+    max-width: min(94vw, 480px);
     height: auto;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .home-page .fv-foreground__figures {
@@ -1804,10 +1803,6 @@
 
 /* TOP FV maincopy — fluid 434px→768px (after ≤480 block so 434–480 keeps sp.ai foreground). */
 @media (min-width: 434px) and (max-width: 768px) {
-  .home-page .fv {
-    --fv-sp-progress: clamp(0, (100vw - 434px) / 334, 1);
-  }
-
   .home-page .fv-content {
     height: 100%;
   }
@@ -1823,7 +1818,7 @@
   .home-page .fv-maincopy-wrap {
     position: absolute;
     left: 50%;
-    top: calc(90px + var(--fv-sp-progress) * 70px);
+    top: clamp(90px, calc(90px + (100vw - 434px) * 70 / 334), 160px);
     z-index: 16;
     width: min(47vw, 362px);
     margin: 0;
@@ -1832,10 +1827,10 @@
 
   .home-page .fv-maincopy {
     display: block;
-    width: calc(100% + var(--fv-sp-progress) * 32%);
-    max-width: none;
+    width: clamp(100%, calc(204px + (100vw - 434px) * 272 / 334), 132%);
+    max-width: min(94vw, 480px);
     height: auto;
-    margin: 0;
+    margin: 0 auto;
   }
 
   .home-page .fv-foreground__figures {
