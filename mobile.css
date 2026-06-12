@@ -1612,26 +1612,24 @@
   }
 }
 
-/* TOP FV — 426–768 only: 768px layout locked; scale whole groups so people + phone stay aligned. */
+/* TOP FV — 426–768 only: 768px ratios (61/46/45/16/15%); 426px = 95% of 768px, all scale together. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv-foreground {
     gap: 10px;
   }
 
   .home-page .fv-maincopy-wrap {
-    transform: scale(calc(0.95 + (100vw - 426px) / 342px * 0.05));
-    transform-origin: center bottom;
+    transform: none;
   }
 
   .home-page .fv-maincopy {
-    width: calc(768px * 0.61);
+    width: calc(61% * (0.95 + 0.05 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
-    margin: calc(768px * -0.06) auto 0;
+    margin: calc(-6% * (0.95 + 0.05 * (100vw - 426px) / (768px - 426px))) auto 0;
   }
 
   .home-page .fv-foreground__figures {
-    transform: scale(calc(0.95 + (100vw - 426px) / 342px * 0.05));
-    transform-origin: left bottom;
+    transform: none;
     width: 100%;
     height: fit-content;
     overflow: visible;
@@ -1639,17 +1637,17 @@
 
   .home-page .fv-people {
     position: relative;
-    width: calc(768px * 0.46);
+    width: calc(46% * (0.95 + 0.05 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
-    margin-left: calc(768px * 0.16);
+    margin-left: calc(16% * (0.95 + 0.05 * (100vw - 426px) / (768px - 426px)));
     transform: none;
   }
 
   .home-page .fv-mobilephone {
-    width: calc(768px * 0.45);
+    width: calc(45% * (0.95 + 0.05 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
     left: auto;
-    right: calc(768px * 0.15);
+    right: calc(15% * (0.95 + 0.05 * (100vw - 426px) / (768px - 426px)));
     top: auto;
     bottom: 0;
     margin: 0;
