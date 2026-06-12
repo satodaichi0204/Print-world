@@ -1612,6 +1612,27 @@
   }
 }
 
+/* TOP FV — 426–768 only: your 768px layout positions fixed; image widths scale fluidly. */
+@media (min-width: 426px) and (max-width: 768px) {
+  .home-page .fv-maincopy {
+    width: calc(48% + (100vw - 426px) * 13 / 342);
+    margin: -6% auto;
+  }
+
+  .home-page .fv-people {
+    position: relative;
+    width: calc(38% + (100vw - 426px) * 8 / 342);
+    margin-left: 16%;
+  }
+
+  .home-page .fv-mobilephone {
+    width: calc(37% + (100vw - 426px) * 8 / 342);
+    right: 15%;
+    bottom: 0;
+    transform: translateY(24%);
+  }
+}
+
 /* --- guide-flow: large laptop (below design max) --- */
 @media (max-width: 1440px) {
   .guide-flow-page .guide-flow-inner {
