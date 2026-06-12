@@ -1612,44 +1612,51 @@
   }
 }
 
-/* TOP FV — 426–768: 768px px layout; scale groups so 426px = 93% with no people/phone drift. */
+/* TOP FV — 426–768: 768px-wide canvas shrinks to 93% at 426; % positions keep people/phone aligned. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv-foreground {
     gap: 10px;
+    align-items: stretch;
   }
 
   .home-page .fv-maincopy-wrap {
-    transform: scale(calc(0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
-    transform-origin: center bottom;
+    transform: none;
+    align-self: center;
+    width: calc(768px * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
+    max-width: none;
+    margin: 0 auto;
   }
 
   .home-page .fv-maincopy {
-    width: calc(768px * 0.61);
+    width: 61%;
     max-width: none;
-    margin: calc(768px * -0.06) auto 0;
+    margin: -6% auto 0;
   }
 
   .home-page .fv-foreground__figures {
-    transform: scale(calc(0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
-    transform-origin: left bottom;
-    width: 100%;
+    transform: none;
+    position: relative;
+    align-self: flex-start;
+    width: calc(768px * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
+    max-width: none;
+    margin: 0;
     height: fit-content;
     overflow: visible;
   }
 
   .home-page .fv-people {
     position: relative;
-    width: calc(768px * 0.46);
+    width: 46%;
     max-width: none;
-    margin-left: calc(768px * 0.16);
+    margin-left: 16%;
     transform: none;
   }
 
   .home-page .fv-mobilephone {
-    width: calc(768px * 0.45);
+    width: 45%;
     max-width: none;
     left: auto;
-    right: calc(768px * 0.15);
+    right: 15%;
     top: auto;
     bottom: 0;
     margin: 0;
