@@ -1677,52 +1677,74 @@
   }
 }
 
-/* TOP sec2 — 426–768 only: smaller image proportions per sp.ai (90% at 426 vs 768). */
+/* TOP sec2 — 426–768 only: sp.ai proportions; hero 90% at 426, 3 product cards per row. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec2-inner {
-    min-height: calc(290px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    min-height: calc(265px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-maincopy-wrap {
-    top: calc(36px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.52 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(32px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.45 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-choicecopy-wrap {
-    top: calc(188px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.38 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(172px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.34 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-shirts {
-    top: calc(72px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    right: 0;
-    width: calc(768px * 0.38 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-  }
-
-  .home-page .sec2-people {
-    top: calc(64px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(68px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
     right: 0;
     width: calc(768px * 0.34 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
   }
 
+  .home-page .sec2-people {
+    top: calc(60px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    right: 0;
+    width: calc(768px * 0.3 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
   .home-page .sec2-computer-wrap {
-    top: calc(168px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(158px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
     right: 2%;
-    width: calc(768px * 0.32 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.28 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-badge {
-    top: calc(120px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.16 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(112px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.14 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-products-marquee {
+    margin-top: 10px;
   }
 
   .home-page .sec2-products {
-    --sec2-card-width: calc((100vw - var(--sec2-card-pad) * 2 - var(--sec2-card-gap)) * 0.4);
+    --sec2-card-gap: 8px;
+    --sec2-card-pad: 10px;
+    --sec2-card-width: calc(
+      (100vw - var(--sec2-card-pad) * 2 - var(--sec2-card-gap) * 2) / 3
+    );
+    padding-bottom: 72px;
+  }
+
+  .home-page .sec2-products .product-card {
+    padding-bottom: 12px;
+  }
+
+  .home-page .sec2-products .product-image-wrap {
+    background: #ececec;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .home-page .sec2-products .product-image-wrap img {
-    width: 72%;
-    height: 72%;
+    width: 62%;
+    height: 62%;
+    object-fit: contain;
   }
 }
 
