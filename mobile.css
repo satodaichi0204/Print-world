@@ -1612,10 +1612,10 @@
   }
 }
 
-/* TOP FV — 426–768 only: 768px ratios (61/46/45/16/15%); 426px = 93% of 768px, all scale together. */
+/* TOP FV — 426–768 only: anchor to 768px px sizes; 426px = exactly 7% smaller (93%), not viewport %. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv-foreground {
-    gap: 10px;
+    gap: calc(10px * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .fv-maincopy-wrap {
@@ -1623,9 +1623,9 @@
   }
 
   .home-page .fv-maincopy {
-    width: calc(61% * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.61 * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
-    margin: calc(-6% * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px))) auto 0;
+    margin: calc(768px * -0.06 * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px))) auto 0;
   }
 
   .home-page .fv-foreground__figures {
@@ -1637,17 +1637,17 @@
 
   .home-page .fv-people {
     position: relative;
-    width: calc(46% * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.46 * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
-    margin-left: calc(16% * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
+    margin-left: calc(768px * 0.16 * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
     transform: none;
   }
 
   .home-page .fv-mobilephone {
-    width: calc(45% * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.45 * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
     left: auto;
-    right: calc(15% * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
+    right: calc(768px * 0.15 * (0.93 + 0.07 * (100vw - 426px) / (768px - 426px)));
     top: auto;
     bottom: 0;
     margin: 0;
