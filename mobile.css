@@ -1612,22 +1612,29 @@
   }
 }
 
-/* TOP FV — 426–768 only: your 768px layout positions fixed; image widths scale fluidly. */
+/* TOP FV — 426–768 only: lock sizes/spacing to 768px values (no shrink toward 426). */
 @media (min-width: 426px) and (max-width: 768px) {
+  .home-page .fv-foreground {
+    gap: 10px;
+  }
+
   .home-page .fv-maincopy {
-    width: calc(48% + (100vw - 426px) * 13 / 342);
-    margin: -6% auto;
+    width: calc(768px * 0.61);
+    max-width: none;
+    margin: calc(768px * -0.06) auto 0;
   }
 
   .home-page .fv-people {
     position: relative;
-    width: calc(38% + (100vw - 426px) * 8 / 342);
-    margin-left: 16%;
+    width: calc(768px * 0.46);
+    max-width: none;
+    margin-left: calc(768px * 0.16);
   }
 
   .home-page .fv-mobilephone {
-    width: calc(37% + (100vw - 426px) * 8 / 342);
-    right: 15%;
+    width: calc(768px * 0.45);
+    max-width: none;
+    right: calc(768px * 0.15);
     bottom: 0;
     transform: translateY(24%);
   }
