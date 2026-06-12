@@ -1677,6 +1677,55 @@
   }
 }
 
+/* TOP sec2 — 426–768 only: smaller image proportions per sp.ai (90% at 426 vs 768). */
+@media (min-width: 426px) and (max-width: 768px) {
+  .home-page .sec2-inner {
+    min-height: calc(290px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-maincopy-wrap {
+    top: calc(36px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.52 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-choicecopy-wrap {
+    top: calc(188px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.38 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-shirts {
+    top: calc(72px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    right: 0;
+    width: calc(768px * 0.38 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-people {
+    top: calc(64px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    right: 0;
+    width: calc(768px * 0.34 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-computer-wrap {
+    top: calc(168px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    right: 2%;
+    width: calc(768px * 0.32 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-badge {
+    top: calc(120px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.16 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+  }
+
+  .home-page .sec2-products {
+    --sec2-card-width: calc((100vw - var(--sec2-card-pad) * 2 - var(--sec2-card-gap)) * 0.4);
+  }
+
+  .home-page .sec2-products .product-image-wrap img {
+    width: 72%;
+    height: 72%;
+  }
+}
+
 /* --- guide-flow: large laptop (below design max) --- */
 @media (max-width: 1440px) {
   .guide-flow-page .guide-flow-inner {
