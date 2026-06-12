@@ -1612,27 +1612,29 @@
   }
 }
 
-/* TOP FV — 426–768: 768px canvas; 426px = exactly 90% of 768px image sizes, centered. */
+/* TOP FV — 426–768: 90% canvas at 426 vs 768; viewport-center clip when canvas is wider than screen. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv-content {
     width: 100%;
-    overflow-x: visible;
+    overflow-x: clip;
   }
 
   .home-page .fv-foreground {
     gap: 10px;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     margin: 0 auto;
   }
 
   .home-page .fv-maincopy-wrap {
     transform: none;
-    align-self: center;
+    align-self: flex-start;
     width: calc(768px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: calc(
+      50vw - 384px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px))
+    );
+    margin-right: 0;
   }
 
   .home-page .fv-maincopy {
@@ -1644,11 +1646,13 @@
   .home-page .fv-foreground__figures {
     transform: none;
     position: relative;
-    align-self: center;
+    align-self: flex-start;
     width: calc(768px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: calc(
+      50vw - 384px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px))
+    );
+    margin-right: 0;
     height: fit-content;
     overflow: visible;
   }
