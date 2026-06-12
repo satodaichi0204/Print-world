@@ -1612,6 +1612,15 @@
   }
 }
 
+/* TOP FV — SP (<425px): section height only (sp.ai ≈155vw, not full 100svh). */
+@media (max-width: 424px) {
+  .home-page .fv {
+    height: clamp(490px, 155vw, 658px);
+    min-height: clamp(490px, 155vw, 658px);
+    max-height: none;
+  }
+}
+
 /* --- guide-flow: large laptop (below design max) --- */
 @media (max-width: 1440px) {
   .guide-flow-page .guide-flow-inner {
