@@ -1372,32 +1372,6 @@
     height: 100%;
   }
 
-  .home-page .fv-maincopy-wrap {
-    position: absolute;
-    left: 50%;
-    top: clamp(90px, calc(90px + (100vw - 434px) * 70 / 334), 160px);
-    z-index: 16;
-    width: min(47vw, 362px);
-    height: clamp(180px, calc(180px + (100vw - 434px) * 140 / 334), 320px);
-    margin: 0;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    box-sizing: border-box;
-    pointer-events: none;
-  }
-
-  .home-page .fv-maincopy {
-    display: block;
-    height: 50%;
-    width: auto;
-    max-width: min(94vw, 480px);
-    object-fit: contain;
-    object-position: center top;
-    margin: 0;
-  }
-
   .home-page .fv-foreground__figures {
     position: absolute;
     inset: 0;
@@ -1809,8 +1783,8 @@
   }
 }
 
-/* TOP FV maincopy — fluid 434px→768px (after ≤480 block so 434–480 keeps sp.ai foreground). */
-@media (min-width: 434px) and (max-width: 768px) {
+/* TOP FV maincopy — size scales 425px→768px (425px baseline = min(98%,400px); position unchanged). */
+@media (min-width: 425px) and (max-width: 768px) {
   .home-page .fv-content {
     height: 100%;
   }
@@ -1829,24 +1803,19 @@
     top: clamp(90px, calc(90px + (100vw - 434px) * 70 / 334), 160px);
     z-index: 16;
     width: min(47vw, 362px);
-    height: clamp(180px, calc(180px + (100vw - 434px) * 140 / 334), 320px);
+    height: auto;
     margin: 0;
     transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     box-sizing: border-box;
     pointer-events: none;
   }
 
   .home-page .fv-maincopy {
     display: block;
-    height: 50%;
-    width: auto;
-    max-width: min(94vw, 480px);
-    object-fit: contain;
-    object-position: center top;
-    margin: 0;
+    width: clamp(400px, calc(400px + (100vw - 425px) * 76 / 343), 476px);
+    max-width: min(96vw, 476px);
+    height: auto;
+    margin: 0 auto;
   }
 
   .home-page .fv-foreground__figures {
