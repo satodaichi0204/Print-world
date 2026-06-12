@@ -1612,7 +1612,7 @@
   }
 }
 
-/* TOP FV — 426–768 only: lock sizes/spacing to 768px values (no shrink toward 426). */
+/* TOP FV — 426–768 only: 768px layout; people/phone scale with viewport so nothing is clipped. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv-foreground {
     gap: 10px;
@@ -1626,25 +1626,20 @@
 
   .home-page .fv-people {
     position: relative;
-    width: calc(768px * 0.46);
+    width: 46vw;
     max-width: none;
-    margin-left: calc(768px * 0.16);
-  }
-
-  .home-page .fv-foreground__figures {
-    position: static;
-    overflow: visible;
+    margin-left: 16vw;
   }
 
   .home-page .fv-mobilephone {
-    width: calc(768px * 0.45);
+    width: 45vw;
     max-width: none;
-    left: calc(768px * 0.4);
-    right: auto;
+    left: auto;
+    right: 15vw;
     top: auto;
     bottom: 0;
     margin: 0;
-    transform: translateY(calc(768px * 0.45 * 1535 / 1162 * 0.24));
+    transform: translateY(24%);
   }
 }
 
