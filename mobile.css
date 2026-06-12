@@ -1631,12 +1631,20 @@
     margin-left: calc(768px * 0.16);
   }
 
+  .home-page .fv-foreground__figures {
+    position: static;
+    overflow: visible;
+  }
+
   .home-page .fv-mobilephone {
     width: calc(768px * 0.45);
     max-width: none;
-    right: calc(768px * 0.15);
+    left: calc(768px * 0.4);
+    right: auto;
+    top: auto;
     bottom: 0;
-    transform: translateY(24%);
+    margin: 0;
+    transform: translateY(calc(768px * 0.45 * 1535 / 1162 * 0.24));
   }
 }
 
