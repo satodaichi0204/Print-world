@@ -1864,7 +1864,7 @@
   }
 
   .home-page .sec5-hero-wrap {
-    width: calc(100% - 24px - 4px * (100vw - 426px) / (768px - 426px));
+    width: calc(100% - 20px);
     max-width: none;
     margin-left: auto;
     margin-right: auto;
@@ -1872,7 +1872,7 @@
   }
 
   .home-page .sec5-body {
-    width: calc(100% - 24px - 4px * (100vw - 426px) / (768px - 426px));
+    width: calc(100% - 20px);
     margin-left: auto;
     margin-right: auto;
     padding: 0;
