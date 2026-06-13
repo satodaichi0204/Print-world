@@ -1696,26 +1696,27 @@
   }
 
   .home-page .sec2-shirts {
-    top: calc(68px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    right: 0;
-    width: calc(768px * 0.34 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(68px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    right: calc(12% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.34 * 1.3 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-people {
-    top: calc(60px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    right: 0;
-    width: calc(768px * 0.3 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(60px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    right: calc(13% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.3 * 1.3 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-computer-wrap {
-    top: calc(158px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    right: 2%;
-    width: calc(768px * 0.28 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(158px * (1.2 + 0.3 * (100vw - 426px) / (768px - 426px)));
+    right: calc(20% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.28 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-badge {
-    top: calc(112px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.14 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    top: calc(112px * (1.36 + 0.34 * (100vw - 426px) / (768px - 426px)));
+    left: calc(47% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.14 * 0.8 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-products-marquee {
