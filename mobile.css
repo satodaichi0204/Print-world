@@ -1789,6 +1789,8 @@
   }
 
   .home-page .sec3-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 10px;
     margin-top: calc(-16px - 2px * (100vw - 426px) / (768px - 426px));
   }
 
