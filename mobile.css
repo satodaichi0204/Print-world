@@ -1864,13 +1864,15 @@
   }
 
   .home-page .sec5-hero-wrap {
-    width: 100%;
+    width: calc(100% - 40px - 32px * (100vw - 426px) / (768px - 426px));
     max-width: none;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 
   .home-page .sec5-body {
-    width: calc(100% - 32px - 24px * (100vw - 426px) / (768px - 426px));
+    width: calc(100% - 40px - 32px * (100vw - 426px) / (768px - 426px));
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -1883,7 +1885,7 @@
   }
 
   .home-page .sec5-people {
-    left: calc(-16% + 2% * var(--sec5-t));
+    left: calc(0px + 4px * (100vw - 426px) / (768px - 426px));
     bottom: calc(-128px - 7px * var(--sec5-t));
     width: calc(260px + 80px * var(--sec5-t));
     transform: none;
@@ -1905,7 +1907,7 @@
     display: block;
     position: absolute;
     z-index: 5;
-    right: calc(-3% + 3% * var(--sec5-t));
+    right: calc(0px + 4px * (100vw - 426px) / (768px - 426px));
     top: calc(-64px - 6px * var(--sec5-t));
     width: calc(112px + 18px * var(--sec5-t));
     height: auto;
