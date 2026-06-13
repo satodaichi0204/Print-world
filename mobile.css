@@ -1680,7 +1680,7 @@
 /* TOP sec2 — 426–768 only: sp.ai proportions; hero 90% at 426, 3 product cards per row. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec2-inner {
-    min-height: calc(265px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    min-height: clamp(268px, 70vw, 316px);
   }
 
   .home-page .sec2-maincopy-wrap {
