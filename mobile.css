@@ -2043,20 +2043,20 @@
   }
 
   .home-page .sec9-contact__title {
-    left: calc(61% - 37% * var(--sec9-t));
+    left: calc(29% - 37% * var(--sec9-s));
     top: calc(-117px * var(--sec9-s));
-    width: min(68vw, calc(483px * var(--sec9-s)));
+    width: min(60vw, calc(483px * var(--sec9-s)));
     margin: 0;
     transform: none;
     z-index: 4;
   }
 
   .home-page .sec9-contact__woman {
-    top: calc(-254px * var(--sec9-s));
+    top: calc(-192px - 62px * var(--sec9-t));
     right: auto;
-    left: calc(-132px * var(--sec9-s));
+    left: calc(-102px - 30px * var(--sec9-t));
     z-index: 3;
-    width: min(100vw, calc(513px * var(--sec9-s)));
+    width: min(100vw, calc(392px + 121px * var(--sec9-t)));
     transform: none;
   }
 
