@@ -1857,31 +1857,37 @@
 
 /* TOP sec5 — 426–768: keep 425 layout; scale sizes up reasonably toward 768 (no vw blow-up). */
 @media (min-width: 426px) and (max-width: 768px) {
+  .home-page {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
   .home-page .sec5 {
     --sec5-t: calc((100vw - 426px) / (768px - 426px));
-    overflow: visible;
-    padding: 0 0 calc(60px + 36px * var(--sec5-t));
+    overflow-x: clip;
+    padding: 0 10px calc(60px + 36px * var(--sec5-t));
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .home-page .sec5-hero-wrap {
-    width: calc(100% - 20px);
-    max-width: none;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     box-sizing: border-box;
   }
 
   .home-page .sec5-body {
-    width: calc(100% - 20px);
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
   .home-page .sec5-hero {
     min-height: calc(179px + 21px * var(--sec5-t));
-    overflow: visible;
+    overflow: hidden;
   }
 
   .home-page .sec5-people {
@@ -1897,7 +1903,7 @@
     left: calc(23% + 1% * var(--sec5-t));
     top: calc(-30px - 4px * var(--sec5-t));
     width: calc(310px + 90px * var(--sec5-t));
-    max-width: none;
+    max-width: calc(77% - 1% * var(--sec5-t));
     margin: 0;
     transform: none;
     z-index: 4;
