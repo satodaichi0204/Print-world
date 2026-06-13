@@ -1761,6 +1761,39 @@
   }
 }
 
+/* TOP sec3 — 426–768: 768px canvas 80% at 426; deco/title interpolate 768↔426 layout. */
+@media (min-width: 426px) and (max-width: 768px) {
+  .home-page .sec3 {
+    overflow-x: clip;
+  }
+
+  .home-page .sec3-top {
+    width: calc(768px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    max-width: none;
+    min-height: calc(48px + 40px * (100vw - 426px) / (768px - 426px));
+    margin-left: calc(
+      50vw - 384px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px))
+    );
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+
+  .home-page .sec3-deco {
+    left: calc(-30px - 12px * (100vw - 426px) / (768px - 426px));
+    top: calc(-93px - 15px * (100vw - 426px) / (768px - 426px));
+    width: 38%;
+  }
+
+  .home-page .sec3-title {
+    right: calc(-6px + 10px * (100vw - 426px) / (768px - 426px));
+    top: calc(-47px - 13px * (100vw - 426px) / (768px - 426px));
+    width: 52%;
+    left: auto;
+    margin: 0;
+    transform: none;
+  }
+}
+
 /* --- guide-flow: large laptop (below design max) --- */
 @media (max-width: 1440px) {
   .guide-flow-page .guide-flow-inner {
