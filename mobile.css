@@ -2061,11 +2061,11 @@
   }
 
   .home-page .sec9-contact__panel {
-    padding: calc(98px * var(--sec9-s)) 20px 20px;
+    padding: calc(98px - 2px * var(--sec9-t)) 20px 20px;
   }
 
   .home-page .sec9-contact__cols {
-    width: min(86%, calc(315px * var(--sec9-s)));
+    width: min(86%, 315px);
   }
 }
 
