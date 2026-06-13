@@ -1779,9 +1779,16 @@
   }
 
   .home-page .sec3-deco {
-    left: calc(-30px - 12px * (100vw - 426px) / (768px - 426px));
-    top: calc(-93px - 15px * (100vw - 426px) / (768px - 426px));
-    width: calc(768px * 0.38 * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
+    --sec3-deco-w: calc(768px * 0.38 * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
+    width: var(--sec3-deco-w);
+    top: auto;
+    /* Anchor bottom to sec3-top (426: -78px top / 768: -93px top); top follows height as width scales. */
+    bottom: calc(-136.904px - 120.404px * (100vw - 426px) / (768px - 426px));
+    left: calc(-30px - (var(--sec3-deco-w) - 175.104px) * 12 / 116.736px);
+  }
+
+  .home-page .sec3-grid {
+    margin-top: calc(-16px - 2px * (100vw - 426px) / (768px - 426px));
   }
 
   .home-page .sec3-title {
