@@ -1804,6 +1804,57 @@
   }
 }
 
+/* TOP sec4 — 426–768: keep 480 marquee layout; prevent 481px breakpoint jump. */
+@media (min-width: 426px) and (max-width: 768px) {
+  .home-page .sec4 {
+    --sec4-t: calc((100vw - 426px) / (768px - 426px));
+    margin-top: 0;
+    overflow: visible;
+  }
+
+  .home-page .sec4-inner {
+    padding: 0 0 calc(28px + 6px * var(--sec4-t));
+  }
+
+  .home-page .sec4-kicker {
+    position: absolute;
+    left: calc(10px + 2px * var(--sec4-t));
+    top: -18px;
+    width: min(46vw, calc(180px + 24px * var(--sec4-t)));
+    margin: 0;
+  }
+
+  .home-page .sec4-title {
+    position: relative;
+    top: calc(-16px + 8px * var(--sec4-t));
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto calc(28px + 6px * var(--sec4-t));
+  }
+
+  .home-page .sec4-list {
+    --sec4-gap: 10px;
+    --sec4-col: calc((100vw - 20px - var(--sec4-gap)) / 2.08);
+    padding: 0 10px;
+  }
+
+  .home-page .sec4-card__link {
+    width: calc(92% - 4% * var(--sec4-t));
+    min-height: calc(32px + 2px * var(--sec4-t));
+    margin-top: -18px;
+    padding: calc(8px + 2px * var(--sec4-t)) 20px calc(8px + 2px * var(--sec4-t)) 12px;
+    font-size: calc(11px + 1px * var(--sec4-t));
+  }
+
+  .home-page .sec4-bottom-confetti {
+    left: 50%;
+    width: calc(70% + 8% * var(--sec4-t));
+    margin-top: -12px;
+    padding-bottom: calc(38px + 4px * var(--sec4-t));
+  }
+}
+
 /* TOP sec5 — 426–768: keep 425 layout; scale sizes up reasonably toward 768 (no vw blow-up). */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec5 {
