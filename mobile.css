@@ -1677,21 +1677,20 @@
   }
 }
 
-/* TOP sec2 — 426–768: canvas fits viewport; left copies interpolate 768↔426 layout. */
+/* TOP sec2 — 426–768: 768px canvas 80% at 426; left copies interpolate layout. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec2 {
-    overflow-x: visible;
+    overflow-x: clip;
   }
 
   .home-page .sec2-inner {
-    width: min(
-      100vw,
-      calc(768px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)))
-    );
+    width: calc(768px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
     min-height: calc(316px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: calc(
+      50vw - 384px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px))
+    );
+    margin-right: 0;
   }
 
   .home-page .sec2-maincopy-wrap {
