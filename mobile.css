@@ -2024,8 +2024,8 @@
 
   .home-page .sec8-collage__work {
     right: 0%;
-    bottom: calc(69px + var(--sec8-s) * (1 - var(--sec8-t)));
-    top: auto;
+    top: calc(20px + 40px * var(--sec8-t));
+    bottom: auto;
     width: calc(320 / 660 * 100%);
     z-index: 6;
   }
