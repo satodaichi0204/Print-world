@@ -1761,33 +1761,33 @@
   }
 }
 
-/* TOP sec3 — 426–768: 768px canvas 80% at 426; deco/title interpolate 768↔426 layout. */
+/* TOP sec3 — 426–768: 80% image scale at 426; positions interpolate 768↔426 (no canvas clip). */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec3 {
-    overflow-x: clip;
+    overflow-x: visible;
   }
 
   .home-page .sec3-top {
-    width: calc(768px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    position: relative;
+    width: 100%;
     max-width: none;
     min-height: calc(48px + 40px * (100vw - 426px) / (768px - 426px));
-    margin-left: calc(
-      50vw - 384px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px))
-    );
+    margin-left: 0;
     margin-right: 0;
     margin-bottom: 4px;
+    overflow: visible;
   }
 
   .home-page .sec3-deco {
     left: calc(-30px - 12px * (100vw - 426px) / (768px - 426px));
     top: calc(-93px - 15px * (100vw - 426px) / (768px - 426px));
-    width: 38%;
+    width: calc(768px * 0.38 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec3-title {
-    right: calc(-6px + 10px * (100vw - 426px) / (768px - 426px));
-    top: calc(-47px - 13px * (100vw - 426px) / (768px - 426px));
-    width: 52%;
+    right: calc(16px + 10px * (100vw - 426px) / (768px - 426px));
+    top: calc(-40px - 13px * (100vw - 426px) / (768px - 426px));
+    width: calc(768px * 0.52 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
     left: auto;
     margin: 0;
     transform: none;
