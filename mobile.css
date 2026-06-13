@@ -1969,10 +1969,11 @@
   }
 }
 
-/* TOP sec8 — 426–768: 768px collage ratios on fluid canvas (no transform; FV-style). */
+/* TOP sec8 — 426–768: 768px collage ratios; work covers half of woman with whitespace. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec8-store {
-    --sec8-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
+    --sec8-t: calc((100vw - 426px) / (768px - 426px));
+    --sec8-s: calc(0.6 + 0.4 * var(--sec8-t));
     overflow: visible;
   }
 
@@ -1995,7 +1996,7 @@
   .home-page .sec8-dl {
     position: relative;
     z-index: 10;
-    margin-top: calc(-18px * var(--sec8-s));
+    margin-top: calc(38px - 56px * var(--sec8-t));
   }
 
   .home-page .sec8-collage {
@@ -2022,10 +2023,10 @@
   }
 
   .home-page .sec8-collage__work {
-    right: 15%;
-    bottom: calc(69px * var(--sec8-s));
+    right: 0%;
+    bottom: calc(69px + var(--sec8-s) * (1 - var(--sec8-t)));
     top: auto;
-    width: calc(285 / 660 * 100%);
+    width: calc(320 / 660 * 100%);
     z-index: 6;
   }
 }
