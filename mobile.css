@@ -611,7 +611,7 @@
 
   .home-page .sec4-bottom-confetti {
     left: 50%;
-    width: 60%;
+    width: 70%;
     margin-top: -12px;
     padding-bottom: 38px;
   }
@@ -1612,7 +1612,7 @@
   }
 }
 
-/* TOP FV — 426–768: 70% canvas at 426 vs 768; viewport-center clip when canvas is wider than screen. */
+/* TOP FV — 426–768: 60% canvas at 426 vs 768; viewport-center clip when canvas is wider than screen. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv-content {
     width: 100%;
@@ -1629,10 +1629,10 @@
   .home-page .fv-maincopy-wrap {
     transform: none;
     align-self: flex-start;
-    width: calc(768px * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
     margin-left: calc(
-      50vw - 384px * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px))
+      50vw - 384px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px))
     );
     margin-right: 0;
   }
@@ -1647,10 +1647,10 @@
     transform: none;
     position: relative;
     align-self: flex-start;
-    width: calc(768px * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
     margin-left: calc(
-      50vw - 384px * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px))
+      50vw - 384px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px))
     );
     margin-right: 0;
     height: fit-content;
@@ -1677,18 +1677,18 @@
   }
 }
 
-/* TOP sec2 — 426–768: 768px canvas 70% at 426; left copies interpolate layout. */
+/* TOP sec2 — 426–768: 768px canvas 60% at 426; left copies interpolate layout. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec2 {
     overflow-x: clip;
   }
 
   .home-page .sec2-inner {
-    width: calc(768px * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
     max-width: none;
-    min-height: calc(316px * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px)));
+    min-height: calc(316px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
     margin-left: calc(
-      50vw - 384px * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px))
+      50vw - 384px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px))
     );
     margin-right: 0;
   }
@@ -1761,7 +1761,7 @@
   }
 }
 
-/* TOP sec3 — 426–768: 70% image scale at 426; positions interpolate 768↔426 (no canvas clip). */
+/* TOP sec3 — 426–768: 60% image scale at 426; positions interpolate 768↔426 (no canvas clip). */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec3 {
     overflow-x: visible;
@@ -1781,13 +1781,13 @@
   .home-page .sec3-deco {
     left: calc(-30px - 12px * (100vw - 426px) / (768px - 426px));
     top: calc(-93px - 15px * (100vw - 426px) / (768px - 426px));
-    width: calc(768px * 0.38 * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.38 * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec3-title {
     right: calc(16px + 10px * (100vw - 426px) / (768px - 426px));
     top: calc(-40px - 13px * (100vw - 426px) / (768px - 426px));
-    width: calc(768px * 0.52 * (0.7 + 0.3 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.52 * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
     left: auto;
     margin: 0;
     transform: none;
