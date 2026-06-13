@@ -1684,13 +1684,15 @@
   }
 
   .home-page .sec2-maincopy-wrap {
+    left: calc(7% * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
     top: calc(32px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.45 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.34 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-choicecopy-wrap {
+    left: calc(7% * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
     top: calc(172px * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.34 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
+    width: calc(768px * 0.33 * (0.9 + 0.1 * (100vw - 426px) / (768px - 426px)));
   }
 
   .home-page .sec2-shirts {
