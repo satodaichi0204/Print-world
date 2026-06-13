@@ -1969,7 +1969,7 @@
   }
 }
 
-/* TOP sec8 — 426–768: collage layering + positions tuned for 768 design. */
+/* TOP sec8 — 426–768: collage matches SP design (woman upper-right, work low front). */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec8-store {
     --sec8-t: calc((100vw - 426px) / (768px - 426px));
@@ -1979,8 +1979,8 @@
   .home-page .sec8-store__title-picture {
     position: relative;
     z-index: 10;
-    width: min(calc(198px + 162px * var(--sec8-t)), 48%);
-    margin: 0 0 calc(8px + 2px * var(--sec8-t));
+    width: min(calc(198px + 162px * var(--sec8-t)), 46%);
+    margin: 0 0 calc(12px + 8px * var(--sec8-t));
   }
 
   .home-page .sec8-store__figures {
@@ -1988,33 +1988,40 @@
     z-index: 2;
     margin-top: 0;
     width: 100%;
+    padding-top: calc(48px * var(--sec8-t));
+  }
+
+  .home-page .sec8-dl {
+    position: relative;
+    z-index: 10;
+    margin-top: calc(38px + 16px * var(--sec8-t));
   }
 
   .home-page .sec8-collage {
-    min-height: calc(246px + 54px * var(--sec8-t));
+    min-height: calc(280px + 120px * var(--sec8-t));
     position: relative;
   }
 
   .home-page .sec8-collage__woman {
-    right: calc(-32% + 32% * var(--sec8-t));
-    top: calc(-118px + 26px * var(--sec8-t));
-    width: min(calc(58vw - 19vw * var(--sec8-t)), 300px);
-    z-index: 3;
+    right: calc(-20% + 20% * var(--sec8-t));
+    top: calc(-118px + 48px * var(--sec8-t));
+    width: min(calc(58vw - 16vw * var(--sec8-t)), 320px);
+    z-index: 4;
   }
 
   .home-page .sec8-collage__building {
     left: 0;
-    top: calc(42px + 44px * var(--sec8-t));
-    width: min(calc(50vw + 2vw * var(--sec8-t)), 380px);
-    z-index: 4;
+    top: calc(42px + 58px * var(--sec8-t));
+    width: min(calc(50vw + 4vw * var(--sec8-t)), 400px);
+    z-index: 3;
   }
 
   .home-page .sec8-collage__work {
-    right: calc(-5% + 5% * var(--sec8-t));
-    bottom: calc(-20px + 30px * var(--sec8-t));
+    right: calc(-5% + 8% * var(--sec8-t));
+    bottom: calc(-36px + 16px * var(--sec8-t));
     top: auto;
-    width: min(calc(43vw - 7.5vw * var(--sec8-t)), 280px);
-    z-index: 5;
+    width: min(calc(43vw - 5vw * var(--sec8-t)), 285px);
+    z-index: 6;
   }
 }
 
