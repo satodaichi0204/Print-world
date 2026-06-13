@@ -1784,7 +1784,12 @@
     top: auto;
     /* 426: top -78px (arm visible). 768: raised ~15px so arm stays above grid overlap. */
     bottom: calc(-136.904px - 105.096px * (100vw - 426px) / (768px - 426px));
-    left: calc(-58px - (var(--sec3-deco-w) - 175.104px) * 12 / 116.736px);
+    /* Compensate sec3-inner inset; shift further left as image shrinks (not right). */
+    left: calc(
+      -62px
+      - (10px + 2px * (100vw - 426px) / (768px - 426px))
+      - (291.84px - var(--sec3-deco-w)) * 20 / 116.736px
+    );
   }
 
   .home-page .sec3-grid {
