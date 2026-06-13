@@ -1870,7 +1870,10 @@
   }
 
   .home-page .sec5-body {
-    padding: 0 calc(16px + 12px * var(--sec5-t));
+    width: calc(100% - 32px - 24px * (100vw - 426px) / (768px - 426px));
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
     box-sizing: border-box;
   }
 
@@ -1910,10 +1913,14 @@
   }
 
   .home-page .sec5-intro {
-    max-width: none;
-    margin: calc(-28px - 4px * var(--sec5-t)) auto calc(34px + 4px * var(--sec5-t));
-    padding: calc(18px + 4px * var(--sec5-t)) calc(16px + 6px * var(--sec5-t));
-    border-radius: calc(10px + 2px * var(--sec5-t));
+    width: 100%;
+    max-width: 100%;
+    margin: calc(-28px - 4px * (100vw - 426px) / (768px - 426px)) auto
+      calc(34px + 4px * (100vw - 426px) / (768px - 426px));
+    padding: calc(18px + 4px * (100vw - 426px) / (768px - 426px))
+      calc(16px + 6px * (100vw - 426px) / (768px - 426px));
+    border-radius: calc(10px + 2px * (100vw - 426px) / (768px - 426px));
+    box-sizing: border-box;
   }
 
   .home-page .sec5-intro__lead {
@@ -1929,10 +1936,14 @@
 
   .home-page .sec5-grid {
     grid-template-columns: 1fr;
-    gap: calc(18px + 2px * var(--sec5-t));
+    gap: calc(18px + 2px * (100vw - 426px) / (768px - 426px));
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .home-page .sec5-card {
+    width: 100%;
+    box-sizing: border-box;
     min-height: calc(126px + 14px * var(--sec5-t));
     gap: calc(10px + 2px * var(--sec5-t));
     padding: calc(16px + 2px * var(--sec5-t)) calc(12px + 4px * var(--sec5-t)) 4px;
