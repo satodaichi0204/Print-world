@@ -1969,18 +1969,18 @@
   }
 }
 
-/* TOP sec8 — 426–768: collage matches SP design (woman upper-right, work low front). */
+/* TOP sec8 — 426–768: lock 768 layout; scale sizes 60% at 426 → 100% at 768. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec8-store {
-    --sec8-t: calc((100vw - 426px) / (768px - 426px));
+    --sec8-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
     overflow: visible;
   }
 
   .home-page .sec8-store__title-picture {
     position: relative;
     z-index: 10;
-    width: min(calc(198px + 162px * var(--sec8-t)), 46%);
-    margin: 0 0 calc(12px + 8px * var(--sec8-t));
+    width: min(calc(360px * var(--sec8-s)), 46%);
+    margin: 0 0 calc(20px * var(--sec8-s));
   }
 
   .home-page .sec8-store__figures {
@@ -1988,39 +1988,39 @@
     z-index: 2;
     margin-top: 0;
     width: 100%;
-    padding-top: calc(48px * var(--sec8-t));
+    padding-top: calc(48px * var(--sec8-s));
   }
 
   .home-page .sec8-dl {
     position: relative;
     z-index: 10;
-    margin-top: calc(38px + 16px * var(--sec8-t));
+    margin-top: calc(-18px * var(--sec8-s));
   }
 
   .home-page .sec8-collage {
-    min-height: calc(280px + 120px * var(--sec8-t));
+    min-height: calc(400px * var(--sec8-s));
     position: relative;
-  }
-
-  .home-page .sec8-collage__woman {
-    right: calc(-20% + 20% * var(--sec8-t));
-    top: calc(-118px + 48px * var(--sec8-t));
-    width: min(calc(58vw - 16vw * var(--sec8-t)), 320px);
-    z-index: 4;
   }
 
   .home-page .sec8-collage__building {
     left: 0;
-    top: calc(42px + 58px * var(--sec8-t));
-    width: min(calc(50vw + 4vw * var(--sec8-t)), 400px);
+    top: calc(-44px * var(--sec8-s));
+    width: calc(377px * var(--sec8-s));
     z-index: 3;
   }
 
+  .home-page .sec8-collage__woman {
+    right: -11%;
+    top: calc(-245px * var(--sec8-s));
+    width: calc(379px * var(--sec8-s));
+    z-index: 4;
+  }
+
   .home-page .sec8-collage__work {
-    right: calc(-5% + 8% * var(--sec8-t));
-    bottom: calc(-36px + 16px * var(--sec8-t));
+    right: 3%;
+    bottom: calc(69px * var(--sec8-s));
     top: auto;
-    width: min(calc(43vw - 5vw * var(--sec8-t)), 285px);
+    width: calc(285px * var(--sec8-s));
     z-index: 6;
   }
 }
