@@ -1677,46 +1677,56 @@
   }
 }
 
-/* TOP sec2 — 426–768 only: sp.ai proportions; hero 90% at 426, 3 product cards per row. */
+/* TOP sec2 — 426–768: 768px canvas; left+right scale together (80% at 426). */
 @media (min-width: 426px) and (max-width: 768px) {
+  .home-page .sec2 {
+    overflow-x: clip;
+  }
+
   .home-page .sec2-inner {
-    min-height: clamp(268px, 70vw, 316px);
+    width: calc(768px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    max-width: none;
+    min-height: calc(316px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    margin-left: calc(
+      50vw - 384px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px))
+    );
+    margin-right: 0;
   }
 
   .home-page .sec2-maincopy-wrap {
-    left: calc(7% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    top: calc(32px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.34 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    left: 7%;
+    top: 10.13%;
+    width: 34%;
   }
 
   .home-page .sec2-choicecopy-wrap {
-    left: calc(7% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    top: calc(172px * (1.09 + 0.11 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.33 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    left: 7%;
+    top: 65.32%;
+    width: 33%;
   }
 
   .home-page .sec2-shirts {
-    top: calc(68px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    right: calc(12% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.34 * 1.3 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    top: 21.52%;
+    right: 12%;
+    width: 44.2%;
   }
 
   .home-page .sec2-people {
-    top: calc(60px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    right: calc(13% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.3 * 1.3 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    top: 18.99%;
+    right: 13%;
+    width: 39%;
   }
 
   .home-page .sec2-computer-wrap {
-    top: calc(158px * (1.2 + 0.3 * (100vw - 426px) / (768px - 426px)));
-    right: calc(20% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.28 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    top: 75%;
+    right: 20%;
+    width: 28%;
   }
 
   .home-page .sec2-badge {
-    top: calc(112px * (1.36 + 0.34 * (100vw - 426px) / (768px - 426px)));
-    left: calc(47% * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    width: calc(768px * 0.14 * 0.8 * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    top: 60.25%;
+    left: 47%;
+    width: 11.2%;
   }
 
   .home-page .sec2-products-marquee {
