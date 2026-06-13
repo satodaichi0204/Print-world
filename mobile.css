@@ -1677,31 +1677,32 @@
   }
 }
 
-/* TOP sec2 — 426–768: 768px canvas; left+right scale together (80% at 426). */
+/* TOP sec2 — 426–768: canvas fits viewport; left copies interpolate 768↔426 layout. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec2 {
-    overflow-x: clip;
+    overflow-x: visible;
   }
 
   .home-page .sec2-inner {
-    width: calc(768px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
+    width: min(
+      100vw,
+      calc(768px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)))
+    );
     max-width: none;
     min-height: calc(316px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px)));
-    margin-left: calc(
-      50vw - 384px * (0.8 + 0.2 * (100vw - 426px) / (768px - 426px))
-    );
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .home-page .sec2-maincopy-wrap {
-    left: 7%;
-    top: 10.13%;
-    width: 34%;
+    left: calc(17% - 10% * (100vw - 426px) / (768px - 426px));
+    top: calc(29.13% - 19% * (100vw - 426px) / (768px - 426px));
+    width: calc(35% - 1% * (100vw - 426px) / (768px - 426px));
   }
 
   .home-page .sec2-choicecopy-wrap {
-    left: 7%;
-    top: 65.32%;
+    left: calc(18% - 11% * (100vw - 426px) / (768px - 426px));
+    top: calc(83.32% - 18% * (100vw - 426px) / (768px - 426px));
     width: 33%;
   }
 
