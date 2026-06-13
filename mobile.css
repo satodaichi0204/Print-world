@@ -2065,7 +2065,7 @@
   }
 
   .home-page .sec9-contact__cols {
-    width: min(86%, 315px);
+    width: min(calc(86% + 2% * var(--sec9-t)), 315px);
   }
 }
 
