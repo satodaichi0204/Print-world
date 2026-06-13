@@ -2031,7 +2031,7 @@
   }
 }
 
-/* TOP sec9 — 426–768: keep 426 woman/title layout; scale to 768 (no 481px jump). */
+/* TOP sec9 — 426–768: lock 768 layout; scale 60% at 426 → 100% at 768. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec9 {
     overflow: visible;
@@ -2052,20 +2052,20 @@
   }
 
   .home-page .sec9-contact__woman {
-    top: calc(-320px * var(--sec9-s));
+    top: calc(-254px * var(--sec9-s));
     right: auto;
-    left: calc(-170px * var(--sec9-s));
+    left: calc(-132px * var(--sec9-s));
     z-index: 3;
-    width: min(100vw, calc(653px * var(--sec9-s)));
+    width: min(100vw, calc(513px * var(--sec9-s)));
     transform: none;
   }
 
   .home-page .sec9-contact__panel {
-    padding: calc(98px - 2px * var(--sec9-t)) 20px 20px;
+    padding: calc(98px * var(--sec9-s)) 20px 20px;
   }
 
   .home-page .sec9-contact__cols {
-    width: min(86%, calc(315px + 0px * var(--sec9-t)));
+    width: min(86%, calc(315px * var(--sec9-s)));
   }
 }
 
