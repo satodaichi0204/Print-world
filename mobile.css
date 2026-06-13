@@ -1870,7 +1870,8 @@
   }
 
   .home-page .sec5-body {
-    padding: 0 12px;
+    padding: 0 calc(16px + 12px * var(--sec5-t));
+    box-sizing: border-box;
   }
 
   .home-page .sec5-hero {
@@ -1911,7 +1912,7 @@
   .home-page .sec5-intro {
     max-width: none;
     margin: calc(-28px - 4px * var(--sec5-t)) auto calc(34px + 4px * var(--sec5-t));
-    padding: calc(18px + 4px * var(--sec5-t)) calc(14px + 4px * var(--sec5-t));
+    padding: calc(18px + 4px * var(--sec5-t)) calc(16px + 6px * var(--sec5-t));
     border-radius: calc(10px + 2px * var(--sec5-t));
   }
 
