@@ -1969,7 +1969,7 @@
   }
 }
 
-/* TOP sec8 — 426–768: lock 768 collage canvas; scale as one unit 60% at 426 → 100% at 768. */
+/* TOP sec8 — 426–768: 768px collage ratios on fluid canvas (no transform; FV-style). */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec8-store {
     --sec8-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
@@ -2000,35 +2000,32 @@
 
   .home-page .sec8-collage {
     position: relative;
-    width: 660px;
+    width: 100%;
     max-width: none;
-    min-height: 400px;
+    height: calc(400px * var(--sec8-s));
+    min-height: calc(400px * var(--sec8-s));
     margin: 0;
-    transform: scale(var(--sec8-s));
-    transform-origin: top left;
-    margin-right: calc(-660px * (1 - var(--sec8-s)));
-    margin-bottom: calc(-400px * (1 - var(--sec8-s)));
   }
 
   .home-page .sec8-collage__building {
     left: 0;
-    top: -44px;
-    width: 377px;
+    top: calc(-44px * var(--sec8-s));
+    width: calc(377 / 660 * 100%);
     z-index: 3;
   }
 
   .home-page .sec8-collage__woman {
-    right: -11%;
-    top: -245px;
-    width: 379px;
+    right: -16%;
+    top: calc(-245px * var(--sec8-s));
+    width: calc(379 / 660 * 100%);
     z-index: 4;
   }
 
   .home-page .sec8-collage__work {
-    right: 3%;
-    bottom: 69px;
+    right: 15%;
+    bottom: calc(69px * var(--sec8-s));
     top: auto;
-    width: 285px;
+    width: calc(285 / 660 * 100%);
     z-index: 6;
   }
 }
