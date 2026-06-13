@@ -1782,9 +1782,9 @@
     --sec3-deco-w: calc(768px * 0.38 * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
     width: var(--sec3-deco-w);
     top: auto;
-    /* Anchor bottom to sec3-top (426: -78px top / 768: -93px top); top follows height as width scales. */
-    bottom: calc(-136.904px - 120.404px * (100vw - 426px) / (768px - 426px));
-    left: calc(-30px - (var(--sec3-deco-w) - 175.104px) * 12 / 116.736px);
+    /* 426: top -78px (arm visible). 768: raised ~15px so arm stays above grid overlap. */
+    bottom: calc(-136.904px - 105.096px * (100vw - 426px) / (768px - 426px));
+    left: calc(-40px - (var(--sec3-deco-w) - 175.104px) * 12 / 116.736px);
   }
 
   .home-page .sec3-grid {
