@@ -2082,7 +2082,7 @@
     --shirt-col: calc((1920px - 7 * 16px) / 7.5 * var(--fv-pc-s));
     min-height: var(--fv-pc-h);
     height: var(--fv-pc-h);
-    overflow-x: clip;
+    overflow: visible;
     background-size: 100% 100%;
   }
 
@@ -2200,8 +2200,9 @@
 
   .home-page .fv-mobilephone {
     right: calc(-38.4px * var(--fv-pc-s));
-    top: calc(216px * var(--fv-pc-s));
-    transform: translateY(calc(48px * var(--fv-pc-s)));
+    top: auto;
+    bottom: calc(-100px * var(--fv-pc-s));
+    transform: none;
   }
 }
 
