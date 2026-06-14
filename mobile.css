@@ -13,6 +13,7 @@
    TOP sec5 PC scale: 769px+ (1920 design lock, 1440px hero)
    TOP sec6 PC scale: 769px+ (1920 design lock, 1280px panel)
    TOP sec7 PC scale: 769px+ (1920 design lock, 1440px grid)
+   TOP sec8 PC scale: 769px+ (1920 design lock, 1200px inner)
    ============================================================================= */
 
 /* =============================================================================
@@ -2171,6 +2172,117 @@
 
   .home-page .sec7-card__text {
     font-size: calc(13px * var(--sec7-pc-s));
+  }
+}
+
+/* TOP sec8 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec8 {
+    --sec8-pc-s: calc(100vw / 1920px);
+    margin-top: calc(198px * var(--sec8-pc-s));
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page .sec8-wave {
+    margin-top: calc(-20px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-wave__svg {
+    height: calc(56px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-inner {
+    width: calc(1200px * var(--sec8-pc-s));
+    max-width: none;
+    margin-left: calc(50vw - 600px * var(--sec8-pc-s));
+    margin-right: 0;
+    padding: calc(20px * var(--sec8-pc-s)) calc(48px * var(--sec8-pc-s)) calc(96px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-store {
+    border-radius: calc(40px * var(--sec8-pc-s));
+    padding: calc(44px * var(--sec8-pc-s));
+    margin-top: calc(-356px * var(--sec8-pc-s));
+    margin-bottom: calc(77px * var(--sec8-pc-s));
+    overflow: visible;
+  }
+
+  .home-page .sec8-store__cols {
+    grid-template-columns: 1fr calc(380px * var(--sec8-pc-s));
+    gap: calc(36px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-store__title-img {
+    width: calc(520px * var(--sec8-pc-s));
+    max-width: 100%;
+    margin-bottom: calc(28px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-dl__row {
+    gap: calc(12px * var(--sec8-pc-s)) calc(18px * var(--sec8-pc-s));
+    padding: calc(6px * var(--sec8-pc-s)) 0;
+    font-size: calc(15px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-collage {
+    min-height: calc(260px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-collage__building {
+    left: calc(-66px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-collage__work {
+    width: calc(240px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-collage__woman {
+    width: calc(360px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-btn {
+    width: calc(560px * var(--sec8-pc-s));
+    max-width: 100%;
+    margin-top: calc(32px * var(--sec8-pc-s));
+    padding: calc(24px * var(--sec8-pc-s));
+    font-size: calc(18px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-faq__head {
+    gap: calc(40px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-faq__title-img {
+    max-width: calc(280px * var(--sec8-pc-s));
+    margin-top: calc(12px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-details {
+    margin-bottom: calc(12px * var(--sec8-pc-s));
+    border-radius: calc(16px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-summary {
+    gap: calc(12px * var(--sec8-pc-s));
+    padding: calc(14px * var(--sec8-pc-s)) calc(18px * var(--sec8-pc-s));
+    font-size: calc(16px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-summary::after {
+    width: calc(28px * var(--sec8-pc-s));
+    height: calc(28px * var(--sec8-pc-s));
+    font-size: calc(10px * var(--sec8-pc-s));
+    line-height: calc(28px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-details__body {
+    padding: calc(14px * var(--sec8-pc-s)) calc(18px * var(--sec8-pc-s)) calc(18px * var(--sec8-pc-s));
+    font-size: calc(15px * var(--sec8-pc-s));
+  }
+
+  .home-page .sec8-faq > .sec8-btn {
+    margin-top: calc(36px * var(--sec8-pc-s));
   }
 }
 
