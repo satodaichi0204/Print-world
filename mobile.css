@@ -8,6 +8,7 @@
    Breakpoints (max-width): 1440px → 1180px → 1024px → 768px → 480px
    TOP FV PC scale: 769px–1919px (1920 design lock in styles.css)
    TOP sec2 PC scale: 769px+ (1920 design lock)
+   TOP sec3 PC scale: 769px+ (1920 design lock, 1440px inner)
    ============================================================================= */
 
 /* =============================================================================
@@ -1826,6 +1827,63 @@
 
   .home-page .sec2-products .product-tags li {
     font-size: calc(12px * var(--sec2-pc-s));
+  }
+}
+
+/* TOP sec3 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec3 {
+    --sec3-pc-s: calc(100vw / 1920px);
+    padding: calc(18px * var(--sec3-pc-s)) 0 calc(28px * var(--sec3-pc-s));
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page .sec3-inner {
+    width: calc(1440px * var(--sec3-pc-s));
+    max-width: none;
+    margin-left: calc(50vw - 720px * var(--sec3-pc-s));
+    margin-right: 0;
+    padding-bottom: calc(64px * var(--sec3-pc-s));
+  }
+
+  .home-page .sec3-top {
+    min-height: calc(148px * var(--sec3-pc-s));
+  }
+
+  .home-page .sec3-deco {
+    width: calc(370px * var(--sec3-pc-s));
+    top: -84%;
+    left: 0;
+  }
+
+  .home-page .sec3-title {
+    left: 37%;
+    top: calc(-48px * var(--sec3-pc-s));
+    width: calc(440px * var(--sec3-pc-s));
+    transform: translateX(-50%);
+  }
+
+  .home-page .sec3-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: calc(64px * var(--sec3-pc-s)) calc(16px * var(--sec3-pc-s));
+    margin-top: calc(-44px * var(--sec3-pc-s));
+  }
+
+  .home-page .sec3-card__link {
+    margin-top: calc(12px * var(--sec3-pc-s));
+    width: calc(100% - 8px * var(--sec3-pc-s));
+    min-height: calc(28px * var(--sec3-pc-s));
+    font-size: calc(13px * var(--sec3-pc-s));
+    padding: calc(8px * var(--sec3-pc-s)) calc(8px * var(--sec3-pc-s)) calc(8px * var(--sec3-pc-s))
+      calc(10px * var(--sec3-pc-s));
+  }
+
+  .home-page .sec3-card__link::after {
+    right: calc(12px * var(--sec3-pc-s));
+    border-top-width: calc(3px * var(--sec3-pc-s));
+    border-bottom-width: calc(3px * var(--sec3-pc-s));
+    border-left-width: calc(5px * var(--sec3-pc-s));
   }
 }
 
