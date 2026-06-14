@@ -10,6 +10,7 @@
    TOP sec2 PC scale: 769px+ (1920 design lock)
    TOP sec3 PC scale: 769px+ (1920 design lock, 1440px inner)
    TOP sec4 PC scale: 769px+ (1920 design lock)
+   TOP sec5 PC scale: 769px+ (1920 design lock, 1440px hero)
    ============================================================================= */
 
 /* =============================================================================
@@ -1947,6 +1948,91 @@
     width: 64%;
     margin-top: calc(-30px * var(--sec4-pc-s));
     padding-bottom: calc(24px * var(--sec4-pc-s));
+  }
+}
+
+/* TOP sec5 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec5 {
+    --sec5-pc-s: calc(100vw / 1920px);
+    padding: calc(28px * var(--sec5-pc-s)) 0 calc(200px * var(--sec5-pc-s));
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page .sec5-hero-wrap {
+    width: calc(1440px * var(--sec5-pc-s));
+    max-width: none;
+    margin-left: calc(50vw - 720px * var(--sec5-pc-s));
+    margin-right: 0;
+  }
+
+  .home-page .sec5-body {
+    padding: 0 calc(64px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-maincopy {
+    width: calc(760px * var(--sec5-pc-s));
+    max-width: 100%;
+  }
+
+  .home-page .sec5-intro {
+    max-width: calc(1168px * var(--sec5-pc-s));
+    margin: calc(-88px * var(--sec5-pc-s)) auto calc(48px * var(--sec5-pc-s));
+    padding: calc(56px * var(--sec5-pc-s)) calc(48px * var(--sec5-pc-s)) calc(48px * var(--sec5-pc-s))
+      calc(48px * var(--sec5-pc-s));
+    border-radius: calc(14px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-intro__lead {
+    margin-bottom: calc(14px * var(--sec5-pc-s));
+    font-size: calc(23px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-intro__body {
+    font-size: calc(19px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: calc(24px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-card {
+    gap: 0 calc(16px * var(--sec5-pc-s));
+    border-radius: calc(24px * var(--sec5-pc-s));
+    padding: calc(16px * var(--sec5-pc-s)) calc(24px * var(--sec5-pc-s)) 0 calc(14px * var(--sec5-pc-s));
+    min-height: calc(168px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-card::before {
+    top: calc(-16px * var(--sec5-pc-s));
+    left: calc(20px * var(--sec5-pc-s));
+    width: calc(48px * var(--sec5-pc-s));
+    height: calc(48px * var(--sec5-pc-s));
+    font-size: calc(22px * var(--sec5-pc-s));
+    box-shadow: calc(4px * var(--sec5-pc-s)) calc(4px * var(--sec5-pc-s)) 0 0 #000000;
+  }
+
+  .home-page .sec5-card__media {
+    border-radius: calc(34px * var(--sec5-pc-s)) 0 0 calc(34px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-card__media img {
+    max-height: calc(200px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-card__text {
+    padding: calc(8px * var(--sec5-pc-s)) 0 calc(14px * var(--sec5-pc-s)) calc(4px * var(--sec5-pc-s));
+    font-size: calc(14px * var(--sec5-pc-s));
+  }
+
+  .home-page .sec5-cta {
+    width: calc(476px * var(--sec5-pc-s));
+    max-width: 92%;
+    margin: calc(48px * var(--sec5-pc-s)) auto calc(64px * var(--sec5-pc-s));
+    padding: calc(20px * var(--sec5-pc-s));
+    font-size: calc(15px * var(--sec5-pc-s));
   }
 }
 
