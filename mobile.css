@@ -2199,7 +2199,7 @@
   }
 }
 
-/* TOP FV phone — all PC (769+): overlap sec2; 150px at 1920 scales with viewport. */
+/* TOP FV phone — all PC (769+): 22.5% of rendered phone height overlaps sec2 (design lock). */
 @media (min-width: 769px) {
   .home-page .fv,
   .home-page .fv-content,
@@ -2210,11 +2210,13 @@
 
   .home-page .fv-mobilephone {
     --fv-phone-s: calc(100vw / 1920px);
+    /* 1920: 36% × (1535÷1162) × 22.5% ≈ 205px — matches design comp overlap */
+    --fv-phone-overlap: calc(1920px * 0.36 * 1535 / 1162 * 0.225 * var(--fv-phone-s));
     top: auto;
     bottom: 0;
     right: calc(-38.4px * var(--fv-phone-s));
     width: var(--fv-mobile-w);
-    transform: translate3d(0, calc(150px * var(--fv-phone-s)), 0);
+    transform: translate3d(0, var(--fv-phone-overlap), 0);
   }
 }
 
