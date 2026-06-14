@@ -2197,12 +2197,24 @@
   .home-page .fv-maincopy-wrap {
     top: calc(240px * var(--fv-pc-s));
   }
+}
+
+/* TOP FV phone — all PC (769+): overlap sec2; 150px at 1920 scales with viewport. */
+@media (min-width: 769px) {
+  .home-page .fv,
+  .home-page .fv-content,
+  .home-page .fv-foreground,
+  .home-page .fv-foreground__figures {
+    overflow: visible;
+  }
 
   .home-page .fv-mobilephone {
-    right: calc(-38.4px * var(--fv-pc-s));
+    --fv-phone-s: calc(100vw / 1920px);
     top: auto;
-    bottom: calc(-100px * var(--fv-pc-s));
-    transform: none;
+    bottom: 0;
+    right: calc(-38.4px * var(--fv-phone-s));
+    width: var(--fv-mobile-w);
+    transform: translate3d(0, calc(150px * var(--fv-phone-s)), 0);
   }
 }
 

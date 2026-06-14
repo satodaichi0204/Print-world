@@ -615,11 +615,10 @@ img {
   position: absolute;
   z-index: 24;
   right: -2vw;
-  top: auto;
-  bottom: -100px;
+  top: clamp(96px, 20vh, 240px);
   width: var(--fv-mobile-w);
   height: auto;
-  transform: none;
+  transform: translateY(48px);
 }
 
 
