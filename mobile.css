@@ -14,6 +14,8 @@
    TOP sec6 PC scale: 769px+ (1920 design lock, 1280px panel)
    TOP sec7 PC scale: 769px+ (1920 design lock, 1440px grid)
    TOP sec8 PC scale: 769px+ (1920 design lock, 1200px inner)
+   TOP sec9 PC scale: 769px+ (1920 design lock, 1320px inner)
+   Site footer PC scale: 769px+ (1920 design lock, 1440px inner)
    ============================================================================= */
 
 /* =============================================================================
@@ -2283,6 +2285,300 @@
 
   .home-page .sec8-faq > .sec8-btn {
     margin-top: calc(36px * var(--sec8-pc-s));
+  }
+}
+
+/* TOP sec9 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec9 {
+    --sec9-pc-s: calc(100vw / 1920px);
+    padding: calc(79px * var(--sec9-pc-s)) calc(48px * var(--sec9-pc-s)) calc(48px * var(--sec9-pc-s))
+      calc(120px * var(--sec9-pc-s));
+    overflow: visible;
+  }
+
+  .home-page .sec9-inner {
+    width: calc(1320px * var(--sec9-pc-s));
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+  }
+
+  .home-page .sec9-contact {
+    margin-bottom: calc(48px * var(--sec9-pc-s));
+    overflow: visible;
+  }
+
+  .home-page .sec9-contact__woman {
+    width: calc(600px * var(--sec9-pc-s));
+    left: -10%;
+    top: -50%;
+    transform: translateY(calc(-20px * var(--sec9-pc-s)));
+  }
+
+  .home-page .sec9-contact__panel {
+    border-radius: calc(36px * var(--sec9-pc-s));
+    padding: calc(40px * var(--sec9-pc-s)) calc(40px * var(--sec9-pc-s)) calc(44px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-contact picture {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    left: 12%;
+    top: calc(-95px * var(--sec9-pc-s));
+    width: min(calc(760px * var(--sec9-pc-s)), 86%);
+    max-width: 86%;
+    pointer-events: none;
+  }
+
+  .home-page .sec9-contact__title {
+    position: static;
+    left: auto;
+    top: auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .home-page .sec9-contact__main {
+    padding-top: calc(124px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-contact__lead {
+    margin-bottom: calc(22px * var(--sec9-pc-s));
+    font-size: calc(19px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-contact__cols {
+    width: 80%;
+    gap: calc(36px * var(--sec9-pc-s));
+    margin-bottom: calc(34px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-bullets {
+    font-size: calc(15px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-bullets li {
+    margin-bottom: calc(10px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-contact__actions {
+    width: 96%;
+    gap: calc(18px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-action {
+    gap: calc(10px * var(--sec9-pc-s));
+    min-height: calc(76px * var(--sec9-pc-s));
+    padding: calc(24px * var(--sec9-pc-s)) calc(14px * var(--sec9-pc-s));
+    border-radius: calc(16px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-action img {
+    width: calc(40px * var(--sec9-pc-s));
+    height: calc(40px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-action--phone img {
+    width: calc(24px * var(--sec9-pc-s));
+    height: calc(24px * var(--sec9-pc-s));
+    margin-top: calc(8px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-action__body {
+    gap: calc(4px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-action__main {
+    font-size: calc(36px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-action__sub {
+    font-size: calc(14px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-action__label {
+    font-size: calc(32px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-sub {
+    grid-template-columns: minmax(0, 1.16fr) minmax(0, 1.16fr) minmax(0, 0.78fr);
+    gap: calc(28px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-sub > .sec9-ship-aside {
+    grid-column: auto;
+    justify-self: stretch;
+    max-width: none;
+    min-height: 0;
+  }
+
+  .home-page .sec9-ship-aside {
+    gap: calc(12px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-ship-aside__staff {
+    left: calc(34px * var(--sec9-pc-s));
+    bottom: calc(-48px * var(--sec9-pc-s));
+    max-width: 100%;
+  }
+
+  .home-page .sec9-ship-aside__vertical {
+    font-size: calc(13px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-card {
+    border-radius: calc(32px * var(--sec9-pc-s));
+    padding-bottom: calc(36px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-card__head {
+    gap: calc(12px * var(--sec9-pc-s)) calc(16px * var(--sec9-pc-s));
+    padding: calc(16px * var(--sec9-pc-s)) calc(56px * var(--sec9-pc-s));
+    border-radius: calc(30px * var(--sec9-pc-s)) calc(30px * var(--sec9-pc-s)) 0 0;
+  }
+
+  .home-page .sec9-card__head-main {
+    font-size: calc(24px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-card__head-pill {
+    font-size: calc(18px * var(--sec9-pc-s));
+    padding: calc(8px * var(--sec9-pc-s)) calc(14px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-pay-list {
+    margin: calc(26px * var(--sec9-pc-s)) calc(56px * var(--sec9-pc-s)) 0;
+  }
+
+  .home-page .sec9-pay-list li {
+    gap: calc(12px * var(--sec9-pc-s));
+    margin-bottom: calc(14px * var(--sec9-pc-s));
+    font-size: calc(24px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-pay-list li::before {
+    flex: 0 0 calc(38px * var(--sec9-pc-s));
+    width: calc(38px * var(--sec9-pc-s));
+    height: calc(38px * var(--sec9-pc-s));
+    font-size: calc(15px * var(--sec9-pc-s));
+    line-height: calc(38px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-card__logos {
+    width: calc(380px * var(--sec9-pc-s));
+    max-width: 88%;
+    margin: calc(10px * var(--sec9-pc-s)) auto calc(24px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-card__btn {
+    width: calc(320px * var(--sec9-pc-s));
+    max-width: 92%;
+    margin-top: calc(28px * var(--sec9-pc-s));
+    padding: calc(14px * var(--sec9-pc-s)) calc(24px * var(--sec9-pc-s));
+    font-size: calc(15px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-card--ship .sec9-card__body {
+    margin: calc(26px * var(--sec9-pc-s)) calc(56px * var(--sec9-pc-s)) 0;
+  }
+
+  .home-page .sec9-ship__lead {
+    margin-bottom: calc(14px * var(--sec9-pc-s));
+    font-size: calc(24px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-ship__note {
+    margin-bottom: calc(14px * var(--sec9-pc-s));
+    font-size: calc(16px * var(--sec9-pc-s));
+  }
+
+  .home-page .sec9-ship__ems {
+    font-size: calc(24px * var(--sec9-pc-s));
+  }
+}
+
+/* Site footer — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .site-footer {
+    --footer-pc-s: calc(100vw / 1920px);
+    padding: calc(72px * var(--footer-pc-s)) calc(48px * var(--footer-pc-s)) calc(128px * var(--footer-pc-s));
+  }
+
+  .site-footer__inner {
+    width: calc(1440px * var(--footer-pc-s));
+    max-width: none;
+    margin-left: calc(50vw - 720px * var(--footer-pc-s));
+    margin-right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: calc(44px * var(--footer-pc-s));
+    align-items: start;
+  }
+
+  .site-footer__logo {
+    width: calc(360px * var(--footer-pc-s));
+    max-width: 100%;
+    margin-bottom: calc(24px * var(--footer-pc-s));
+  }
+
+  .site-footer__company {
+    margin-bottom: calc(8px * var(--footer-pc-s));
+    font-size: calc(22px * var(--footer-pc-s));
+  }
+
+  .site-footer__address,
+  .site-footer__tel {
+    margin-bottom: calc(8px * var(--footer-pc-s));
+    font-size: calc(14px * var(--footer-pc-s));
+  }
+
+  .site-footer__title {
+    margin-bottom: calc(12px * var(--footer-pc-s));
+    font-size: calc(18px * var(--footer-pc-s));
+  }
+
+  .site-footer__title--section {
+    margin-bottom: calc(8px * var(--footer-pc-s));
+    font-size: calc(20px * var(--footer-pc-s));
+  }
+
+  .site-footer__lead {
+    margin-bottom: calc(8px * var(--footer-pc-s));
+  }
+
+  .site-footer__leadlink {
+    font-size: calc(16px * var(--footer-pc-s));
+  }
+
+  .site-footer__list li {
+    margin-bottom: calc(8px * var(--footer-pc-s));
+  }
+
+  .site-footer__list a {
+    font-size: calc(14px * var(--footer-pc-s));
+  }
+
+  .site-footer__list--dash li {
+    margin-bottom: calc(10px * var(--footer-pc-s));
+  }
+
+  .site-footer__list--dash a {
+    font-size: calc(14px * var(--footer-pc-s));
+  }
+
+  .site-footer__list--corp li {
+    margin-bottom: calc(8px * var(--footer-pc-s));
+  }
+
+  .site-footer__list--corp a {
+    font-size: calc(16px * var(--footer-pc-s));
   }
 }
 
