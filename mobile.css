@@ -11,6 +11,7 @@
    TOP sec3 PC scale: 769px+ (1920 design lock, 1440px inner)
    TOP sec4 PC scale: 769px+ (1920 design lock)
    TOP sec5 PC scale: 769px+ (1920 design lock, 1440px hero)
+   TOP sec6 PC scale: 769px+ (1920 design lock, 1280px panel)
    ============================================================================= */
 
 /* =============================================================================
@@ -2033,6 +2034,89 @@
     margin: calc(48px * var(--sec5-pc-s)) auto calc(64px * var(--sec5-pc-s));
     padding: calc(20px * var(--sec5-pc-s));
     font-size: calc(15px * var(--sec5-pc-s));
+  }
+}
+
+/* TOP sec6 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec6 {
+    --sec6-pc-s: calc(100vw / 1920px);
+    padding: calc(74px * var(--sec6-pc-s)) 0 calc(160px * var(--sec6-pc-s));
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page .sec6::before {
+    top: calc(-20px * var(--sec6-pc-s));
+    height: calc(20px * var(--sec6-pc-s));
+    background-size: calc(112px * var(--sec6-pc-s)) calc(24px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-overlap {
+    margin: calc(-228px * var(--sec6-pc-s)) 0 0;
+    padding: 0 calc(64px * var(--sec6-pc-s));
+    min-height: calc(152px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-overlap__copy {
+    max-width: calc(520px * var(--sec6-pc-s));
+    left: 18%;
+    transform: translateY(calc(-42px * var(--sec6-pc-s)));
+  }
+
+  .home-page .sec6-kicker-img {
+    width: calc(320px * var(--sec6-pc-s));
+    margin-bottom: calc(6px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-title-img {
+    width: calc(520px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-people {
+    width: calc(320px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-panel {
+    width: calc(1280px * var(--sec6-pc-s));
+    max-width: none;
+    margin-left: calc(50vw - 640px * var(--sec6-pc-s));
+    margin-right: 0;
+    padding: calc(38px * var(--sec6-pc-s)) calc(84px * var(--sec6-pc-s));
+    border-width: calc(4px * var(--sec6-pc-s));
+    box-shadow: 0 calc(2px * var(--sec6-pc-s)) 0 #111;
+  }
+
+  .home-page .sec6-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(18px * var(--sec6-pc-s)) calc(128px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-pill {
+    gap: calc(12px * var(--sec6-pc-s));
+    min-height: calc(40px * var(--sec6-pc-s));
+    border-width: calc(3px * var(--sec6-pc-s));
+    padding: 0 calc(12px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-num {
+    width: calc(30px * var(--sec6-pc-s));
+    height: calc(30px * var(--sec6-pc-s));
+    border-width: calc(2px * var(--sec6-pc-s));
+    font-size: calc(22px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-label {
+    font-size: calc(20px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-arrow {
+    font-size: calc(12px * var(--sec6-pc-s));
+  }
+
+  .home-page .sec6-copy {
+    padding: 0 calc(36px * var(--sec6-pc-s));
+    font-size: calc(16px * var(--sec6-pc-s));
   }
 }
 
