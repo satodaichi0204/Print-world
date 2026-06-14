@@ -6,6 +6,7 @@
    + site footer (all pages)
    + hamburger / menu drawer (≤480px, all pages)
    Breakpoints (max-width): 1440px → 1180px → 1024px → 768px → 480px
+   TOP FV PC scale: 769px–1919px (1920 design lock in styles.css)
    ============================================================================= */
 
 /* =============================================================================
@@ -2066,6 +2067,122 @@
 
   .home-page .sec9-contact__cols {
     width: min(calc(86% + 2% * var(--sec9-t)), 315px);
+  }
+}
+
+/* =============================================================================
+   TOP FV — 769–1919: proportional scale from 1920px design lock (s = 100vw / 1920).
+   At 1920+ styles.css is unchanged. All px offsets use 1920 reference values × s.
+   ============================================================================= */
+@media (min-width: 769px) and (max-width: 1919px) {
+  .home-page .fv {
+    --fv-pc-s: calc(100vw / 1920px);
+    --shirt-gap: calc(16px * var(--fv-pc-s));
+    --shirt-col: calc((1920px - 7 * 16px) / 7.5 * var(--fv-pc-s));
+    overflow-x: clip;
+  }
+
+  .home-page .shirts-layer {
+    padding-top: calc(120px * var(--fv-pc-s));
+  }
+
+  .home-page .marquee {
+    margin: calc(20px * var(--fv-pc-s)) 0;
+  }
+
+  .home-page .shirt-card {
+    padding: calc(14px * var(--fv-pc-s));
+    border-radius: calc(10px * var(--fv-pc-s));
+  }
+
+  /* Header — 1920 reference sizes × s */
+  .home-page .fv-header {
+    min-height: calc(108px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-logo {
+    top: calc(24px * var(--fv-pc-s));
+    left: calc(24px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-logo img {
+    width: calc(360px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-pill {
+    padding: calc(8px * var(--fv-pc-s)) calc(88px * var(--fv-pc-s));
+    font-size: calc(16px * var(--fv-pc-s));
+    min-width: calc(292px * var(--fv-pc-s));
+    margin-bottom: calc(-10px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header__actions {
+    gap: calc(14px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header__links {
+    height: calc(118px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .phone-box {
+    --phone-icon: calc(20px * var(--fv-pc-s));
+    --phone-gap: calc(8px * var(--fv-pc-s));
+    gap: calc(8px * var(--fv-pc-s));
+    padding: calc(8px * var(--fv-pc-s)) calc(24px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .phone-box__body {
+    gap: calc(2px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .phone-box__label {
+    font-size: calc(14px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .phone-box__number {
+    font-size: calc(40px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .cta {
+    gap: calc(5px * var(--fv-pc-s));
+    padding: calc(8px * var(--fv-pc-s));
+    width: calc(144px * var(--fv-pc-s));
+    font-size: calc(13px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .cta--line {
+    width: calc(144px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .cta__icon {
+    width: calc(44px * var(--fv-pc-s));
+    height: calc(44px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .cta__label {
+    font-size: calc(16px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .menu-btn {
+    width: calc(172px * var(--fv-pc-s));
+    height: calc(172px * var(--fv-pc-s));
+    gap: calc(10px * var(--fv-pc-s));
+    border-radius: 0 0 0 calc(24px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-header .menu-btn span {
+    height: calc(7px * var(--fv-pc-s));
+  }
+
+  /* Foreground — % widths unchanged; replace vh/vw/clamp tops with 1920 px × s */
+  .home-page .fv-maincopy-wrap {
+    top: calc(240px * var(--fv-pc-s));
+  }
+
+  .home-page .fv-mobilephone {
+    right: calc(-38.4px * var(--fv-pc-s));
+    top: calc(216px * var(--fv-pc-s));
+    transform: translateY(calc(48px * var(--fv-pc-s)));
   }
 }
 
