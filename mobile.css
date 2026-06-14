@@ -12,6 +12,7 @@
    TOP sec4 PC scale: 769px+ (1920 design lock)
    TOP sec5 PC scale: 769px+ (1920 design lock, 1440px hero)
    TOP sec6 PC scale: 769px+ (1920 design lock, 1280px panel)
+   TOP sec7 PC scale: 769px+ (1920 design lock, 1440px grid)
    ============================================================================= */
 
 /* =============================================================================
@@ -2117,6 +2118,59 @@
   .home-page .sec6-copy {
     padding: 0 calc(36px * var(--sec6-pc-s));
     font-size: calc(16px * var(--sec6-pc-s));
+  }
+}
+
+/* TOP sec7 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec7 {
+    --sec7-pc-s: calc(100vw / 1920px);
+    margin-top: calc(-36px * var(--sec7-pc-s));
+    padding: calc(96px * var(--sec7-pc-s)) calc(48px * var(--sec7-pc-s)) calc(200px * var(--sec7-pc-s));
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page .sec7-head {
+    width: calc(1148px * var(--sec7-pc-s));
+    max-width: none;
+    margin: 0 auto calc(28px * var(--sec7-pc-s));
+    margin-left: calc(50vw - 574px * var(--sec7-pc-s));
+    margin-right: 0;
+  }
+
+  .home-page .sec7-title-img {
+    width: calc(380px * var(--sec7-pc-s));
+    top: calc(-84px * var(--sec7-pc-s));
+  }
+
+  .home-page .sec7-marquee {
+    width: calc(1440px * var(--sec7-pc-s));
+    max-width: none;
+    margin-left: calc(50vw - 720px * var(--sec7-pc-s));
+    margin-right: 0;
+  }
+
+  .home-page .sec7-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: calc(28px * var(--sec7-pc-s));
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .home-page .sec7-card__name {
+    margin: calc(12px * var(--sec7-pc-s)) 0 calc(6px * var(--sec7-pc-s));
+    font-size: calc(18px * var(--sec7-pc-s));
+  }
+
+  .home-page .sec7-card__role {
+    margin-left: calc(8px * var(--sec7-pc-s));
+    font-size: calc(14px * var(--sec7-pc-s));
+  }
+
+  .home-page .sec7-card__text {
+    font-size: calc(13px * var(--sec7-pc-s));
   }
 }
 
