@@ -2077,13 +2077,32 @@
 @media (min-width: 769px) and (max-width: 1919px) {
   .home-page .fv {
     --fv-pc-s: calc(100vw / 1920px);
+    --fv-pc-h: calc(1080px * var(--fv-pc-s));
     --shirt-gap: calc(16px * var(--fv-pc-s));
     --shirt-col: calc((1920px - 7 * 16px) / 7.5 * var(--fv-pc-s));
+    min-height: var(--fv-pc-h);
+    height: var(--fv-pc-h);
     overflow-x: clip;
+    background-size: 100% 100%;
   }
 
   .home-page .shirts-layer {
     padding-top: calc(120px * var(--fv-pc-s));
+    height: 100%;
+  }
+
+  .home-page .fv-content {
+    min-height: var(--fv-pc-h);
+    height: var(--fv-pc-h);
+  }
+
+  .home-page .fv-foreground {
+    min-height: var(--fv-pc-h);
+    height: var(--fv-pc-h);
+  }
+
+  .home-page .fv-foreground__figures {
+    height: 100%;
   }
 
   .home-page .marquee {
