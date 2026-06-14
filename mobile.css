@@ -7,6 +7,7 @@
    + hamburger / menu drawer (≤480px, all pages)
    Breakpoints (max-width): 1440px → 1180px → 1024px → 768px → 480px
    TOP FV PC scale: 769px–1919px (1920 design lock in styles.css)
+   TOP sec2 PC scale: 769px+ (1920 design lock)
    ============================================================================= */
 
 /* =============================================================================
@@ -1759,6 +1760,72 @@
     width: 62%;
     height: 62%;
     object-fit: contain;
+  }
+}
+
+/* TOP sec2 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec2 {
+    --sec2-pc-s: calc(100vw / 1920px);
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page .sec2-inner {
+    width: calc(1920px * var(--sec2-pc-s));
+    height: calc(460px * var(--sec2-pc-s));
+    max-width: none;
+    margin-left: calc(50vw - 960px * var(--sec2-pc-s));
+    margin-right: 0;
+  }
+
+  .home-page .sec2-products-marquee {
+    margin-top: calc(48px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products {
+    column-gap: calc(16px * var(--sec2-pc-s));
+    padding: 0 calc(16px * var(--sec2-pc-s)) calc(64px * var(--sec2-pc-s)) 0;
+  }
+
+  .home-page .sec2-products .product-card {
+    padding-bottom: calc(16px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products .product-rank {
+    padding: calc(5px * var(--sec2-pc-s)) calc(12px * var(--sec2-pc-s));
+    font-size: calc(10px * var(--sec2-pc-s));
+    transform: translateY(calc(8px * var(--sec2-pc-s)));
+    margin-left: calc(6px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products .product-chip {
+    margin: calc(9px * var(--sec2-pc-s)) 0 0 calc(8px * var(--sec2-pc-s));
+    font-size: calc(9px * var(--sec2-pc-s));
+    padding: calc(4px * var(--sec2-pc-s)) calc(8px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products .product-name {
+    margin: calc(8px * var(--sec2-pc-s)) calc(6px * var(--sec2-pc-s)) 0;
+    font-size: calc(16px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products .product-price {
+    margin: calc(6px * var(--sec2-pc-s)) calc(6px * var(--sec2-pc-s)) 0;
+    font-size: calc(44px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products .product-price span {
+    font-size: calc(12px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products .product-tags {
+    margin: calc(10px * var(--sec2-pc-s)) calc(6px * var(--sec2-pc-s)) 0;
+    gap: calc(6px * var(--sec2-pc-s)) calc(10px * var(--sec2-pc-s));
+  }
+
+  .home-page .sec2-products .product-tags li {
+    font-size: calc(12px * var(--sec2-pc-s));
   }
 }
 
