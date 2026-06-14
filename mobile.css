@@ -9,6 +9,7 @@
    TOP FV PC scale: 769px–1919px (1920 design lock in styles.css)
    TOP sec2 PC scale: 769px+ (1920 design lock)
    TOP sec3 PC scale: 769px+ (1920 design lock, 1440px inner)
+   TOP sec4 PC scale: 769px+ (1920 design lock)
    ============================================================================= */
 
 /* =============================================================================
@@ -1884,6 +1885,68 @@
     border-top-width: calc(3px * var(--sec3-pc-s));
     border-bottom-width: calc(3px * var(--sec3-pc-s));
     border-left-width: calc(5px * var(--sec3-pc-s));
+  }
+}
+
+/* TOP sec4 — 769+: proportional scale from 1920px design lock (same as FV). */
+@media (min-width: 769px) {
+  .home-page .sec4 {
+    --sec4-pc-s: calc(100vw / 1920px);
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .home-page .sec4-inner {
+    padding: calc(34px * var(--sec4-pc-s)) 0 calc(52px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-kicker {
+    width: calc(380px * var(--sec4-pc-s));
+    left: 18%;
+    top: calc(-44px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-title {
+    width: calc(1080px * var(--sec4-pc-s));
+    max-width: 100%;
+    margin: calc(8px * var(--sec4-pc-s)) auto calc(48px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-list {
+    --sec4-gap: calc(16px * var(--sec4-pc-s));
+    --sec4-col: calc((1920px - 16px - 6 * 16px) / 7 * var(--sec4-pc-s));
+    padding: 0 calc(8px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-card {
+    padding-bottom: calc(10px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-card__image {
+    padding: calc(14px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-card__link {
+    margin-top: calc(-24px * var(--sec4-pc-s));
+    width: calc(80% - 8px * var(--sec4-pc-s));
+    min-height: calc(32px * var(--sec4-pc-s));
+    font-size: calc(13px * var(--sec4-pc-s));
+    padding: calc(16px * var(--sec4-pc-s)) calc(16px * var(--sec4-pc-s)) calc(16px * var(--sec4-pc-s))
+      calc(10px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-card__link::after {
+    right: calc(10px * var(--sec4-pc-s));
+    border-top-width: calc(3px * var(--sec4-pc-s));
+    border-bottom-width: calc(3px * var(--sec4-pc-s));
+    border-left-width: calc(5px * var(--sec4-pc-s));
+  }
+
+  .home-page .sec4-bottom-confetti {
+    left: 53%;
+    width: 64%;
+    margin-top: calc(-30px * var(--sec4-pc-s));
+    padding-bottom: calc(24px * var(--sec4-pc-s));
   }
 }
 
