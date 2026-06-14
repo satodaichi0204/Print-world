@@ -2078,8 +2078,6 @@
   .home-page .fv {
     --fv-pc-s: calc(100vw / 1920px);
     --fv-pc-h: calc(1080px * var(--fv-pc-s));
-    --shirt-gap: calc(16px * var(--fv-pc-s));
-    --shirt-col: calc((1920px - 7 * 16px) / 7.5 * var(--fv-pc-s));
     min-height: var(--fv-pc-h);
     height: var(--fv-pc-h);
     overflow: visible;
@@ -2087,7 +2085,6 @@
   }
 
   .home-page .shirts-layer {
-    padding-top: calc(120px * var(--fv-pc-s));
     height: 100%;
   }
 
@@ -2103,15 +2100,6 @@
 
   .home-page .fv-foreground__figures {
     height: 100%;
-  }
-
-  .home-page .marquee {
-    margin: calc(20px * var(--fv-pc-s)) 0;
-  }
-
-  .home-page .shirt-card {
-    padding: calc(14px * var(--fv-pc-s));
-    border-radius: calc(10px * var(--fv-pc-s));
   }
 
   /* Header — 1920 reference sizes × s */
@@ -2206,6 +2194,33 @@
   .home-page .fv-foreground,
   .home-page .fv-foreground__figures {
     overflow: visible;
+  }
+
+  /* Shirt grid — height-fill to artboard (48px bottom gap at 1920); applies at 1920+ too. */
+  .home-page .fv {
+    --fv-shirt-s: calc(100vw / 1920px);
+    --fv-shirt-canvas-h: var(--fv-pc-h, calc(1080px * var(--fv-shirt-s)));
+    --shirt-grid-bottom-gap: calc(48px * var(--fv-shirt-s));
+    --shirt-gap: calc(16px * var(--fv-shirt-s));
+    --shirt-col: calc(
+      (
+          var(--fv-shirt-canvas-h) - calc(120px * var(--fv-shirt-s)) -
+            calc(80px * var(--fv-shirt-s)) - var(--shirt-grid-bottom-gap)
+        ) / 3
+    );
+  }
+
+  .home-page .shirts-layer {
+    padding-top: calc(120px * var(--fv-shirt-s));
+  }
+
+  .home-page .marquee {
+    margin: calc(20px * var(--fv-shirt-s)) 0;
+  }
+
+  .home-page .shirt-card {
+    padding: calc(14px * var(--fv-shirt-s));
+    border-radius: calc(10px * var(--fv-shirt-s));
   }
 
   .home-page .fv-mobilephone {
