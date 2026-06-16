@@ -2904,12 +2904,22 @@
     width: 100%;
   }
 
+  .home-page .fv-maincopy-wrap {
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+    padding-left: 1%;
+    padding-right: 1%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
   .home-page .fv-maincopy {
     display: block;
-    width: 98%;
+    width: 100%;
     max-width: none;
     height: auto;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .home-page .fv-foreground__figures {
