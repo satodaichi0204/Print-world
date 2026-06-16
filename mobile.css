@@ -3101,9 +3101,24 @@
     border-radius: calc(22px * var(--sec8-sp-s));
   }
 
+  .home-page .sec8-collage {
+    min-height: calc(246px * var(--sec8-sp-s));
+  }
+
+  .home-page .sec8-collage__building {
+    top: calc(42px * var(--sec8-sp-s));
+    width: 50vw;
+  }
+
+  .home-page .sec8-collage__work {
+    right: -5%;
+    bottom: calc(-20px * var(--sec8-sp-s));
+    width: 43vw;
+  }
+
   .home-page .sec8-collage__woman {
     right: -32%;
-    top: calc(-123px * var(--sec8-sp-s));
+    top: calc(-136px * var(--sec8-sp-s));
     width: 58vw;
   }
 }
