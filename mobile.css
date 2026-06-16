@@ -2899,6 +2899,32 @@
     overflow: visible;
   }
 
+  /* FV height lock (658px @425) — shortens header→text gap; shirts scale with same factor */
+  .home-page .fv {
+    --fv-sp-s: calc(100vw / 425px);
+    --fv-sp-h: calc(658px * var(--fv-sp-s));
+    height: var(--fv-sp-h);
+    min-height: var(--fv-sp-h);
+    max-height: var(--fv-sp-h);
+    --fv-shirts-pad: calc(12px * var(--fv-sp-s));
+    --fv-shirts-available-h: calc(
+      var(--fv-sp-h) - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2
+    );
+  }
+
+  .home-page .shirts-layer {
+    gap: calc(8px * var(--fv-sp-s));
+    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
+    padding-bottom: var(--fv-shirts-pad);
+    --shirt-gap: calc(10px * var(--fv-sp-s));
+    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
+  }
+
+  .home-page .shirt-card {
+    padding: calc(12px * var(--fv-sp-s));
+    border-radius: calc(10px * var(--fv-sp-s));
+  }
+
   .home-page .fv-foreground {
     align-items: flex-start;
     width: 100%;
