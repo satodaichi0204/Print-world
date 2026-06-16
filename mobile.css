@@ -2906,7 +2906,7 @@
 
   .home-page .fv-foreground__figures {
     /* 1.42 = 1.29 (phone right:-29%) + 0.13 (people ml); width fits viewport with equal side gaps */
-    --fv-side-gap: 1%;
+    --fv-side-gap: 5px;
     --fv-fig-span: 1.42;
     --fv-fig-w: calc((100% - 2 * var(--fv-side-gap)) / var(--fv-fig-span));
     position: relative;
