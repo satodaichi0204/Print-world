@@ -2904,6 +2904,17 @@
     width: 100%;
   }
 
+  /* 425 lock: 326px wide; scales linearly to 320 (326 × vw / 425) */
+  .home-page .fv-maincopy {
+    display: block;
+    width: calc(326px * 100vw / 425px);
+    max-width: 93%;
+    height: auto;
+    margin: 0 auto;
+    position: static;
+    transform: none;
+  }
+
   .home-page .fv-foreground__figures {
     /* 1.42 = 1.29 (phone right:-29%) + 0.13 (people ml); width fits viewport with equal side gaps */
     --fv-side-gap: 5px;
