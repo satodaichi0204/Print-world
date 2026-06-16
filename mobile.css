@@ -2789,7 +2789,7 @@
   .home-page .sec5 {
     --sec5-t: calc((100vw - 426px) / (768px - 426px));
     overflow: visible;
-    padding: 0 0 calc(60px + 36px * var(--sec5-t));
+    padding: 0 20px calc(60px + 36px * var(--sec5-t));
   }
 
   .home-page .sec5-hero-wrap {
