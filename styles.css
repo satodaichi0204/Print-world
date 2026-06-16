@@ -95,6 +95,19 @@ img {
   display: none;
 }
 
+.fv-header__left {
+  display: contents;
+}
+
+.fv-header__brand {
+  display: none;
+}
+
+.fv-header__brand-lead,
+.fv-header__brand-name {
+  margin: 0;
+}
+
 .fv-header__main {
   display: flex;
   flex-direction: column;
