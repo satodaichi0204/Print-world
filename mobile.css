@@ -2991,7 +2991,7 @@
   }
 
   .home-page .sec3-deco {
-    left: calc(-52px * var(--sec3-sp-s));
+    left: calc(-30px * var(--sec3-sp-s));
     top: calc(-104px * var(--sec3-sp-s));
     width: 54vw;
   }
