@@ -2890,7 +2890,7 @@
   }
 }
 
-/* TOP FV — 320–425: center people+phone unit; 425 lock (67%/8% + 71%/-5%); equal viewport margins. */
+/* TOP FV — 320–425: 425px design lock; same people+phone arrangement scaled to 320. */
 @media (max-width: 425px) {
   .home-page .fv,
   .home-page .fv-content,
@@ -2899,16 +2899,14 @@
     overflow: visible;
   }
 
-  /* Flex must not center figures — only margin-left calc positions the visual unit */
   .home-page .fv-foreground {
     align-items: flex-start;
     width: 100%;
   }
 
   .home-page .fv-foreground__figures {
-    --fv-fig-t: calc((100vw - 320px) / (425px - 320px));
-    /* 86% at 320 → 88.5% at 425 (max that fits with 1.13 centering factor) */
-    --fv-fig-w: calc(86% + 2.5% * clamp(0, var(--fv-fig-t), 1));
+    /* 425px lock — constant % keeps people/phone relationship identical 320→425 */
+    --fv-fig-w: 88.5%;
     position: relative;
     flex: 0 0 auto;
     align-self: flex-start;
