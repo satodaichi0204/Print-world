@@ -2912,8 +2912,8 @@
     align-self: flex-start;
     width: var(--fv-fig-w);
     max-width: none;
-    /* 1.20 = 1.18 (phone right:-18%) + 0.02 (people margin-left) */
-    margin-left: calc((100% - 1.2 * var(--fv-fig-w)) / 2);
+    /* 1.24 = 1.20 (phone right:-20%) + 0.04 (people margin-left) */
+    margin-left: calc((100% - 1.24 * var(--fv-fig-w)) / 2);
     margin-right: 0;
     height: fit-content;
     transform: none;
@@ -2924,7 +2924,7 @@
     display: block;
     z-index: 14;
     width: 72%;
-    margin-left: 2%;
+    margin-left: 4%;
     max-width: none;
     height: auto;
     transform: none;
@@ -2934,7 +2934,7 @@
     position: absolute;
     z-index: 24;
     width: 76%;
-    right: -18%;
+    right: -20%;
     bottom: 0;
     top: auto;
     left: auto;
