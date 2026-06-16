@@ -3053,7 +3053,7 @@
   .home-page .sec5-maincopy {
     position: absolute;
     left: 21%;
-    top: calc(-102px * var(--sec5-sp-s));
+    top: calc(-50px * var(--sec5-sp-s));
     width: min(73vw, calc(292px * var(--sec5-sp-s)));
     max-width: none;
     margin: 0;
@@ -3081,7 +3081,7 @@
 
   .home-page .sec5-intro__lead {
     margin-bottom: calc(10px * var(--sec5-sp-s));
-    font-size: calc(17px * var(--sec5-sp-s));
+    font-size: calc(15px * var(--sec5-sp-s));
     line-height: 1.55;
   }
 
