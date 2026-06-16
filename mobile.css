@@ -1655,11 +1655,6 @@
 
   .home-page .fv-foreground__figures {
     transform: none;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 0;
     position: relative;
     align-self: flex-start;
     width: calc(768px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
@@ -1674,22 +1669,19 @@
 
   .home-page .fv-people {
     position: relative;
-    flex: 0 0 50%;
-    width: 50%;
+    width: 46%;
     max-width: none;
-    margin-left: 0;
+    margin-left: 16%;
     transform: none;
   }
 
   .home-page .fv-mobilephone {
-    position: relative;
-    flex: 0 0 50%;
-    width: 50%;
+    width: 45%;
     max-width: none;
     left: auto;
-    right: auto;
+    right: 15%;
     top: auto;
-    bottom: auto;
+    bottom: 0;
     margin: 0;
     transform: translateY(24%);
   }
@@ -2909,26 +2901,22 @@
 
   /* Flex must not center figures — only margin-left calc positions the visual unit */
   .home-page .fv-foreground {
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
   }
 
   .home-page .fv-foreground__figures {
     --fv-fig-t: calc((100vw - 320px) / (425px - 320px));
-    /* 92% at 320 → 95% at 425; flex row — no absolute overlap */
-    --fv-fig-w: calc(92% + 3% * clamp(0, var(--fv-fig-t), 1));
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 0;
+    /* 86% at 320 → 88.5% at 425 (max that fits with 1.13 centering factor) */
+    --fv-fig-w: calc(86% + 2.5% * clamp(0, var(--fv-fig-t), 1));
     position: relative;
     flex: 0 0 auto;
-    align-self: center;
+    align-self: flex-start;
     width: var(--fv-fig-w);
     max-width: none;
-    margin-left: auto;
-    margin-right: auto;
+    /* 1.13 = 1.05 (phone right:-5%) + 0.08 (people margin-left) */
+    margin-left: calc((100% - 1.13 * var(--fv-fig-w)) / 2);
+    margin-right: 0;
     height: fit-content;
     transform: none;
   }
@@ -2936,27 +2924,25 @@
   .home-page .fv-people {
     position: relative;
     display: block;
-    flex: 0 0 50%;
     z-index: 14;
-    width: 50%;
-    margin-left: 0;
+    width: 72%;
+    margin-left: 8%;
     max-width: none;
     height: auto;
     transform: none;
   }
 
   .home-page .fv-mobilephone {
-    position: relative;
-    flex: 0 0 50%;
+    position: absolute;
     z-index: 24;
-    width: 50%;
-    right: auto;
-    left: auto;
-    bottom: auto;
+    width: 76%;
+    right: -5%;
+    bottom: 0;
     top: auto;
+    left: auto;
     max-width: none;
     height: auto;
-    transform: translateY(20%);
+    transform: translateY(24%);
   }
 }
 
