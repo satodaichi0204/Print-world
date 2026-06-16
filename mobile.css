@@ -3156,6 +3156,12 @@
     width: min(86%, calc(315px * var(--sec9-sp-s)));
     margin-bottom: calc(20px * var(--sec9-sp-s));
   }
+
+  .home-page .sec9-ship-aside__staff {
+    right: auto;
+    width: min(56vw, calc(360px * var(--sec9-sp-s)));
+    margin-right: 5%;
+  }
 }
 
 /* =============================================================================
