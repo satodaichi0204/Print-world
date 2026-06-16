@@ -2980,6 +2980,41 @@
     height: auto;
     transform: translateY(24%);
   }
+
+  /* TOP sec3 — 425 lock; 3 columns; scales to 320 */
+  .home-page .sec3 {
+    --sec3-sp-s: calc(100vw / 425px);
+  }
+
+  .home-page .sec3-top {
+    min-height: calc(48px * var(--sec3-sp-s));
+  }
+
+  .home-page .sec3-deco {
+    left: calc(-52px * var(--sec3-sp-s));
+    top: calc(-104px * var(--sec3-sp-s));
+    width: 54vw;
+  }
+
+  .home-page .sec3-title {
+    right: calc(-5px * var(--sec3-sp-s));
+    top: calc(-54px * var(--sec3-sp-s));
+    width: 55vw;
+    left: auto;
+  }
+
+  .home-page .sec3-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: calc(18px * var(--sec3-sp-s)) calc(10px * var(--sec3-sp-s));
+    margin-top: calc(-16px * var(--sec3-sp-s));
+  }
+
+  .home-page .sec3-card__link {
+    min-height: calc(32px * var(--sec3-sp-s));
+    padding: calc(8px * var(--sec3-sp-s)) calc(20px * var(--sec3-sp-s))
+      calc(8px * var(--sec3-sp-s)) calc(10px * var(--sec3-sp-s));
+    font-size: calc(11px * var(--sec3-sp-s));
+  }
 }
 
 /* =============================================================================
