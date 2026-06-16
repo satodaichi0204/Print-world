@@ -2900,27 +2900,24 @@
   }
 
   .home-page .fv-foreground {
-    align-items: stretch;
+    align-items: flex-start;
     width: 100%;
   }
 
   .home-page .fv-maincopy-wrap {
-    display: block;
-    flex: none;
     align-self: stretch;
-    width: calc(100% - 2%);
+    width: 100%;
     max-width: none;
-    margin-left: 1%;
-    margin-right: 1%;
-    padding: 0;
+    padding-left: 1%;
+    padding-right: 1%;
     box-sizing: border-box;
+    margin: 0;
   }
 
   .home-page .fv-maincopy {
     display: block;
     width: 100%;
     max-width: none;
-    min-width: 0;
     height: auto;
     margin: 0;
   }
