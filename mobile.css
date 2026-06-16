@@ -2996,6 +2996,17 @@
   .home-page .sec9-contact__cols {
     width: min(calc(86% + 2% * var(--sec9-t)), 315px);
   }
+
+  .home-page .sec9-ship-aside__staff {
+    position: relative;
+    top: auto;
+    right: 0%;
+    left: auto;
+    width: 56vw;
+    max-width: none;
+    margin-right: 0;
+    transform: none;
+  }
 }
 
 /* TOP FV — 320–425: 425px design lock; same people+phone arrangement scaled to 320. */
@@ -3266,9 +3277,14 @@
   }
 
   .home-page .sec9-ship-aside__staff {
-    right: auto;
-    width: min(56vw, calc(360px * var(--sec9-sp-s)));
-    margin-right: 5%;
+    position: relative;
+    top: auto;
+    right: 0%;
+    left: auto;
+    width: 56vw;
+    max-width: none;
+    margin-right: 0;
+    transform: none;
   }
 }
 
