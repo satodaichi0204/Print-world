@@ -78,6 +78,32 @@ setupMeasuredLoop(
   "--sec7-loop-translate"
 );
 
+setupMeasuredLoop(
+  document.querySelector(".plp-ranking__track"),
+  ".plp-ranking__set",
+  "--plp-loop-translate"
+);
+
+// Product detail: gallery thumb switching
+(() => {
+  const gallery = document.querySelector("[data-pdp-gallery]");
+  if (!gallery) return;
+
+  const mainImg = gallery.querySelector(".pdp-gallery__main-img");
+  const thumbs = gallery.querySelectorAll(".pdp-gallery__thumb");
+  if (!mainImg || thumbs.length === 0) return;
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const src = thumb.getAttribute("data-pdp-src");
+      if (!src) return;
+      mainImg.src = src;
+      thumbs.forEach((t) => t.classList.remove("is-active"));
+      thumb.classList.add("is-active");
+    });
+  });
+})();
+
 // Section4 cards: duplicate one full set for continuous left loop.
 const sec4Track = document.querySelector(".sec4-track");
 const sec4Set = sec4Track?.querySelector(".sec4-list");
@@ -106,6 +132,8 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
       </div>
       <nav class="site-menu__nav" aria-label="サイト内リンク">
         <a class="site-menu__link" href="index.html">トップ</a>
+        <a class="site-menu__link" href="product-list.html">オリジナル Tシャツ</a>
+        <a class="site-menu__link" href="product-detail.html">商品詳細（サンプル）</a>
         <a class="site-menu__link" href="guide-flow.html">ご注文から到着までの流れ</a>
         <a class="site-menu__link" href="guide-design-tool.html">デザインツールの使い方</a>
         <a class="site-menu__link" href="guide-data-submission.html">データ入稿ガイド</a>

@@ -3286,6 +3286,53 @@
     margin-right: 0;
     transform: none;
   }
+
+  /* Product list / detail — 320–425 */
+  .product-list-page .plp-hero,
+  .product-detail-page .pdp-hero {
+    padding: calc(88px + 12px * var(--sec9-sp-s, 1)) 0 calc(28px * var(--sec9-sp-s, 1));
+  }
+
+  .product-list-page .plp-hero__inner,
+  .product-detail-page .pdp-hero__inner,
+  .product-list-page .plp-inner,
+  .product-detail-page .pdp-inner {
+    width: min(1440px, calc(100% - 24px));
+    padding-inline: 12px;
+  }
+
+  .product-list-page .plp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 10px;
+  }
+
+  .product-list-page .plp-rank-card {
+    flex: 0 0 168px;
+    width: 168px;
+  }
+
+  .product-detail-page .pdp-body__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-detail-page .pdp-gallery__thumbs {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .product-detail-page .pdp-size__tables {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-detail-page .pdp-actions {
+    flex-direction: column;
+  }
+
+  .product-detail-page .pdp-btn {
+    width: 100%;
+  }
 }
 
 /* =============================================================================
@@ -4712,6 +4759,83 @@
 @media (max-width: 480px) {
   .site-footer {
     padding: 40px 20px 64px;
+  }
+}
+
+/* --- Product list / detail: tablet (426–768) --- */
+@media (min-width: 426px) and (max-width: 768px) {
+  .product-list-page .fv-header__main,
+  .product-detail-page .fv-header__main {
+    display: none;
+  }
+
+  .product-list-page .plp-hero,
+  .product-detail-page .pdp-hero {
+    padding: 108px 0 32px;
+  }
+
+  .product-list-page .plp-inner,
+  .product-detail-page .pdp-inner {
+    width: min(1440px, calc(100% - 32px));
+  }
+
+  .product-list-page .plp-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 12px;
+  }
+
+  .product-detail-page .pdp-body__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .product-detail-page .pdp-size__tables {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* --- Product list / detail: laptop header trim --- */
+@media (max-width: 1180px) {
+  .product-list-page .fv-header__main,
+  .product-detail-page .fv-header__main {
+    display: none;
+  }
+
+  .product-list-page .fv-header__actions,
+  .product-detail-page .fv-header__actions {
+    gap: 0;
+  }
+}
+
+/* --- Product list / detail: small laptop --- */
+@media (max-width: 1024px) {
+  .product-list-page .plp-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .product-list-page .plp-hero,
+  .product-detail-page .pdp-hero {
+    padding: 108px 0 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list-page .fv-header__compact,
+  .product-detail-page .fv-header__compact {
+    display: flex;
+  }
+
+  .product-list-page .plp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-detail-page .pdp-body__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .product-detail-page .pdp-size__tables {
+    grid-template-columns: 1fr;
   }
 }
 
