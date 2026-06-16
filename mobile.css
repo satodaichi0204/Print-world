@@ -3121,6 +3121,41 @@
     top: calc(-136px * var(--sec8-sp-s));
     width: 58vw;
   }
+
+  /* TOP sec9 — 425 lock; scales to 320 */
+  .home-page .sec9 {
+    --sec9-sp-s: calc(100vw / 425px);
+    padding: calc(50px * var(--sec9-sp-s)) calc(16px * var(--sec9-sp-s)) 0;
+  }
+
+  .home-page .sec9-contact {
+    margin-bottom: calc(28px * var(--sec9-sp-s));
+  }
+
+  .home-page .sec9-contact__title {
+    left: 61%;
+    top: calc(-70px * var(--sec9-sp-s));
+    width: min(68vw, calc(290px * var(--sec9-sp-s)));
+  }
+
+  .home-page .sec9-contact__woman {
+    top: calc(-192px * var(--sec9-sp-s));
+    right: auto;
+    left: calc(-102px * var(--sec9-sp-s));
+    z-index: 3;
+    width: min(100vw, calc(392px * var(--sec9-sp-s)));
+    transform: none;
+  }
+
+  .home-page .sec9-contact__panel {
+    padding: calc(98px * var(--sec9-sp-s)) calc(18px * var(--sec9-sp-s)) calc(20px * var(--sec9-sp-s));
+    border-radius: calc(18px * var(--sec9-sp-s));
+  }
+
+  .home-page .sec9-contact__cols {
+    width: min(86%, calc(315px * var(--sec9-sp-s)));
+    margin-bottom: calc(20px * var(--sec9-sp-s));
+  }
 }
 
 /* =============================================================================
