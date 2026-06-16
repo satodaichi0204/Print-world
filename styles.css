@@ -4015,103 +4015,11 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   margin: 0 auto;
 }
 
-/* Product list: header + title band */
-.plp-page-head {
-  position: relative;
-  z-index: 5;
+/* Hero bands */
+.plp-hero {
   background: #efce0a;
-  padding-bottom: clamp(28px, 3.5vw, 52px);
-}
-
-.product-list-page .plp-page-head .fv-header {
-  position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-  min-height: 0;
-  width: min(1440px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 24px 24px 0;
-  pointer-events: auto;
-}
-
-.product-list-page .plp-page-head .fv-header__left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
-
-.product-list-page .plp-page-head .fv-logo {
-  position: relative;
-  top: auto;
-  left: auto;
-  flex: 0 0 auto;
-}
-
-.product-list-page .plp-page-head .fv-logo img {
-  width: clamp(72px, 6.5vw, 104px);
-  height: auto;
-}
-
-.product-list-page .plp-page-head .fv-header__brand {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-  min-width: 0;
-}
-
-.product-list-page .plp-page-head .fv-header__brand-lead {
-  font-size: clamp(10px, 0.85vw, 13px);
-  font-weight: 700;
-  line-height: 1.35;
-  color: #111;
-}
-
-.product-list-page .plp-page-head .fv-header__brand-name {
-  font-size: clamp(22px, 2.4vw, 36px);
-  font-weight: 900;
-  line-height: 1.05;
-  color: #fff;
-  letter-spacing: 0.02em;
-  -webkit-text-stroke: 1.5px #111;
-  paint-order: stroke fill;
-}
-
-.product-list-page .plp-page-head .fv-header__right {
-  position: relative;
-  right: auto;
-  flex: 0 0 auto;
-}
-
-.plp-page-head__title-bar {
-  width: min(1440px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: clamp(20px, 3vw, 40px) 24px 0;
-  box-sizing: border-box;
-}
-
-.plp-page-head__title {
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35em 0.65em;
-  font-size: clamp(44px, 5.8vw, 88px);
-  font-weight: 900;
-  line-height: 1.05;
-  color: #111;
-  letter-spacing: 0.02em;
-}
-
-.plp-page-head__title-a,
-.plp-page-head__title-b {
-  display: inline-block;
+  padding: 120px 0 52px;
+  text-align: center;
 }
 
 .pdp-hero {
@@ -4119,8 +4027,21 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   padding: 130px 0 42px;
 }
 
+.plp-hero__inner {
+  padding: 8px 36px 0;
+}
+
 .pdp-hero__inner {
   padding: 24px 36px 8px;
+}
+
+.plp-hero__title {
+  margin: 0;
+  font-size: clamp(40px, 4.8vw, 72px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: #111;
+  letter-spacing: 0.04em;
 }
 
 .pdp-hero__title {

@@ -3288,39 +3288,7 @@
   }
 
   /* Product list / detail — 320–425 */
-  .product-list-page .plp-page-head {
-    padding-bottom: calc(20px * var(--sec9-sp-s, 1));
-  }
-
-  .product-list-page .plp-page-head .fv-header {
-    width: min(1440px, calc(100% - 24px));
-    padding: calc(12px * var(--sec9-sp-s, 1)) calc(12px * var(--sec9-sp-s, 1)) 0;
-    gap: calc(8px * var(--sec9-sp-s, 1));
-  }
-
-  .product-list-page .plp-page-head .fv-logo img {
-    width: calc(56px * var(--sec9-sp-s, 1));
-  }
-
-  .product-list-page .plp-page-head .fv-header__brand-lead {
-    font-size: calc(10px * var(--sec9-sp-s, 1));
-  }
-
-  .product-list-page .plp-page-head .fv-header__brand-name {
-    font-size: calc(18px * var(--sec9-sp-s, 1));
-    -webkit-text-stroke-width: 1px;
-  }
-
-  .product-list-page .plp-page-head__title-bar {
-    width: min(1440px, calc(100% - 24px));
-    padding: calc(14px * var(--sec9-sp-s, 1)) calc(12px * var(--sec9-sp-s, 1)) 0;
-  }
-
-  .product-list-page .plp-page-head__title {
-    font-size: calc(32px * var(--sec9-sp-s, 1));
-    gap: 0.3em 0.5em;
-  }
-
+  .product-list-page .plp-hero,
   .product-detail-page .pdp-hero {
     padding: calc(88px + 12px * var(--sec9-sp-s, 1)) 0 calc(28px * var(--sec9-sp-s, 1));
   }
@@ -3361,7 +3329,7 @@
     width: 168px;
   }
 
-  .product-list-page .plp-page-head__title-bar,
+  .product-list-page .plp-hero__inner,
   .product-detail-page .pdp-hero__inner,
   .product-list-page .plp-inner,
   .product-detail-page .pdp-inner {
@@ -4832,39 +4800,7 @@
     display: none;
   }
 
-  .product-list-page .plp-page-head .fv-header {
-    align-items: center;
-    width: min(1440px, calc(100% - 32px));
-    padding: 16px 16px 0;
-  }
-
-  .product-list-page .plp-page-head .fv-header__left {
-    gap: 10px;
-  }
-
-  .product-list-page .plp-page-head .fv-logo {
-    width: 56px;
-    height: 52px;
-    overflow: hidden;
-  }
-
-  .product-list-page .plp-page-head .fv-logo img {
-    width: auto;
-    height: 100%;
-    max-width: none;
-    object-fit: cover;
-    object-position: left center;
-  }
-
-  .product-list-page .plp-page-head__title-bar {
-    width: min(1440px, calc(100% - 32px));
-    padding: 20px 16px 0;
-  }
-
-  .product-list-page .plp-page-head__title {
-    font-size: clamp(34px, 8vw, 48px);
-  }
-
+  .product-list-page .plp-hero,
   .product-detail-page .pdp-hero {
     padding: 108px 0 32px;
   }
@@ -4922,6 +4858,7 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .product-list-page .plp-hero,
   .product-detail-page .pdp-hero {
     padding: 108px 0 36px;
   }
