@@ -2907,8 +2907,8 @@
 
   .home-page .fv-foreground__figures {
     --fv-fig-t: calc((100vw - 320px) / (425px - 320px));
-    /* Use % (not vw) so centering matches visible width; 100vw includes scrollbar gutter */
-    --fv-fig-w: calc(84% - 2% * clamp(0, var(--fv-fig-t), 1));
+    /* 86% at 320 → 88.5% at 425 (max that fits with 1.13 centering factor) */
+    --fv-fig-w: calc(86% + 2.5% * clamp(0, var(--fv-fig-t), 1));
     position: relative;
     flex: 0 0 auto;
     align-self: flex-start;
@@ -2925,7 +2925,7 @@
     position: relative;
     display: block;
     z-index: 14;
-    width: 67%;
+    width: 72%;
     margin-left: 8%;
     max-width: none;
     height: auto;
@@ -2935,7 +2935,7 @@
   .home-page .fv-mobilephone {
     position: absolute;
     z-index: 24;
-    width: 71%;
+    width: 76%;
     right: -5%;
     bottom: 0;
     top: auto;
