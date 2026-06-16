@@ -3089,6 +3089,23 @@
     font-size: calc(15px * var(--sec5-sp-s));
     line-height: 1.7;
   }
+
+  /* TOP sec8 — 425 lock; scales to 320 */
+  .home-page .sec8 {
+    --sec8-sp-s: calc(100vw / 425px);
+  }
+
+  .home-page .sec8-store {
+    width: calc(100% - 24px * var(--sec8-sp-s));
+    padding: calc(50px * var(--sec8-sp-s)) calc(36px * var(--sec8-sp-s)) calc(42px * var(--sec8-sp-s));
+    border-radius: calc(22px * var(--sec8-sp-s));
+  }
+
+  .home-page .sec8-collage__woman {
+    right: -32%;
+    top: calc(-123px * var(--sec8-sp-s));
+    width: 58vw;
+  }
 }
 
 /* =============================================================================
