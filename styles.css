@@ -4016,18 +4016,34 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 /* Hero bands */
-.plp-hero,
+.plp-hero {
+  background: #efce0a;
+  padding: 120px 0 52px;
+  text-align: center;
+}
+
 .pdp-hero {
   background: #efce0a;
   padding: 130px 0 42px;
 }
 
-.plp-hero__inner,
+.plp-hero__inner {
+  padding: 8px 36px 0;
+}
+
 .pdp-hero__inner {
   padding: 24px 36px 8px;
 }
 
-.plp-hero__title,
+.plp-hero__title {
+  margin: 0;
+  font-size: clamp(40px, 4.8vw, 72px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: #111;
+  letter-spacing: 0.04em;
+}
+
 .pdp-hero__title {
   margin: 0;
   font-size: clamp(32px, 3.2vw, 52px);
@@ -4037,181 +4053,160 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   letter-spacing: 0.02em;
 }
 
-.plp-hero__lead {
-  margin: 18px 0 0;
-  max-width: 920px;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.75;
-  color: #222;
+/* Intro copy */
+.plp-intro {
+  background: #fff;
+  padding: 40px 0 36px;
 }
 
-/* Ranking */
-.plp-ranking {
-  background: #f5ead8;
-  padding: 36px 0 44px;
+.plp-intro__inner {
+  text-align: center;
 }
 
-.plp-ranking__head {
-  margin-bottom: 22px;
-}
-
-.plp-ranking__title {
-  margin: 0;
-  font-size: clamp(18px, 1.8vw, 28px);
+.plp-intro__catch {
+  margin: 0 auto;
+  max-width: 1080px;
+  font-size: clamp(18px, 2vw, 28px);
   font-weight: 900;
-  line-height: 1.45;
+  line-height: 1.55;
   color: #111;
 }
 
-.plp-ranking__title-accent {
-  display: inline-block;
-  margin-right: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: #f15a24;
-  color: #fff;
-  font-size: 0.78em;
-  vertical-align: middle;
+.plp-intro__body {
+  margin: 20px auto 0;
+  max-width: 880px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.85;
+  color: #555;
 }
 
-.plp-ranking__title-em {
-  color: #f15a24;
+/* Ranking panel */
+.plp-ranking {
+  background: #fff;
+  padding: 8px 0 48px;
 }
 
-.plp-ranking__marquee {
+.plp-ranking__outer {
+  position: relative;
+}
+
+.plp-ranking__panel {
+  position: relative;
+  border-radius: 20px;
+  background: #f7f0e3;
   overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.plp-ranking__banner {
+  background: #f15a24;
+  padding: 16px 28px;
+  border-radius: 20px 20px 0 0;
+}
+
+.plp-ranking__banner-title {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 10px;
+  font-size: clamp(15px, 1.55vw, 22px);
+  font-weight: 900;
+  line-height: 1.45;
+  color: #fff;
+  text-align: center;
+}
+
+.plp-ranking__banner-crown {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.plp-ranking__banner-em {
+  color: #fff;
+}
+
+.plp-ranking__slider {
+  position: relative;
+  padding: 28px 64px 32px;
+}
+
+.plp-ranking__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.plp-ranking__viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .plp-ranking__track {
   display: flex;
-  width: max-content;
-  animation: plp-ranking-scroll 42s linear infinite;
-}
-
-.plp-ranking__set {
-  display: flex;
   gap: 18px;
-  padding-right: 18px;
+  width: max-content;
+  padding: 4px 2px 8px;
 }
 
-@keyframes plp-ranking-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(var(--plp-loop-translate, -50%));
-  }
+.plp-ranking__track .product-card {
+  flex: 0 0 clamp(220px, 28vw, 300px);
+  width: clamp(220px, 28vw, 300px);
+  scroll-snap-align: start;
+  background: transparent;
 }
 
-.plp-rank-card {
-  position: relative;
-  flex: 0 0 220px;
-  width: 220px;
-  padding: 0 0 14px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-
-.plp-rank-card__badge {
+.plp-ranking__nav {
   position: absolute;
-  top: 8px;
-  left: 10px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 28px;
-  height: 28px;
-  padding: 0 8px;
-  border-radius: 999px;
-  background: #8f8f8f;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.plp-rank-card__badge--1 {
-  background: #d9ab2d;
-}
-
-.plp-rank-card__badge--2 {
-  background: #9e9e9e;
-}
-
-.plp-rank-card__badge--3 {
-  background: #8f5a2e;
-}
-
-.plp-rank-card__link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.plp-rank-card__image {
+  top: 50%;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1 / 1;
-  background: #fafafa;
-  border-radius: 8px 8px 0 0;
-}
-
-.plp-rank-card__image img {
-  width: 82%;
-  height: 82%;
-  object-fit: contain;
-}
-
-.plp-rank-card__chip {
-  margin: 8px 0 0 10px;
-  display: inline-block;
-  padding: 4px 8px;
-  border: 1px solid #e4e4e4;
-  border-radius: 999px;
-  background: #fff;
-  color: #606060;
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.plp-rank-card__name {
-  margin: 8px 10px 0;
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1.35;
-  color: #141414;
-}
-
-.plp-rank-card__price {
-  margin: 6px 10px 0;
-  color: #c91f2e;
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 1;
-  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
-}
-
-.plp-rank-card__price span {
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.plp-rank-card__tags {
-  list-style: none;
-  margin: 8px 10px 0;
+  width: 52px;
+  height: 52px;
+  margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 8px;
+  border: 2px solid #f15a24;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
-.plp-rank-card__tags li {
-  color: #8a8a8a;
-  font-size: 10px;
-  font-weight: 700;
+.plp-ranking__nav:hover {
+  background: #fff8f4;
+}
+
+.plp-ranking__nav--prev {
+  left: 12px;
+}
+
+.plp-ranking__nav--next {
+  right: 12px;
+}
+
+.plp-ranking__nav span {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-bottom: 3px solid #f15a24;
+  border-left: 3px solid #f15a24;
+}
+
+.plp-ranking__nav--prev span {
+  margin-left: 4px;
+  transform: rotate(45deg);
+}
+
+.plp-ranking__nav--next span {
+  margin-right: 4px;
+  transform: rotate(-135deg);
 }
 
 /* Filters */

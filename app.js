@@ -78,11 +78,32 @@ setupMeasuredLoop(
   "--sec7-loop-translate"
 );
 
-setupMeasuredLoop(
-  document.querySelector(".plp-ranking__track"),
-  ".plp-ranking__set",
-  "--plp-loop-translate"
-);
+// Product list: ranking slider arrows
+(() => {
+  const slider = document.querySelector("[data-plp-slider]");
+  if (!slider) return;
+
+  const viewport = slider.querySelector(".plp-ranking__viewport");
+  const prev = slider.querySelector(".plp-ranking__nav--prev");
+  const next = slider.querySelector(".plp-ranking__nav--next");
+  if (!viewport || !prev || !next) return;
+
+  const scrollStep = () => {
+    const card = viewport.querySelector(".product-card");
+    if (!card) return Math.max(240, viewport.clientWidth * 0.85);
+    const trackStyles = window.getComputedStyle(viewport.querySelector(".plp-ranking__track"));
+    const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || "18") || 18;
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  prev.addEventListener("click", () => {
+    viewport.scrollBy({ left: -scrollStep(), behavior: "smooth" });
+  });
+
+  next.addEventListener("click", () => {
+    viewport.scrollBy({ left: scrollStep(), behavior: "smooth" });
+  });
+})();
 
 // Product detail: gallery thumb switching
 (() => {
