@@ -2890,6 +2890,62 @@
   }
 }
 
+/* TOP FV — 320–425: center people+phone unit; 425 lock (67%/8% + 71%/-5%); equal viewport margins. */
+@media (max-width: 425px) {
+  .home-page .fv,
+  .home-page .fv-content,
+  .home-page .fv-foreground,
+  .home-page .fv-foreground__figures {
+    overflow: visible;
+  }
+
+  /* Flex must not center figures — only margin-left calc positions the visual unit */
+  .home-page .fv-foreground {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .home-page .fv-foreground__figures {
+    --fv-fig-t: calc((100vw - 320px) / (425px - 320px));
+    /* Use % (not vw) so centering matches visible width; 100vw includes scrollbar gutter */
+    --fv-fig-w: calc(84% - 2% * clamp(0, var(--fv-fig-t), 1));
+    position: relative;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    width: var(--fv-fig-w);
+    max-width: none;
+    /* 1.13 = 1.05 (phone right:-5%) + 0.08 (people margin-left) */
+    margin-left: calc((100% - 1.13 * var(--fv-fig-w)) / 2);
+    margin-right: 0;
+    height: fit-content;
+    transform: none;
+  }
+
+  .home-page .fv-people {
+    position: relative;
+    display: block;
+    z-index: 14;
+    width: 67%;
+    margin-left: 8%;
+    max-width: none;
+    height: auto;
+    transform: none;
+  }
+
+  .home-page .fv-mobilephone {
+    position: absolute;
+    z-index: 24;
+    width: 71%;
+    right: -5%;
+    bottom: 0;
+    top: auto;
+    left: auto;
+    max-width: none;
+    height: auto;
+    transform: translateY(24%);
+  }
+}
+
 /* =============================================================================
    TOP FV — 769–1919: proportional scale from 1920px design lock (s = 100vw / 1920).
    At 1920+ styles.css is unchanged. All px offsets use 1920 reference values × s.
