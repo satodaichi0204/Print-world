@@ -2905,16 +2905,17 @@
   }
 
   .home-page .fv-foreground__figures {
-    /* 425px lock — constant % keeps people/phone relationship identical 320→425 */
-    --fv-fig-w: 88.5%;
+    /* 1.42 = 1.29 (phone right:-29%) + 0.13 (people ml); width fits viewport with equal side gaps */
+    --fv-side-gap: 5%;
+    --fv-fig-span: 1.42;
+    --fv-fig-w: calc((100% - 2 * var(--fv-side-gap)) / var(--fv-fig-span));
     position: relative;
     flex: 0 0 auto;
     align-self: flex-start;
     width: var(--fv-fig-w);
     max-width: none;
-    /* 1.37 = 1.27 (phone right:-27%) + 0.10 (people margin-left) — equal viewport margins */
-    margin-left: calc((100% - 1.37 * var(--fv-fig-w)) / 2);
-    margin-right: 0;
+    margin-left: var(--fv-side-gap);
+    margin-right: var(--fv-side-gap);
     height: fit-content;
     transform: none;
   }
@@ -2924,7 +2925,7 @@
     display: block;
     z-index: 14;
     width: 72%;
-    margin-left: 10%;
+    margin-left: 13%;
     max-width: none;
     height: auto;
     transform: none;
@@ -2934,7 +2935,7 @@
     position: absolute;
     z-index: 24;
     width: 76%;
-    right: -27%;
+    right: -29%;
     bottom: 0;
     top: auto;
     left: auto;
