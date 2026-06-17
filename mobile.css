@@ -4919,8 +4919,15 @@
   }
 
   .product-list-page .plp-ranking__banner {
-    margin-inline: 12px;
-    padding: 10px 14px;
+    max-width: calc(100% - 24px);
+    padding: 8px 14px;
+  }
+
+  .product-list-page .plp-ranking__banner-title {
+    flex-wrap: wrap;
+    white-space: normal;
+    font-size: 12px;
+    gap: 4px;
   }
 }
 

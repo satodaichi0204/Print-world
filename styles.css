@@ -4116,8 +4116,11 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-ranking__banner {
   position: relative;
   top: 0;
-  margin: 0 24px;
-  padding: 12px 24px;
+  display: table;
+  width: fit-content;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  padding: 10px 26px;
   background: #f15a24;
   border-radius: 999px;
   transform: translateY(-50%);
@@ -4126,15 +4129,16 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-ranking__banner-title {
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 6px 8px;
-  font-size: clamp(14px, 1.45vw, 20px);
+  gap: 6px;
+  font-size: clamp(13px, 1.35vw, 18px);
   font-weight: 900;
-  line-height: 1.4;
+  line-height: 1.35;
   color: #fff;
   text-align: center;
+  white-space: nowrap;
 }
 
 .plp-ranking__banner-crown {
