@@ -4119,8 +4119,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   left: 0;
   /* right: 0; */
   z-index: 3;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   padding: 0 40px;
   box-sizing: border-box;
   transform: translateY(-50%);
