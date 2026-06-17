@@ -4920,6 +4920,11 @@
 
   .product-list-page .plp-ranking__banner-row {
     padding: 0 12px;
+    justify-content: center;
+  }
+
+  .product-list-page .plp-ranking__panel {
+    padding-top: 32px;
   }
 
   .product-list-page .plp-ranking__banner {
