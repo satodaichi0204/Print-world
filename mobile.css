@@ -4965,21 +4965,25 @@
 
   .product-list-page .plp-ranking__banner {
     max-width: calc(100% - 16px);
-    padding: 14px 20px;
+    padding: 10px 16px;
   }
 
-  .product-list-page .plp-ranking__banner-part {
+  .product-list-page .plp-ranking__banner-title {
     flex-wrap: wrap;
     white-space: normal;
-    justify-content: center;
+    row-gap: 4px;
   }
 
-  .product-list-page .plp-ranking__banner-part--lead {
-    font-size: 11px;
+  .product-list-page .plp-ranking__banner-seg--sm {
+    font-size: 10px;
   }
 
-  .product-list-page .plp-ranking__banner-part--main {
-    font-size: 16px;
+  .product-list-page .plp-ranking__banner-seg--lg {
+    font-size: 18px;
+  }
+
+  .product-list-page .plp-ranking__banner-seg--md {
+    font-size: 13px;
   }
 }
 

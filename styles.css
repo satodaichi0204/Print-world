@@ -4134,7 +4134,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   width: fit-content;
   max-width: calc(100% - 30px);
   margin: 0 auto;
-  padding: 24px 68px;
+  padding: 14px 52px;
   background: #f15a24;
   border-radius: 999px;
   transform: none;
@@ -4144,57 +4144,42 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-ranking__banner-title {
   margin: 0;
   display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: #fff;
-  text-align: center;
-}
-
-.plp-ranking__banner-part {
-  display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   align-items: baseline;
   justify-content: center;
-  gap: 6px;
+  gap: 0;
+  color: #fff;
   font-weight: 900;
-  line-height: 1.2;
+  letter-spacing: 0;
+  text-align: center;
   white-space: nowrap;
 }
 
-.plp-ranking__banner-part--lead {
-  font-size: clamp(12px, 1.15vw, 16px);
-  align-items: center;
+.plp-ranking__banner-seg {
+  display: inline;
+  line-height: 1.15;
 }
 
-.plp-ranking__banner-part--main {
-  font-size: clamp(18px, 2vw, 28px);
+.plp-ranking__banner-seg--sm {
+  font-size: clamp(13px, 1.05vw, 15px);
+}
+
+.plp-ranking__banner-seg--lg {
+  font-size: clamp(24px, 2.25vw, 32px);
+  line-height: 1;
+}
+
+.plp-ranking__banner-seg--md {
+  font-size: clamp(16px, 1.45vw, 20px);
 }
 
 .plp-ranking__banner-crown {
-  flex: 0 0 auto;
-  font-size: 1em;
+  display: inline;
+  margin-right: 0.2em;
+  font-size: 0.95em;
   line-height: 1;
-}
-
-.plp-ranking__ima-i {
-  font-size: 1.45em;
-  line-height: 1;
-}
-
-.plp-ranking__ima-ma {
-  font-size: 0.82em;
-  line-height: 1;
-}
-
-.plp-ranking__banner-prefix {
-  font-size: 0.68em;
-  line-height: 1.2;
-}
-
-.plp-ranking__banner-em {
-  color: #fff;
+  vertical-align: baseline;
 }
 
 .plp-ranking__slider {
