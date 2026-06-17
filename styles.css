@@ -4206,7 +4206,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 3cqi;
+  gap: 1cqi;
   flex: 0 0 calc((100cqw - 32px) / 3);
   width: calc((100cqw - 32px) / 3);
   min-width: 0;
