@@ -3293,11 +3293,11 @@
   }
 
   .product-list-page .plp-hero__title-sm {
-    font-size: calc(22px * var(--sec9-sp-s, 1));
+    font-size: calc(17px * var(--sec9-sp-s, 1));
   }
 
   .product-list-page .plp-hero__title-lg {
-    font-size: calc(36px * var(--sec9-sp-s, 1));
+    font-size: calc(31px * var(--sec9-sp-s, 1));
   }
 
   .product-detail-page .pdp-hero {
