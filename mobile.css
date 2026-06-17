@@ -3336,10 +3336,17 @@
   }
 
   .product-list-page .plp-ranking__track .product-card {
-    flex: 0 0 168px;
-    width: 168px;
-    min-width: 168px;
-    max-width: 168px;
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .product-list-page .plp-ranking__track .plp-rank-card__media,
+  .product-list-page .plp-ranking__track .product-image-wrap {
+    flex-basis: 96px;
+    width: 96px;
+    height: 96px;
   }
 
   .product-list-page .plp-ranking__track .product-name {
@@ -3347,7 +3354,7 @@
   }
 
   .product-list-page .plp-ranking__track .product-price {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .product-list-page .plp-subcat__grid {
@@ -4847,10 +4854,10 @@
   }
 
   .product-list-page .plp-ranking__track .product-card {
-    flex: 0 0 180px;
-    width: 180px;
-    min-width: 180px;
-    max-width: 180px;
+    flex: 0 0 300px;
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
   }
 
   .product-list-page .plp-inner,
