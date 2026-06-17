@@ -4234,62 +4234,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   padding-top: 0;
 }
 
-.plp-ranking__track .product-rank {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  margin: 0;
-  padding: 0.45em 0.95em;
-  border: none;
-  border-radius: 999px;
-  box-shadow: none;
-  color: #fff;
-  font-size: 2.6cqi;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0;
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
-}
-
-.plp-ranking__track .product-rank__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  width: 1.05em;
-  height: 0.8em;
-}
-
-.plp-ranking__track .product-rank__crown {
-  display: block;
-  width: 100%;
-  height: 100%;
-  fill: #fff;
-}
-
-.plp-ranking__track .product-rank__label {
-  display: block;
-  line-height: 1.1;
-}
-
-.plp-ranking__track .product-rank--1 {
-  background: #f15a24;
-}
-
-.plp-ranking__track .product-rank--2 {
-  background: #9e9e9e;
-}
-
-.plp-ranking__track .product-rank--3 {
-  background: #8f5a2e;
-}
-
 .plp-ranking__track .product-image-wrap {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4297,6 +4243,66 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   height: auto;
   aspect-ratio: 1 / 1;
   background: #e8e8e8;
+}
+
+.plp-ranking__track .plp-rank-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin: 0;
+  padding: 0.42em 0.9em 0.42em 0.72em;
+  border: none;
+  border-radius: 999px;
+  box-shadow: none;
+  color: #fff;
+  font-size: clamp(9px, 2.8cqi, 12px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.plp-ranking__track .plp-rank-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05em;
+  height: 0.78em;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.plp-ranking__track .plp-rank-badge__crown {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.plp-ranking__track .plp-rank-badge__label {
+  display: block;
+  line-height: 1.1;
+}
+
+.plp-ranking__track .plp-rank-badge--1 {
+  background: #f15a24;
+}
+
+.plp-ranking__track .plp-rank-badge--2 {
+  background: #9e9e9e;
+}
+
+.plp-ranking__track .plp-rank-badge--3 {
+  background: #8f5a2e;
+}
+
+.plp-ranking__track .plp-rank-badge:not([class*="plp-rank-badge--"]) {
+  background: #8f8f8f;
 }
 
 .plp-ranking__track .product-image-wrap img {
