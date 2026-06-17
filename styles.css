@@ -4133,7 +4133,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: table;
   width: fit-content;
   max-width: calc(100% - 30px);
-  margin: 0;
+  margin: 0 auto;
   padding: 24px 68px;
   background: #f15a24;
   border-radius: 999px;
@@ -4199,7 +4199,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-ranking__slider {
   position: relative;
-  padding: 8px 64px 28px;
+  padding: 8px 56px 24px;
 }
 
 .plp-ranking__viewport {
@@ -4217,16 +4217,79 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-ranking__track {
   display: flex;
-  gap: 18px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 12px;
   width: max-content;
   padding: 4px 2px 8px;
 }
 
 .plp-ranking__track .product-card {
-  flex: 0 0 clamp(220px, 28vw, 300px);
-  width: clamp(220px, 28vw, 300px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 200px;
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
   scroll-snap-align: start;
   background: transparent;
+  padding: 0 0 10px;
+  box-sizing: border-box;
+}
+
+.plp-ranking__track .product-rank {
+  margin: 0 0 0 4px;
+  transform: translateY(6px);
+}
+
+.plp-ranking__track .product-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  align-self: stretch;
+  background: #e8e8e8;
+  aspect-ratio: 1 / 1;
+}
+
+.plp-ranking__track .product-image-wrap img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+
+.plp-ranking__track .product-chip {
+  margin: 8px 0 0 4px;
+  font-size: 9px;
+}
+
+.plp-ranking__track .product-name {
+  margin: 8px 4px 0;
+  font-size: 12px;
+  line-height: 1.38;
+  font-weight: 800;
+}
+
+.plp-ranking__track .product-price {
+  margin: 6px 4px 0;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.plp-ranking__track .product-price span {
+  font-size: 10px;
+}
+
+.plp-ranking__track .product-tags {
+  margin: 8px 4px 0;
+  gap: 4px 8px;
+}
+
+.plp-ranking__track .product-tags li {
+  font-size: 9px;
+  line-height: 1.2;
 }
 
 .plp-ranking__nav {
