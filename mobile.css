@@ -4918,16 +4918,27 @@
     margin: 16px 16px 0;
   }
 
-  .product-list-page .plp-ranking__banner {
-    max-width: calc(100% - 24px);
-    padding: 8px 14px;
+  .product-list-page .plp-ranking__banner-row {
+    padding: 0 12px;
   }
 
-  .product-list-page .plp-ranking__banner-title {
+  .product-list-page .plp-ranking__banner {
+    max-width: calc(100% - 16px);
+    padding: 14px 20px;
+  }
+
+  .product-list-page .plp-ranking__banner-part {
     flex-wrap: wrap;
     white-space: normal;
-    font-size: 12px;
-    gap: 4px;
+    justify-content: center;
+  }
+
+  .product-list-page .plp-ranking__banner-part--lead {
+    font-size: 11px;
+  }
+
+  .product-list-page .plp-ranking__banner-part--main {
+    font-size: 16px;
   }
 }
 

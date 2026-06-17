@@ -4113,14 +4113,20 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   padding-top: 24px;
 }
 
+.plp-ranking__banner-row {
+  display: flex;
+  justify-content: center;
+  padding: 0 40px;
+}
+
 .plp-ranking__banner {
   position: relative;
   top: 0;
   display: table;
   width: fit-content;
-  max-width: calc(100% - 48px);
-  margin: 0 auto;
-  padding: 10px 26px;
+  max-width: calc(100% - 30px);
+  margin: 0;
+  padding: 24px 68px;
   background: #f15a24;
   border-radius: 999px;
   transform: translateY(-50%);
@@ -4129,21 +4135,53 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-ranking__banner-title {
   margin: 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  font-size: clamp(13px, 1.35vw, 18px);
-  font-weight: 900;
-  line-height: 1.35;
   color: #fff;
   text-align: center;
+}
+
+.plp-ranking__banner-part {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 900;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
+.plp-ranking__banner-part--lead {
+  font-size: clamp(12px, 1.15vw, 16px);
+  align-items: center;
+}
+
+.plp-ranking__banner-part--main {
+  font-size: clamp(18px, 2vw, 28px);
+}
+
 .plp-ranking__banner-crown {
-  font-size: 1.1em;
+  flex: 0 0 auto;
+  font-size: 1em;
   line-height: 1;
+}
+
+.plp-ranking__ima-i {
+  font-size: 1.45em;
+  line-height: 1;
+}
+
+.plp-ranking__ima-ma {
+  font-size: 0.82em;
+  line-height: 1;
+}
+
+.plp-ranking__banner-prefix {
+  font-size: 0.68em;
+  line-height: 1.2;
 }
 
 .plp-ranking__banner-em {
