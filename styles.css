@@ -4018,7 +4018,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 /* Hero bands */
 .plp-hero {
   background: #efce0a;
-  padding: 260px 29px 52px 0;
+  padding: 240px 29px 80px 0;
   text-align: left;
 }
 
@@ -4049,12 +4049,12 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-hero__title-sm {
   font-size: clamp(23px, 3.2vw, 47px);
-  letter-spacing: 0.06em;
+  letter-spacing: 0em;
 }
 
 .plp-hero__title-lg {
   font-size: clamp(43px, 6.2vw, 91px);
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 
 .pdp-hero__title {
