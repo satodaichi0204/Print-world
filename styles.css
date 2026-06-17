@@ -4146,38 +4146,26 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 1.4em;
   color: #fff;
   font-weight: 900;
+  font-size: clamp(18px, 1.6vw, 24px);
   letter-spacing: 0;
+  line-height: 1.2;
   text-align: center;
   white-space: nowrap;
 }
 
-.plp-ranking__banner-seg {
+.plp-ranking__banner-part {
   display: inline;
-  line-height: 1.15;
-}
-
-.plp-ranking__banner-seg--sm {
-  font-size: clamp(13px, 1.05vw, 15px);
-}
-
-.plp-ranking__banner-seg--lg {
-  font-size: clamp(24px, 2.25vw, 32px);
-  line-height: 1;
-}
-
-.plp-ranking__banner-seg--md {
-  font-size: clamp(16px, 1.45vw, 20px);
 }
 
 .plp-ranking__banner-crown {
   display: inline;
-  margin-right: 0.2em;
-  font-size: 0.95em;
+  margin-right: 0.25em;
+  font-size: 1em;
   line-height: 1;
   vertical-align: baseline;
 }

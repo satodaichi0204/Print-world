@@ -4971,18 +4971,8 @@
   .product-list-page .plp-ranking__banner-title {
     flex-wrap: wrap;
     white-space: normal;
-    row-gap: 4px;
-  }
-
-  .product-list-page .plp-ranking__banner-seg--sm {
-    font-size: 10px;
-  }
-
-  .product-list-page .plp-ranking__banner-seg--lg {
-    font-size: 18px;
-  }
-
-  .product-list-page .plp-ranking__banner-seg--md {
+    row-gap: 6px;
+    gap: 0.8em;
     font-size: 13px;
   }
 }
