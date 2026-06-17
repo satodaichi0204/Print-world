@@ -4344,15 +4344,26 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   height: 52px;
   margin: 0;
   padding: 0;
-  border: 2px solid #f15a24;
+  border: 2px solid #fff;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 6px 18px rgba(0, 0, 0, 0.14);
   cursor: pointer;
+  transition: box-shadow 0.2s ease;
 }
 
 .plp-ranking__nav:hover {
-  background: #fff8f4;
+  background: #fff;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.1),
+    0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.plp-ranking__nav:focus-visible {
+  outline: 2px solid #f15a24;
+  outline-offset: 2px;
 }
 
 .plp-ranking__nav--prev {
@@ -4367,10 +4378,10 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-ranking__nav span {
   display: block;
-  width: 11px;
-  height: 11px;
-  border-bottom: 3px solid #f15a24;
-  border-left: 3px solid #f15a24;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2.5px solid #f15a24;
+  border-left: 2.5px solid #f15a24;
 }
 
 .plp-ranking__nav--prev span {
