@@ -4176,6 +4176,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 .plp-ranking__viewport {
+  container-type: inline-size;
+  container-name: plp-ranking-viewport;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -4193,7 +4195,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: flex-start;
-  gap: 24px;
+  gap: 16px;
   width: max-content;
   padding: 8px 4px 16px;
 }
@@ -4202,11 +4204,11 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 20px;
-  flex: 0 0 640px;
-  width: 640px;
-  min-width: 640px;
-  max-width: 640px;
+  gap: 10px;
+  flex: 0 0 calc((100cqw - 32px) / 3);
+  width: calc((100cqw - 32px) / 3);
+  min-width: 0;
+  max-width: none;
   scroll-snap-align: start;
   background: transparent;
   padding: 0;
@@ -4215,8 +4217,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-ranking__track .plp-rank-card__media {
   position: relative;
-  flex: 0 0 224px;
-  width: 224px;
+  flex: 0 0 35%;
+  width: 35%;
+  min-width: 0;
 }
 
 .plp-ranking__track .plp-rank-card__body {
@@ -4225,7 +4228,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 .plp-ranking__track .product-rank {
@@ -4234,9 +4237,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   left: 0;
   z-index: 2;
   margin: 0;
-  padding: 8px 16px;
-  font-size: 16px;
-  transform: translateY(8px);
+  padding: 4px 8px;
+  font-size: 10px;
+  transform: translateY(4px);
   white-space: nowrap;
 }
 
@@ -4244,9 +4247,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 224px;
-  height: 224px;
-  aspect-ratio: auto;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
   background: #e8e8e8;
 }
 
@@ -4258,34 +4261,34 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-ranking__track .product-chip {
   margin: 0;
-  padding: 8px 16px;
-  font-size: 18px;
+  padding: 4px 8px;
+  font-size: 11px;
 }
 
 .plp-ranking__track .product-name {
-  margin: 12px 0 0;
-  font-size: 24px;
+  margin: 6px 0 0;
+  font-size: 14px;
   line-height: 1.38;
   font-weight: 800;
 }
 
 .plp-ranking__track .product-price {
-  margin: 12px 0 0;
-  font-size: 48px;
+  margin: 6px 0 0;
+  font-size: 30px;
   line-height: 1;
 }
 
 .plp-ranking__track .product-price span {
-  font-size: 20px;
+  font-size: 11px;
 }
 
 .plp-ranking__track .product-tags {
-  margin: 16px 0 0;
-  gap: 8px 16px;
+  margin: 8px 0 0;
+  gap: 4px 8px;
 }
 
 .plp-ranking__track .product-tags li {
-  font-size: 18px;
+  font-size: 10px;
   line-height: 1.2;
 }
 
