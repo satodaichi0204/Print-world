@@ -4237,19 +4237,56 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-ranking__track .product-rank {
   position: absolute;
   top: 0;
-  left: 8%;
+  left: 50%;
   z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   margin: 0;
-  padding: 0.4em 0.75em;
+  padding: 0.45em 0.95em;
+  border: none;
+  border-radius: 999px;
+  box-shadow: none;
+  color: #fff;
   font-size: 2.6cqi;
-  font-weight: 700;
-  line-height: 1.2;
-  transform: translateY(-50%);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  transform: translate(-50%, -50%);
   white-space: nowrap;
+}
+
+.plp-ranking__track .product-rank__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 0.8em;
+}
+
+.plp-ranking__track .product-rank__crown {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+.plp-ranking__track .product-rank__label {
+  display: block;
+  line-height: 1.1;
 }
 
 .plp-ranking__track .product-rank--1 {
   background: #f15a24;
+}
+
+.plp-ranking__track .product-rank--2 {
+  background: #9e9e9e;
+}
+
+.plp-ranking__track .product-rank--3 {
+  background: #8f5a2e;
 }
 
 .plp-ranking__track .product-image-wrap {
