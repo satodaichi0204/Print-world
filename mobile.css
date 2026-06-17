@@ -3340,30 +3340,8 @@
     width: calc(100cqw - 8px);
   }
 
-  .product-list-page .plp-ranking__track .product-rank {
-    font-size: 9px;
-    padding: 3px 6px;
-  }
-
-  .product-list-page .plp-ranking__track .product-chip {
-    font-size: 10px;
-    padding: 3px 6px;
-  }
-
-  .product-list-page .plp-ranking__track .product-name {
-    font-size: 12px;
-  }
-
-  .product-list-page .plp-ranking__track .product-price {
-    font-size: 24px;
-  }
-
-  .product-list-page .plp-ranking__track .product-price span {
-    font-size: 10px;
-  }
-
-  .product-list-page .plp-ranking__track .product-tags li {
-    font-size: 9px;
+  .product-list-page .plp-ranking__track .product-tags {
+    grid-template-columns: repeat(2, auto);
   }
 
   .product-list-page .plp-subcat__grid {
@@ -4865,14 +4843,6 @@
   .product-list-page .plp-ranking__track .product-card {
     flex: 0 0 calc((100cqw - 16px) / 2);
     width: calc((100cqw - 16px) / 2);
-  }
-
-  .product-list-page .plp-ranking__track .product-name {
-    font-size: 13px;
-  }
-
-  .product-list-page .plp-ranking__track .product-price {
-    font-size: 26px;
   }
 
   .product-list-page .plp-inner,
