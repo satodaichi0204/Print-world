@@ -4348,7 +4348,6 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  transform: translateY(-50%);
   cursor: pointer;
 }
 
@@ -4357,11 +4356,13 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 .plp-ranking__nav--prev {
-  left: 12px;
+  left: 0;
+  transform: translate(-50%, -50%);
 }
 
 .plp-ranking__nav--next {
-  right: 12px;
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 .plp-ranking__nav span {

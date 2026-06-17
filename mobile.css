@@ -3328,11 +3328,13 @@
   }
 
   .product-list-page .plp-ranking__nav--prev {
-    left: 6px;
+    left: 0;
+    transform: translate(-50%, -50%);
   }
 
   .product-list-page .plp-ranking__nav--next {
-    right: 6px;
+    right: 0;
+    transform: translate(50%, -50%);
   }
 
   .product-list-page .plp-ranking__track .product-card {
