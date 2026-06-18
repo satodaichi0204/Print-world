@@ -3311,15 +3311,30 @@
   .product-list-page .plp-intro__catch {
     font-size: calc(16px * var(--sec9-sp-s, 1));
     line-height: 1.5;
+    margin-inline: 16px;
   }
 
   .product-list-page .plp-intro__body {
     font-size: calc(12px * var(--sec9-sp-s, 1));
     line-height: 1.75;
+    margin: 14px 16px 0;
   }
 
   .product-list-page .plp-ranking__slider {
-    padding: 20px 44px 24px;
+    padding: 20px 36px 24px;
+  }
+
+  .product-list-page .plp-ranking__track {
+    padding-top: 24px;
+    gap: 12px;
+  }
+
+  .product-list-page .plp-ranking__banner {
+    padding: 11px 18px;
+  }
+
+  .product-list-page .plp-ranking__banner-part + .plp-ranking__banner-part {
+    font-size: calc(1em + 4px);
   }
 
   .product-list-page .plp-ranking__nav {
@@ -4956,6 +4971,112 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .product-list-page .plp-subcat__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* --- Product list: responsive tuning (≤768) --- */
+@media (max-width: 768px) {
+  .product-list-page .plp-ranking__track {
+    padding-top: 24px;
+    gap: 12px;
+  }
+}
+
+/* --- Product list: responsive tuning (426–768) --- */
+@media (min-width: 426px) and (max-width: 768px) {
+  .product-list-page .plp-hero {
+    padding: 100px 16px 32px 0;
+  }
+
+  .product-list-page .plp-hero__inner {
+    padding-inline: 16px;
+  }
+
+  .product-list-page .plp-hero__title-sm {
+    font-size: clamp(19px, 3.8vw, 26px);
+  }
+
+  .product-list-page .plp-hero__title-lg {
+    font-size: clamp(34px, 7.2vw, 50px);
+  }
+
+  .product-list-page .plp-intro__catch {
+    margin-inline: 20px;
+    font-size: clamp(17px, 3vw, 22px);
+  }
+
+  .product-list-page .plp-intro__body {
+    margin: 16px 20px 0;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .product-list-page .plp-ranking {
+    padding: 24px 0 32px;
+  }
+
+  .product-list-page .plp-ranking__slider {
+    padding: 28px 36px 24px;
+  }
+
+  .product-list-page .plp-ranking__nav {
+    width: 44px;
+    height: 44px;
+  }
+
+  .product-list-page .plp-ranking__banner {
+    padding: 12px 28px;
+  }
+
+  .product-list-page .plp-ranking__banner-title {
+    font-size: clamp(12px, 2.1vw, 15px);
+    gap: 0.9em;
+  }
+
+  .product-list-page .plp-ranking__banner-part + .plp-ranking__banner-part {
+    font-size: calc(1em + 4px);
+  }
+
+  .product-list-page .plp-subcat__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px 10px;
+  }
+
+  .product-list-page .plp-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 12px;
+  }
+}
+
+/* --- Product list: narrow tablet (426–560) — one ranking card --- */
+@media (min-width: 426px) and (max-width: 560px) {
+  .product-list-page .plp-ranking__track .product-card {
+    flex: 0 0 calc(100cqw - 8px);
+    width: calc(100cqw - 8px);
+  }
+
+  .product-list-page .plp-ranking__track .product-tags {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .product-list-page .plp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-list-page .plp-subcat__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* --- Product list: wide tablet (561–768) — two ranking cards --- */
+@media (min-width: 561px) and (max-width: 768px) {
+  .product-list-page .plp-ranking__track .product-card {
+    flex: 0 0 calc((100cqw - 12px) / 2);
+    width: calc((100cqw - 12px) / 2);
+  }
+
+  .product-list-page .plp-ranking__track .product-tags {
+    grid-template-columns: repeat(2, auto);
   }
 }
 
