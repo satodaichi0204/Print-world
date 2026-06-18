@@ -4134,7 +4134,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   width: fit-content;
   max-width: calc(100% - 30px);
   margin: 0 auto;
-  padding: 14px 52px;
+  padding: 17px 58px;
   background: #f15a24;
   border-radius: 999px;
   transform: none;
@@ -4160,6 +4160,10 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-ranking__banner-part {
   display: inline;
+}
+
+.plp-ranking__banner-part + .plp-ranking__banner-part {
+  font-size: calc(1em + 6px);
 }
 
 .plp-ranking__banner-crown {
