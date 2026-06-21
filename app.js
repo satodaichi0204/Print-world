@@ -111,17 +111,36 @@ setupMeasuredLoop(
   if (!gallery) return;
 
   const mainImg = gallery.querySelector(".pdp-gallery__main-img");
-  const thumbs = gallery.querySelectorAll(".pdp-gallery__thumb");
+  const thumbs = Array.from(gallery.querySelectorAll(".pdp-gallery__thumb"));
+  const prevBtn = gallery.querySelector(".pdp-gallery__nav--prev");
+  const nextBtn = gallery.querySelector(".pdp-gallery__nav--next");
   if (!mainImg || thumbs.length === 0) return;
 
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      const src = thumb.getAttribute("data-pdp-src");
-      if (!src) return;
-      mainImg.src = src;
-      thumbs.forEach((t) => t.classList.remove("is-active"));
-      thumb.classList.add("is-active");
-    });
+  let activeIndex = Math.max(
+    0,
+    thumbs.findIndex((thumb) => thumb.classList.contains("is-active"))
+  );
+
+  const showThumb = (index) => {
+    const thumb = thumbs[index];
+    const src = thumb.getAttribute("data-pdp-src");
+    if (!src) return;
+    mainImg.src = src;
+    thumbs.forEach((t) => t.classList.remove("is-active"));
+    thumb.classList.add("is-active");
+    activeIndex = index;
+  };
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => showThumb(index));
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    showThumb((activeIndex - 1 + thumbs.length) % thumbs.length);
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    showThumb((activeIndex + 1) % thumbs.length);
   });
 })();
 
