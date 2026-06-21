@@ -4816,14 +4816,15 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .pdp-point__label {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  border-radius: 4px;
+  padding: 14px 28px;
+  border-radius: 999px;
   background: #f15a24;
   color: #fff;
   font-size: 13px;
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .pdp-headline {
@@ -5134,7 +5135,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   margin-top: 0;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 426px) {
   .product-detail-page .sec9-inner {
     width: calc(1320px * var(--sec9-pc-s));
     max-width: 100%;
