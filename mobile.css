@@ -11,12 +11,14 @@
    TOP sec3 PC scale: 769px+ (1920 design lock, 1440px inner)
    TOP sec4 PC scale: 769px+ (1920 design lock)
    TOP sec5 PC scale: 769px+ (1920 design lock, 1440px hero)
-   TOP sec6 PC scale: 769px+ (1920 design lock, 1280px panel)
+   TOP sec6 PC scale: 769px+ (1920 lock); 769–1024 type/pill lock at 1024 scale
    TOP sec7 PC scale: 769px+ (1920 design lock, 1440px grid)
    TOP sec8 PC scale: 769px+ (1920 design lock, 1200px inner)
    TOP sec9 PC scale: 769px+ (1920 design lock, 1320px inner)
+   TOP sec9 contact: 320–768 (768px mobile lock; enlarged hero + scaled type)
+   TOP sec9 staff aside: 320–768 (768px size lock; no card overlap)
    Site footer PC scale: 769px+ (1920 design lock, 1440px inner)
-   Site footer type lock: 769px–1440 (font-size fixed at 1920; layout scales)
+   Site footer type lock: 769px–1920 (font-size fixed at 1920; layout scales)
    PDP PC scale: 426px–1919 (1920 design lock, s = 100vw / 1920)
    PDP type lock: 426px–1919 (body font-size fixed at 1920; hero title scales)
    Header brand logo lock: 1440px size from 426–1440 (PDP) / 769–1440 (home)
@@ -98,44 +100,6 @@
 
   .home-page .sec8-store__cols {
     grid-template-columns: 1fr 38%;
-  }
-
-  .home-page .sec9 {
-    padding-left: 36px;
-  }
-
-  .home-page .sec9-contact__cols {
-    width: 92%;
-  }
-
-  .home-page .sec9-contact__actions {
-    width: 100%;
-  }
-
-  .home-page .sec9-action__label {
-    font-size: 22px;
-  }
-
-  .home-page .sec9-card__head {
-    padding: 16px 24px;
-  }
-
-  .home-page .sec9-sub {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-page .sec9-sub > .sec9-ship-aside {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 360px;
-    min-height: 180px;
-  }
-
-  .home-page .sec9-ship-aside__staff {
-    left: 0;
-    bottom: 0;
-    max-width: 280px;
-    transform: none;
   }
 }
 
@@ -1028,61 +992,78 @@
     padding: 64px 16px 0;
   }
 
-  .home-page .sec9-contact {
-    margin-bottom: 28px;
-    padding-top: 0;
+  .home-page .sec9 {
+    --sec9-m-s: calc((100vw - 32px) / 768px);
+    --sec9-staff-lock-s: calc(1440px / 1920px);
+    --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
+    --sec9-aside-w: var(--sec9-aside-lock-w);
   }
 
-  .home-page .sec9-contact__hero {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-wrap: nowrap;
-    position: relative;
-    width: fit-content;
+  .home-page .sec9-inner {
+    width: 100%;
     max-width: 100%;
-    margin: 0 auto -24px;
+    margin-left: auto;
+    margin-right: auto;
     overflow: visible;
   }
 
+  .home-page .sec9-contact {
+    margin-bottom: calc(28px * var(--sec9-m-s));
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .home-page .sec9-contact__hero,
   .home-page .sec9-contact__woman-wrap {
-    display: block;
-    position: relative;
-    flex: 0 0 auto;
-    width: 108px;
-    height: 118px;
-    margin-right: -16px;
-    overflow: hidden;
-    z-index: 2;
+    display: contents;
   }
 
   .home-page .sec9-contact__woman {
     position: absolute;
-    left: -20px;
-    top: 0;
+    left: calc(-125px * var(--sec9-m-s));
+    top: calc(-240px * var(--sec9-m-s));
     bottom: auto;
-    width: 160px;
+    width: calc(469px * var(--sec9-m-s));
     height: auto;
     max-width: none;
+    margin: 0;
     transform: none;
+    z-index: 2;
+    pointer-events: none;
   }
 
   .home-page .sec9-contact picture {
-    position: relative;
-    left: auto;
+    display: block;
+    position: absolute;
+    left: calc(101px * var(--sec9-m-s));
+    top: calc(-76px * var(--sec9-m-s));
     bottom: auto;
-    top: auto;
-    width: min(74vw, 282px);
-    max-width: 282px;
+    width: calc(100% - 274px * var(--sec9-m-s));
+    max-width: none;
+    margin: 0;
     transform: none;
     z-index: 3;
-    flex: 0 0 auto;
+    pointer-events: none;
+    flex: none;
+  }
+
+  .home-page .sec9-contact__title {
+    position: static;
+    left: auto;
+    top: auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    pointer-events: none;
+    transform: none;
   }
 
   .home-page .sec9-contact__panel {
     z-index: 1;
-    padding: 96px 20px 20px;
-    border-radius: 18px;
+    border-radius: calc(18px * var(--sec9-m-s));
+    padding: calc(108px * var(--sec9-m-s)) calc(24px * var(--sec9-m-s)) calc(22px * var(--sec9-m-s));
   }
 
   .home-page .sec9-contact__main {
@@ -1093,9 +1074,9 @@
     display: flex;
     flex-direction: column;
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: calc(4px * var(--sec9-m-s));
     width: 82%;
-    margin-bottom: 20px;
+    margin-bottom: calc(20px * var(--sec9-m-s));
     margin-left: auto;
     margin-right: auto;
   }
@@ -1104,15 +1085,15 @@
     display: contents;
     padding-left: 0;
     list-style: none;
-    font-size: 13px;
+    font-size: max(calc(15px * var(--sec9-m-s)), 13px);
     line-height: 1.65;
   }
 
   .home-page .sec9-bullets li {
     position: relative;
     padding-left: 1em;
-    margin-bottom: 8px;
-    font-size: 13px;
+    margin-bottom: calc(8px * var(--sec9-m-s));
+    font-size: max(calc(15px * var(--sec9-m-s)), 13px);
   }
 
   .home-page .sec9-bullets li::before {
@@ -1143,26 +1124,26 @@
 
   .home-page .sec9-contact__actions {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: calc(10px * var(--sec9-m-s));
     width: 100%;
   }
 
   .home-page .sec9-action {
-    min-height: 72px;
-    padding: 14px 12px;
-    border-radius: 12px;
+    min-height: calc(72px * var(--sec9-m-s));
+    padding: calc(14px * var(--sec9-m-s)) calc(12px * var(--sec9-m-s));
+    border-radius: calc(12px * var(--sec9-m-s));
   }
 
   .home-page .sec9-action__main {
-    font-size: 26px;
+    font-size: max(calc(26px * var(--sec9-m-s)), 22px);
   }
 
   .home-page .sec9-action__sub {
-    font-size: 12px;
+    font-size: max(calc(12px * var(--sec9-m-s)), 11px);
   }
 
   .home-page .sec9-action__label {
-    font-size: 22px;
+    font-size: max(calc(22px * var(--sec9-m-s)), 18px);
   }
 
   .home-page .sec9-sub,
@@ -1177,14 +1158,14 @@
   }
 
   .home-page .sec9-sub > .sec9-ship-aside {
-    grid-column: auto;
+    grid-column: 1 / -1;
     position: relative;
-    justify-self: stretch;
-    width: calc(100% + 32px);
-    max-width: none;
+    justify-self: end;
+    width: var(--sec9-aside-w);
+    max-width: 100%;
     min-height: 0;
     height: auto;
-    margin: -28px -16px 0;
+    margin: 12px 0 0;
     overflow: visible;
     align-items: flex-end;
     justify-content: flex-end;
@@ -1193,11 +1174,15 @@
   .home-page .sec9-ship-aside__staff {
     position: relative;
     top: auto;
-    right: -4%;
+    right: 0;
     left: auto;
-    width: 56vw;
-    max-width: none;
-    transform: none;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 48px;
+    margin-right: 0;
+    transform: scale(1.4);
+    transform-origin: 100% 100%;
   }
 
   .home-page .sec9-card {
@@ -1645,12 +1630,17 @@
 
   .home-page .sec9-sub > .sec9-ship-aside {
     min-height: 0;
+    margin-top: 12px;
     margin-bottom: 0;
   }
 
   .home-page .sec9-ship-aside__staff {
-    width: min(56vw, 360px);
-    margin-right: -4%;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 48px;
+    margin-right: 0;
+    transform: scale(1.4);
+    transform-origin: 100% 100%;
   }
 }
 
@@ -2256,6 +2246,13 @@
   }
 }
 
+/* TOP sec6 — 769–1024: lock scale to 1024px (pills + copy stay legible). */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home-page .sec6 {
+    --sec6-pc-s: calc(1024px / 1920px);
+  }
+}
+
 /* TOP sec7 — 769+: proportional scale from 1920px design lock (same as FV). */
 @media (min-width: 769px) {
   .home-page .sec7 {
@@ -2457,7 +2454,7 @@
     left: calc(-142px * var(--sec9-pc-s));
     bottom: calc(100% - 76px * var(--sec9-pc-s));
     width: calc(600px * var(--sec9-pc-s));
-    top: -320px;
+    top: calc(-320px * var(--sec9-pc-s));
     transform: none;
   }
 
@@ -2466,7 +2463,7 @@
     position: absolute;
     left: calc(156px * var(--sec9-pc-s));
     bottom: calc(100% - 76px * var(--sec9-pc-s));
-    top: -76px;
+    top: calc(-76px * var(--sec9-pc-s));
     width: calc(568px * var(--sec9-pc-s));
     max-width: calc(100% - 300px * var(--sec9-pc-s));
     transform: none;
@@ -2691,22 +2688,23 @@
   .site-footer__company {
     margin-bottom: calc(8px * var(--footer-pc-s));
     font-size: calc(22px * var(--footer-pc-s));
+    white-space: nowrap;
   }
 
   .site-footer__address,
   .site-footer__tel {
     margin-bottom: calc(8px * var(--footer-pc-s));
-    font-size: calc(14px * var(--footer-pc-s));
+    font-size: 14px;
   }
 
   .site-footer__title {
     margin-bottom: calc(12px * var(--footer-pc-s));
-    font-size: calc(18px * var(--footer-pc-s));
+    font-size: 18px;
   }
 
   .site-footer__title--section {
     margin-bottom: calc(8px * var(--footer-pc-s));
-    font-size: calc(20px * var(--footer-pc-s));
+    font-size: 20px;
   }
 
   .site-footer__lead {
@@ -2714,7 +2712,7 @@
   }
 
   .site-footer__leadlink {
-    font-size: calc(16px * var(--footer-pc-s));
+    font-size: 16px;
   }
 
   .site-footer__list li {
@@ -2722,7 +2720,7 @@
   }
 
   .site-footer__list a {
-    font-size: calc(14px * var(--footer-pc-s));
+    font-size: 14px;
   }
 
   .site-footer__list--dash li {
@@ -2730,7 +2728,7 @@
   }
 
   .site-footer__list--dash a {
-    font-size: calc(14px * var(--footer-pc-s));
+    font-size: 14px;
   }
 
   .site-footer__list--corp li {
@@ -2738,7 +2736,7 @@
   }
 
   .site-footer__list--corp a {
-    font-size: calc(16px * var(--footer-pc-s));
+    font-size: 16px;
   }
 }
 
@@ -3024,7 +3022,6 @@
     --sec9-s: calc(0.6 + 0.4 * var(--sec9-t));
   }
 
-  .home-page .sec9-contact__panel,
   .product-detail-page .sec9-contact__panel {
     padding: calc(88px - 4px * var(--sec9-t)) 20px 20px;
   }
@@ -3034,15 +3031,43 @@
     width: min(calc(86% + 2% * var(--sec9-t)), 315px);
   }
 
+  .home-page .sec9-sub {
+    --sec9-staff-lock-s: calc(1440px / 1920px);
+    --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 0;
+  }
+
+  .home-page .sec9-sub > .sec9-ship-aside {
+    grid-column: 1 / -1;
+    justify-self: end;
+    width: var(--sec9-aside-lock-w);
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+    margin: 12px 0 0;
+    overflow: visible;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .home-page .sec9-ship-aside {
+    height: auto;
+  }
+
   .home-page .sec9-ship-aside__staff {
     position: relative;
-    top: auto;
-    right: 0%;
     left: auto;
-    width: 56vw;
-    max-width: none;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 48px;
     margin-right: 0;
-    transform: none;
+    transform: scale(1.4);
+    transform-origin: 100% 100%;
   }
 }
 
@@ -3284,12 +3309,53 @@
     padding: calc(50px * var(--sec9-sp-s)) calc(16px * var(--sec9-sp-s)) 0;
   }
 
-  .home-page .sec9-contact,
+  .home-page .sec9 {
+    --sec9-m-s: calc((100vw - 32px) / 768px);
+    --sec9-staff-lock-s: calc(1440px / 1920px);
+    --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
+    --sec9-aside-w: var(--sec9-aside-lock-w);
+  }
+
+  .home-page .sec9-sub {
+    gap: calc(28px * var(--sec9-m-s));
+    margin-bottom: 0;
+  }
+
+  .home-page .sec9-sub > .sec9-ship-aside {
+    grid-column: 1 / -1;
+    justify-self: end;
+    width: var(--sec9-aside-w);
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+    margin: 12px 0 0;
+    overflow: visible;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .home-page .sec9-ship-aside__staff {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 48px;
+    margin-right: 0;
+    transform: scale(1.4);
+    transform-origin: 100% 100%;
+  }
+
+  .home-page .sec9-contact {
+    margin-bottom: calc(28px * var(--sec9-m-s, calc((100vw - 32px) / 768px)));
+  }
+
   .product-detail-page .sec9-contact {
     margin-bottom: calc(28px * var(--sec9-sp-s));
   }
 
-  .home-page .sec9-contact__panel,
   .product-detail-page .sec9-contact__panel {
     padding: calc(88px * var(--sec9-sp-s)) calc(18px * var(--sec9-sp-s)) calc(20px * var(--sec9-sp-s));
     border-radius: calc(18px * var(--sec9-sp-s));
@@ -3299,17 +3365,6 @@
   .product-detail-page .sec9-contact__cols {
     width: min(86%, calc(315px * var(--sec9-sp-s)));
     margin-bottom: calc(20px * var(--sec9-sp-s));
-  }
-
-  .home-page .sec9-ship-aside__staff {
-    position: relative;
-    top: auto;
-    right: 0%;
-    left: auto;
-    width: 56vw;
-    max-width: none;
-    margin-right: 0;
-    transform: none;
   }
 
   /* Product list / detail — 320–425 */
@@ -4878,12 +4933,6 @@
 /* =============================================================================
    Site footer (all pages)
    ============================================================================= */
-
-@media (max-width: 1024px) {
-  .site-footer__company {
-    font-size: 18px;
-  }
-}
 
 @media (max-width: 768px) {
   .site-footer__inner {
@@ -7077,42 +7126,6 @@ html.is-guide-flow-zoom-open body {
 }
 
 
-/* --- Product detail footer: 769–1440 — typography locked to 1920px (layout still scales) --- */
-@media (min-width: 769px) and (max-width: 1440px) {
-  .product-detail-page .site-footer__company {
-    font-size: 22px;
-  }
-
-  .product-detail-page .site-footer__address,
-  .product-detail-page .site-footer__tel {
-    font-size: 14px;
-  }
-
-  .product-detail-page .site-footer__title {
-    font-size: 18px;
-  }
-
-  .product-detail-page .site-footer__title--section {
-    font-size: 20px;
-  }
-
-  .product-detail-page .site-footer__leadlink {
-    font-size: 16px;
-  }
-
-  .product-detail-page .site-footer__list a {
-    font-size: 14px;
-  }
-
-  .product-detail-page .site-footer__list--dash a {
-    font-size: 14px;
-  }
-
-  .product-detail-page .site-footer__list--corp a {
-    font-size: 16px;
-  }
-}
-
 /* --- Header: brand logo locked to 1440px size (layout still scales below) --- */
 @media (min-width: 426px) and (max-width: 1440px) {
   .product-detail-page .fv-logo img {
@@ -7457,6 +7470,139 @@ html.is-guide-flow-zoom-open body {
   .product-detail-page .site-footer {
     padding: calc(40px * var(--pdp-mobile-s)) calc(20px * var(--pdp-mobile-s))
       calc(64px * var(--pdp-mobile-s));
+  }
+}
+
+/* TOP sec9 contact — 320–768 final cascade (768px mobile design lock) */
+@media (max-width: 768px) {
+  .home-page .sec9 {
+    --sec9-m-s: calc((100vw - 32px) / 768px);
+    --sec9-staff-lock-s: calc(1440px / 1920px);
+    --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
+    --sec9-aside-w: var(--sec9-aside-lock-w);
+  }
+
+  .home-page .sec9-inner {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+  }
+
+  .home-page .sec9-contact {
+    margin-bottom: calc(28px * var(--sec9-m-s));
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .home-page .sec9-contact__hero,
+  .home-page .sec9-contact__woman-wrap {
+    display: contents;
+  }
+
+  .home-page .sec9-contact__woman {
+    position: absolute;
+    left: calc(-125px * var(--sec9-m-s));
+    top: calc(-240px * var(--sec9-m-s));
+    bottom: auto;
+    width: calc(469px * var(--sec9-m-s));
+    height: auto;
+    max-width: none;
+    margin: 0;
+    transform: none;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .home-page .sec9-contact picture {
+    display: block;
+    position: absolute;
+    left: calc(101px * var(--sec9-m-s));
+    top: calc(-76px * var(--sec9-m-s));
+    bottom: auto;
+    width: calc(100% - 274px * var(--sec9-m-s));
+    max-width: none;
+    margin: 0;
+    transform: none;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .home-page .sec9-contact__title {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .home-page .sec9-contact__panel {
+    border-radius: calc(18px * var(--sec9-m-s));
+    padding: calc(108px * var(--sec9-m-s)) calc(24px * var(--sec9-m-s)) calc(22px * var(--sec9-m-s));
+  }
+
+  .home-page .sec9-contact__cols {
+    gap: calc(4px * var(--sec9-m-s));
+    margin-bottom: calc(20px * var(--sec9-m-s));
+  }
+
+  .home-page .sec9-bullets li {
+    font-size: max(calc(15px * var(--sec9-m-s)), 13px);
+    margin-bottom: calc(8px * var(--sec9-m-s));
+  }
+
+  .home-page .sec9-contact__actions {
+    gap: calc(10px * var(--sec9-m-s));
+  }
+
+  .home-page .sec9-action {
+    min-height: calc(72px * var(--sec9-m-s));
+    padding: calc(14px * var(--sec9-m-s)) calc(12px * var(--sec9-m-s));
+    border-radius: calc(12px * var(--sec9-m-s));
+  }
+
+  .home-page .sec9-action__main {
+    font-size: max(calc(26px * var(--sec9-m-s)), 22px);
+  }
+
+  .home-page .sec9-action__sub {
+    font-size: max(calc(12px * var(--sec9-m-s)), 11px);
+  }
+
+  .home-page .sec9-action__label {
+    font-size: max(calc(22px * var(--sec9-m-s)), 18px);
+  }
+
+  /* Staff figure — constrained width, right-aligned; no card overlap (320–768) */
+  .home-page .sec9-sub > .sec9-ship-aside {
+    grid-column: 1 / -1;
+    justify-self: end;
+    width: var(--sec9-aside-w);
+    max-width: 100%;
+    margin-top: 12px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    overflow: visible;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .home-page .sec9-ship-aside__staff {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 48px;
+    margin-right: 0;
+    transform: scale(1.4);
+    transform-origin: 100% 100%;
   }
 }
 
