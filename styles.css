@@ -73,6 +73,11 @@ img {
   height: auto;
 }
 
+.fv-logo picture {
+  display: block;
+  line-height: 0;
+}
+
 .fv-header__right {
   position: absolute;
   right: 0;

@@ -1268,34 +1268,7 @@
 }
 
 @media (max-width: 480px) {
-  .home-page .fv-logo img {
-    width: min(190px, 48vw);
-  }
-
-  .home-page .fv-compact-action {
-    min-width: 40px;
-    font-size: 9px;
-  }
-
-  .home-page .fv-compact-action img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .home-page .fv-header .menu-btn {
-    width: 44px;
-    height: 52px;
-    gap: 4px;
-    border-radius: 0;
-  }
-
-  .home-page .fv-header .menu-btn span {
-    width: 20px;
-    height: 3px;
-  }
-
   .home-page .fv {
-    --fv-mobile-header-clear: 80px;
     --fv-shirts-pad: 12px;
   }
 
@@ -4798,19 +4771,8 @@
   }
 }
 
-/* --- Global mobile: hamburger + menu drawer (≤480px, all pages) --- */
+/* --- Global mobile: menu drawer padding (≤480px, all pages) --- */
 @media (max-width: 480px) {
-  body:not(.home-page) .fv-header .menu-btn {
-    width: 72px;
-    height: 72px;
-    gap: 4px;
-    border-radius: 0 0 0 16px;
-  }
-
-  body:not(.home-page) .fv-header .menu-btn span {
-    height: 4px;
-  }
-
   .site-menu__panel {
     padding-top: max(16px, env(safe-area-inset-top, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
@@ -8320,5 +8282,26 @@ html.is-guide-flow-zoom-open body {
     img {
     width: calc(360px * 1440px / 1920px);
     max-width: none;
+  }
+}
+
+/* =============================================================================
+   Step 4 — SVG logo + final SP header QA (final cascade)
+   ============================================================================= */
+@media (max-width: 768px) {
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo
+    picture {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 }
