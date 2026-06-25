@@ -3751,33 +3751,6 @@
   }
 }
 
-/* --- guide-flow: hide header strip (phone / mail / LINE row) --- */
-@media (max-width: 1180px) {
-  .guide-flow-page .fv-header__main {
-    display: none;
-  }
-
-  .guide-flow-page .fv-logo {
-    top: 16px;
-    left: 16px;
-  }
-
-  .guide-flow-page .fv-header__actions {
-    gap: 0;
-  }
-
-  .guide-flow-page .menu-btn {
-    width: 112px;
-    height: 112px;
-    gap: 8px;
-    border-radius: 0 0 0 20px;
-  }
-
-  .guide-flow-page .menu-btn span {
-    height: 6px;
-  }
-}
-
 /* --- guide-flow: tablet landscape --- */
 @media (max-width: 1024px) {
   .guide-flow-page .guide-flow-inner {
@@ -4105,32 +4078,6 @@
   }
 }
 
-@media (max-width: 1180px) {
-  .guide-design-tool-page .fv-header__main {
-    display: none;
-  }
-
-  .guide-design-tool-page .fv-logo {
-    top: 16px;
-    left: 16px;
-  }
-
-  .guide-design-tool-page .fv-header__actions {
-    gap: 0;
-  }
-
-  .guide-design-tool-page .menu-btn {
-    width: 112px;
-    height: 112px;
-    gap: 8px;
-    border-radius: 0 0 0 20px;
-  }
-
-  .guide-design-tool-page .menu-btn span {
-    height: 6px;
-  }
-}
-
 @media (max-width: 1024px) {
   .guide-design-tool-page .guide-flow-inner {
     width: min(1440px, calc(100% - 48px));
@@ -4452,32 +4399,6 @@
   }
 }
 
-@media (max-width: 1180px) {
-  .guide-data-submission-page .fv-header__main {
-    display: none;
-  }
-
-  .guide-data-submission-page .fv-logo {
-    top: 16px;
-    left: 16px;
-  }
-
-  .guide-data-submission-page .fv-header__actions {
-    gap: 0;
-  }
-
-  .guide-data-submission-page .menu-btn {
-    width: 112px;
-    height: 112px;
-    gap: 8px;
-    border-radius: 0 0 0 20px;
-  }
-
-  .guide-data-submission-page .menu-btn span {
-    height: 6px;
-  }
-}
-
 @media (max-width: 1024px) {
   .guide-data-submission-page .guide-flow-inner {
     width: min(1440px, calc(100% - 48px));
@@ -4657,32 +4578,6 @@
 @media (max-width: 1440px) {
   .guide-print-method-page .guide-flow-inner {
     width: min(1440px, calc(100% - 48px));
-  }
-}
-
-@media (max-width: 1180px) {
-  .guide-print-method-page .fv-header__main {
-    display: none;
-  }
-
-  .guide-print-method-page .fv-logo {
-    top: 16px;
-    left: 16px;
-  }
-
-  .guide-print-method-page .fv-header__actions {
-    gap: 0;
-  }
-
-  .guide-print-method-page .menu-btn {
-    width: 112px;
-    height: 112px;
-    gap: 8px;
-    border-radius: 0 0 0 20px;
-  }
-
-  .guide-print-method-page .menu-btn span {
-    height: 6px;
   }
 }
 
@@ -5075,26 +4970,6 @@
 
   .product-list-page .fv-header .menu-btn span {
     height: calc(7px * var(--fv-pc-s));
-  }
-}
-
-/* --- Product detail: laptop header trim (PLP unchanged — see 768–1919 block) --- */
-@media (max-width: 1180px) {
-  .product-detail-page .fv-header__main {
-    display: none;
-  }
-
-  .product-detail-page .fv-header__compact {
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .product-detail-page .fv-header__actions {
-    gap: 0;
-  }
-
-  .product-detail-page .pdp-hero {
-    padding: 120px 12px 36px;
   }
 }
 
@@ -7597,19 +7472,6 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* --- PLP / PDP: hide phone, mail, LINE on laptop (769–1440) --- */
-@media (min-width: 769px) and (max-width: 1440px) {
-  .product-list-page .fv-header__main,
-  .product-detail-page .fv-header__main {
-    display: none;
-  }
-
-  .product-list-page .fv-header__compact,
-  .product-detail-page .fv-header__compact {
-    display: none;
-  }
-}
-
 /* =============================================================================
    Sitewide fixed header — Excel 全体的に ④ (final cascade)
    PC (769+): transparent · SP (≤768): white bar
@@ -8131,5 +7993,332 @@ html.is-guide-flow-zoom-open body {
     .menu-btn
     span {
     width: calc(20px * var(--sp-header-s, 1));
+  }
+}
+
+/* =============================================================================
+   Unified PC header — 769–1919 (match TOP on every page, final cascade)
+   ============================================================================= */
+@media (min-width: 769px) and (max-width: 1919px) {
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    ) {
+    --fv-pc-s: calc(100vw / 1920px);
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header {
+    min-height: calc(108px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__main {
+    display: flex;
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__compact {
+    display: none;
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__left {
+    display: contents;
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand {
+    display: none;
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo {
+    position: absolute;
+    top: calc(24px * var(--fv-pc-s));
+    left: calc(24px * var(--fv-pc-s));
+    pointer-events: auto;
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo
+    img {
+    width: calc(360px * var(--fv-pc-s));
+    max-width: none;
+    height: auto;
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-pill {
+    padding: calc(8px * var(--fv-pc-s)) calc(88px * var(--fv-pc-s));
+    font-size: calc(16px * var(--fv-pc-s));
+    min-width: calc(292px * var(--fv-pc-s));
+    margin-bottom: calc(-10px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__actions {
+    gap: calc(14px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__links {
+    height: calc(118px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .phone-box {
+    --phone-icon: calc(20px * var(--fv-pc-s));
+    --phone-gap: calc(8px * var(--fv-pc-s));
+    gap: calc(8px * var(--fv-pc-s));
+    padding: calc(8px * var(--fv-pc-s)) calc(24px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .phone-box__body {
+    gap: calc(2px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .phone-box__label {
+    font-size: calc(14px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .phone-box__number {
+    font-size: calc(40px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .cta {
+    gap: calc(5px * var(--fv-pc-s));
+    padding: calc(8px * var(--fv-pc-s));
+    width: calc(144px * var(--fv-pc-s));
+    font-size: calc(13px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .cta--line {
+    width: calc(144px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .cta__icon {
+    width: calc(44px * var(--fv-pc-s));
+    height: calc(44px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .cta__label {
+    font-size: calc(16px * var(--fv-pc-s));
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    width: calc(172px * var(--fv-pc-s));
+    height: calc(172px * var(--fv-pc-s));
+    gap: calc(10px * var(--fv-pc-s));
+    border-radius: 0 0 0 calc(24px * var(--fv-pc-s));
+    background: #f15a24;
+    filter: none;
+  }
+
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn
+    span {
+    height: calc(7px * var(--fv-pc-s));
+    background: #fff;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1440px) {
+  :is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo
+    img {
+    width: calc(360px * 1440px / 1920px);
+    max-width: none;
   }
 }
