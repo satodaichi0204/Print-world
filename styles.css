@@ -8,6 +8,7 @@ html {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
+  /* Fallback; in-page anchors use eased JS scroll in app.js (offset + reduced motion). */
   scroll-behavior: smooth;
 }
 

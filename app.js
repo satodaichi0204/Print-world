@@ -533,3 +533,104 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
   if (onDataSubmissionPage) bindMain(".guide-data-submission-main", isZoomableDataSubmissionImg);
   if (onPrintMethodPage) bindMain(".guide-print-method-main", isZoomablePrintMethodImg);
 })();
+
+/**
+ * In-page anchor scrolling: eased duration, header offset, reduced-motion fallback.
+ * CSS `scroll-behavior: smooth` on html remains a fallback for native hash navigation.
+ */
+(function initSmoothInPageScroll() {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function getHeaderOffset() {
+    const header = document.querySelector(".fv-header");
+    if (!header) return 0;
+    const position = getComputedStyle(header).position;
+    if (position !== "fixed" && position !== "sticky") return 0;
+    return header.getBoundingClientRect().height;
+  }
+
+  function getScrollTop(target) {
+    const gap = 12;
+    const margin = Number.parseInt(target.getAttribute("data-scroll-margin") || "0", 10) || 0;
+    return Math.max(0, window.scrollY + target.getBoundingClientRect().top - getHeaderOffset() - gap - margin);
+  }
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
+  }
+
+  function scrollToY(targetY) {
+    if (reducedMotion.matches) {
+      window.scrollTo(0, targetY);
+      return;
+    }
+
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    if (Math.abs(distance) < 2) return;
+
+    const duration = Math.min(900, Math.max(350, Math.abs(distance) * 0.45));
+    const startTime = performance.now();
+
+    function frame(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+      if (progress < 1) requestAnimationFrame(frame);
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  function scrollToElement(target, updateHash) {
+    scrollToY(getScrollTop(target));
+    if (!updateHash || !target.id) return;
+    const hash = `#${encodeURIComponent(target.id)}`;
+    if (history.replaceState) {
+      history.replaceState(null, "", hash);
+    } else {
+      location.hash = target.id;
+    }
+  }
+
+  function resolveHashTarget(hash) {
+    if (!hash || hash === "#") return null;
+    try {
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+    } catch {
+      return null;
+    }
+  }
+
+  function isSamePageAnchor(anchor) {
+    const url = new URL(anchor.href, location.href);
+    return url.origin === location.origin && url.pathname === location.pathname;
+  }
+
+  document.addEventListener("click", (event) => {
+    const anchor = event.target.closest('a[href^="#"]');
+    if (!anchor || anchor.target === "_blank" || event.defaultPrevented) return;
+
+    const href = anchor.getAttribute("href");
+    if (!href || href === "#" || !isSamePageAnchor(anchor)) return;
+
+    const target = resolveHashTarget(href);
+    if (!target) return;
+
+    event.preventDefault();
+    scrollToElement(target, true);
+  });
+
+  function scrollToHashOnLoad() {
+    const target = resolveHashTarget(location.hash);
+    if (!target) return;
+    requestAnimationFrame(() => {
+      scrollToElement(target, false);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scrollToHashOnLoad);
+  } else {
+    scrollToHashOnLoad();
+  }
+})();
