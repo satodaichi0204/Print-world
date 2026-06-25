@@ -49,15 +49,16 @@ img {
   background-size: cover;
 }
 
-/* --- Header: coded, not a flat image --- */
+/* --- Header: coded, not a flat image (fixed sitewide; Excel 全体的に ④) --- */
 .fv-header {
-  position: absolute;
-  z-index: 30;
+  position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   right: 0;
   min-height: 108px;
   pointer-events: none;
+  background: transparent;
 }
 
 .fv-logo {
@@ -4053,16 +4054,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   --plp-header-bg: #efce0a;
 }
 
-.product-list-page .fv-header {
-  background: var(--plp-header-bg);
-}
-
 .product-detail-page {
   --pdp-header-bg: #efce0a;
-}
-
-.product-detail-page .fv-header {
-  background: var(--pdp-header-bg);
 }
 
 .plp-main,

@@ -105,18 +105,12 @@
 
 @media (max-width: 768px) {
   .home-page .fv-header {
-    position: absolute;
-    z-index: 30;
-    top: 0;
-    left: 0;
-    right: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
     min-height: 0;
     padding: 10px 0 10px 12px;
-    background: #fff;
     pointer-events: none;
   }
 
@@ -5760,7 +5754,6 @@
     gap: calc(8px * var(--plp-header-s));
     min-height: var(--plp-mobile-header-clear);
     padding: calc(12px * var(--plp-header-s));
-    background: var(--plp-header-bg, #efce0a);
     pointer-events: none;
   }
 
@@ -5954,7 +5947,6 @@
     gap: calc(8px * var(--pdp-header-s));
     min-height: var(--pdp-mobile-header-clear);
     padding: calc(12px * var(--pdp-header-s));
-    background: var(--pdp-header-bg, #efce0a);
     pointer-events: none;
   }
 
@@ -6566,7 +6558,6 @@ html.is-guide-flow-zoom-open body {
 
   /* Header — 1920 layout scaled; no compact-header swap */
   .product-detail-page .fv-header {
-    position: absolute;
     min-height: calc(108px * var(--pdp-pc-s));
   }
 
@@ -7616,5 +7607,22 @@ html.is-guide-flow-zoom-open body {
   .product-list-page .fv-header__compact,
   .product-detail-page .fv-header__compact {
     display: none;
+  }
+}
+
+/* =============================================================================
+   Sitewide fixed header — Excel 全体的に ④ (final cascade)
+   PC (769+): transparent · SP (≤768): white bar
+   ============================================================================= */
+@media (max-width: 768px) {
+  .fv-header {
+    background: #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  }
+}
+
+@media (min-width: 769px) {
+  .fv-header {
+    background: transparent;
   }
 }
