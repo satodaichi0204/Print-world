@@ -7597,8 +7597,8 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* --- PLP / PDP: hide phone, mail, LINE (≤1440) --- */
-@media (max-width: 1440px) {
+/* --- PLP / PDP: hide phone, mail, LINE on laptop (769–1440) --- */
+@media (min-width: 769px) and (max-width: 1440px) {
   .product-list-page .fv-header__main,
   .product-detail-page .fv-header__main {
     display: none;
@@ -7624,5 +7624,512 @@ html.is-guide-flow-zoom-open body {
 @media (min-width: 769px) {
   .fv-header {
     background: transparent;
+  }
+}
+
+/* =============================================================================
+   Unified mobile header — Excel 全体的に ② (Step 3, final cascade)
+   All pages match TOP: logo + brand + TEL/mail/LINE + orange menu (≤768)
+   ============================================================================= */
+@media (max-width: 425px) {
+  body {
+    --sp-header-s: calc(100vw / 425px);
+    --sp-header-clear: calc(76px * var(--sp-header-s));
+  }
+
+  body.home-page {
+    --fv-mobile-header-clear: var(--sp-header-clear);
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  body {
+    --sp-header-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
+    --sp-header-clear: calc(76px * var(--sp-header-s));
+  }
+
+  body.home-page {
+    --fv-mobile-header-clear: var(--sp-header-clear);
+  }
+}
+
+@media (max-width: 768px) {
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(8px * var(--sp-header-s, 1));
+    min-height: var(--sp-header-clear, 76px);
+    padding: calc(12px * var(--sp-header-s, 1)) calc(16px * var(--sp-header-s, 1));
+    pointer-events: none;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    a,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    button {
+    pointer-events: auto;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__main {
+    display: none;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__left {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    gap: calc(8px * var(--sp-header-s, 1));
+    position: static;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo {
+    position: static;
+    top: auto;
+    left: auto;
+    flex: 0 0 auto;
+    width: calc(56px * var(--sp-header-s, 1));
+    height: calc(52px * var(--sp-header-s, 1));
+    overflow: hidden;
+    pointer-events: auto;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo
+    img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand-lead {
+    font-size: calc(11px * var(--sp-header-s, 1));
+    font-weight: 500;
+    line-height: 1.35;
+    color: #111;
+    white-space: nowrap;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand-name {
+    font-size: calc(22px * var(--sp-header-s, 1));
+    font-weight: 900;
+    line-height: 1.1;
+    color: #111;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__right {
+    position: static;
+    right: auto;
+    flex: 0 0 auto;
+    pointer-events: auto;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__compact {
+    display: flex;
+    align-items: flex-end;
+    gap: calc(10px * var(--sp-header-s, 1));
+    margin: 0;
+    padding: 0;
+    height: auto;
+    filter: none;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(5px * var(--sp-header-s, 1));
+    min-width: calc(46px * var(--sp-header-s, 1));
+    padding: 0 calc(3px * var(--sp-header-s, 1));
+    text-decoration: none;
+    font-size: calc(10px * var(--sp-header-s, 1));
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action
+    img {
+    width: calc(34px * var(--sp-header-s, 1));
+    height: calc(34px * var(--sp-header-s, 1));
+    object-fit: contain;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action--phone {
+    color: #111;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action--mail {
+    color: #d8001a;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action--line {
+    color: #06c755;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    width: calc(48px * var(--sp-header-s, 1));
+    height: calc(56px * var(--sp-header-s, 1));
+    gap: calc(5px * var(--sp-header-s, 1));
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    filter: none;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn
+    span {
+    width: calc(22px * var(--sp-header-s, 1));
+    height: calc(3px * var(--sp-header-s, 1));
+    margin: 0 auto;
+    background: #f15a24;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn:hover {
+    filter: none;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn:hover
+    span {
+    width: calc(22px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page
+    )
+    .guide-flow-hero,
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page
+    )
+    .guide-hero {
+    padding-top: calc(var(--sp-header-clear, 76px) + 20px);
+    min-height: 0;
+  }
+
+  body.product-list-page .plp-hero {
+    padding-top: calc(var(--sp-header-clear, 76px) + 12px * var(--sp-header-s, 1));
+  }
+
+  body.product-detail-page .pdp-hero {
+    padding-top: calc(var(--sp-header-clear, 76px) + 12px * var(--sp-header-s, 1));
+  }
+}
+
+@media (max-width: 375px) {
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header {
+    gap: calc(6px * var(--sp-header-s, 1));
+    padding: calc(10px * var(--sp-header-s, 1)) calc(12px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__compact {
+    gap: calc(4px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action {
+    min-width: calc(36px * var(--sp-header-s, 1));
+    font-size: calc(9px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action
+    img {
+    width: calc(28px * var(--sp-header-s, 1));
+    height: calc(28px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    width: calc(44px * var(--sp-header-s, 1));
+    height: calc(52px * var(--sp-header-s, 1));
+    gap: calc(4px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn
+    span {
+    width: calc(20px * var(--sp-header-s, 1));
   }
 }
