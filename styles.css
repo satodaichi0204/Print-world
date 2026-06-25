@@ -40,8 +40,8 @@ img {
   position: relative;
   overflow: visible;
   z-index: 20;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 1080px;
+  height: 1080px;
   background-color: var(--fv-bg);
   background-image: url("images/fv-background.png");
   background-repeat: no-repeat;
@@ -593,8 +593,8 @@ img {
   position: relative;
   z-index: 10;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 1080px;
+  height: 1080px;
   --fv-people-w: 38%;
   --fv-maincopy-w: 45%;
   --fv-mobile-w: 36%;
@@ -603,8 +603,8 @@ img {
 .fv-foreground {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 1080px;
+  height: 1080px;
 }
 
 .fv-foreground__figures {
@@ -627,7 +627,7 @@ img {
   position: absolute;
   z-index: 13;
   left: 48%;
-  top: clamp(100px, 24vh, 240px);
+  top: 240px;
   width: var(--fv-maincopy-w);
   transform: translateX(-50%);
 }
@@ -644,7 +644,7 @@ img {
   position: absolute;
   z-index: 24;
   right: -2vw;
-  top: clamp(96px, 20vh, 240px);
+  top: 200px;
   width: var(--fv-mobile-w);
   height: auto;
   transform: translateY(48px);
