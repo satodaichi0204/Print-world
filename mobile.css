@@ -4203,8 +4203,11 @@
     padding: 12px;
   }
 
+  .guide-design-tool-page .design-simulator__screen img,
   .guide-design-tool-page .design-simulator__screen--phone img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    height: auto;
   }
 
   .guide-design-tool-page .text-guide__card-title,
@@ -4232,7 +4235,9 @@
   .guide-design-tool-page .text-guide__media-img,
   .guide-design-tool-page .text-guide__list > .text-guide__card:nth-child(1) .text-guide__media-img:nth-child(2),
   .guide-design-tool-page .text-guide__list > .text-guide__card:nth-child(2) .text-guide__media-img:nth-child(1) {
+    width: auto;
     max-width: 100%;
+    height: auto;
   }
 
   .guide-design-tool-page .stamp-guide__media {
@@ -4262,6 +4267,10 @@
   .guide-design-tool-page .image-guide__card,
   .guide-design-tool-page .save-guide__card {
     padding: 28px 20px;
+  }
+
+  .guide-design-tool-page .text-guide__card {
+    padding: 28px 28px;
   }
 
   .guide-design-tool-page .text-guide__list,
@@ -4341,6 +4350,10 @@
   .guide-design-tool-page .image-guide__card,
   .guide-design-tool-page .save-guide__card {
     padding: 24px 16px;
+  }
+
+  .guide-design-tool-page .text-guide__card {
+    padding: 24px 24px;
   }
 
   .guide-design-tool-page .text-guide__list,
