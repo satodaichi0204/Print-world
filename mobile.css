@@ -4201,10 +4201,13 @@
 
   .guide-design-tool-page .design-simulator__screen {
     padding: 12px;
+    display: flex;
+    justify-content: center;
   }
 
   .guide-design-tool-page .design-simulator__screen img,
   .guide-design-tool-page .design-simulator__screen--phone img {
+    flex: 0 0 auto;
     width: auto;
     max-width: 100%;
     height: auto;
@@ -4228,7 +4231,7 @@
 
   .guide-design-tool-page .text-guide__media {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
   }
 
@@ -4236,7 +4239,7 @@
   .guide-design-tool-page .text-guide__list > .text-guide__card:nth-child(1) .text-guide__media-img:nth-child(2),
   .guide-design-tool-page .text-guide__list > .text-guide__card:nth-child(2) .text-guide__media-img:nth-child(1) {
     flex: 0 0 auto;
-    align-self: flex-start;
+    align-self: center;
     width: auto;
     max-width: 100%;
     height: auto;
@@ -4244,13 +4247,13 @@
 
   .guide-design-tool-page .stamp-guide__media {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
   }
 
   .guide-design-tool-page .stamp-guide__media-img {
     flex: 0 0 auto;
-    align-self: flex-start;
+    align-self: center;
     width: auto;
     max-width: 100%;
     height: auto;
@@ -4258,7 +4261,7 @@
 
   .guide-design-tool-page .transform-guide__media-img {
     flex: 0 0 auto;
-    align-self: flex-start;
+    align-self: center;
     width: auto;
     max-width: 100%;
     height: auto;
@@ -4266,12 +4269,12 @@
   }
 
   .guide-design-tool-page .image-guide__media {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .guide-design-tool-page .image-guide__media-img {
     flex: 0 0 auto;
-    align-self: flex-start;
+    align-self: center;
     width: auto;
     max-width: 100%;
     height: auto;
