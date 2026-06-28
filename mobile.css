@@ -8377,24 +8377,29 @@ html.is-guide-flow-zoom-open body {
     gap: 8px;
   }
 
-  body.home-page .fv-header__brand {
-    flex: 0 1 auto;
-    overflow: visible;
-  }
-
   body.home-page .fv-logo {
     flex: 0 0 auto;
     width: 56px;
     height: 52px;
-    overflow: visible;
+    overflow: hidden;
   }
 
+  /* Clip to yellow mark only — logo.png includes text that must not overlap .fv-header__brand */
   body.home-page .fv-logo img {
     width: auto;
     height: 100%;
     max-width: none;
-    object-fit: contain;
+    object-fit: cover;
     object-position: left center;
+  }
+
+  body.home-page .fv-header__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 1 auto;
+    overflow: visible;
+    min-width: 0;
   }
 
   body.home-page .fv-header__brand-lead {
