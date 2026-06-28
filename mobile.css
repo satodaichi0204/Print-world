@@ -8316,7 +8316,6 @@ html.is-guide-flow-zoom-open body {
     --fv-sec1-h: calc(
       658px + (100svh - 658px) * (100vw - 426px) / (768px - 426px)
     );
-    --fv-mobile-header-clear: calc(76px * var(--fv-sec1-s));
     --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
     height: var(--fv-sec1-h);
     min-height: var(--fv-sec1-h);
@@ -8357,9 +8356,64 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* TOP header — 426–767 only: reduce logo↔phone gap; no size/layout changes (768 standard) */
+/* TOP header — 426–767 only: lock 768 element sizes; shrink logo↔phone gap only */
 @media (min-width: 426px) and (max-width: 767px) {
+  .home-page .fv {
+    --fv-mobile-header-clear: 76px;
+  }
+
+  .home-page .fv-header {
+    gap: 8px;
+    min-height: 76px;
+    padding: 12px 16px;
+  }
+
+  .home-page .fv-header__left {
+    gap: 8px;
+  }
+
+  .home-page .fv-logo {
+    width: 56px;
+    height: 52px;
+  }
+
+  .home-page .fv-header__brand-lead {
+    font-size: 11px;
+  }
+
+  .home-page .fv-header__brand-name {
+    font-size: 22px;
+  }
+
+  .home-page .fv-header__compact {
+    gap: 10px;
+  }
+
+  .home-page .fv-compact-action {
+    min-width: 46px;
+    gap: 5px;
+    padding: 0 3px;
+    font-size: 10px;
+  }
+
+  .home-page .fv-compact-action img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .home-page .fv-header .menu-btn {
+    width: 48px;
+    height: 56px;
+    gap: 5px;
+  }
+
+  .home-page .fv-header .menu-btn span {
+    width: 22px;
+    height: 3px;
+  }
+
+  /* Red-area gap only: pull phone/icons toward logo as width narrows (0 at 767 ≈ 768) */
   .home-page .fv-header__right {
-    margin-left: calc(-1 * (72px * (768px - 100vw) / (768px - 426px)));
+    margin-left: calc(-1 * (120px * (768px - 100vw) / (768px - 426px)));
   }
 }
