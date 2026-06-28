@@ -8307,72 +8307,50 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec1 only — 426–768: 768 artboard lock (shirts + background scale to 426)
+   TOP sec1 only — 426–768: close header→maincopy gap (768 pattern lock)
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv {
     --fv-sec1-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
     --fv-mobile-header-clear: calc(76px * var(--fv-sec1-s));
-    --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
-    --shirt-gap: calc(10px * var(--fv-sec1-s));
-    --fv-shirts-row-gap: calc(8px * var(--fv-sec1-s));
-    /* 768 lock: square shirts sized from 768px artboard width (PC row ratio) */
-    --shirt-col: calc((768px * var(--fv-sec1-s) - 7 * var(--shirt-gap)) / 7.5);
-    --fv-shirts-band-h: calc(3 * var(--shirt-col) + 2 * var(--fv-shirts-row-gap));
-    --fv-shirts-end: calc(
-      var(--fv-mobile-header-clear) + var(--fv-shirts-pad) * 2 + var(--fv-shirts-band-h)
-    );
-    --fv-sec1-h: calc(var(--fv-shirts-end) + 360px * var(--fv-sec1-s));
-    height: var(--fv-sec1-h);
-    min-height: var(--fv-sec1-h);
-    max-height: none;
-    overflow: visible;
-    background-size: calc(768px * var(--fv-sec1-s)) var(--fv-sec1-h);
+    --fv-shirts-pad: calc(12px * var(--fv-sec1-s));
+    --fv-shirts-zone-h: calc(252px * var(--fv-sec1-s));
+    --shirt-gap: calc(8px * var(--fv-sec1-s));
+    --shirt-col: calc((var(--fv-shirts-zone-h) - 2 * var(--shirt-gap)) / 3);
+    background-size: calc(768px * var(--fv-sec1-s)) auto;
     background-position: center top;
-    background-repeat: no-repeat;
   }
 
   .home-page .shirts-layer {
-    position: absolute;
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
     bottom: auto;
-    height: var(--fv-shirts-end);
+    height: calc(
+      var(--fv-mobile-header-clear) + var(--fv-shirts-pad) * 2 + var(--fv-shirts-zone-h)
+    );
     padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
     padding-bottom: var(--fv-shirts-pad);
-    gap: var(--fv-shirts-row-gap);
-    --shirt-gap: calc(10px * var(--fv-sec1-s));
-    --shirt-col: calc((768px * var(--fv-sec1-s) - 7 * var(--shirt-gap)) / 7.5);
-    --marquee-duration: 44s;
+    gap: calc(6px * var(--fv-sec1-s));
   }
 
   .home-page .marquee {
-    flex: 1 1 0;
-    min-height: 0;
-    margin: 0;
-    align-items: center;
+    margin: calc(6px * var(--fv-sec1-s)) 0;
   }
 
   .home-page .shirt-card {
-    flex: 0 0 var(--shirt-col);
-    width: var(--shirt-col);
-    max-width: var(--shirt-col);
     padding: calc(12px * var(--fv-sec1-s));
     border-radius: calc(10px * var(--fv-sec1-s));
   }
 
-  .home-page .fv-content {
-    height: var(--fv-sec1-h);
-    min-height: var(--fv-sec1-h);
-  }
-
   .home-page .fv-foreground {
     position: absolute;
-    top: calc(var(--fv-shirts-end) - 10px * var(--fv-sec1-s));
+    top: calc(
+      var(--fv-mobile-header-clear) + var(--fv-shirts-pad) * 2 + var(--fv-shirts-zone-h)
+    );
     bottom: auto;
     left: 0;
     right: 0;
-    gap: calc(10px * var(--fv-sec1-s));
+    gap: calc(6px * var(--fv-sec1-s));
   }
 }
