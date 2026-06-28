@@ -3357,6 +3357,9 @@ img {
 }
 
 .image-guide__card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75em;
   margin: 0 0 24px;
   font-size: 16px;
   font-weight: 700;
@@ -3366,10 +3369,6 @@ img {
 
 .image-guide__card-text p {
   margin: 0;
-}
-
-.image-guide__card-text p:last-child {
-  margin-bottom: 0;
 }
 
 .image-guide__notes {
