@@ -8305,3 +8305,54 @@ html.is-guide-flow-zoom-open body {
     height: 100%;
   }
 }
+
+/* =============================================================================
+   TOP sec1 only — 426–768: proportional 768→426 lock (no 100svh)
+   Height/shirts/bg scale with --fv-sec1-s; foreground canvas unchanged (1714+).
+   426 ≈ 658px artboard (425 lock); 768 = 658/0.6; person bottom = section bottom.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  .home-page .fv {
+    --fv-sec1-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
+    --fv-sec1-h: calc(658px / 0.6 * var(--fv-sec1-s));
+    --fv-mobile-header-clear: calc(76px * var(--fv-sec1-s));
+    --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
+    height: var(--fv-sec1-h);
+    min-height: var(--fv-sec1-h);
+    max-height: var(--fv-sec1-h);
+    overflow: visible;
+    background-size: 100% 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  .home-page .shirts-layer {
+    inset: 0;
+    height: 100%;
+    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
+    padding-bottom: var(--fv-shirts-pad);
+    gap: calc(8px * var(--fv-sec1-s));
+    --shirt-gap: calc(10px * var(--fv-sec1-s));
+    --fv-shirts-available-h: calc(
+      var(--fv-sec1-h) - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2
+    );
+    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
+    --marquee-duration: 44s;
+  }
+
+  .home-page .shirt-card {
+    padding: calc(12px * var(--fv-sec1-s));
+    border-radius: calc(10px * var(--fv-sec1-s));
+  }
+
+  .home-page .fv-content {
+    height: var(--fv-sec1-h);
+    min-height: var(--fv-sec1-h);
+  }
+
+  .home-page .fv-foreground {
+    bottom: 0;
+    top: auto;
+    gap: calc(10px * var(--fv-sec1-s));
+  }
+}
