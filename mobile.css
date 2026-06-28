@@ -4730,11 +4730,12 @@
   }
 
   .guide-print-method-page .data-submission-caution__card {
-    padding: 20px 16px;
+    padding: 24px 28px;
   }
 
   .guide-print-method-page .data-submission-caution__media-img {
     max-width: 100%;
+    padding-inline: 0;
   }
 
   .guide-print-method-page .print-method-finish {
@@ -4799,6 +4800,10 @@
 
   .guide-print-method-page .data-submission-caution__card-title {
     font-size: 17px;
+  }
+
+  .guide-print-method-page .data-submission-caution__card {
+    padding: 20px 24px;
   }
 
   .guide-print-method-page .print-method-finish__text {
