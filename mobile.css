@@ -8449,13 +8449,21 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec9 cards — 320–768 final cascade (standard design lock)
+   TOP sec9 cards — 320–768 final cascade (standard form + current margin ratio)
+   768 lock: card 444px in 736px content (16px sec9 padding each side).
+   Smaller widths keep the same side-margin ratio; internals scale with --sec9-card-s.
    ============================================================================= */
 @media (max-width: 768px) {
+  body.home-page .sec9 {
+    --sec9-content-w: calc(100vw - 32px);
+    --sec9-card-w: calc(var(--sec9-content-w) * 444 / 736);
+    --sec9-card-s: calc(var(--sec9-card-w) / 444px);
+  }
+
   body.home-page .sec9-sub {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: calc(28px * var(--sec9-card-s));
     align-items: stretch;
     justify-items: stretch;
   }
@@ -8464,13 +8472,17 @@ html.is-guide-flow-zoom-open body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 444px;
+    max-width: var(--sec9-card-w);
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 26px;
-    border-radius: 18px;
+    padding-bottom: calc(26px * var(--sec9-card-s));
+    border-radius: calc(18px * var(--sec9-card-s));
     overflow: hidden;
     min-height: 0;
+  }
+
+  body.home-page .sec9-card--pay {
+    overflow: hidden;
   }
 
   body.home-page .sec9-card--pay .sec9-card__main {
@@ -8486,58 +8498,114 @@ html.is-guide-flow-zoom-open body {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    min-height: 64px;
-    padding: 0 28px;
-    border-radius: 18px 18px 0 0;
+    gap: calc(12px * var(--sec9-card-s));
+    min-height: calc(64px * var(--sec9-card-s));
+    padding: 0 calc(28px * var(--sec9-card-s));
+    border-radius: calc(18px * var(--sec9-card-s)) calc(18px * var(--sec9-card-s)) 0 0;
+    background: var(--sec9-orange);
   }
 
   body.home-page .sec9-card__head-main {
     flex: 0 1 auto;
-    font-size: 20px;
+    font-size: calc(20px * var(--sec9-card-s));
     line-height: 1;
+    color: #fff;
+    font-weight: 900;
   }
 
   body.home-page .sec9-card__head-pill {
     flex: 0 0 auto;
-    padding: 8px 12px;
-    font-size: 12px;
+    padding: calc(8px * var(--sec9-card-s)) calc(12px * var(--sec9-card-s));
+    font-size: calc(12px * var(--sec9-card-s));
     line-height: 1;
+    border-radius: 2px;
+    background: #fff;
+    color: var(--sec9-orange);
+    font-weight: 800;
   }
 
   body.home-page .sec9-pay-list {
     width: auto;
-    margin: 26px 28px 0;
+    margin: calc(26px * var(--sec9-card-s)) calc(28px * var(--sec9-card-s)) 0;
     padding: 0;
+  }
+
+  body.home-page .sec9-pay-list li {
+    gap: calc(16px * var(--sec9-card-s));
+    margin-bottom: calc(10px * var(--sec9-card-s));
+    font-size: calc(16px * var(--sec9-card-s));
+    font-weight: 900;
+    color: #222;
+  }
+
+  body.home-page .sec9-pay-list li::before {
+    flex: 0 0 calc(32px * var(--sec9-card-s));
+    width: calc(32px * var(--sec9-card-s));
+    height: calc(32px * var(--sec9-card-s));
+    line-height: calc(32px * var(--sec9-card-s));
+    font-size: calc(14px * var(--sec9-card-s));
+    border-radius: 50%;
+    background: var(--sec9-orange);
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
   }
 
   body.home-page .sec9-card__logos {
     display: block;
     width: auto;
-    max-width: calc(100% - 56px);
+    max-width: min(380px, calc(100% - 56px * var(--sec9-card-s)));
     height: auto;
-    margin: 20px 28px 28px;
+    margin: calc(20px * var(--sec9-card-s)) calc(28px * var(--sec9-card-s))
+      calc(28px * var(--sec9-card-s));
+    align-self: flex-start;
   }
 
   body.home-page .sec9-card--ship .sec9-card__body {
     flex: 1 1 auto;
     width: auto;
-    margin: 26px 28px 0;
+    margin: calc(26px * var(--sec9-card-s)) calc(28px * var(--sec9-card-s)) 0;
     text-align: center;
   }
 
+  body.home-page .sec9-ship__lead {
+    margin-bottom: calc(12px * var(--sec9-card-s));
+    font-size: calc(17px * var(--sec9-card-s));
+    line-height: 1.45;
+    color: var(--sec9-orange);
+    font-weight: 900;
+  }
+
+  body.home-page .sec9-ship__note {
+    margin-bottom: calc(10px * var(--sec9-card-s));
+    font-size: calc(12px * var(--sec9-card-s));
+    line-height: 1.45;
+    color: #222;
+    font-weight: 400;
+  }
+
   body.home-page .sec9-ship__ems {
-    margin-bottom: 28px;
+    margin-bottom: calc(28px * var(--sec9-card-s));
+    font-size: calc(17px * var(--sec9-card-s));
+    line-height: 1.45;
+    color: var(--sec9-orange);
+    font-weight: 900;
   }
 
   body.home-page .sec9-sub > .sec9-card .sec9-card__btn {
     flex-shrink: 0;
     width: 76%;
-    max-width: calc(100% - 56px);
+    max-width: calc(100% - 56px * var(--sec9-card-s));
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
-    padding: 13px 18px;
-    font-size: 14px;
+    padding: calc(13px * var(--sec9-card-s)) calc(18px * var(--sec9-card-s));
+    font-size: calc(14px * var(--sec9-card-s));
+    border-radius: 999px;
+    background: var(--sec9-peach);
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
   }
 }
