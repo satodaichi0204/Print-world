@@ -1181,7 +1181,7 @@
 
   .home-page .sec9-card {
     width: 100%;
-    max-width: none;
+    max-width: 444px;
     margin: 0 auto;
     padding-bottom: 26px;
     border-radius: 18px;
@@ -1193,12 +1193,13 @@
     padding: 0 28px;
     border-radius: 18px 18px 0 0;
     flex-wrap: nowrap;
-    justify-content: center;
-    gap: 18px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .home-page .sec9-card__head-main {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     font-size: 20px;
     line-height: 1;
   }
@@ -1212,7 +1213,7 @@
 
   .home-page .sec9-pay-list {
     width: auto;
-    margin: 20px 28px 0;
+    margin: 26px 28px 0;
   }
 
   .home-page .sec9-pay-list li {
@@ -1228,13 +1229,15 @@
   }
 
   .home-page .sec9-card__logos {
+    display: block;
     width: auto;
-    max-width: none;
-    margin: 14px 28px 26px;
+    max-width: calc(100% - 56px);
+    height: auto;
+    margin: 20px auto 28px;
   }
 
   .home-page .sec9-card--ship .sec9-card__body {
-    margin: 22px 28px 0;
+    margin: 26px 28px 0;
     width: auto;
   }
 
@@ -1251,13 +1254,14 @@
   }
 
   .home-page .sec9-ship__ems {
-    margin-bottom: 26px;
+    margin-bottom: 28px;
     font-size: 17px;
     line-height: 1.45;
   }
 
   .home-page .sec9-card__btn {
-    width: calc(100% - 56px);
+    width: 76%;
+    max-width: calc(100% - 56px);
     padding: 13px 18px;
     font-size: 14px;
   }
