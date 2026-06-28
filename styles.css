@@ -3627,20 +3627,22 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 .guide-flow-steps__heading {
+  width: 100%;
   padding: 0px 12px;
   font-size: 18px;
   font-weight: 900;
   color: #111;
-  text-align: center;
+  text-align: left;
 }
 
 .guide-flow-steps__text {
+  width: 100%;
   margin: 12px 0;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.65;
   color: #666666;
-  text-align: center;
+  text-align: left;
 }
 
 .guide-flow-steps__notes {
