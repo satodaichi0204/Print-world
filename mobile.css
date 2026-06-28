@@ -8307,9 +8307,8 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec1 + header — 426–767 ONLY (768 unchanged = standard)
+   TOP sec1 — 426–767 ONLY (768 unchanged = standard)
    Sec1: replace 100svh with 658px@426 → 100svh@767 so shirts/fg stay proportional.
-   Header: tighten logo↔phone gap only; all other header rules untouched at 768.
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 767px) {
   .home-page .fv {
@@ -8356,14 +8355,11 @@ html.is-guide-flow-zoom-open body {
     top: auto;
     gap: calc(10px * var(--fv-sec1-s));
   }
+}
 
-  /* Header only: reduce logo ↔ phone distance as width narrows (768 standard untouched) */
-  .home-page .fv-header {
-    justify-content: flex-start;
-    column-gap: calc(4px + 8px * (100vw - 426px) / (768px - 426px));
-  }
-
+/* TOP header — 426–767 only: reduce logo↔phone gap; no size/layout changes (768 standard) */
+@media (min-width: 426px) and (max-width: 767px) {
   .home-page .fv-header__right {
-    margin-left: auto;
+    margin-left: calc(-1 * (72px * (768px - 100vw) / (768px - 426px)));
   }
 }
