@@ -8372,26 +8372,28 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.home-page .fv-header__left {
-    flex-grow: calc((100vw - 426px) / (768px - 426px));
-    flex-shrink: 1;
-    flex-basis: 0;
+    flex: 0 1 auto;
+    overflow: visible;
     gap: 8px;
   }
 
   body.home-page .fv-header__brand {
     flex: 0 1 auto;
+    overflow: visible;
   }
 
   body.home-page .fv-logo {
+    flex: 0 0 auto;
     width: 56px;
     height: 52px;
+    overflow: visible;
   }
 
   body.home-page .fv-logo img {
-    width: 100%;
+    width: auto;
     height: 100%;
-    max-width: 100%;
-    object-fit: cover;
+    max-width: none;
+    object-fit: contain;
     object-position: left center;
   }
 
@@ -8428,5 +8430,11 @@ html.is-guide-flow-zoom-open body {
   body.home-page .fv-header .menu-btn span {
     width: 22px;
     height: 3px;
+  }
+
+  /* Pull icons toward logo as width narrows — frees room for brand text (0 at 767 ≈ 768) */
+  body.home-page .fv-header__right {
+    flex-shrink: 0;
+    margin-left: calc(-1 * (140px * (768px - 100vw) / (768px - 426px)));
   }
 }
