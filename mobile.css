@@ -8305,3 +8305,65 @@ html.is-guide-flow-zoom-open body {
     height: 100%;
   }
 }
+
+/* =============================================================================
+   TOP sec1 + header — 426–767 ONLY (768 unchanged = standard)
+   Sec1: replace 100svh with 658px@426 → 100svh@767 so shirts/fg stay proportional.
+   Header: tighten logo↔phone gap only; all other header rules untouched at 768.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 767px) {
+  .home-page .fv {
+    --fv-sec1-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
+    --fv-sec1-h: calc(
+      658px + (100svh - 658px) * (100vw - 426px) / (768px - 426px)
+    );
+    --fv-mobile-header-clear: calc(76px * var(--fv-sec1-s));
+    --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
+    height: var(--fv-sec1-h);
+    min-height: var(--fv-sec1-h);
+    max-height: var(--fv-sec1-h);
+    overflow: visible;
+    background-size: 100% 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  .home-page .shirts-layer {
+    inset: 0;
+    height: 100%;
+    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
+    padding-bottom: var(--fv-shirts-pad);
+    gap: calc(8px * var(--fv-sec1-s));
+    --shirt-gap: calc(10px * var(--fv-sec1-s));
+    --fv-shirts-available-h: calc(
+      var(--fv-sec1-h) - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2
+    );
+    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
+  }
+
+  .home-page .shirt-card {
+    padding: calc(12px * var(--fv-sec1-s));
+    border-radius: calc(10px * var(--fv-sec1-s));
+  }
+
+  .home-page .fv-content {
+    height: var(--fv-sec1-h);
+    min-height: var(--fv-sec1-h);
+  }
+
+  .home-page .fv-foreground {
+    bottom: 0;
+    top: auto;
+    gap: calc(10px * var(--fv-sec1-s));
+  }
+
+  /* Header only: reduce logo ↔ phone distance as width narrows (768 standard untouched) */
+  .home-page .fv-header {
+    justify-content: flex-start;
+    column-gap: calc(4px + 8px * (100vw - 426px) / (768px - 426px));
+  }
+
+  .home-page .fv-header__right {
+    margin-left: auto;
+  }
+}
