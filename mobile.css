@@ -1233,7 +1233,7 @@
     width: auto;
     max-width: calc(100% - 56px);
     height: auto;
-    margin: 20px auto 28px;
+    margin: 20px 28px 28px;
   }
 
   .home-page .sec9-card--ship .sec9-card__body {
@@ -8452,7 +8452,7 @@ html.is-guide-flow-zoom-open body {
    TOP sec9 cards — 320–768 final cascade (standard design lock)
    ============================================================================= */
 @media (max-width: 768px) {
-  .home-page .sec9-sub {
+  body.home-page .sec9-sub {
     display: grid;
     grid-template-columns: 1fr;
     gap: 28px;
@@ -8460,7 +8460,7 @@ html.is-guide-flow-zoom-open body {
     justify-items: stretch;
   }
 
-  .home-page .sec9-card {
+  body.home-page .sec9-card {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -8473,14 +8473,14 @@ html.is-guide-flow-zoom-open body {
     min-height: 0;
   }
 
-  .home-page .sec9-card--pay .sec9-card__main {
+  body.home-page .sec9-card--pay .sec9-card__main {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     min-height: 0;
   }
 
-  .home-page .sec9-card__head {
+  body.home-page .sec9-card__head {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -8492,41 +8492,45 @@ html.is-guide-flow-zoom-open body {
     border-radius: 18px 18px 0 0;
   }
 
-  .home-page .sec9-card__head-main {
+  body.home-page .sec9-card__head-main {
     flex: 0 1 auto;
     font-size: 20px;
     line-height: 1;
   }
 
-  .home-page .sec9-card__head-pill {
+  body.home-page .sec9-card__head-pill {
     flex: 0 0 auto;
     padding: 8px 12px;
     font-size: 12px;
     line-height: 1;
   }
 
-  .home-page .sec9-pay-list {
+  body.home-page .sec9-pay-list {
     width: auto;
     margin: 26px 28px 0;
     padding: 0;
   }
 
-  .home-page .sec9-card__logos {
+  body.home-page .sec9-card__logos {
     display: block;
     width: auto;
     max-width: calc(100% - 56px);
     height: auto;
-    margin: 20px 28px 0;
+    margin: 20px 28px 28px;
   }
 
-  .home-page .sec9-card--ship .sec9-card__body {
+  body.home-page .sec9-card--ship .sec9-card__body {
     flex: 1 1 auto;
     width: auto;
     margin: 26px 28px 0;
     text-align: center;
   }
 
-  .home-page .sec9-card__btn {
+  body.home-page .sec9-ship__ems {
+    margin-bottom: 28px;
+  }
+
+  body.home-page .sec9-sub > .sec9-card .sec9-card__btn {
     flex-shrink: 0;
     width: 76%;
     max-width: calc(100% - 56px);
