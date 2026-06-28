@@ -4228,13 +4228,15 @@
 
   .guide-design-tool-page .text-guide__media {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 16px;
   }
 
   .guide-design-tool-page .text-guide__media-img,
   .guide-design-tool-page .text-guide__list > .text-guide__card:nth-child(1) .text-guide__media-img:nth-child(2),
   .guide-design-tool-page .text-guide__list > .text-guide__card:nth-child(2) .text-guide__media-img:nth-child(1) {
+    flex: 0 0 auto;
+    align-self: flex-start;
     width: auto;
     max-width: 100%;
     height: auto;
@@ -4242,12 +4244,37 @@
 
   .guide-design-tool-page .stamp-guide__media {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 16px;
   }
 
   .guide-design-tool-page .stamp-guide__media-img {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    width: auto;
     max-width: 100%;
+    height: auto;
+  }
+
+  .guide-design-tool-page .transform-guide__media-img {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .guide-design-tool-page .image-guide__media {
+    align-items: flex-start;
+  }
+
+  .guide-design-tool-page .image-guide__media-img {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    width: auto;
+    max-width: 100%;
+    height: auto;
   }
 
   .guide-design-tool-page .image-guide__media--file-types {
