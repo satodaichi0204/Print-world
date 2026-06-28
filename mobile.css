@@ -4712,6 +4712,10 @@
     font-size: 17px;
   }
 
+  .guide-print-method-page .print-method-feature__text {
+    text-align: center;
+  }
+
   .guide-print-method-page .data-submission-caution {
     padding: 40px 0 56px;
   }
