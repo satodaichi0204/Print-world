@@ -9102,14 +9102,26 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec9 cards — 426–768 margin fix (final cascade)
-   Match contact panel width; scale card internals with content vs 768 lock.
+   TOP sec8 + sec9 — 426–768 side margins ×4 (final cascade)
+   16px → 64px at 768 lock; scales 60% at 426 → 100% at 768.
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
+  body.home-page {
+    --sec89-t: calc((100vw - 426px) / (768px - 426px));
+    --sec89-side: calc(64px * (0.6 + 0.4 * var(--sec89-t)));
+  }
+
+  body.home-page .sec8-inner {
+    padding-left: var(--sec89-side);
+    padding-right: var(--sec89-side);
+  }
+
   body.home-page .sec9 {
-    --sec9-content-w: calc(100vw - 32px);
+    padding-left: var(--sec89-side);
+    padding-right: var(--sec89-side);
+    --sec9-content-w: calc(100vw - 2 * var(--sec89-side));
     --sec9-card-w: var(--sec9-content-w);
-    --sec9-card-s: calc(var(--sec9-content-w) / (768px - 32px));
+    --sec9-card-s: calc(var(--sec9-content-w) / (768px - 128px));
   }
 
   body.home-page .sec9-sub {
