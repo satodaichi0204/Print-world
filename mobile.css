@@ -9154,28 +9154,31 @@ html.is-guide-flow-zoom-open body {
 
   body.home-page .sec9-card__head {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
     min-height: calc(64px * var(--sec9-card-type-s));
-    padding: 0 var(--sec9-card-pad);
-    gap: calc(12px * var(--sec9-card-type-s));
+    padding: calc(10px * var(--sec9-card-type-s)) var(--sec9-card-pad);
+    gap: calc(8px * var(--sec9-card-type-s));
     border-radius: calc(18px * var(--sec9-card-type-s)) calc(18px * var(--sec9-card-type-s)) 0 0;
   }
 
   body.home-page .sec9-card__head-main {
-    flex: 0 1 auto;
-    text-align: left;
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
     font-size: max(calc(20px * var(--sec9-card-type-s)), 16px);
-    line-height: 1;
+    line-height: 1.2;
   }
 
   body.home-page .sec9-card__head-pill {
     flex: 0 0 auto;
-    margin-left: auto;
-    max-width: 58%;
+    display: inline-block;
+    box-sizing: border-box;
+    max-width: calc(100% - 8px);
+    margin: 0;
     font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
     line-height: 1.2;
     padding: calc(8px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
