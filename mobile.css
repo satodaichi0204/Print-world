@@ -9380,4 +9380,8 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .pdp-hero {
     background-color: #fff;
   }
+
+  body.product-detail-page .fv-header {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
 }
