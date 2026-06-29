@@ -7519,7 +7519,7 @@ html.is-guide-flow-zoom-open body {
 @media (max-width: 768px) {
   .fv-header {
     background: #fff;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -9338,5 +9338,15 @@ html.is-guide-flow-zoom-open body {
     border-radius: 2px;
     text-align: center;
     white-space: normal;
+  }
+}
+
+/* =============================================================================
+   Product list — header shadow on white hero (769+)
+   ============================================================================= */
+@media (min-width: 769px) {
+  body.product-list-page .fv-header {
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 }
