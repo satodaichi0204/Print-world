@@ -1146,9 +1146,8 @@
     gap: 28px;
   }
 
-  .product-detail-page .sec9-wave {
+  .product-detail-page .sec9-wave__svg {
     height: 40px;
-    background-size: calc(100vw / 36) 40px;
   }
 
   :is(.home-page, .product-detail-page) .sec9-sub > .sec9-ship-aside {
@@ -6166,10 +6165,6 @@
     padding: calc(28px * var(--pdp-table-s)) 0 calc(32px * var(--pdp-table-s));
   }
 
-  .product-detail-page .pdp-size {
-    padding-bottom: calc(100px * var(--pdp-table-s));
-  }
-
   .product-detail-page .pdp-price {
     padding-bottom: calc(18px * var(--pdp-table-s));
   }
@@ -6719,10 +6714,6 @@ html.is-guide-flow-zoom-open body {
     padding: calc(44px * var(--pdp-pc-s)) 0 calc(52px * var(--pdp-pc-s));
   }
 
-  .product-detail-page .pdp-size {
-    padding-bottom: calc(100px * var(--pdp-pc-s));
-  }
-
   .product-detail-page .pdp-price {
     padding-bottom: calc(28px * var(--pdp-pc-s));
   }
@@ -6801,9 +6792,8 @@ html.is-guide-flow-zoom-open body {
     overflow: visible;
   }
 
-  .product-detail-page .sec9-wave {
+  .product-detail-page .sec9-wave__svg {
     height: calc(54px * var(--sec9-pc-s));
-    background-size: calc(100vw / 36) calc(56px * var(--sec9-pc-s));
   }
 
   .product-detail-page .sec9-contact {
@@ -7077,15 +7067,6 @@ html.is-guide-flow-zoom-open body {
 
 /* --- Product detail sec9: 426–768 — contact padding + stacked ship aside --- */
 @media (min-width: 426px) and (max-width: 768px) {
-  .product-detail-page .sec9-contact__main {
-    padding-top: 36px;
-  }
-
-  .product-detail-page .sec9 {
-    padding-bottom: 0;
-    padding-top: calc(48px + 16px * (100vw - 426px) / (768px - 426px));
-  }
-
   .product-detail-page .sec9-sub {
     --sec9-staff-lock-s: calc(1440px / 1920px);
     --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
@@ -7146,79 +7127,12 @@ html.is-guide-flow-zoom-open body {
       calc(12px * var(--pdp-mobile-s)) calc(32px * var(--pdp-mobile-s));
   }
 
-  .product-detail-page .sec9-wave {
+  .product-detail-page .sec9-wave__svg {
     height: calc(34px * var(--pdp-mobile-s));
-    background-size: calc(100vw / 36) calc(56px * var(--pdp-mobile-s));
-  }
-
-  .product-detail-page .sec9 {
-    --sec9-sp-s: var(--pdp-mobile-s);
-    padding: 0 16px;
-    overflow: visible;
   }
 
   .product-detail-page .sec9-inner {
     overflow: visible;
-  }
-
-  .product-detail-page .sec9-contact {
-    position: relative;
-    margin-top: calc(-28px * var(--pdp-mobile-s));
-    margin-bottom: calc(28px * var(--pdp-mobile-s));
-    padding-top: calc(112px * var(--pdp-mobile-s));
-    overflow: visible;
-  }
-
-  /* Match desktop: contents so woman/title position against .sec9-contact */
-  .product-detail-page .sec9-contact__hero,
-  .product-detail-page .sec9-contact__woman-wrap {
-    display: contents;
-  }
-
-  .product-detail-page .sec9-contact__woman {
-    position: absolute;
-    left: calc(-82px * var(--pdp-mobile-s));
-    top: calc(-94px * var(--pdp-mobile-s));
-    bottom: auto;
-    width: calc(324px * var(--pdp-mobile-s));
-    height: auto;
-    max-width: none;
-    margin: 0;
-    transform: none;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .product-detail-page .sec9-contact picture {
-    display: block;
-    position: absolute;
-    left: calc(96px * var(--pdp-mobile-s));
-    top: calc(40px * var(--pdp-mobile-s));
-    bottom: auto;
-    width: calc(100% - 164px * var(--pdp-mobile-s));
-    max-width: calc(248px * var(--pdp-mobile-s));
-    margin: 0;
-    transform: none;
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  .product-detail-page .sec9-contact__title {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .product-detail-page .sec9-contact__panel {
-    position: relative;
-    z-index: 1;
-    margin-top: 0;
-    padding: calc(78px * var(--pdp-mobile-s)) calc(20px * var(--pdp-mobile-s)) calc(20px * var(--pdp-mobile-s));
-    border-radius: calc(18px * var(--pdp-mobile-s));
-  }
-
-  .product-detail-page .sec9-contact__main {
-    padding-top: 0;
   }
 
   .product-detail-page .sec9-contact__cols {
@@ -9463,22 +9377,97 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   PDP sec9 — match TOP sec9 exactly (final override; clears legacy PDP-only rules)
+   PDP sec9 — final cascade (35-triangle wave + flex hero; no title/woman overlap)
    ============================================================================= */
 @media (max-width: 768px) {
   body.product-detail-page .sec9-wave {
-    display: none;
+    display: block;
+  }
+
+  body.product-detail-page .sec9-wave__svg {
+    height: calc(40px * var(--sec9-m-s, calc((100vw - 32px) / 768px)));
   }
 
   body.product-detail-page .sec9 {
+    --sec9-m-s: calc((100vw - 32px) / 768px);
     overflow: visible;
-    padding: 0 16px 0;
+    padding: calc(64px * var(--sec9-m-s)) 16px 0;
   }
 
   body.product-detail-page .sec9-contact {
-    position: static;
-    margin-top: 0;
+    position: relative;
+    margin-bottom: calc(28px * var(--sec9-m-s));
     padding-top: 0;
+    overflow: visible;
+  }
+
+  body.product-detail-page .sec9-contact__hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: nowrap;
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto calc(-24px * var(--sec9-m-s));
+    overflow: visible;
+    z-index: 4;
+  }
+
+  body.product-detail-page .sec9-contact__woman-wrap {
+    display: block;
+    position: relative;
+    flex: 0 0 auto;
+    width: calc(108px * var(--sec9-m-s));
+    height: calc(118px * var(--sec9-m-s));
+    margin-right: calc(-16px * var(--sec9-m-s));
+    overflow: visible;
+    z-index: 2;
+  }
+
+  body.product-detail-page .sec9-contact__woman {
+    position: absolute;
+    left: calc(-20px * var(--sec9-m-s));
+    top: 0;
+    bottom: auto;
+    width: calc(160px * var(--sec9-m-s));
+    height: auto;
+    max-width: none;
+    margin: 0;
+    transform: none;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  body.product-detail-page .sec9-contact picture {
+    display: block;
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    width: min(74vw, calc(282px * var(--sec9-m-s)));
+    max-width: calc(282px * var(--sec9-m-s));
+    margin: 0;
+    transform: none;
+    z-index: 3;
+    flex: 0 0 auto;
+    pointer-events: none;
+  }
+
+  body.product-detail-page .sec9-contact__title {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  body.product-detail-page .sec9-contact__panel {
+    z-index: 1;
+    padding: calc(96px * var(--sec9-m-s)) calc(20px * var(--sec9-m-s)) calc(20px * var(--sec9-m-s));
+    border-radius: calc(18px * var(--sec9-m-s));
   }
 
   body.product-detail-page .sec9-contact__main {
@@ -9520,7 +9509,41 @@ html.is-guide-flow-zoom-open body {
 
 @media (max-width: 425px) {
   body.product-detail-page .sec9 {
-    padding: 0 calc(16px * calc(100vw / 425px)) 0;
+    --sec9-sp-s: calc(100vw / 425px);
+    padding: calc(50px * var(--sec9-sp-s)) calc(16px * var(--sec9-sp-s)) 0;
+  }
+
+  body.product-detail-page .sec9-wave__svg {
+    height: calc(34px * var(--sec9-sp-s));
+  }
+
+  body.product-detail-page .sec9-contact {
+    margin-bottom: calc(28px * var(--sec9-sp-s));
+  }
+
+  body.product-detail-page .sec9-contact__hero {
+    margin-bottom: calc(-24px * var(--sec9-sp-s));
+  }
+
+  body.product-detail-page .sec9-contact__woman-wrap {
+    width: calc(108px * var(--sec9-sp-s));
+    height: calc(118px * var(--sec9-sp-s));
+    margin-right: calc(-16px * var(--sec9-sp-s));
+  }
+
+  body.product-detail-page .sec9-contact__woman {
+    left: calc(-20px * var(--sec9-sp-s));
+    width: calc(160px * var(--sec9-sp-s));
+  }
+
+  body.product-detail-page .sec9-contact picture {
+    width: min(74vw, calc(282px * var(--sec9-sp-s)));
+    max-width: calc(282px * var(--sec9-sp-s));
+  }
+
+  body.product-detail-page .sec9-contact__panel {
+    padding: calc(88px * var(--sec9-sp-s)) calc(18px * var(--sec9-sp-s)) calc(20px * var(--sec9-sp-s));
+    border-radius: calc(18px * var(--sec9-sp-s));
   }
 }
 
@@ -9532,9 +9555,4 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .sec9-sub > .sec9-ship-aside {
     grid-column: 1 / -1;
   }
-}
-
-/* PDP sec9 — pdp-size 100px bottom pad provides clearance; no extra sec9 top pad */
-body.product-detail-page .sec9 {
-  padding-top: 0;
 }
