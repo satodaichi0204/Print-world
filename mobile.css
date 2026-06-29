@@ -1641,7 +1641,7 @@
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv {
     --fv-header-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
-    --fv-mobile-header-clear: calc(76px * var(--fv-header-s));
+    --fv-mobile-header-clear: 100px;
   }
 
   .home-page .fv-header {
@@ -8386,7 +8386,7 @@ html.is-guide-flow-zoom-open body {
     --fv-sec1-h: calc(
       658px + (100svh - 658px) * (100vw - 426px) / (768px - 426px)
     );
-    --fv-mobile-header-clear: 76px;
+    --fv-mobile-header-clear: 100px;
     --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
     height: var(--fv-sec1-h);
     min-height: var(--fv-sec1-h);
@@ -8431,8 +8431,8 @@ html.is-guide-flow-zoom-open body {
 @media (min-width: 426px) and (max-width: 767px) {
   body.home-page {
     --sp-header-s: 1;
-    --sp-header-clear: 76px;
-    --fv-mobile-header-clear: 76px;
+    --sp-header-clear: 100px;
+    --fv-mobile-header-clear: 100px;
   }
 
   body.home-page .fv-header {
