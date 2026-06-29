@@ -9055,9 +9055,27 @@ html.is-guide-flow-zoom-open body {
    ============================================================================= */
 @media (max-width: 425px) {
   body.home-page .sec9 {
+    --sec9-m-s: calc((100vw - 32px) / 768px);
+    --sec9-staff-lock-s: calc(1440px / 1920px);
+    --sec9-aside-lock-w: calc((1000px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
+    --sec9-aside-w: var(--sec9-aside-lock-w);
     --sec9-content-w: calc((425px - 32px) * var(--sec9-sp-s, 1));
     --sec9-card-w: var(--sec9-content-w);
     --sec9-card-s: calc(var(--sec9-card-w) / (425px - 32px));
+  }
+
+  body.home-page .sec9-sub > .sec9-ship-aside {
+    grid-column: 1 / -1;
+    justify-self: end;
+    width: var(--sec9-aside-w);
+    max-width: 100%;
+    margin-top: -7px;
+    margin-right: -18px;
+    margin-bottom: 0;
+    margin-left: auto;
+    overflow: visible;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
 
   body.home-page .sec9-sub {
