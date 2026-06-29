@@ -9402,7 +9402,7 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .sec9-contact {
     position: relative;
     margin-top: calc(-28px * var(--pdp-mobile-s));
-    margin-bottom: calc(28px * var(--pdp-mobile-s));
+    margin-bottom: calc(48px * var(--pdp-mobile-s));
     padding-top: calc(112px * var(--pdp-mobile-s));
     overflow: visible;
   }
