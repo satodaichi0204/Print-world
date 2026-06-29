@@ -9186,7 +9186,7 @@ html.is-guide-flow-zoom-open body {
 
   body.home-page .sec9-sub > .sec9-card > header.sec9-card__head {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
@@ -9200,7 +9200,7 @@ html.is-guide-flow-zoom-open body {
   body.home-page .sec9-sub > .sec9-card > header.sec9-card__head > .sec9-card__head-main {
     display: block;
     flex: 0 0 auto;
-    width: 100%;
+    width: 50%;
     max-width: 100%;
     text-align: center;
     font-size: max(calc(20px * var(--sec9-card-type-s)), 16px);
@@ -9211,7 +9211,7 @@ html.is-guide-flow-zoom-open body {
     display: inline-block;
     flex: 0 0 auto;
     width: auto;
-    max-width: calc(100% - 8px);
+    max-width: 50%;
     margin-inline: auto;
     font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
     line-height: 1.2;
@@ -9299,13 +9299,13 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec9 card header — 426–768 stacked layout (absolute final override)
-   Title centered on row 1, white pill centered on row 2.
+   TOP sec9 card header — 426–768 row layout (absolute final override)
+   Title and pill side-by-side; title width 50%.
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   body.home-page .sec9-sub > .sec9-card > header.sec9-card__head {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
@@ -9319,7 +9319,7 @@ html.is-guide-flow-zoom-open body {
   body.home-page .sec9-sub > .sec9-card > header.sec9-card__head > .sec9-card__head-main {
     display: block;
     flex: 0 0 auto;
-    width: 100%;
+    width: 50%;
     max-width: 100%;
     text-align: center;
     font-size: max(calc(20px * var(--sec9-card-type-s)), 16px);
@@ -9330,7 +9330,7 @@ html.is-guide-flow-zoom-open body {
     display: inline-block;
     flex: 0 0 auto;
     width: auto;
-    max-width: calc(100% - 8px);
+    max-width: 50%;
     margin-inline: auto;
     font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
     line-height: 1.2;
