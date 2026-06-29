@@ -5144,19 +5144,3 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .product-detail-page .sec9 {
   margin-top: 0;
 }
-
-@media (min-width: 426px) {
-  .product-detail-page .sec9-inner {
-    width: calc(1320px * var(--sec9-pc-s));
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: visible;
-  }
-
-  .product-detail-page .sec9-wave {
-    --sec9-pc-s: calc(100vw / 1920px);
-    height: calc(56px * var(--sec9-pc-s));
-    background-size: calc(100vw / 36) calc(56px * var(--sec9-pc-s));
-  }
-}
