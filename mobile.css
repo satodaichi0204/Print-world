@@ -9550,4 +9550,14 @@ html.is-guide-flow-zoom-open body {
   .guide-hero {
     background-color: #fff;
   }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page
+    )
+    .fv-header {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
 }
