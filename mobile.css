@@ -9048,3 +9048,35 @@ html.is-guide-flow-zoom-open body {
     height: var(--sp-header-menu-bar-h);
   }
 }
+
+/* =============================================================================
+   TOP sec9 cards — 320–425 proportional lock (final cascade)
+   Freeze 425 card width; pay + ship share identical width; scale with --sec9-sp-s.
+   ============================================================================= */
+@media (max-width: 425px) {
+  body.home-page .sec9 {
+    --sec9-card-w-425: calc((425px - 32px) * 444 / 736);
+    --sec9-card-w: calc(var(--sec9-card-w-425) * var(--sec9-sp-s, 1));
+    --sec9-card-s: calc(var(--sec9-card-w) / 444px);
+  }
+
+  body.home-page .sec9-sub {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: stretch;
+    gap: calc(28px * var(--sec9-card-s));
+  }
+
+  body.home-page .sec9-sub > .sec9-card {
+    grid-column: 1 / -1;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--sec9-card-w);
+    min-width: 0;
+    margin-inline: auto;
+  }
+
+  body.home-page .sec9-card--ship {
+    overflow: hidden;
+  }
+}
