@@ -8759,15 +8759,15 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     ) {
     --sp-header-icons-s: calc(clamp(320px, 100vw, 768px) / 768px);
-    --sp-header-icon-size: calc(40px * var(--sp-header-icons-s));
-    --sp-header-icon-gap: calc(16px * var(--sp-header-icons-s));
-    --sp-header-actions-gap: calc(12px * var(--sp-header-icons-s));
-    --sp-header-action-min-w: calc(50px * var(--sp-header-icons-s));
-    --sp-header-action-font: calc(11px * var(--sp-header-icons-s));
-    --sp-header-menu-w: calc(56px * var(--sp-header-icons-s));
-    --sp-header-menu-h: calc(62px * var(--sp-header-icons-s));
-    --sp-header-menu-bar-w: calc(28px * var(--sp-header-icons-s));
-    --sp-header-menu-bar-h: calc(4px * var(--sp-header-icons-s));
+    --sp-header-icon-size: calc(50px * var(--sp-header-icons-s));
+    --sp-header-icon-gap: calc(20px * var(--sp-header-icons-s));
+    --sp-header-actions-gap: calc(16px * var(--sp-header-icons-s));
+    --sp-header-action-min-w: calc(58px * var(--sp-header-icons-s));
+    --sp-header-action-font: calc(12px * var(--sp-header-icons-s));
+    --sp-header-menu-w: calc(64px * var(--sp-header-icons-s));
+    --sp-header-menu-h: calc(70px * var(--sp-header-icons-s));
+    --sp-header-menu-bar-w: calc(32px * var(--sp-header-icons-s));
+    --sp-header-menu-bar-h: calc(5px * var(--sp-header-icons-s));
   }
 
   body:is(
@@ -8806,7 +8806,7 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-compact-action {
-    gap: calc(6px * var(--sp-header-icons-s));
+    gap: calc(7px * var(--sp-header-icons-s));
     min-width: var(--sp-header-action-min-w);
     padding: 0 calc(4px * var(--sp-header-icons-s));
     font-size: var(--sp-header-action-font);
@@ -8840,7 +8840,7 @@ html.is-guide-flow-zoom-open body {
     .menu-btn {
     width: var(--sp-header-menu-w);
     height: var(--sp-header-menu-h);
-    gap: calc(6px * var(--sp-header-icons-s));
+    gap: calc(7px * var(--sp-header-icons-s));
   }
 
   body:is(
