@@ -8663,10 +8663,10 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Mobile header logo — 426–768 gradual scale (final cascade)
-   768px: 270px full logo. ≤425: unified mark+brand (final block below).
+   Mobile header logo — 768 lock → 320 gradual scale (final cascade)
+   768px: 270px (same as 769–1440). Scales linearly down to 320px viewport.
    ============================================================================= */
-@media (min-width: 426px) and (max-width: 768px) {
+@media (max-width: 768px) {
   body:is(
       .home-page,
       .guide-flow-page,
@@ -8762,10 +8762,10 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Mobile header icons — 426–768 gradual scale (final cascade)
-   Larger icons at 768; ≤425 uses standard lock × 0.8 (final block below).
+   Mobile header icons — 768 lock → 320 gradual scale (final cascade)
+   Larger icons + spacing at 768 to match standard design; scales down to 320.
    ============================================================================= */
-@media (min-width: 426px) and (max-width: 768px) {
+@media (max-width: 768px) {
   body:is(
       .home-page,
       .guide-flow-page,
@@ -8890,9 +8890,8 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Mobile header — 320–425 design lock (final cascade)
-   Standard 425 layout (mark + brand); icons ~80% of prior size (30px @425).
-   All dimensions scale with --sp-header-s (100vw / 425).
+   Narrow phones 320–425 — enlarge logo + icons as width decreases (final cascade)
+   Inverse scale: larger at 320px than at 425px. Flex keeps logo/icons from overlapping.
    ============================================================================= */
 @media (max-width: 425px) {
   body:is(
@@ -8906,15 +8905,15 @@ html.is-guide-flow-zoom-open body {
     ) {
     --sp-narrow-t: calc((425px - clamp(320px, 100vw, 425px)) / (425px - 320px));
     --fv-logo-w: calc(158px + 42px * var(--sp-narrow-t));
-    --sp-header-icon-size: calc(30px * var(--sp-header-s, 1));
-    --sp-header-icon-gap: calc(8px * var(--sp-header-s, 1));
-    --sp-header-actions-gap: calc(6px * var(--sp-header-s, 1));
-    --sp-header-action-min-w: calc(37px * var(--sp-header-s, 1));
-    --sp-header-action-font: calc(8px * var(--sp-header-s, 1));
-    --sp-header-menu-w: calc(42px * var(--sp-header-s, 1));
-    --sp-header-menu-h: calc(46px * var(--sp-header-s, 1));
-    --sp-header-menu-bar-w: calc(21px * var(--sp-header-s, 1));
-    --sp-header-menu-bar-h: calc(3px * var(--sp-header-s, 1));
+    --sp-header-icon-size: calc(38px + 10px * var(--sp-narrow-t));
+    --sp-header-icon-gap: calc(12px + 4px * var(--sp-narrow-t));
+    --sp-header-actions-gap: calc(10px + 4px * var(--sp-narrow-t));
+    --sp-header-action-min-w: calc(44px + 8px * var(--sp-narrow-t));
+    --sp-header-action-font: calc(11px + 2px * var(--sp-narrow-t));
+    --sp-header-menu-w: calc(52px + 10px * var(--sp-narrow-t));
+    --sp-header-menu-h: calc(58px + 10px * var(--sp-narrow-t));
+    --sp-header-menu-bar-w: calc(26px + 4px * var(--sp-narrow-t));
+    --sp-header-menu-bar-h: calc(4px + 1px * var(--sp-narrow-t));
   }
 
   body.home-page .fv-header__right {
@@ -8930,133 +8929,9 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-header__left {
-    display: flex;
-    align-items: center;
-    flex: 1 1 0;
-    min-width: 0;
-    overflow: hidden;
-    gap: calc(8px * var(--sp-header-s, 1));
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header__right {
-    flex: 0 0 auto;
-    flex-shrink: 0;
-    margin-left: 0;
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-logo {
-    flex: 0 0 auto;
-    width: calc(56px * var(--sp-header-s, 1));
-    height: calc(52px * var(--sp-header-s, 1));
-    max-width: none;
-    overflow: hidden;
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-logo
-    img {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-    object-position: left center;
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header__brand {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1 1 0;
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header__brand-lead {
-    font-size: calc(11px * var(--sp-header-s, 1));
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header__brand-name {
-    font-size: calc(22px * var(--sp-header-s, 1));
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header__compact {
-    gap: var(--sp-header-icon-gap);
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header__actions {
-    gap: var(--sp-header-actions-gap);
+    .fv-header {
+    min-height: calc(76px + 8px * var(--sp-narrow-t, 0));
+    padding-block: calc(10px + 2px * var(--sp-narrow-t, 0));
   }
 
   body:is(
@@ -9069,26 +8944,7 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-compact-action {
-    gap: calc(4px * var(--sp-header-s, 1));
-    min-width: var(--sp-header-action-min-w);
-    padding: 0 calc(2px * var(--sp-header-s, 1));
-    font-size: var(--sp-header-action-font);
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-compact-action
-    img {
-    width: var(--sp-header-icon-size);
-    height: var(--sp-header-icon-size);
-    max-width: none;
+    gap: calc(6px + 2px * var(--sp-narrow-t, 0));
   }
 
   body:is(
@@ -9102,36 +8958,6 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header
     .menu-btn {
-    width: var(--sp-header-menu-w);
-    height: var(--sp-header-menu-h);
-    gap: calc(4px * var(--sp-header-s, 1));
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header
-    .menu-btn
-    span,
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header
-    .menu-btn:hover
-    span {
-    width: var(--sp-header-menu-bar-w);
-    height: var(--sp-header-menu-bar-h);
+    gap: calc(6px + 2px * var(--sp-narrow-t, 0));
   }
 }
