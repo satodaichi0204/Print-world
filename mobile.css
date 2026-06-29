@@ -9377,7 +9377,7 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   PDP sec9 — final cascade (425px design lock → content width; matches comp)
+   PDP sec9 — final cascade (425px design comp; scales down 320→425, capped ≥426)
    ============================================================================= */
 @media (max-width: 768px) {
   body.product-detail-page .sec9-wave {
@@ -9385,24 +9385,25 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.product-detail-page .sec9 {
-    --sec9-pdp-s: calc((100vw - 32px) / (425px - 32px));
+    /* 425 lock: scale down to 320 only — never upscale above comp width */
+    --pdp-mobile-s: min(1, calc(100vw / 425px));
     --sec9-m-s: calc((100vw - 32px) / 768px);
     --sec9-staff-lock-s: calc(1440px / 1920px);
     --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
     --sec9-aside-w: var(--sec9-aside-lock-w);
     overflow: visible;
-    padding: calc(50px * var(--sec9-pdp-s)) calc(16px * var(--sec9-pdp-s)) 0;
+    padding: calc(50px * var(--pdp-mobile-s)) calc(16px * var(--pdp-mobile-s)) 0;
   }
 
   body.product-detail-page .sec9-wave__svg {
-    height: calc(34px * var(--sec9-pdp-s));
+    height: calc(34px * var(--pdp-mobile-s));
   }
 
   body.product-detail-page .sec9-contact {
     position: relative;
-    margin-top: calc(-28px * var(--sec9-pdp-s));
-    margin-bottom: calc(28px * var(--sec9-pdp-s));
-    padding-top: calc(112px * var(--sec9-pdp-s));
+    margin-top: calc(-28px * var(--pdp-mobile-s));
+    margin-bottom: calc(28px * var(--pdp-mobile-s));
+    padding-top: calc(112px * var(--pdp-mobile-s));
     overflow: visible;
   }
 
@@ -9413,11 +9414,14 @@ html.is-guide-flow-zoom-open body {
 
   body.product-detail-page .sec9-contact__woman {
     position: absolute;
-    left: calc(-82px * var(--sec9-pdp-s));
-    top: calc(-94px * var(--sec9-pdp-s));
+    left: calc(-82px * var(--pdp-mobile-s));
+    top: calc(-94px * var(--pdp-mobile-s));
     bottom: auto;
-    width: calc(324px * var(--sec9-pdp-s));
-    height: auto;
+    width: calc(324px * var(--pdp-mobile-s));
+    height: calc(218px * var(--pdp-mobile-s));
+    max-height: calc(218px * var(--pdp-mobile-s));
+    object-fit: cover;
+    object-position: top center;
     max-width: none;
     margin: 0;
     transform: none;
@@ -9428,11 +9432,11 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .sec9-contact picture {
     display: block;
     position: absolute;
-    left: calc(96px * var(--sec9-pdp-s));
-    top: calc(40px * var(--sec9-pdp-s));
+    left: calc(96px * var(--pdp-mobile-s));
+    top: calc(40px * var(--pdp-mobile-s));
     bottom: auto;
-    width: calc(100% - 164px * var(--sec9-pdp-s));
-    max-width: calc(248px * var(--sec9-pdp-s));
+    width: calc(100% - 164px * var(--pdp-mobile-s));
+    max-width: calc(248px * var(--pdp-mobile-s));
     margin: 0;
     transform: none;
     z-index: 3;
@@ -9451,8 +9455,8 @@ html.is-guide-flow-zoom-open body {
 
   body.product-detail-page .sec9-contact__panel {
     z-index: 1;
-    border-radius: calc(18px * var(--sec9-pdp-s));
-    padding: calc(78px * var(--sec9-pdp-s)) calc(20px * var(--sec9-pdp-s)) calc(20px * var(--sec9-pdp-s));
+    border-radius: calc(18px * var(--pdp-mobile-s));
+    padding: calc(78px * var(--pdp-mobile-s)) calc(20px * var(--pdp-mobile-s)) calc(20px * var(--pdp-mobile-s));
   }
 
   body.product-detail-page .sec9-contact__main {
@@ -9466,6 +9470,8 @@ html.is-guide-flow-zoom-open body {
     width: 82%;
     margin-left: auto;
     margin-right: auto;
+    padding-left: calc(52px * var(--pdp-mobile-s));
+    box-sizing: border-box;
     margin-bottom: calc(20px * var(--sec9-m-s));
   }
 
