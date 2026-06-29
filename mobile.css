@@ -8663,8 +8663,8 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Mobile header logo — 1024 size/shape lock at ≤768 (final cascade)
-   Full logo.png at calc(360px * 1440 / 1920) = 270px, same as 769–1440 viewports.
+   Mobile header logo — 768 lock → 320 gradual scale (final cascade)
+   768px: 270px (same as 769–1440). Scales linearly down to 320px viewport.
    ============================================================================= */
 @media (max-width: 768px) {
   body:is(
@@ -8676,7 +8676,9 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     ) {
-    --fv-logo-w: calc(360px * 1440px / 1920px);
+    --fv-logo-w: calc(
+      360px * 1440px / 1920px * clamp(320px, 100vw, 768px) / 768px
+    );
   }
 
   body:is(
@@ -8721,7 +8723,7 @@ html.is-guide-flow-zoom-open body {
     .fv-logo
     img {
     display: block;
-    width: calc(var(--fv-logo-w) * var(--sp-header-s, 1));
+    width: var(--fv-logo-w);
     height: auto;
     max-width: none;
     object-fit: contain;
