@@ -7519,7 +7519,7 @@ html.is-guide-flow-zoom-open body {
 @media (max-width: 768px) {
   .fv-header {
     background: #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -7936,10 +7936,6 @@ html.is-guide-flow-zoom-open body {
     .guide-hero {
     padding-top: calc(var(--sp-header-clear, 76px) + 20px);
     min-height: 0;
-  }
-
-  body.product-list-page .plp-hero {
-    padding-top: calc(var(--sp-header-clear, 76px) + 40px * var(--sp-header-s, 1));
   }
 
   body.product-detail-page .pdp-hero {
@@ -9342,11 +9338,19 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Product list — header shadow on white hero (769+)
+   Product list — 320–768 only: white hero, header shadow, 40px top gap
    ============================================================================= */
-@media (min-width: 769px) {
+@media (max-width: 768px) {
+  body.product-list-page {
+    --plp-header-bg: #fff;
+  }
+
+  body.product-list-page .plp-hero {
+    background-color: #fff;
+    padding-top: calc(var(--sp-header-clear, 76px) + 40px * var(--sp-header-s, 1));
+  }
+
   body.product-list-page .fv-header {
-    background: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 }
