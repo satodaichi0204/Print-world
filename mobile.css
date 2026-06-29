@@ -9377,7 +9377,7 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   PDP sec9 — final cascade (35-triangle wave + flex hero; no title/woman overlap)
+   PDP sec9 — final cascade (35-triangle wave + 768px-lock contact hero)
    ============================================================================= */
 @media (max-width: 768px) {
   body.product-detail-page .sec9-wave {
@@ -9401,37 +9401,17 @@ html.is-guide-flow-zoom-open body {
     overflow: visible;
   }
 
-  body.product-detail-page .sec9-contact__hero {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: calc(16px * var(--sec9-m-s));
-    position: relative;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto calc(-24px * var(--sec9-m-s));
-    overflow: visible;
-    z-index: 4;
-  }
-
+  body.product-detail-page .sec9-contact__hero,
   body.product-detail-page .sec9-contact__woman-wrap {
-    display: block;
-    position: relative;
-    flex: 0 0 auto;
-    width: calc(84px * var(--sec9-m-s));
-    height: calc(118px * var(--sec9-m-s));
-    margin-right: 0;
-    overflow: hidden;
-    z-index: 2;
+    display: contents;
   }
 
   body.product-detail-page .sec9-contact__woman {
     position: absolute;
-    left: calc(-24px * var(--sec9-m-s));
-    top: calc(12px * var(--sec9-m-s));
+    left: calc(-125px * var(--sec9-m-s));
+    top: calc(-240px * var(--sec9-m-s));
     bottom: auto;
-    width: calc(150px * var(--sec9-m-s));
+    width: calc(469px * var(--sec9-m-s));
     height: auto;
     max-width: none;
     margin: 0;
@@ -9442,16 +9422,15 @@ html.is-guide-flow-zoom-open body {
 
   body.product-detail-page .sec9-contact picture {
     display: block;
-    position: relative;
-    left: auto;
-    top: auto;
+    position: absolute;
+    left: calc(101px * var(--sec9-m-s));
+    top: calc(-76px * var(--sec9-m-s));
     bottom: auto;
-    width: min(calc(100vw - 152px), calc(282px * var(--sec9-m-s)));
-    max-width: calc(282px * var(--sec9-m-s));
+    width: calc(100% - 274px * var(--sec9-m-s));
+    max-width: none;
     margin: 0;
     transform: none;
     z-index: 3;
-    flex: 0 0 auto;
     pointer-events: none;
   }
 
@@ -9467,7 +9446,7 @@ html.is-guide-flow-zoom-open body {
 
   body.product-detail-page .sec9-contact__panel {
     z-index: 1;
-    padding: calc(96px * var(--sec9-m-s)) calc(20px * var(--sec9-m-s)) calc(20px * var(--sec9-m-s));
+    padding: calc(108px * var(--sec9-m-s)) calc(24px * var(--sec9-m-s)) calc(22px * var(--sec9-m-s));
     border-radius: calc(18px * var(--sec9-m-s));
   }
 
@@ -9519,34 +9498,26 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.product-detail-page .sec9-contact {
+    margin-top: calc(-28px * var(--sec9-sp-s));
     margin-bottom: calc(28px * var(--sec9-sp-s));
-  }
-
-  body.product-detail-page .sec9-contact__hero {
-    gap: calc(16px * var(--sec9-sp-s));
-    margin-bottom: calc(-24px * var(--sec9-sp-s));
-  }
-
-  body.product-detail-page .sec9-contact__woman-wrap {
-    width: calc(84px * var(--sec9-sp-s));
-    height: calc(118px * var(--sec9-sp-s));
-    margin-right: 0;
+    padding-top: calc(112px * var(--sec9-sp-s));
   }
 
   body.product-detail-page .sec9-contact__woman {
-    left: calc(-24px * var(--sec9-sp-s));
-    top: calc(12px * var(--sec9-sp-s));
-    width: calc(150px * var(--sec9-sp-s));
+    left: calc(-82px * var(--sec9-sp-s));
+    top: calc(-94px * var(--sec9-sp-s));
+    width: calc(324px * var(--sec9-sp-s));
   }
 
   body.product-detail-page .sec9-contact picture {
-    width: min(calc(100vw - 152px), calc(282px * var(--sec9-sp-s)));
-    max-width: calc(282px * var(--sec9-sp-s));
-    margin-left: 0;
+    left: calc(96px * var(--sec9-sp-s));
+    top: calc(40px * var(--sec9-sp-s));
+    width: calc(100% - 164px * var(--sec9-sp-s));
+    max-width: calc(248px * var(--sec9-sp-s));
   }
 
   body.product-detail-page .sec9-contact__panel {
-    padding: calc(88px * var(--sec9-sp-s)) calc(18px * var(--sec9-sp-s)) calc(20px * var(--sec9-sp-s));
+    padding: calc(78px * var(--sec9-sp-s)) calc(20px * var(--sec9-sp-s)) calc(20px * var(--sec9-sp-s));
     border-radius: calc(18px * var(--sec9-sp-s));
   }
 }
