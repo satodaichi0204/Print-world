@@ -9067,16 +9067,17 @@ html.is-guide-flow-zoom-open body {
     gap: calc(28px * var(--sec9-card-s));
   }
 
-  body.home-page .sec9-sub > .sec9-card {
+  body.home-page .sec9-sub > .sec9-card,
+  body.home-page .sec9-sub > .sec9-card--pay,
+  body.home-page .sec9-sub > .sec9-card--ship {
     grid-column: 1 / -1;
+    justify-self: center;
+    align-self: stretch;
     box-sizing: border-box;
-    width: 100%;
-    max-width: var(--sec9-card-w);
+    width: var(--sec9-card-w);
+    max-width: 100%;
     min-width: 0;
     margin-inline: auto;
-  }
-
-  body.home-page .sec9-card--ship {
     overflow: hidden;
   }
 }
