@@ -9543,3 +9543,11 @@ html.is-guide-flow-zoom-open body {
     grid-column: 1 / -1;
   }
 }
+
+/* Guide pages — hero band white on mobile (320–768) */
+@media (max-width: 768px) {
+  .guide-flow-hero,
+  .guide-hero {
+    background-color: #fff;
+  }
+}
