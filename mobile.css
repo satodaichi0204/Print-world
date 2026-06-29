@@ -777,7 +777,7 @@
 
   .home-page .sec7-title-img {
     position: relative;
-    top: auto;
+    top: -40px;
     width: 86vw;
   }
 
@@ -9403,7 +9403,7 @@ html.is-guide-flow-zoom-open body {
 
   body.home-page .sec7-title-img {
     position: relative;
-    top: auto;
+    top: -40px;
     z-index: 2;
   }
 }
