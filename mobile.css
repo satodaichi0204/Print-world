@@ -8661,3 +8661,83 @@ html.is-guide-flow-zoom-open body {
     text-decoration: none;
   }
 }
+
+/* =============================================================================
+   Mobile header logo — 1024 size/shape lock at ≤768 (final cascade)
+   Full logo.png at calc(360px * 1440 / 1920) = 270px, same as 769–1440 viewports.
+   ============================================================================= */
+@media (max-width: 768px) {
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    ) {
+    --fv-logo-w: calc(360px * 1440px / 1920px);
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__left {
+    flex: 0 1 auto;
+    overflow: visible;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    flex: 0 0 auto;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo
+    img {
+    display: block;
+    width: calc(var(--fv-logo-w) * var(--sp-header-s, 1));
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand {
+    display: none;
+  }
+}
