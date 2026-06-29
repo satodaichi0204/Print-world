@@ -9387,10 +9387,16 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec7 — title above sec6, below fixed header (320–768 only)
-   sec6 z-index 18 · fv-header z-index 100 · sec7 sits between them
+   TOP sec7 — title overlap sec6, scaled from 768px lock (320–768 only)
+   sec6 z-index 18 · fv-header z-index 100 · sec7 z-index 20
    ============================================================================= */
 @media (max-width: 768px) {
+  body.home-page .sec6 {
+    --sec67-m-s: calc(100vw / 768px);
+    overflow: visible;
+    padding: calc(48px * var(--sec67-m-s)) 0 calc(130px * var(--sec67-m-s));
+  }
+
   body.home-page .sec7 {
     position: relative;
     z-index: 20;
@@ -9399,11 +9405,14 @@ html.is-guide-flow-zoom-open body {
   body.home-page .sec7-head {
     position: relative;
     z-index: 1;
+    margin: calc(-42px * var(--sec67-m-s)) auto calc(18px * var(--sec67-m-s));
+    padding: 0 calc(24px * var(--sec67-m-s));
   }
 
   body.home-page .sec7-title-img {
     position: relative;
-    top: -40px;
+    top: calc(-40px * var(--sec67-m-s));
     z-index: 2;
+    width: 86vw;
   }
 }
