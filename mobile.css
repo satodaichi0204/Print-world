@@ -9100,3 +9100,28 @@ html.is-guide-flow-zoom-open body {
     overflow: hidden;
   }
 }
+
+/* =============================================================================
+   TOP sec9 cards — 426–768 margin fix (final cascade)
+   Match contact panel width; scale card internals with content vs 768 lock.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body.home-page .sec9 {
+    --sec9-content-w: calc(100vw - 32px);
+    --sec9-card-w: var(--sec9-content-w);
+    --sec9-card-s: calc(var(--sec9-content-w) / (768px - 32px));
+  }
+
+  body.home-page .sec9-sub {
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  body.home-page .sec9-card,
+  body.home-page .sec9-sub > .sec9-card--pay,
+  body.home-page .sec9-sub > .sec9-card--ship {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+}
