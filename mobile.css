@@ -9385,3 +9385,18 @@ html.is-guide-flow-zoom-open body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 }
+
+/* =============================================================================
+   TOP sec7 — title image below fixed header (320–768 only)
+   ============================================================================= */
+@media (max-width: 768px) {
+  body.home-page .sec7-head {
+    z-index: auto;
+  }
+
+  body.home-page .sec7-title-img {
+    position: relative;
+    top: auto;
+    z-index: auto;
+  }
+}
