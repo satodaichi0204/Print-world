@@ -9372,3 +9372,12 @@ html.is-guide-flow-zoom-open body {
     padding: calc(24px * var(--pdp-pc-s)) calc(24px * var(--pdp-pc-s)) calc(8px * var(--pdp-pc-s));
   }
 }
+
+/* =============================================================================
+   Product detail — pdp-hero white background (320–768 only)
+   ============================================================================= */
+@media (max-width: 768px) {
+  body.product-detail-page .pdp-hero {
+    background-color: #fff;
+  }
+}
