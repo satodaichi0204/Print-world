@@ -9297,3 +9297,46 @@ html.is-guide-flow-zoom-open body {
     border-radius: 999px;
   }
 }
+
+/* =============================================================================
+   TOP sec9 card header — 426–768 stacked layout (absolute final override)
+   Title centered on row 1, white pill centered on row 2.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body.home-page .sec9-sub > .sec9-card > header.sec9-card__head {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: calc(8px * var(--sec9-card-type-s));
+    min-height: calc(64px * var(--sec9-card-type-s));
+    padding: calc(10px * var(--sec9-card-type-s)) var(--sec9-card-pad);
+    border-radius: calc(18px * var(--sec9-card-type-s)) calc(18px * var(--sec9-card-type-s)) 0 0;
+  }
+
+  body.home-page .sec9-sub > .sec9-card > header.sec9-card__head > .sec9-card__head-main {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    font-size: max(calc(20px * var(--sec9-card-type-s)), 16px);
+    line-height: 1.2;
+  }
+
+  body.home-page .sec9-sub > .sec9-card > header.sec9-card__head > .sec9-card__head-pill {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: calc(100% - 8px);
+    margin-inline: auto;
+    font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
+    line-height: 1.2;
+    padding: calc(8px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
+    border-radius: 2px;
+    text-align: center;
+    white-space: normal;
+  }
+}
