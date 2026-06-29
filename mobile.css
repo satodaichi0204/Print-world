@@ -6573,6 +6573,10 @@ html.is-guide-flow-zoom-open body {
     padding-inline: 0;
   }
 
+  .product-detail-page .pdp-hero {
+    padding: calc(200px * var(--pdp-pc-s)) 0 calc(48px * var(--pdp-pc-s));
+  }
+
   .product-detail-page .pdp-hero__title {
     font-size: calc(52px * var(--pdp-pc-s));
     line-height: 1.2;
@@ -7928,6 +7932,10 @@ html.is-guide-flow-zoom-open body {
     .guide-hero {
     padding-top: calc(var(--sp-header-clear, 76px) + 20px);
     min-height: 0;
+  }
+
+  body.product-detail-page .pdp-hero {
+    padding-top: calc(var(--sp-header-clear, 76px) + 12px * var(--sp-header-s, 1));
   }
 }
 
@@ -9344,15 +9352,11 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Product detail — pdp-hero / pdp-hero__inner padding scale (320–768 only)
+   Product detail — pdp-hero__inner padding scale (320–768 only)
    ============================================================================= */
 @media (max-width: 768px) {
   .product-detail-page {
     --pdp-pc-s: calc(100vw / 1920px);
-  }
-
-  body.product-detail-page .pdp-hero {
-    padding: calc(200px * var(--pdp-pc-s)) 0 calc(48px * var(--pdp-pc-s));
   }
 
   body.product-detail-page .pdp-hero__inner {
@@ -9364,10 +9368,6 @@ html.is-guide-flow-zoom-open body {
    Product detail — pdp-hero__inner padding scale (769–1919)
    ============================================================================= */
 @media (min-width: 769px) and (max-width: 1919px) {
-  .product-detail-page .pdp-hero {
-    padding: calc(200px * var(--pdp-pc-s)) 0 calc(48px * var(--pdp-pc-s));
-  }
-
   .product-detail-page .pdp-hero__inner {
     padding: calc(24px * var(--pdp-pc-s)) calc(24px * var(--pdp-pc-s)) calc(8px * var(--pdp-pc-s));
   }
