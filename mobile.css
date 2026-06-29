@@ -9051,19 +9051,20 @@ html.is-guide-flow-zoom-open body {
 
 /* =============================================================================
    TOP sec9 cards — 320–425 proportional lock (final cascade)
-   Freeze 425 card width; pay + ship share identical width; scale with --sec9-sp-s.
+   Cards match contact panel width (full sec9 content); scale with --sec9-sp-s.
    ============================================================================= */
 @media (max-width: 425px) {
   body.home-page .sec9 {
-    --sec9-card-w-425: calc((425px - 32px) * 444 / 736);
-    --sec9-card-w: calc(var(--sec9-card-w-425) * var(--sec9-sp-s, 1));
-    --sec9-card-s: calc(var(--sec9-card-w) / 444px);
+    --sec9-content-w: calc((425px - 32px) * var(--sec9-sp-s, 1));
+    --sec9-card-w: var(--sec9-content-w);
+    --sec9-card-s: calc(var(--sec9-card-w) / (425px - 32px));
   }
 
   body.home-page .sec9-sub {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     justify-items: stretch;
+    width: 100%;
     gap: calc(28px * var(--sec9-card-s));
   }
 
@@ -9071,13 +9072,13 @@ html.is-guide-flow-zoom-open body {
   body.home-page .sec9-sub > .sec9-card--pay,
   body.home-page .sec9-sub > .sec9-card--ship {
     grid-column: 1 / -1;
-    justify-self: center;
+    justify-self: stretch;
     align-self: stretch;
     box-sizing: border-box;
-    width: var(--sec9-card-w);
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
     min-width: 0;
-    margin-inline: auto;
+    margin-inline: 0;
     overflow: hidden;
   }
 }
