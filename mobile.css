@@ -8890,8 +8890,8 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Narrow phones 320–425 — enlarge logo + icons as width decreases (final cascade)
-   Inverse scale: larger at 320px than at 425px. Flex keeps logo/icons from overlapping.
+   Narrow phones 320–425 — header 425 lock → 320 proportional scale (final cascade)
+   Freezes current 425 header; logo + right icons scale together via --sp-header-s.
    ============================================================================= */
 @media (max-width: 425px) {
   body:is(
@@ -8903,17 +8903,16 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     ) {
-    --sp-narrow-t: calc((425px - clamp(320px, 100vw, 425px)) / (425px - 320px));
-    --fv-logo-w: calc(158px + 42px * var(--sp-narrow-t));
-    --sp-header-icon-size: calc((38px + 10px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-icon-gap: calc((12px + 4px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-actions-gap: calc((10px + 4px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-action-min-w: calc((44px + 8px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-action-font: calc((11px + 2px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-menu-w: calc((52px + 10px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-menu-h: calc((58px + 10px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-menu-bar-w: calc((26px + 4px * var(--sp-narrow-t)) * 0.8);
-    --sp-header-menu-bar-h: calc((4px + 1px * var(--sp-narrow-t)) * 0.8);
+    --fv-logo-w: calc(158px * var(--sp-header-s, 1));
+    --sp-header-icon-size: calc(38px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-icon-gap: calc(12px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-actions-gap: calc(10px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-action-min-w: calc(44px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-action-font: calc(11px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-menu-w: calc(52px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-menu-h: calc(58px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-menu-bar-w: calc(26px * 0.8 * var(--sp-header-s, 1));
+    --sp-header-menu-bar-h: calc(4px * 0.8 * var(--sp-header-s, 1));
   }
 
   body.home-page .fv-header__right {
@@ -8930,8 +8929,48 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-header {
-    min-height: calc(76px + 8px * var(--sp-narrow-t, 0));
-    padding-block: calc(10px + 2px * var(--sp-narrow-t, 0));
+    gap: calc(8px * var(--sp-header-s, 1));
+    min-height: calc(76px * var(--sp-header-s, 1));
+    padding: calc(10px * var(--sp-header-s, 1)) calc(16px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__left {
+    gap: calc(8px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__compact {
+    gap: var(--sp-header-icon-gap);
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__actions {
+    gap: var(--sp-header-actions-gap);
   }
 
   body:is(
@@ -8944,7 +8983,25 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-compact-action {
-    gap: calc((6px + 2px * var(--sp-narrow-t, 0)) * 0.8);
+    gap: calc(6px * 0.8 * var(--sp-header-s, 1));
+    min-width: var(--sp-header-action-min-w);
+    padding: 0 calc(4px * 425px / 768px * var(--sp-header-s, 1));
+    font-size: var(--sp-header-action-font);
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action
+    img {
+    width: var(--sp-header-icon-size);
+    height: var(--sp-header-icon-size);
   }
 
   body:is(
@@ -8958,6 +9015,36 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header
     .menu-btn {
-    gap: calc((6px + 2px * var(--sp-narrow-t, 0)) * 0.8);
+    width: var(--sp-header-menu-w);
+    height: var(--sp-header-menu-h);
+    gap: calc(6px * 0.8 * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn
+    span,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn:hover
+    span {
+    width: var(--sp-header-menu-bar-w);
+    height: var(--sp-header-menu-bar-h);
   }
 }
