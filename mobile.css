@@ -2732,6 +2732,13 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .site-footer__company {
+    margin-bottom: calc(8px * var(--footer-pc-s));
+    font-size: calc(48px * var(--footer-pc-s));
+    white-space: nowrap;
+  }
+}
 /* TOP sec3 — 426–768: 60% image scale at 426; positions interpolate 768↔426 (no canvas clip). */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec3 {
