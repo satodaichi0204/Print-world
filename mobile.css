@@ -9388,11 +9388,15 @@ html.is-guide-flow-zoom-open body {
 
 /* =============================================================================
    TOP sec7 — title overlap sec6, scaled from 768px lock (320–768 only)
-   sec6 z-index 18 · fv-header z-index 100 · sec7 z-index 20
+   fv z-index 20 (header) · sec7 z-index 19 · sec6 z-index 18
    ============================================================================= */
 @media (max-width: 768px) {
   body.home-page {
     --sec67-m-s: calc(100vw / 768px);
+  }
+
+  body.home-page .fv {
+    z-index: 20;
   }
 
   body.home-page .sec6 {
@@ -9412,7 +9416,7 @@ html.is-guide-flow-zoom-open body {
 
   body.home-page .sec7 {
     position: relative;
-    z-index: 20;
+    z-index: 19;
     margin-top: 0;
     padding: 0 0 calc(64px * var(--sec67-m-s));
     overflow: visible;
