@@ -7534,20 +7534,12 @@ html.is-guide-flow-zoom-open body {
     --sp-header-s: calc(100vw / 425px);
     --sp-header-clear: calc(76px * var(--sp-header-s));
   }
-
-  body.home-page {
-    --fv-mobile-header-clear: var(--sp-header-clear);
-  }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
   body {
     --sp-header-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
     --sp-header-clear: calc(76px * var(--sp-header-s));
-  }
-
-  body.home-page {
-    --fv-mobile-header-clear: var(--sp-header-clear);
   }
 }
 
@@ -9434,5 +9426,30 @@ html.is-guide-flow-zoom-open body {
     top: calc(-40px * var(--sec67-m-s));
     z-index: 2;
     width: 86vw;
+  }
+}
+
+/* =============================================================================
+   TOP FV — header-to-shirts gap lock from 768px reference (320–768 only)
+   768 lock: header bottom ~95px · shirts-layer padding-top 116px · gap ~21px
+   ============================================================================= */
+@media (max-width: 768px) {
+  body.home-page {
+    --fv-mobile-header-clear: 100px;
+  }
+
+  body.home-page .fv {
+    --fv-mobile-header-clear: 100px;
+    --fv-shirts-pad: 16px;
+  }
+
+  body.home-page .shirts-layer {
+    padding-top: 116px;
+    padding-bottom: 16px;
+  }
+
+  body.home-page .fv-header {
+    box-sizing: border-box;
+    min-height: 95px;
   }
 }
