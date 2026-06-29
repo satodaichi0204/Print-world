@@ -9387,12 +9387,16 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .sec9 {
     /* 425 lock: scale down to 320 only — never upscale above comp width */
     --pdp-mobile-s: min(1, calc(100vw / 425px));
+    --sec9-pdp-side: calc(16px * var(--pdp-mobile-s));
     --sec9-m-s: calc((100vw - 32px) / 768px);
     --sec9-staff-lock-s: calc(1440px / 1920px);
     --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
     --sec9-aside-w: var(--sec9-aside-lock-w);
     overflow: visible;
-    padding: calc(50px * var(--pdp-mobile-s)) calc(16px * var(--pdp-mobile-s)) 0;
+    padding-top: calc(50px * var(--pdp-mobile-s));
+    padding-right: var(--sec9-pdp-side);
+    padding-bottom: 0;
+    padding-left: var(--sec9-pdp-side);
   }
 
   body.product-detail-page .sec9-wave__svg {
@@ -9402,7 +9406,7 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .sec9-contact {
     position: relative;
     margin-top: calc(-28px * var(--pdp-mobile-s));
-    margin-bottom: calc(48px * var(--pdp-mobile-s));
+    margin-bottom: calc(28px * var(--pdp-mobile-s));
     padding-top: calc(112px * var(--pdp-mobile-s));
     overflow: visible;
   }
@@ -9509,6 +9513,13 @@ html.is-guide-flow-zoom-open body {
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
+  body.product-detail-page .sec9 {
+    --sec9-pdp-side: calc(16px + 20px * (100vw - 426px) / (768px - 426px));
+    --sec9-content-w: calc(100vw - 2 * var(--sec9-pdp-side));
+    --sec9-card-gap: calc(28px * var(--sec9-content-w) / (768px - 32px));
+    --sec9-m-s: calc(var(--sec9-content-w) / (768px - 32px));
+  }
+
   body.product-detail-page .sec9-sub {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
