@@ -9340,3 +9340,16 @@ html.is-guide-flow-zoom-open body {
     white-space: normal;
   }
 }
+
+/* =============================================================================
+   Product list — plp-hero 320–768 proportional scale (768px design lock)
+   Base: padding 240px 29px 80px 0; text-align left (styles.css / 1920 design).
+   ============================================================================= */
+@media (max-width: 768px) {
+  body.product-list-page .plp-hero {
+    --plp-hero-s: calc(100vw / 768px);
+    background-color: var(--plp-header-bg, #efce0a);
+    padding: calc(240px * var(--plp-hero-s)) calc(29px * var(--plp-hero-s)) calc(80px * var(--plp-hero-s)) 0;
+    text-align: left;
+  }
+}
