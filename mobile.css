@@ -6166,6 +6166,10 @@
     padding: calc(28px * var(--pdp-table-s)) 0 calc(32px * var(--pdp-table-s));
   }
 
+  .product-detail-page .pdp-size {
+    padding-bottom: calc(100px * var(--pdp-table-s));
+  }
+
   .product-detail-page .pdp-price {
     padding-bottom: calc(18px * var(--pdp-table-s));
   }
@@ -6713,6 +6717,10 @@ html.is-guide-flow-zoom-open body {
   .product-detail-page .pdp-price,
   .product-detail-page .pdp-size {
     padding: calc(44px * var(--pdp-pc-s)) 0 calc(52px * var(--pdp-pc-s));
+  }
+
+  .product-detail-page .pdp-size {
+    padding-bottom: calc(100px * var(--pdp-pc-s));
   }
 
   .product-detail-page .pdp-price {
@@ -9464,7 +9472,7 @@ html.is-guide-flow-zoom-open body {
 
   body.product-detail-page .sec9 {
     overflow: visible;
-    padding: 64px 16px 0;
+    padding: 0 16px 0;
   }
 
   body.product-detail-page .sec9-contact {
@@ -9512,7 +9520,7 @@ html.is-guide-flow-zoom-open body {
 
 @media (max-width: 425px) {
   body.product-detail-page .sec9 {
-    padding: calc(50px * calc(100vw / 425px)) calc(16px * calc(100vw / 425px)) 0;
+    padding: 0 calc(16px * calc(100vw / 425px)) 0;
   }
 }
 
@@ -9524,4 +9532,9 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .sec9-sub > .sec9-ship-aside {
     grid-column: 1 / -1;
   }
+}
+
+/* PDP sec9 — pdp-size 100px bottom pad provides clearance; no extra sec9 top pad */
+body.product-detail-page .sec9 {
+  padding-top: 0;
 }

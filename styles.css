@@ -5015,6 +5015,10 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   padding: 44px 0 52px;
 }
 
+.pdp-size {
+  padding-bottom: 100px;
+}
+
 .pdp-price {
   padding-bottom: 28px;
 }
@@ -5143,4 +5147,5 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .product-detail-page .sec9 {
   margin-top: 0;
+  padding-top: 0;
 }
