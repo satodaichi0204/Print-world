@@ -1189,26 +1189,37 @@
   }
 
   .home-page .sec9-card__head {
-    min-height: 64px;
-    padding: 0 28px;
-    border-radius: 18px 18px 0 0;
+    display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    justify-content: center;
+    text-align: center;
+    min-height: 64px;
+    padding: 10px 28px;
+    border-radius: 18px 18px 0 0;
+    gap: 8px;
   }
 
   .home-page .sec9-card__head-main {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
     font-size: 20px;
-    line-height: 1;
+    line-height: 1.2;
   }
 
   .home-page .sec9-card__head-pill {
     flex: 0 0 auto;
+    display: inline-block;
+    max-width: 100%;
+    margin: 0;
     padding: 8px 12px;
     font-size: 12px;
-    line-height: 1;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
   }
 
   .home-page .sec9-pay-list {
@@ -1584,19 +1595,30 @@
   }
 
   .home-page .sec9-card__head {
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 18px;
-    padding: 0 26px;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    padding: 10px 26px;
   }
 
   .home-page .sec9-card__head-main {
+    width: 100%;
+    text-align: center;
     font-size: 20px;
+    line-height: 1.2;
   }
 
   .home-page .sec9-card__head-pill {
+    display: inline-block;
+    max-width: 100%;
     font-size: 12px;
+    line-height: 1.2;
     padding: 8px 10px;
+    text-align: center;
+    white-space: normal;
   }
 
   .home-page .sec9-sub > .sec9-ship-aside {
@@ -8546,34 +8568,44 @@ html.is-guide-flow-zoom-open body {
 
   body.home-page .sec9-card__head {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content: space-between;
-    gap: calc(12px * var(--sec9-card-s));
+    justify-content: center;
+    text-align: center;
+    gap: calc(8px * var(--sec9-card-s));
     min-height: calc(64px * var(--sec9-card-s));
-    padding: 0 calc(28px * var(--sec9-card-s));
+    padding: calc(10px * var(--sec9-card-s)) calc(28px * var(--sec9-card-s));
     border-radius: calc(18px * var(--sec9-card-s)) calc(18px * var(--sec9-card-s)) 0 0;
     background: var(--sec9-orange);
   }
 
   body.home-page .sec9-card__head-main {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
     font-size: calc(20px * var(--sec9-card-s));
-    line-height: 1;
+    line-height: 1.2;
     color: #fff;
     font-weight: 900;
   }
 
   body.home-page .sec9-card__head-pill {
     flex: 0 0 auto;
+    display: inline-block;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0;
     padding: calc(8px * var(--sec9-card-s)) calc(12px * var(--sec9-card-s));
     font-size: calc(12px * var(--sec9-card-s));
-    line-height: 1;
+    line-height: 1.2;
     border-radius: 2px;
     background: #fff;
     color: var(--sec9-orange);
     font-weight: 800;
+    text-align: center;
+    white-space: normal;
   }
 
   body.home-page .sec9-pay-list {
@@ -9152,6 +9184,33 @@ html.is-guide-flow-zoom-open body {
     padding-bottom: calc(26px * var(--sec9-card-type-s));
   }
 
+  body.home-page .sec9-sub > .sec9-card > .sec9-card__head {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  body.home-page .sec9-sub > .sec9-card > .sec9-card__head-main {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  body.home-page .sec9-sub > .sec9-card > .sec9-card__head-pill {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: calc(100% - 8px);
+    margin-inline: auto;
+    text-align: center;
+    white-space: normal;
+  }
+
   body.home-page .sec9-card__head {
     display: flex;
     flex-direction: column;
@@ -9166,6 +9225,7 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.home-page .sec9-card__head-main {
+    display: block;
     flex: 0 0 auto;
     width: 100%;
     text-align: center;
@@ -9178,7 +9238,7 @@ html.is-guide-flow-zoom-open body {
     display: inline-block;
     box-sizing: border-box;
     max-width: calc(100% - 8px);
-    margin: 0;
+    margin-inline: auto;
     font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
     line-height: 1.2;
     padding: calc(8px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
