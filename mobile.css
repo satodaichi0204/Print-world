@@ -9141,4 +9141,86 @@ html.is-guide-flow-zoom-open body {
     max-width: none;
     margin-inline: 0;
   }
+
+  body.home-page .sec9 {
+    --sec9-card-pad: calc(20px * var(--sec9-card-s));
+  }
+
+  body.home-page .sec9-card__head {
+    min-height: auto;
+    padding: calc(12px * var(--sec9-card-s)) var(--sec9-card-pad);
+    gap: calc(8px * var(--sec9-card-s));
+  }
+
+  body.home-page .sec9-card__head-main {
+    font-size: calc(16px * var(--sec9-card-s));
+    line-height: 1.2;
+  }
+
+  body.home-page .sec9-card__head-pill {
+    font-size: calc(10px * var(--sec9-card-s));
+    line-height: 1.2;
+    padding: calc(6px * var(--sec9-card-s)) calc(8px * var(--sec9-card-s));
+    text-align: center;
+  }
+
+  body.home-page .sec9-card--pay .sec9-card__main {
+    align-items: center;
+    text-align: center;
+  }
+
+  body.home-page .sec9-pay-list {
+    width: fit-content;
+    max-width: calc(100% - 2 * var(--sec9-card-pad));
+    margin: calc(20px * var(--sec9-card-s)) auto 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  body.home-page .sec9-pay-list li {
+    gap: calc(10px * var(--sec9-card-s));
+    margin-bottom: calc(8px * var(--sec9-card-s));
+    font-size: calc(13px * var(--sec9-card-s));
+  }
+
+  body.home-page .sec9-pay-list li::before {
+    flex: 0 0 calc(28px * var(--sec9-card-s));
+    width: calc(28px * var(--sec9-card-s));
+    height: calc(28px * var(--sec9-card-s));
+    line-height: calc(28px * var(--sec9-card-s));
+    font-size: calc(12px * var(--sec9-card-s));
+    background: #fff0e6;
+    color: var(--sec9-orange);
+  }
+
+  body.home-page .sec9-card__logos {
+    align-self: center;
+    display: block;
+    width: auto;
+    max-width: calc(100% - 2 * var(--sec9-card-pad));
+    height: auto;
+    margin: calc(16px * var(--sec9-card-s)) auto calc(20px * var(--sec9-card-s));
+  }
+
+  body.home-page .sec9-card--ship .sec9-card__body {
+    margin: calc(20px * var(--sec9-card-s)) var(--sec9-card-pad) 0;
+    text-align: center;
+  }
+
+  body.home-page .sec9-ship__lead,
+  body.home-page .sec9-ship__ems {
+    font-size: calc(14px * var(--sec9-card-s));
+    line-height: 1.45;
+  }
+
+  body.home-page .sec9-ship__note {
+    font-size: calc(11px * var(--sec9-card-s));
+    line-height: 1.45;
+  }
+
+  body.home-page .sec9-sub > .sec9-card .sec9-card__btn {
+    width: 76%;
+    max-width: calc(100% - 2 * var(--sec9-card-pad));
+    margin-inline: auto;
+  }
 }
