@@ -9523,6 +9523,38 @@ html.is-guide-flow-zoom-open body {
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
+  body.product-detail-page .sec9 {
+    --sec9-hero-t: calc((100vw - 426px) / (768px - 426px));
+  }
+
+  body.product-detail-page .sec9-contact {
+    margin-top: calc(-28px + 8px * var(--sec9-hero-t));
+    padding-top: calc(112px - 12px * var(--sec9-hero-t));
+  }
+
+  body.product-detail-page .sec9-contact__woman {
+    left: calc(-82px - 13px * var(--sec9-hero-t));
+    top: calc(-94px - 6px * var(--sec9-hero-t));
+    width: calc(324px + 36px * var(--sec9-hero-t));
+  }
+
+  body.product-detail-page .sec9-contact picture {
+    left: calc(96px + 204px * var(--sec9-hero-t));
+    top: calc(40px - 22px * var(--sec9-hero-t));
+    width: auto;
+    max-width: calc(248px + 74px * var(--sec9-hero-t));
+  }
+
+  body.product-detail-page .sec9-contact__panel {
+    padding-top: calc(88px + 75px * var(--sec9-hero-t));
+  }
+
+  body.product-detail-page .sec9-contact__cols {
+    width: min(86%, calc(315px + 200px * var(--sec9-hero-t)));
+    margin-left: calc(72px + 128px * var(--sec9-hero-t));
+    margin-right: auto;
+  }
+
   body.product-detail-page .sec9-sub {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
