@@ -9153,6 +9153,12 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.home-page .sec9-card__head {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
     min-height: calc(64px * var(--sec9-card-type-s));
     padding: 0 var(--sec9-card-pad);
     gap: calc(12px * var(--sec9-card-type-s));
@@ -9160,16 +9166,22 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.home-page .sec9-card__head-main {
+    flex: 0 1 auto;
+    text-align: left;
     font-size: max(calc(20px * var(--sec9-card-type-s)), 16px);
     line-height: 1;
   }
 
   body.home-page .sec9-card__head-pill {
+    flex: 0 0 auto;
+    margin-left: auto;
+    max-width: 58%;
     font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
-    line-height: 1;
+    line-height: 1.2;
     padding: calc(8px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
     border-radius: 2px;
     text-align: center;
+    white-space: normal;
   }
 
   body.home-page .sec9-card--pay .sec9-card__main {
