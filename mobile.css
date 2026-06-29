@@ -9387,16 +9387,23 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec7 — title image below fixed header (320–768 only)
+   TOP sec7 — title above sec6, below fixed header (320–768 only)
+   sec6 z-index 18 · fv-header z-index 100 · sec7 sits between them
    ============================================================================= */
 @media (max-width: 768px) {
+  body.home-page .sec7 {
+    position: relative;
+    z-index: 20;
+  }
+
   body.home-page .sec7-head {
-    z-index: auto;
+    position: relative;
+    z-index: 1;
   }
 
   body.home-page .sec7-title-img {
     position: relative;
     top: auto;
-    z-index: auto;
+    z-index: 2;
   }
 }
