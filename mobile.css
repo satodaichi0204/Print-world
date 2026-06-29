@@ -9391,15 +9391,31 @@ html.is-guide-flow-zoom-open body {
    sec6 z-index 18 · fv-header z-index 100 · sec7 z-index 20
    ============================================================================= */
 @media (max-width: 768px) {
-  body.home-page .sec6 {
+  body.home-page {
     --sec67-m-s: calc(100vw / 768px);
+  }
+
+  body.home-page .sec6 {
     overflow: visible;
     padding: calc(48px * var(--sec67-m-s)) 0 calc(130px * var(--sec67-m-s));
+  }
+
+  body.home-page .sec6-overlap {
+    margin: calc(-104px * var(--sec67-m-s)) 0 0;
+    min-height: calc(150px * var(--sec67-m-s));
+    padding: 0 calc(24px * var(--sec67-m-s));
+  }
+
+  body.home-page .sec6-panel {
+    margin-top: calc(-12px * var(--sec67-m-s));
   }
 
   body.home-page .sec7 {
     position: relative;
     z-index: 20;
+    margin-top: 0;
+    padding: 0 0 calc(64px * var(--sec67-m-s));
+    overflow: visible;
   }
 
   body.home-page .sec7-head {
