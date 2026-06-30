@@ -2424,6 +2424,18 @@
     padding: 1.333em;
   }
 }
+
+/* TOP sec8 store — 769–1440: lock font size to 1920 design (no viewport scale) */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .home-page .sec8-store .sec8-dl__row {
+    font-size: 15px;
+  }
+
+  .home-page .sec8-store > .sec8-btn {
+    font-size: 18px;
+    padding: 1.333em;
+  }
+}
 /* TOP sec9 — 769+: proportional scale from 1920px design lock (same as FV). */
 @media (min-width: 769px) {
   :is(.home-page, .product-detail-page) .sec9, .product-detail-page .sec9 {
