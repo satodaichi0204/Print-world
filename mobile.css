@@ -9435,7 +9435,7 @@ html.is-guide-flow-zoom-open body {
 
   body.home-page .fv-header {
     box-sizing: border-box;
-    min-height: 95px;
+    /* min-height: 95px; */
   }
 }
 
