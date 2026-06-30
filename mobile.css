@@ -2427,11 +2427,6 @@
 
 /* TOP sec8 store — 769–1440: lock font size to 1920 design (no viewport scale) */
 @media (min-width: 769px) and (max-width: 1440px) {
-  .home-page .sec8-inner {
-    width: min(1200px, calc(100vw - 96px));
-    margin-left: calc(50vw - min(1200px, calc(100vw - 96px)) / 2);
-  }
-
   .home-page .sec8-store .sec8-dl__row {
     font-size: 15px;
   }
