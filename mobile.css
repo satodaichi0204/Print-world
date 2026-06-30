@@ -2155,6 +2155,29 @@
   }
 }
 
+/* TOP sec5 — 769–1440: lock font size to 1920 design (no viewport scale) */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .home-page .sec5-intro__lead {
+    font-size: 23px;
+  }
+
+  .home-page .sec5-intro__body {
+    font-size: 19px;
+  }
+
+  .home-page .sec5-card::before {
+    font-size: 22px;
+  }
+
+  .home-page .sec5-card__text {
+    font-size: 14px;
+  }
+
+  .home-page .sec5-cta {
+    font-size: 15px;
+  }
+}
+
 /* TOP sec6 — 769+: proportional scale from 1920px design lock (same as FV). */
 @media (min-width: 769px) {
   .home-page .sec6 {
