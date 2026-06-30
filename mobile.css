@@ -2435,6 +2435,13 @@
     font-size: 18px;
   }
 }
+
+/* TOP sec8 store — 769–1439: wrap dd text before building image overlap */
+@media (min-width: 769px) and (max-width: 1439px) {
+  .home-page .sec8-store .sec8-dl dd {
+    max-width: calc(100% - 30px * var(--sec8-pc-s));
+  }
+}
 /* TOP sec9 — 769+: proportional scale from 1920px design lock (same as FV). */
 @media (min-width: 769px) {
   :is(.home-page, .product-detail-page) .sec9, .product-detail-page .sec9 {
