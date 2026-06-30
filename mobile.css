@@ -2418,6 +2418,11 @@
   .home-page .sec8-faq__list .sec8-details__body {
     font-size: 15px;
   }
+
+  .home-page .sec8-faq > .sec8-btn {
+    font-size: 16px;
+    padding: 1.333em;
+  }
 }
 /* TOP sec9 — 769+: proportional scale from 1920px design lock (same as FV). */
 @media (min-width: 769px) {
