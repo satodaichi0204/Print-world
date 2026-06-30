@@ -9421,6 +9421,7 @@ html.is-guide-flow-zoom-open body {
 @media (max-width: 768px) {
   body.home-page {
     --fv-mobile-header-clear: 100px;
+    --fv-shirts-header-gap: 21px;
   }
 
   body.home-page .fv {
@@ -9428,14 +9429,42 @@ html.is-guide-flow-zoom-open body {
     --fv-shirts-pad: 16px;
   }
 
+  body.home-page .fv-header {
+    box-sizing: border-box;
+    /* min-height: 95px; */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 768px) {
   body.home-page .shirts-layer {
     padding-top: 116px;
     padding-bottom: 16px;
   }
+}
 
-  body.home-page .fv-header {
-    box-sizing: border-box;
-    /* min-height: 95px; */
+@media (min-width: 426px) and (max-width: 767px) {
+  body.home-page .shirts-layer {
+    padding-top: calc(76px + var(--fv-shirts-header-gap, 21px));
+    padding-bottom: 16px;
+    --fv-shirts-available-h: calc(
+      var(--fv-sec1-h) - calc(76px + var(--fv-shirts-header-gap, 21px)) - var(--fv-shirts-pad) * 2
+    );
+    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
+  }
+}
+
+@media (max-width: 425px) {
+  body.home-page .shirts-layer {
+    padding-top: calc(76px * var(--sp-header-s, calc(100vw / 425px)) + var(--fv-shirts-header-gap, 21px));
+    padding-bottom: calc(16px * var(--fv-sp-s, calc(100vw / 425px)));
+    --fv-shirts-available-h: calc(
+      var(--fv-sp-h, calc(658px * 100vw / 425px))
+        - calc(76px * var(--sp-header-s, calc(100vw / 425px)) + var(--fv-shirts-header-gap, 21px))
+        - calc(16px * var(--fv-sp-s, calc(100vw / 425px))) * 2
+    );
+    --shirt-col: calc(
+      ((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3) * (425px / 100vw)
+    );
   }
 }
 
