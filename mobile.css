@@ -2298,6 +2298,21 @@
   }
 }
 
+/* TOP sec7 cards — 769–1920: lock font size to 1920 design (no viewport scale) */
+@media (min-width: 769px) and (max-width: 1920px) {
+  .home-page .sec7-card__name {
+    font-size: 18px;
+  }
+
+  .home-page .sec7-card__role {
+    font-size: 14px;
+  }
+
+  .home-page .sec7-card__text {
+    font-size: 13px;
+  }
+}
+
 /* TOP sec8 — 769+: proportional scale from 1920px design lock (same as FV). */
 @media (min-width: 769px) {
   .home-page .sec8 {
