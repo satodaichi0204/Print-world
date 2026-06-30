@@ -2409,6 +2409,16 @@
   }
 }
 
+/* TOP sec8 FAQ list — 769+: lock font size to 1920 design (no viewport scale) */
+@media (min-width: 769px) {
+  .home-page .sec8-faq__list .sec8-summary {
+    font-size: 16px;
+  }
+
+  .home-page .sec8-faq__list .sec8-details__body {
+    font-size: 15px;
+  }
+}
 /* TOP sec9 — 769+: proportional scale from 1920px design lock (same as FV). */
 @media (min-width: 769px) {
   :is(.home-page, .product-detail-page) .sec9, .product-detail-page .sec9 {
