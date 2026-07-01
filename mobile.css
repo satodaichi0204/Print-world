@@ -9454,17 +9454,57 @@ html.is-guide-flow-zoom-open body {
 }
 
 @media (max-width: 425px) {
+  body.home-page .fv {
+    --fv-sp-s: calc(100vw / 425px);
+    --fv-sp-h: calc(658px * var(--fv-sp-s));
+    --fv-shirts-pad: calc(12px * var(--fv-sp-s));
+    --fv-shirts-header-gap: calc(21px * var(--fv-sp-s));
+    height: var(--fv-sp-h);
+    min-height: var(--fv-sp-h);
+    max-height: var(--fv-sp-h);
+  }
+
   body.home-page .shirts-layer {
-    padding-top: calc(76px * var(--sp-header-s, calc(100vw / 425px)) + var(--fv-shirts-header-gap, 21px));
-    padding-bottom: calc(16px * var(--fv-sp-s, calc(100vw / 425px)));
+    padding-top: calc(
+      76px * var(--sp-header-s, var(--fv-sp-s)) + var(--fv-shirts-header-gap)
+    );
+    padding-bottom: var(--fv-shirts-pad);
+    gap: calc(8px * var(--fv-sp-s));
+    --shirt-gap: calc(10px * var(--fv-sp-s));
     --fv-shirts-available-h: calc(
-      var(--fv-sp-h, calc(658px * 100vw / 425px))
-        - calc(76px * var(--sp-header-s, calc(100vw / 425px)) + var(--fv-shirts-header-gap, 21px))
-        - calc(16px * var(--fv-sp-s, calc(100vw / 425px))) * 2
+      var(--fv-sp-h)
+        - 76px * var(--sp-header-s, var(--fv-sp-s))
+        - var(--fv-shirts-header-gap)
+        - var(--fv-shirts-pad) * 2
     );
-    --shirt-col: calc(
-      ((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3) * (425px / 100vw)
-    );
+    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
+  }
+
+  body.home-page .shirt-card {
+    padding: calc(12px * var(--fv-sp-s));
+    border-radius: calc(10px * var(--fv-sp-s));
+  }
+
+  body.home-page .fv-content {
+    height: var(--fv-sp-h);
+    min-height: var(--fv-sp-h);
+  }
+
+  body.home-page .fv-foreground {
+    gap: calc(10px * var(--fv-sp-s));
+  }
+
+  body.home-page .fv-maincopy {
+    width: calc(326px * var(--fv-sp-s));
+    max-width: 93%;
+  }
+
+  body.home-page .fv-foreground__figures {
+    --fv-side-gap: calc(5px * var(--fv-sp-s));
+    --fv-fig-span: 1.42;
+    width: calc((100% - 2 * var(--fv-side-gap)) / var(--fv-fig-span));
+    margin-left: var(--fv-side-gap);
+    margin-right: var(--fv-side-gap);
   }
 }
 
