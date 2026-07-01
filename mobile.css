@@ -8537,7 +8537,7 @@ html.is-guide-flow-zoom-open body {
 
   body:is(.home-page, .product-detail-page) .sec9-card__head {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
@@ -8552,7 +8552,7 @@ html.is-guide-flow-zoom-open body {
   body:is(.home-page, .product-detail-page) .sec9-card__head-main {
     flex: 0 0 auto;
     width: 100%;
-    max-width: 100%;
+    max-width: 50%;
     text-align: center;
     font-size: calc(20px * var(--sec9-card-s));
     line-height: 1.2;
@@ -9060,9 +9060,9 @@ html.is-guide-flow-zoom-open body {
     --sec9-staff-lock-s: calc(1440px / 1920px);
     --sec9-aside-lock-w: calc((1000px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
     --sec9-aside-w: var(--sec9-aside-lock-w);
-    --sec9-content-w: calc((425px - 32px) * var(--sec9-sp-s, 1));
+    --sec9-content-w: calc((320px - 32px) * var(--sec9-sp-s, 1));
     --sec9-card-w: var(--sec9-content-w);
-    --sec9-card-s: calc(var(--sec9-card-w) / (425px - 32px));
+    --sec9-card-s: calc(var(--sec9-card-w) / (320px - 32px));
   }
 
   body:is(.home-page, .product-detail-page) .sec9-sub > .sec9-ship-aside {
