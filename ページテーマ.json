@@ -1,0 +1,41 @@
+{
+    "ページ": {
+        "メインカラー": "#6cf4c7",
+        "ベースカラー": "#ffffff"
+    },
+    "ボタン": {
+        "コンバージョン": {
+            "背景色": "#f90101",
+            "文字色": "#000000",
+            "枠線": "#bcbcbc"
+        },
+        "回遊": {
+            "背景色": "#ffffff",
+            "文字色": "#000000",
+            "枠線": "#bcbcbc"
+        },
+        "その他アクション": {
+            "背景色": "#ffffff",
+            "文字色": "#000000",
+            "枠線": "#bcbcbc"
+        }
+    },
+    "テキスト": {
+        "カラー": "#000000",
+        "フォント": "\"Helvetica Neue\", \"Helvetica\", \"Hiragino Sans\", \"Hiragino Kaku Gothic ProN\", \"Arial\", \"Yu Gothic\", \"Meiryo\", sans-serif"
+    },
+    "リンク": {
+        "カラー": "#5880f9"
+    },
+    "ヘッダ": {
+        "背景色": "#fafafa",
+        "Twig": "<header class=\"m-header js-header mc__header__area\">\r\n    {% set siteInfo = getSiteInfo(app.request) %}\r\n    <h1 class=\"header__logo header__logo--mc\">\r\n        <a href=\"{{ path('wa_top') }}\" class=\"header__logoLnk\" {% if siteInfo.pageTheme.headerLogoImagePath is not empty %} style=\"background: url('{{ siteInfo.pageTheme.headerLogoImagePath|imagine_filter('mc_header_logo') }}') no-repeat;\" {% endif %}>\r\n            {{ siteInfo.title }}\r\n        <\/a>\r\n    <\/h1>\r\n    <div class=\"header__area\">\r\n        <div class=\"header__item header__cart js-num\">\r\n            <a href=\"{{ path('wa_cart') }}\"><i class=\"m-icon icon--cart\"><\/i><\/a>\r\n            <i class=\"header__icon m-icon icon--count is-show\" id=\"js-cart-count\"><\/i>\r\n        <\/div>\r\n        <div class=\"header__item header__login\">\r\n            <span class=\"m-btn btn--login js-login js-modal\" data-modal=\"loginModal\">\r\n                ログイン\r\n            <\/span>\r\n            <span class=\"m-btn btn--user js-subMenuShow\">\r\n                <img src=\"\/img\/spacer.gif\" class=\"js-header-username-image\" width=\"34\" height=\"34\" alt=\"\">\r\n            <\/span>\r\n            <nav class=\"m-listMenu listMenu--login js-subMenu\">\r\n                <div class=\"listMenu__inner\">\r\n                    <ul class=\"listMenu__area js-header-account-dropdown-menu\">\r\n                        <li class=\"listMenu__item\">\r\n                            <a href=\"{{ path('wa_my_page_account') }}\" class=\"listMenu__lnk\">\r\n                                アカウント情報\r\n                            <\/a>\r\n                        <\/li>\r\n                        <li class=\"listMenu__item\">\r\n                            <a href=\"{{ path('fos_user_security_logout') }}\" class=\"listMenu__lnk\">\r\n                                ログアウト\r\n                            <\/a>\r\n                        <\/li>\r\n                    <\/ul>\r\n                <\/div>\r\n            <\/nav>\r\n        <\/div>\r\n    <\/div>\r\n    <div class=\"header__trigger js-openSpMenu\">\r\n        <div class=\"m-trigger\">\r\n            <div class=\"trigger__item\"><\/div>\r\n            <div class=\"trigger__item\"><\/div>\r\n            <div class=\"trigger__item\"><\/div>\r\n        <\/div>\r\n    <\/div>\r\n<\/header>"
+    },
+    "ナビゲーション": {
+        "Twig": "<!--\r\n<div>\r\n  navigation twig\r\n<\/div>\r\n-->"
+    },
+    "フッタ": {
+        "背景色": "#000000",
+        "Twig": "<footer class=\"m-footer add mc__footer__area\" id=\"js-footer\">\r\n  {% if existsSns %}\r\n  <div class=\"footer__inner\">\r\n    <div class=\"fb-footer-info-area\">\r\n      <div class=\"fb-footer-info\">\r\n        <h5>SNS<\/h5>\r\n        <ul class=\"sns-btn-area\">\r\n          <li class=\"sns-btn\"><a href=\"https:\/\/twitter.com\/meetmygoods\" target=\"_blank\"><img src=\"\/img\/icon_twitter2.png\" alt=\"Twitter\" width=\"32\" height=\"32\"><\/a><\/li>\r\n          <li class=\"sns-btn\"><a href=\"https:\/\/www.facebook.com\/meetmygoods\" target=\"_blank\"><img src=\"\/img\/icon_facebook.png\" alt=\"Facebook\" width=\"32\" height=\"32\"><\/a><\/li>\r\n          <li class=\"sns-btn\"><a href=\"https:\/\/www.instagram.com\/meetmygoods\/\"><img src=\"\/img\/icon_instagram.png\" alt=\"Instagram\" width=\"32\" height=\"32\"><\/a><\/li>\r\n        <\/ul>\r\n      <\/div>\r\n    <\/div>\r\n  <\/div>\r\n  {% endif %}\r\n  <div class=\"footer__inner\">\r\n    <ul class=\"footer__area\">\r\n      <li class=\"footer__item\"><a class=\"footer__lnk\" style=\"color:#000000 !important\" href=\"{{ path('wa_page_user_terms') }}\">利用規約<\/a><\/li>\r\n      <li class=\"footer__item\"><a class=\"footer__lnk\" style=\"color:#000000 !important\" href=\"{{ path('wa_page_privacy') }}\">プライバシーポリシー<\/a><\/li>\r\n      <li class=\"footer__item\"><a class=\"footer__lnk\" style=\"color:#000000 !important\" href=\"{{ path('wa_page_law') }}\">特定商取引法に基づく表示<\/a><\/li>\r\n      <li class=\"footer__item\"><small class=\"footer__text\">&copy;株式会社プラスイー<\/small><\/li>\r\n    <\/ul>\r\n  <\/div>\r\n<\/footer>"
+    }
+}
