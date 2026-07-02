@@ -21,7 +21,7 @@ MEND="$(grep -nE '</main>' "$SRC" | head -1 | cut -d: -f1)"
   echo "<link rel=\"stylesheet\" href=\"$BASE/mobile.css\">"
   echo "<script>document.body.classList.add('${BODYCLASS}');</script>"
   echo ''
-  echo '<div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);">'
+  echo '<div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;">'
   echo ''
   sed -n "${MSTART},${MEND}p" "$SRC" | sed "s#\(src\|srcset\)=\"images/#\1=\"$BASE/images/#g; s#url('images/#url('$BASE/images/#g; s#url(images/#url($BASE/images/#g"
   echo ''
