@@ -2392,6 +2392,15 @@ img {
   z-index: 4;
 }
 
+/* Maker Town's `body *` sets a Helvetica-first font stack, which changes the
+   look/width of Latin text (STEP labels, "AI / PSD / PDF", etc.). Our class
+   selector out-specifies MT's `body *`, restoring the design font across the
+   whole guide-flow content. */
+.guide-flow-main * {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Meiryo", sans-serif;
+}
+
 .guide-flow-inner {
   width: min(1440px, calc(100% - 48px));
   margin: 0 auto;
@@ -3798,7 +3807,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .guide-design-flow__step-label,
 .guide-template-flow__step-label,
 .guide-post-submission-flow__step-label {
-  color: #036eb8;
+  color: #036eb8 !important; /* MT forces color:#000; keep the blue STEP label */
   margin-right: 0.4em;
 }
 
