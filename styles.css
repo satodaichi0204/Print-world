@@ -4016,6 +4016,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
+  /* MT paints this grid white; keep it transparent so the gray panel shows
+     through the gaps between cards. */
+  background-color: transparent !important;
 }
 
 .guide-flow-order3__card {
