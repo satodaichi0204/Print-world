@@ -3724,7 +3724,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 /* --- Guide: デザインテンプレート利用の場合 --- */
 .guide-template-flow {
-  background: #efefef;
+  background: #efefef !important; /* MT strips backgrounds; keep the gray band */
   padding: 56px 0 64px;
 }
 
