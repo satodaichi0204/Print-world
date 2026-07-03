@@ -5190,3 +5190,45 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .product-detail-page .sec9 {
   margin-top: 0;
 }
+
+/* =========================================================================
+   Maker Town defense: guide-print-method
+   MT injects `body * { background:#fff!important; color:#000!important;
+   font-family:Helvetica... }`. Re-assert the design inside this page.
+   ========================================================================= */
+.guide-print-method-main * {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Meiryo", sans-serif;
+}
+.guide-print-method-main img {
+  background-color: transparent !important;
+}
+
+/* colored section bands */
+.guide-print-method-page .guide-hero {
+  background: #efce0a !important;
+}
+.guide-print-method-page .data-submission-caution {
+  background: #efefef !important;
+}
+
+/* inner containers of the colored sections -> transparent so the band shows */
+.guide-print-method-page .guide-hero *,
+.guide-print-method-page .data-submission-caution * {
+  background-color: transparent !important;
+}
+
+/* white card kept white on top of the reset above */
+.guide-print-method-page .data-submission-caution__card {
+  background-color: #fff !important;
+}
+
+/* keep gray body text (MT forces it to #000) */
+.print-method-intro__lead,
+.print-method-inkjet__body,
+.print-method-feature__text,
+.print-method-finish__text,
+.data-submission-caution__card-text,
+.guide-design-tool-nav__lead {
+  color: #666666 !important;
+}
