@@ -3615,14 +3615,16 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   top: calc(-1 * var(--guide-card-border));
   left: calc(2 * var(--guide-card-position));
   z-index: 2;
-  width: var(--guide-step-badge);
-  height: var(--guide-step-badge);
-  border-radius: 50%;
-  background: #111;
-  color: #fff;
+  /* !important: Maker Town overrides background/color on embedded content;
+     these keep the black circle + white number in the MT environment. */
+  width: var(--guide-step-badge) !important;
+  height: var(--guide-step-badge) !important;
+  border-radius: 50% !important;
+  background: #111 !important;
+  color: #fff !important;
   font-weight: 900;
   font-size: 19px;
-  line-height: var(--guide-step-badge);
+  line-height: var(--guide-step-badge) !important;
   text-align: center;
   transform: translate(-50%, -50%);
 }
@@ -3637,11 +3639,12 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .guide-flow-steps__heading {
   width: 100%;
+  margin-top: 16px;
   padding: 0px 12px;
   font-size: 18px;
   font-weight: 900;
   color: #111;
-  text-align: left;
+  text-align: center;
 }
 
 .guide-flow-steps__text {
