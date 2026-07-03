@@ -3932,7 +3932,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   width: 100%;
   padding: 48px 24px;
   border-radius: 14px;
-  background: #e8e8e8;
+  background: #e8e8e8 !important; /* MT strips backgrounds; keep gray panel */
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -3943,7 +3943,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   width: 78%;
   padding: 28px 22px 32px;
   border-radius: 12px;
-  background: #fff;
+  background: #fff !important; /* MT strips backgrounds; keep white card */
   text-align: center;
 }
 
@@ -3960,8 +3960,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   min-width: 64%;
   padding: 14px 24px;
   border-radius: 8px;
-  background: #036eb8;
-  color: #fff;
+  background: #036eb8 !important; /* MT strips button background */
+  color: #fff !important;
   font-size: 16px;
   font-weight: 900;
   text-align: center;
