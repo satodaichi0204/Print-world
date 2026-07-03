@@ -4020,10 +4020,11 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   flex-direction: column;
   min-height: 220px;
   padding: 24px 20px 24px;
-  /* Design shows the cards blended into the gray panel (no white box). */
-  background: transparent !important;
+  /* Design shows white cards on the gray panel. !important so MT can't
+     strip the white background. */
+  background: #fff !important;
   border-radius: 16px;
-  border: none !important;
+  border: 1px solid #ddd;
 }
 
 .guide-flow-order3__card-title {
