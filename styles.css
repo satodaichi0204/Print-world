@@ -5232,3 +5232,61 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .guide-design-tool-nav__lead {
   color: #666666 !important;
 }
+
+/* =========================================================================
+   Maker Town defense: guide-data-submission
+   Counter MT's `body * { background:#fff!important; color:#000!important;
+   font:Helvetica }` for this page's colored elements.
+   ========================================================================= */
+.guide-data-submission-main * {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Meiryo", sans-serif;
+}
+.guide-data-submission-main img {
+  background-color: transparent !important;
+}
+
+/* colored section bands */
+.guide-data-submission-page .guide-hero {
+  background: #efce0a !important;
+}
+.guide-data-submission-page .data-submission-print-method {
+  background: #efefef !important;
+}
+
+/* inner containers of the colored sections -> transparent so the band shows */
+.guide-data-submission-page .guide-hero *,
+.guide-data-submission-page .data-submission-print-method * {
+  background-color: transparent !important;
+}
+
+/* re-assert filled elements over the reset above */
+.guide-data-submission-page .data-submission-print-method__pill {
+  background-color: #fff !important;
+}
+/* gray pill on the white spec section */
+.guide-data-submission-page .data-submission-spec__pill {
+  background-color: #e8e8e8 !important;
+}
+
+/* keep gray body text (MT forces it to #000) */
+.data-submission-guide__intro,
+.data-submission-guide__body,
+.data-submission-spec__lead,
+.data-submission-spec__bullets,
+.data-submission-print-method__lead,
+.data-submission-print-method__bullets {
+  color: #666666 !important;
+}
+
+/* accent text colors */
+.data-submission-guide__warning-lead {
+  color: #ff0000 !important;
+}
+.data-submission-spec__emph,
+.data-submission-spec__li--emph {
+  color: #e60012 !important;
+}
+.data-submission-spec__link {
+  color: #036eb8 !important;
+}
