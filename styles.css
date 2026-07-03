@@ -3852,7 +3852,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .guide-design-flow__link,
 .guide-template-flow__link,
 .guide-post-submission-flow__link {
-  color: #3b6dbb;
+  color: #3b6dbb !important; /* MT forces color:#000; keep guide links blue */
   text-decoration: underline;
 }
 
