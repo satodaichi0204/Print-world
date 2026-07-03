@@ -5290,3 +5290,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .data-submission-spec__link {
   color: #036eb8 !important;
 }
+
+/* Remove the 55px white gap MT's footer (margin-top) leaves above itself.
+   Visible on this page because the last section is gray. */
+.guide-data-submission-page .m-footer {
+  margin-top: 0 !important;
+}
