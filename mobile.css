@@ -4730,6 +4730,12 @@
     gap: 40px 28px;
   }
 
+  /* 769-1024: center the feature copy under the icon (title is already
+     centered). At <=768 the text is centered by the mobile block below. */
+  .guide-print-method-page .print-method-feature__text {
+    text-align: center;
+  }
+
   .guide-print-method-page .print-method-finish {
     padding: 56px 0 72px;
   }
