@@ -5351,3 +5351,66 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .image-guide__in-page-link {
   color: #036eb8 !important;
 }
+
+/* =========================================================================
+   Maker Town defense: home / TOP  (scoped to .home-mt wrapper)
+   Reset all content backgrounds, then re-assert the many colored sections/
+   elements + white text. MT does not strip background-image or ::before/
+   ::after, so FV/sec2 bg images and pseudo decorations are preserved.
+   ========================================================================= */
+.home-mt * { font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif; }
+.home-mt * { background-color: transparent !important; }
+
+.home-mt .fv { background-color: #efd31d !important; }
+.home-mt .fv-pill { background-color: #f15a24 !important; }
+.home-mt .sec2 { background-color: #f6f6c2 !important; }
+.home-mt .sec3 { background-color: #89d6e8 !important; }
+.home-mt .sec3-card__image { background-color: #fff !important; }
+.home-mt .sec3-card__link { background-color: #0071bc !important; }
+.home-mt .sec4 { background-color: #ffd9ef !important; }
+.home-mt .sec4-card__image { background-color: #fff !important; }
+.home-mt .sec4-card__link { background-color: #25b0d6 !important; }
+.home-mt .sec5 { background-color: #d3e283 !important; }
+.home-mt .sec5-card { background-color: #fff !important; }
+.home-mt .sec5-cta { background-color: #111 !important; }
+.home-mt .sec5-intro { background-color: #f7ede6 !important; }
+.home-mt .sec6 { background-color: #4e87d3 !important; }
+.home-mt .sec6-kicker { background-color: #fff !important; }
+.home-mt .sec6-panel { background-color: #f7ede6 !important; }
+.home-mt .sec6-pill { background-color: #fff !important; }
+.home-mt .sec7 { background-color: #fff !important; }
+.home-mt .sec7-card__photo { background-color: #eee !important; }
+.home-mt .sec8-btn { background-color: #ff6700 !important; }
+.home-mt .sec8-details__body { background-color: #f7ede6 !important; }
+.home-mt .sec8-store { background-color: #f4efec !important; }
+.home-mt .sec8-summary { background-color: #efce70 !important; }
+.home-mt .sec9 { background-color: #f7d172 !important; }
+.home-mt .sec9-action--line { background-color: #00c300 !important; }
+.home-mt .sec9-action--mail { background-color: #d8001a !important; }
+.home-mt .sec9-action--phone { background-color: #fff !important; }
+.home-mt .sec9-card { background-color: #fff !important; }
+.home-mt .sec9-card__btn { background-color: #ff9b64 !important; }
+.home-mt .sec9-card__head { background-color: #ff6700 !important; }
+.home-mt .sec9-card__head-pill { background-color: #fff !important; }
+.home-mt .sec9-contact__panel { background-color: #f7ede6 !important; }
+.home-mt .sec9-wave { background-color: #fff !important; }
+.home-mt .product-chip { background-color: #fff !important; }
+.home-mt .product-image-wrap { background-color: #fff !important; }
+.home-mt .product-rank { background-color: #8f8f8f !important; }
+.home-mt .product-rank--1 { background-color: #d9ab2d !important; }
+.home-mt .product-rank--2 { background-color: #9e9e9e !important; }
+.home-mt .product-rank--3 { background-color: #8f5a2e !important; }
+
+/* white text on dark/colored backgrounds (MT forces #000) */
+.home-mt .sec5-cta,
+.home-mt .sec3-card__link,
+.home-mt .sec4-card__link,
+.home-mt .sec8-btn,
+.home-mt .product-rank { color: #fff !important; }
+
+/* other colored text */
+.home-mt .sec5-card__text { color: #5c5c5c !important; }
+.home-mt .sec5-em { color: #c91f2e !important; }
+.home-mt .sec6-copy { color: #666666 !important; }
+.home-mt .sec7-card__text { color: #444 !important; }
+.home-mt .sec8-details__body { color: #666666 !important; }
