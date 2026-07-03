@@ -3999,6 +3999,13 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   background: transparent !important;
 }
 
+/* MT paints white behind every embedded <img>. Force all guide-flow content
+   images transparent so transparent PNGs (title/staff/etc.) show the real
+   background instead of a white rectangle. Scoped to our content only. */
+.guide-flow-main img {
+  background: transparent !important;
+}
+
 .guide-flow-order3__cards {
   position: relative;
   top: -36px;
@@ -4013,9 +4020,10 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   flex-direction: column;
   min-height: 220px;
   padding: 24px 20px 24px;
-  background: #fff;
+  /* Design shows the cards blended into the gray panel (no white box). */
+  background: transparent !important;
   border-radius: 16px;
-  border: 1px solid #ddd;
+  border: none !important;
 }
 
 .guide-flow-order3__card-title {
