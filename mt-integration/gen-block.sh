@@ -21,7 +21,9 @@ MEND="$(grep -nE '</main>' "$SRC" | head -1 | cut -d: -f1)"
   echo "<link rel=\"stylesheet\" href=\"$BASE/mobile.css\">"
   echo "<script>document.body.classList.add('${BODYCLASS}');</script>"
   echo ''
-  echo '<div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;">'
+  # Breakout + recreate the Vercel <body> baseline inside MT's wrapper so MT's
+  # container styles (align/font/line-height/letter-spacing) cannot bleed in.
+  echo "<div style=\"width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';\">"
   echo ''
   sed -n "${MSTART},${MEND}p" "$SRC" | sed "s#\(src\|srcset\)=\"images/#\1=\"$BASE/images/#g; s#url('images/#url('$BASE/images/#g; s#url(images/#url($BASE/images/#g"
   echo ''
