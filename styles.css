@@ -3978,6 +3978,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .guide-flow-order3__title-wrap {
   display: flex;
   margin: 0 40px 76px;
+  /* MT's `body * { background-color:#fff !important }` paints this wrapper
+     white behind the transparent title PNG; force it back to transparent. */
+  background-color: transparent !important;
 }
 
 .guide-flow-order3__title-wrap img {
