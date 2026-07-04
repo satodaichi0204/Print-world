@@ -5414,3 +5414,13 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .home-mt .sec6-copy { color: #666666 !important; }
 .home-mt .sec7-card__text { color: #444 !important; }
 .home-mt .sec8-details__body { color: #666666 !important; }
+
+/* home/TOP: shirt marquee cards are injected by app.js, so they were missed
+   by the background re-assert list. Restore the white card, and clip the
+   shirts layer to the FV so the flowing shirts don't overflow into sec2. */
+.home-mt .shirt-card {
+  background-color: #fff !important;
+}
+.home-mt .shirts-layer {
+  overflow: hidden !important;
+}
