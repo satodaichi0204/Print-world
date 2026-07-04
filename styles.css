@@ -5433,12 +5433,3 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
 }
 
-/* home/TOP (MT): size the shirts by the FV HEIGHT (not the width-based
-   artboard), so the 3 rows fill the FV and the bottom gap stays constant as
-   the width goes 1920 -> 769. 160px = 32(top pad) + 80(row margins) +
-   48(bottom gap), all x scale. Only the shirt size changes. */
-@media (min-width: 769px) {
-  .home-mt .fv {
-    --shirt-col: calc((100svh - 160px * var(--fv-shirt-s)) / 3) !important;
-  }
-}
