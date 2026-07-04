@@ -5424,3 +5424,15 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .home-mt .shirts-layer {
   overflow: hidden !important;
 }
+
+/* home/TOP (MT): the FV shirt grid is sized to the 1920x1080 artboard
+   (--fv-shirt-canvas-h, width-scaled), but .fv/.fv-content use min-height:100vh.
+   When the preview viewport isn't 16:9 the grid overflows/clips. Size the FV to
+   the artboard height so the 3 rows fit with the designed top/bottom gaps and
+   the relationship holds from 769 to 1920. */
+@media (min-width: 769px) {
+  .home-mt .fv,
+  .home-mt .fv-content {
+    min-height: var(--fv-shirt-canvas-h) !important;
+  }
+}
