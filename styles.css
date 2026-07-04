@@ -5424,3 +5424,11 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .home-mt .shirts-layer {
   overflow: hidden !important;
 }
+
+/* home/TOP (MT): the header is stripped on MT, so the shirts-layer's 120px
+   top padding (header clearance) is too much. Move the shirts up. */
+@media (min-width: 769px) {
+  .home-mt .shirts-layer {
+    padding-top: calc(32px * var(--fv-shirt-s)) !important;
+  }
+}
