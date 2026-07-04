@@ -5433,3 +5433,17 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
 }
 
+
+/* home/TOP (MT): match the design — the FV is a width-scaled artboard that the
+   shirt grid fills. .fv/.fv-content/.fv-foreground used 100vh, which doesn't
+   match the width-scaled shirt canvas, leaving a gap (or overflow) when the
+   window isn't 16:9. Size the whole FV to the artboard height so the shirts
+   fill it and everything scales together from 769 to 1920. */
+@media (min-width: 769px) {
+  .home-mt .fv,
+  .home-mt .fv-content,
+  .home-mt .fv-foreground {
+    min-height: var(--fv-shirt-canvas-h) !important;
+    height: var(--fv-shirt-canvas-h) !important;
+  }
+}
