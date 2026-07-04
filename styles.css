@@ -5429,7 +5429,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    top padding (header clearance) is too much. Move the shirts up. */
 @media (min-width: 769px) {
   .home-mt .shirts-layer {
-    padding-top: calc(32px * var(--fv-shirt-s)) !important;
+    padding-top: calc(130px * var(--fv-shirt-s)) !important;
   }
 }
 
