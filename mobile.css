@@ -8361,13 +8361,12 @@ html.is-guide-flow-zoom-open body {
 
 /* =============================================================================
    TOP sec1 — 426–767 ONLY (768 unchanged = standard)
-   Sec1: scale 100svh by same factor as foreground canvas (60%@426 → 100%@768)
-   so header→text gap stays proportional to the 768 lock.
+   Sec1: keep 100svh (same as 768 lock) so all vertical spacing matches 768.
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 767px) {
   .home-page .fv {
     --fv-sec1-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
-    --fv-sec1-h: calc(100svh * var(--fv-sec1-s));
+    --fv-sec1-h: 100svh;
     --fv-mobile-header-clear: 100px;
     --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
     height: var(--fv-sec1-h);
