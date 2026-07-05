@@ -5668,3 +5668,19 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
     padding-top: 0 !important;
   }
 }
+
+/* Home desktop: kill the last ~4–10px white sliver at the very top — remaining
+   top padding/margin AND any top border on the wrapper chain down to the FV. */
+@media (min-width: 769px) {
+  body.home-page .L-wrapper,
+  body.home-page main.mcPage__main,
+  body.home-page .mcPage__contentBlock,
+  body.home-page .mcPage__htmlContent,
+  body.home-page .contentBlock_titleArea,
+  body.home-page .contentBlock_text,
+  body.home-page .home-mt {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    border-top: 0 !important;
+  }
+}
