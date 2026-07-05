@@ -5609,3 +5609,13 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    that 100vh padding just left a white gap below our footer. Cancel it.
    ============================================================================= */
 .L-wrapper { padding-bottom: 0 !important; }
+
+/* =============================================================================
+   MT fix — .site-menu full-screen white cover (2026-07-05)
+   app.js appends `.site-menu { position:fixed; inset:0; z-index:999 }` (the mobile
+   menu layer) on any page with a .menu-btn. MT's `body * { background:#fff }` paints
+   that layer white → covers the whole page. Keep the layer transparent; restore the
+   dim overlay colour for when the menu is actually open.
+   ============================================================================= */
+.site-menu { background-color: transparent !important; }
+.site-menu__overlay { background: rgba(0, 0, 0, 0.36) !important; }
