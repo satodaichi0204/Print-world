@@ -5418,31 +5418,30 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 /* home/TOP: shirt marquee cards are injected by app.js, so they were missed
    by the background re-assert list. Restore the white card, and clip the
    shirts layer to the FV so the flowing shirts don't overflow into sec2. */
-.home-mt .shirt-card {
+.home-page .shirt-card {
   background-color: #fff !important;
 }
-.home-mt .shirts-layer {
+.home-page .shirts-layer {
   overflow: hidden !important;
 }
 
-/* home/TOP (MT): the header is stripped on MT, so the shirts-layer's 120px
-   top padding (header clearance) is too much. Move the shirts up. */
+/* home/TOP: shirts-layer top offset (applies to MT and Vercel). */
 @media (min-width: 769px) {
-  .home-mt .shirts-layer {
+  .home-page .shirts-layer {
     padding-top: calc(130px * var(--fv-shirt-s)) !important;
   }
 }
 
 
-/* home/TOP (MT): match the design — the FV is a width-scaled artboard that the
+/* home/TOP: match the design — the FV is a width-scaled artboard that the
    shirt grid fills. .fv/.fv-content/.fv-foreground used 100vh, which doesn't
    match the width-scaled shirt canvas, leaving a gap (or overflow) when the
    window isn't 16:9. Size the whole FV to the artboard height so the shirts
-   fill it and everything scales together from 769 to 1920. */
+   fill it and everything scales together from 769 to 1920. Both MT and Vercel. */
 @media (min-width: 769px) {
-  .home-mt .fv,
-  .home-mt .fv-content,
-  .home-mt .fv-foreground {
+  .home-page .fv,
+  .home-page .fv-content,
+  .home-page .fv-foreground {
     min-height: var(--fv-shirt-canvas-h) !important;
     height: var(--fv-shirt-canvas-h) !important;
   }
