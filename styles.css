@@ -5638,43 +5638,50 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 /* =============================================================================
-   MT home header integration — 2026-07-06
-   Standard design: the header floats OVER section1 (the FV); section1 rises to y=0.
-   Two separate MT behaviours had to be neutralised, at DIFFERENT breakpoints:
+   MT header integration — ALL our pages — 2026-07-06
+   Standard design: the header floats OVER section1; section1 rises to y=0. Applied
+   to every page WE created (home / PLP / PDP / 4 guides), never MT's own pages
+   (cart / checkout / mypage …).
 
-   (A) HEADER-HEIGHT removal — ALL widths (320–1920):
-       MT reserves the fixed-header height (main{padding-top:70px} + content-block
-       wrappers' top margin/padding/border), pushing section1 down. Remove it so the
-       header never occupies its own height on home — at every width.
-   (B) TRANSPARENT header bar — DESKTOP ONLY (min-width:769px):
-       base.css paints .header_outer/.header__fixed #fafafa, covering the FV behind
-       our transparent .fv-header. Make it transparent — desktop only (≤768 keeps its
-       own solid mobile-header background, per earlier instruction).
+   Page gate = each page's unique body class. product-list-page is ALSO injected on
+   every page by the theme header, so real PLP is additionally guarded by
+   :has(.plp-main) (MT's own pages have no .plp-main).
 
-   All scoped to body.home-page → MT's own pages (no .home-page class) untouched.
+   (A) HEADER-HEIGHT removal (main 70px reserve + content-block top spacing) — ALL widths
+   (B) TRANSPARENT header bar (over base.css #fafafa)              — DESKTOP ONLY (769+)
    ============================================================================= */
 
-/* (A) header-height removal — ALL widths */
-body.home-page .L-wrapper,
-body.home-page main.mcPage__main,
-body.home-page .mcPage__contentBlock,
-body.home-page .mcPage__htmlContent,
-body.home-page .contentBlock__titleArea,
-body.home-page .contentBlock_titleArea,
-body.home-page .contentBlock__text,
-body.home-page .contentBlock_text,
-body.home-page .home-mt {
+/* (A) header-height removal — ALL widths (320–1920) */
+:is(
+  body.home-page, body.product-detail-page,
+  body.guide-flow-page, body.guide-design-tool-page,
+  body.guide-data-submission-page, body.guide-print-method-page,
+  body.product-list-page:has(.plp-main)
+) :is(
+  .L-wrapper, main.mcPage__main, .mcPage__contentBlock, .mcPage__htmlContent,
+  .contentBlock__titleArea, .contentBlock_titleArea,
+  .contentBlock__text, .contentBlock_text, .home-mt
+) {
   padding-top: 0 !important;
   margin-top: 0 !important;
   border-top: 0 !important;
 }
 /* confirmed culprit: .mcPage__contentBlock .contentBlock__text { margin-top:6px } */
-body.home-page .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
+:is(
+  body.home-page, body.product-detail-page,
+  body.guide-flow-page, body.guide-design-tool-page,
+  body.guide-data-submission-page, body.guide-print-method-page,
+  body.product-list-page:has(.plp-main)
+) .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
 
 /* (B) transparent header bar — DESKTOP ONLY (769+) */
 @media (min-width: 769px) {
-  body.home-page .header_outer,
-  body.home-page .header__fixed {
+  :is(
+    body.home-page, body.product-detail-page,
+    body.guide-flow-page, body.guide-design-tool-page,
+    body.guide-data-submission-page, body.guide-print-method-page,
+    body.product-list-page:has(.plp-main)
+  ) :is(.header_outer, .header__fixed) {
     background-color: transparent !important;
     border-bottom: 0 !important;
   }
