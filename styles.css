@@ -5447,17 +5447,14 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
 }
 
-/* home/TOP (426-767, MT + Vercel): in this range the shirts-layer top
-   clearance was a FIXED 76px+21px=97px (not multiplied by the range's width
-   scale --fv-sec1-s, which every other value here uses). So the top gap didn't
-   shrink with width and grew toward 426. Multiply it by --fv-sec1-s (0.6 at 426
-   -> 1.0 at 768) so the gap scales proportionally and keeps the 768 look to 426.
-   --fv-sec1-s already covers 320-425 via its own scale. */
+/* home/TOP (426-767, MT + Vercel): the content (text/figures) scales with
+   --fv-sec1-s (0.6@426 -> 1.0@768) but --fv-sec1-h used 100svh, so the section
+   stayed tall while the content shrank -> the top gap grew toward 426. Scale
+   the section height by --fv-sec1-s too so section and content shrink together
+   and the top gap stays proportional. (768 value unchanged = 100svh - 94px.) */
 @media (min-width: 426px) and (max-width: 767px) {
-  body.home-page .shirts-layer {
-    padding-top: calc(97px * var(--fv-sec1-s)) !important;
-    --fv-shirts-available-h: calc(
-      var(--fv-sec1-h) - calc(97px * var(--fv-sec1-s)) - var(--fv-shirts-pad) * 2
-    ) !important;
+  .home-page .fv {
+    --fv-sec1-h: calc((100svh - 94px) * var(--fv-sec1-s)) !important;
   }
 }
+
