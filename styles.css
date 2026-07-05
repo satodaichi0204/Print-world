@@ -5619,3 +5619,13 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    ============================================================================= */
 .site-menu { background-color: transparent !important; }
 .site-menu__overlay { background: rgba(0, 0, 0, 0.36) !important; }
+
+/* =============================================================================
+   MT home header stacking fix (2026-07-05)
+   MT wraps our theme header in `.header__fixed / .header_outer`. Our home FV
+   (`.fv`) carries `z-index: 20` — a leftover from the standalone layout where the
+   header lived INSIDE `.fv`. On MT the header is a separate fixed element in that
+   wrapper, and the FV's z-index:20 outranked the wrapper, painting OVER the header.
+   Lift MT's header wrapper above page content (it's position:fixed, so z applies).
+   ============================================================================= */
+.header__fixed, .header_outer { z-index: 100 !important; }
