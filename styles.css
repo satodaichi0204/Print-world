@@ -5653,8 +5653,14 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
        ページマスタ pages via one plain :has() so cart's header stays solid.
    ============================================================================= */
 
-/* (A) header-height removal — ALL widths, all ページマスタ pages */
+/* (A) header-height removal — ALL widths, all ページマスタ pages.
+   NOTE: non-home blocks nest their own <main class="…-main"> inside MT's
+   main.mcPage__main. MT's `main { padding-top:70px }` hits BOTH, so the inner main
+   keeps a 70px gap unless we zero it too — hence the explicit …-main classes. */
 main.mcPage__main,
+.plp-main, .pdp-main,
+.guide-flow-main, .guide-design-tool-main,
+.guide-data-submission-main, .guide-print-method-main,
 .mcPage__contentBlock,
 .mcPage__htmlContent,
 .contentBlock__titleArea, .contentBlock_titleArea,
