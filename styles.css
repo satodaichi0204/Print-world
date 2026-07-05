@@ -5492,3 +5492,41 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-main .product-tags li { color: #8a8a8a !important; }
 .plp-main .plp-ranking__track .product-tags li { color: #9a8578 !important; }
 .plp-main .plp-intro__body { color: #555 !important; }
+
+/* =========================================================================
+   Maker Town defense: product-detail (PDP). Scoped to .pdp-main.
+   ========================================================================= */
+.pdp-main * {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Meiryo", sans-serif;
+}
+.pdp-main img { background-color: transparent !important; }
+
+/* colored backgrounds */
+.pdp-main .pdp-gallery__main { background-color: #ececec !important; }
+.pdp-main .pdp-point__label { background-color: #f15a24 !important; }
+.pdp-main .pdp-btn--design { background-color: #00b2c8 !important; }
+.pdp-main .pdp-btn--support { background-color: #eef9fb !important; }
+.pdp-main .pdp-data-table thead th { background-color: #efce0a !important; }
+.pdp-main .pdp-data-table tbody td { background-color: #fff6df !important; }
+.pdp-main .pdp-data-table--size tbody tr:nth-child(even) td { background-color: #fff !important; }
+
+/* white text on colored backgrounds */
+.pdp-main .pdp-point__label,
+.pdp-main .pdp-btn--design,
+.pdp-main .pdp-data-table thead th { color: #fff !important; }
+
+/* colored text */
+.pdp-main .pdp-gallery__meta,
+.pdp-main .pdp-spec th,
+.pdp-main .pdp-table-block__lead,
+.pdp-main .pdp-table-block__meta { color: #888 !important; }
+.pdp-main .pdp-desc p,
+.pdp-main .pdp-data-table td { color: #333 !important; }
+.pdp-main .pdp-related__link { color: #3b6dbb !important; }
+.pdp-main .pdp-spec__price,
+.pdp-main .pdp-spec__price-note,
+.pdp-main .pdp-spec__tags li,
+.pdp-main .pdp-spec__hash { color: #e60012 !important; }
+.pdp-main .pdp-spec__material-note { color: #666 !important; }
+.pdp-main .pdp-btn--support { color: #00b2c8 !important; }
