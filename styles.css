@@ -5447,3 +5447,48 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
     height: var(--fv-shirt-canvas-h) !important;
   }
 }
+
+/* =========================================================================
+   Maker Town defense: product-list (PLP)
+   Counter MT's `body * { background:#fff!important; color:#000!important;
+   font:Helvetica }` for this page. Scoped to .plp-main.
+   ========================================================================= */
+.plp-main * {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    "Meiryo", sans-serif;
+}
+.plp-main img { background-color: transparent !important; }
+
+/* ranking is a colored panel: reset inner containers transparent so the panel
+   color shows, then re-assert the colored/white pieces (higher specificity or
+   later source order wins over the reset). */
+.plp-main .plp-ranking * { background-color: transparent !important; }
+.plp-main .plp-ranking__panel { background-color: #fcf6c7 !important; }
+.plp-main .plp-ranking__banner { background-color: #f15a24 !important; }
+.plp-main .plp-ranking__track .product-image-wrap { background-color: #e8e8e8 !important; }
+.plp-main .plp-ranking__track .product-chip { background-color: #fff !important; }
+.plp-main .plp-ranking__track .plp-rank-badge--1 { background-color: #f15a24 !important; }
+.plp-main .plp-ranking__track .plp-rank-badge--2 { background-color: #9e9e9e !important; }
+.plp-main .plp-ranking__track .plp-rank-badge--3 { background-color: #8f5a2e !important; }
+.plp-main .plp-ranking__track .plp-rank-badge:not([class*="plp-rank-badge--"]) { background-color: #8f8f8f !important; }
+
+/* grid product cards + rank badges */
+.plp-main .product-image-wrap,
+.plp-main .product-chip { background-color: #fff !important; }
+.plp-main .product-rank { background-color: #8f8f8f !important; }
+.plp-main .product-rank--1 { background-color: #d9ab2d !important; }
+.plp-main .product-rank--2 { background-color: #9e9e9e !important; }
+.plp-main .product-rank--3 { background-color: #8f5a2e !important; }
+
+/* white text on colored backgrounds */
+.plp-main .plp-ranking__banner-title,
+.plp-main .plp-ranking__track .plp-rank-badge,
+.plp-main .plp-ranking__track .plp-rank-badge__icon,
+.plp-main .product-rank { color: #fff !important; }
+
+/* colored text */
+.plp-main .product-price { color: #c91f2e !important; }
+.plp-main .product-chip { color: #606060 !important; }
+.plp-main .product-tags li { color: #8a8a8a !important; }
+.plp-main .plp-ranking__track .product-tags li { color: #9a8578 !important; }
+.plp-main .plp-intro__body { color: #555 !important; }
