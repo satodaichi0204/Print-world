@@ -5597,3 +5597,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .site-footer a { color: #fff !important; }
 /* logo: drop MT's forced white box */
 .site-footer img { background-color: transparent !important; }
+
+/* MT EC cluster (cart + login) placement inside our .fv-header (v1 — tune live) */
+.fv-header .mt-ec { display: flex; align-items: center; gap: 14px; margin-left: 14px; }
+.fv-header .mt-ec .header__item { position: relative; }
