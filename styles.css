@@ -5447,12 +5447,12 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
 }
 
-/* home/TOP (MT, <=768): the header is stripped on MT, so the 100px fixed
-   header-clearance is empty space that doesn't shrink as the width narrows,
-   making the top gap look too big at 320. Scale it with width (100px at 768,
-   proportional down to 320) so the 768 relationship is kept to 320. */
+/* home/TOP (<=768, MT + Vercel): the 100px fixed header-clearance doesn't
+   shrink as the width narrows, so the top gap between the section top and the
+   content grows toward 320. Scale it with width (100px at 768, proportional
+   down to 320) so the 768 relationship is kept all the way to 320. */
 @media (max-width: 768px) {
-  .home-mt .fv {
+  .home-page .fv {
     --fv-mobile-header-clear: calc(100vw / 7.68) !important;
   }
 }
