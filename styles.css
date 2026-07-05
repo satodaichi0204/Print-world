@@ -5638,54 +5638,44 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 /* =============================================================================
-   MT home header overlap — DESKTOP ONLY (min-width:769px) — 2026-07-06
-   Standard design: the transparent header floats OVER section1 (the FV), and the
-   FV rises to y=0 behind it. Two MT rules broke this:
-     1) base.css  : .header_outer/.header__fixed { background:#fafafa } — a solid
-        bar covered the FV behind our (already-transparent) .fv-header.
-     2) headerFix.css: main { padding-top: 70px } — reserved the fixed-header height,
-        pushing section1 down.
-   Neutralize both, scoped to body.home-page so MT's own pages (no .home-page class)
-   and ≤768 are completely untouched.
+   MT home header integration — 2026-07-06
+   Standard design: the header floats OVER section1 (the FV); section1 rises to y=0.
+   Two separate MT behaviours had to be neutralised, at DIFFERENT breakpoints:
+
+   (A) HEADER-HEIGHT removal — ALL widths (320–1920):
+       MT reserves the fixed-header height (main{padding-top:70px} + content-block
+       wrappers' top margin/padding/border), pushing section1 down. Remove it so the
+       header never occupies its own height on home — at every width.
+   (B) TRANSPARENT header bar — DESKTOP ONLY (min-width:769px):
+       base.css paints .header_outer/.header__fixed #fafafa, covering the FV behind
+       our transparent .fv-header. Make it transparent — desktop only (≤768 keeps its
+       own solid mobile-header background, per earlier instruction).
+
+   All scoped to body.home-page → MT's own pages (no .home-page class) untouched.
    ============================================================================= */
+
+/* (A) header-height removal — ALL widths */
+body.home-page .L-wrapper,
+body.home-page main.mcPage__main,
+body.home-page .mcPage__contentBlock,
+body.home-page .mcPage__htmlContent,
+body.home-page .contentBlock__titleArea,
+body.home-page .contentBlock_titleArea,
+body.home-page .contentBlock__text,
+body.home-page .contentBlock_text,
+body.home-page .home-mt {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  border-top: 0 !important;
+}
+/* confirmed culprit: .mcPage__contentBlock .contentBlock__text { margin-top:6px } */
+body.home-page .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
+
+/* (B) transparent header bar — DESKTOP ONLY (769+) */
 @media (min-width: 769px) {
   body.home-page .header_outer,
   body.home-page .header__fixed {
     background-color: transparent !important;
     border-bottom: 0 !important;
   }
-  body.home-page main.mcPage__main { padding-top: 0 !important; }
 }
-
-/* Home desktop: residual white strip at the very top. Removing main's 70px reserve
-   raised the FV, but MT's content-block wrappers between <main> and .fv still carry
-   a small top margin/padding. Collapse it so the FV reaches y=0 under the header. */
-@media (min-width: 769px) {
-  body.home-page .mcPage__contentBlock,
-  body.home-page .contentBlock_titleArea,
-  body.home-page .contentBlock_text {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-
-/* Home desktop: kill the last ~4–10px white sliver at the very top — remaining
-   top padding/margin AND any top border on the wrapper chain down to the FV. */
-@media (min-width: 769px) {
-  body.home-page .L-wrapper,
-  body.home-page main.mcPage__main,
-  body.home-page .mcPage__contentBlock,
-  body.home-page .mcPage__htmlContent,
-  body.home-page .contentBlock_titleArea,
-  body.home-page .contentBlock_text,
-  body.home-page .home-mt {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    border-top: 0 !important;
-  }
-}
-
-/* The final ~6px sliver was `.mcPage__contentBlock .contentBlock__text { margin-top:6px }`
-   — a DOUBLE-underscore class my earlier single-underscore selector never matched.
-   Applied at ALL widths (320–1920) per request, scoped to home. */
-body.home-page .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
