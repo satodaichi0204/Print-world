@@ -5575,3 +5575,10 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    Restore the white "電話/メール/LINE" card background (drop-shadow on
    .fv-header__links is a filter → MT never stripped it). */
 .fv-header .phone-box { background: #fff !important; }
+
+/* Hamburger button: DESKTOP (769–1920) = orange square + white bars (standard).
+   ≤768 intentionally untouched → stays transparent button + orange bars. */
+@media (min-width: 769px) {
+  .fv-header .menu-btn { background: #f15a24 !important; }
+  .fv-header .menu-btn span { background: #fff !important; }
+}
