@@ -5686,7 +5686,6 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 /* The final ~6px sliver was `.mcPage__contentBlock .contentBlock__text { margin-top:6px }`
-   — a DOUBLE-underscore class my earlier single-underscore selector never matched. */
-@media (min-width: 769px) {
-  body.home-page .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
-}
+   — a DOUBLE-underscore class my earlier single-underscore selector never matched.
+   Applied at ALL widths (320–1920) per request, scoped to home. */
+body.home-page .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
