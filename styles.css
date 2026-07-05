@@ -5629,3 +5629,10 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    Lift MT's header wrapper above page content (it's position:fixed, so z applies).
    ============================================================================= */
 .header__fixed, .header_outer { z-index: 100 !important; }
+
+/* Header bar itself must be transparent so it floats over the hero. MT's body*
+   reset painted .fv-header white. Re-assert transparent — DESKTOP ONLY (769–1920+);
+   ≤768 keeps its own (white) mobile-header background. */
+@media (min-width: 769px) {
+  .fv-header { background: transparent !important; }
+}
