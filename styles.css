@@ -5703,12 +5703,16 @@ main.mcPage__main,
 
 /* Non-home first section (hero): WHITE on mobile (≤768) only. Desktop (769+) keeps
    the #efce0a yellow set above. Home's .fv is intentionally NOT included → stays
-   yellow at every width. Placed after the #efce0a rule so #fff wins at ≤768. */
+   yellow at every width. Placed after the #efce0a rules so #fff wins at ≤768.
+   The 3 guides' yellow uses page-scoped `.guide-X-page .guide-hero` (0,2,0), so the
+   white here MUST match that specificity — plain `.guide-hero` (0,1,0) lost. */
 @media (max-width: 768px) {
   .guide-flow-hero,
-  .guide-hero,
   .plp-hero,
-  .pdp-hero {
+  .pdp-hero,
+  .guide-print-method-page .guide-hero,
+  .guide-data-submission-page .guide-hero,
+  .guide-design-tool-page .guide-hero {
     background: #fff !important;
   }
 }
