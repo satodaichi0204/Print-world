@@ -5582,3 +5582,18 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   .fv-header .menu-btn { background: #f15a24 !important; }
   .fv-header .menu-btn span { background: #fff !important; }
 }
+
+/* =============================================================================
+   MT (Maker Town) FOOTER defense — 2026-07-05
+   Standard footer = orange (#FF6700) bg + white text. MT's body* reset paints it
+   white and blacks the text. Re-assert, scoped to .site-footer only.
+   ============================================================================= */
+.site-footer { background: #FF6700 !important; }
+/* MT paints every descendant white → transparent-ize so the orange shows through */
+.site-footer * { background-color: transparent !important; }
+/* all footer text/links white */
+.site-footer,
+.site-footer * { color: #fff !important; }
+.site-footer a { color: #fff !important; }
+/* logo: drop MT's forced white box */
+.site-footer img { background-color: transparent !important; }
