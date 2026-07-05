@@ -5549,9 +5549,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .fv-header .cta--line { background: #00c300 !important; }
 .fv-header .cta__label { color: #fff !important; }
 
-/* orange hamburger + white bars */
-.fv-header .menu-btn { background: #f15a24 !important; }
-.fv-header .menu-btn span { background: #fff !important; }
+/* hamburger: keep ORIGINAL design = transparent button + orange bars.
+   (.fv-header * transparent below would blank the bars, so re-assert orange) */
+.fv-header .menu-btn span { background: #f15a24 !important; }
 
 /* mobile compact actions (icon/label tint) */
 .fv-header .fv-compact-action--phone { color: #111 !important; }
@@ -5569,16 +5569,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    the coloured buttons). Transparent-ize all header descendants; coloured
    buttons/bars above keep their fill via higher (0,2,0)/(0,2,1) specificity. */
 .fv-header * { background-color: transparent !important; }
-.fv-header .menu-btn span { background-color: #fff !important; }
+.fv-header .menu-btn span { background-color: #f15a24 !important; }
 
 /* Fix: .fv-header * transparent-ize above also wiped the white phone card.
    Restore the white "電話/メール/LINE" card background (drop-shadow on
    .fv-header__links is a filter → MT never stripped it). */
 .fv-header .phone-box { background: #fff !important; }
-
-/* Guarantee: PLP/others set the mobile hamburger to transparent bg + orange bars.
-   For the unified global header force orange button + white bars at ≤768 too. */
-@media (max-width: 768px) {
-  .fv-header .menu-btn { background: #f15a24 !important; }
-  .fv-header .menu-btn span { background: #fff !important; }
-}
