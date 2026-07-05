@@ -5575,3 +5575,10 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    Restore the white "電話/メール/LINE" card background (drop-shadow on
    .fv-header__links is a filter → MT never stripped it). */
 .fv-header .phone-box { background: #fff !important; }
+
+/* Guarantee: PLP/others set the mobile hamburger to transparent bg + orange bars.
+   For the unified global header force orange button + white bars at ≤768 too. */
+@media (max-width: 768px) {
+  .fv-header .menu-btn { background: #f15a24 !important; }
+  .fv-header .menu-btn span { background: #fff !important; }
+}
