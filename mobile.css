@@ -8369,7 +8369,6 @@ html.is-guide-flow-zoom-open body {
     --fv-sec1-h: calc(100svh * var(--fv-sec1-s));
     --fv-mobile-header-clear: calc(100px * var(--fv-sec1-s));
     --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
-    --fv-shirts-header-gap: calc(21px * var(--fv-sec1-s));
     height: var(--fv-sec1-h);
     min-height: var(--fv-sec1-h);
     max-height: var(--fv-sec1-h);
@@ -8382,12 +8381,12 @@ html.is-guide-flow-zoom-open body {
   .home-page .shirts-layer {
     inset: 0;
     height: 100%;
-    padding-top: calc(76px + var(--fv-shirts-header-gap));
+    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
     padding-bottom: var(--fv-shirts-pad);
     gap: calc(8px * var(--fv-sec1-s));
     --shirt-gap: calc(10px * var(--fv-sec1-s));
     --fv-shirts-available-h: calc(
-      var(--fv-sec1-h) - calc(76px + var(--fv-shirts-header-gap)) - var(--fv-shirts-pad) * 2
+      var(--fv-sec1-h) - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2
     );
     --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
   }
@@ -9449,12 +9448,10 @@ html.is-guide-flow-zoom-open body {
 
 @media (min-width: 426px) and (max-width: 767px) {
   body.home-page .shirts-layer {
-    padding-top: calc(76px + var(--fv-shirts-header-gap, calc(21px * var(--fv-sec1-s, 1))));
+    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
     padding-bottom: var(--fv-shirts-pad);
     --fv-shirts-available-h: calc(
-      var(--fv-sec1-h)
-        - calc(76px + var(--fv-shirts-header-gap, calc(21px * var(--fv-sec1-s, 1))))
-        - var(--fv-shirts-pad) * 2
+      var(--fv-sec1-h) - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2
     );
     --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
   }
