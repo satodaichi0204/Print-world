@@ -5530,3 +5530,37 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .pdp-main .pdp-spec__hash { color: #e60012 !important; }
 .pdp-main .pdp-spec__material-note { color: #666 !important; }
 .pdp-main .pdp-btn--support { color: #00b2c8 !important; }
+
+/* =============================================================================
+   MT (Maker Town) HEADER defense — 2026-07-05
+   MT injects `body * { background-color:#fff!important; color:#000!important }`
+   which strips every header colour. Re-assert with class-scoped !important so it
+   beats body* (0,0,1) via (0,2,0). Scoped to .fv-header → never touches MT pages.
+   ============================================================================= */
+/* MT also forces white bg on <img>; transparent so icons sit on coloured buttons */
+.fv-header img { background-color: transparent !important; }
+
+/* orange "相談しながら…" pill */
+.fv-header .fv-pill { background: #f15a24 !important; color: #fff !important; }
+
+/* contact (red) / LINE (green) CTA buttons */
+.fv-header .cta { background: #111 !important; color: #fff !important; }
+.fv-header .cta--contact { background: #d8001a !important; }
+.fv-header .cta--line { background: #00c300 !important; }
+.fv-header .cta__label { color: #fff !important; }
+
+/* orange hamburger + white bars */
+.fv-header .menu-btn { background: #f15a24 !important; }
+.fv-header .menu-btn span { background: #fff !important; }
+
+/* mobile compact actions (icon/label tint) */
+.fv-header .fv-compact-action--phone { color: #111 !important; }
+.fv-header .fv-compact-action--mail  { color: #d8001a !important; }
+.fv-header .fv-compact-action--line  { color: #06c755 !important; }
+.fv-header .fv-compact-action span   { color: inherit !important; }
+
+/* dark text bits (phone number/label, brand lines) */
+.fv-header .phone-box__number,
+.fv-header .phone-box__label,
+.fv-header .fv-header__brand-lead,
+.fv-header .fv-header__brand-name { color: #111 !important; }
