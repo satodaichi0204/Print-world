@@ -3138,7 +3138,7 @@
   /* FV height lock (658px @425) — shortens header→text gap; shirts scale with same factor */
   .home-page .fv {
     --fv-sp-s: calc(100vw / 425px);
-    --fv-sp-h: calc(658px * var(--fv-sp-s));
+    --fv-sp-h: calc(580px * var(--fv-sp-s));
     height: var(--fv-sp-h);
     min-height: var(--fv-sp-h);
     max-height: var(--fv-sp-h);
@@ -9459,7 +9459,7 @@ html.is-guide-flow-zoom-open body {
 @media (max-width: 425px) {
   body.home-page .fv {
     --fv-sp-s: calc(100vw / 425px);
-    --fv-sp-h: calc(658px * var(--fv-sp-s));
+    --fv-sp-h: calc(580px * var(--fv-sp-s));
     --fv-shirts-pad: calc(12px * var(--fv-sp-s));
     --fv-shirts-header-gap: calc(21px * var(--fv-sp-s));
     height: var(--fv-sp-h);
