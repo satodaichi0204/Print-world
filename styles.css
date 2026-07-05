@@ -5656,3 +5656,15 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
   body.home-page main.mcPage__main { padding-top: 0 !important; }
 }
+
+/* Home desktop: residual white strip at the very top. Removing main's 70px reserve
+   raised the FV, but MT's content-block wrappers between <main> and .fv still carry
+   a small top margin/padding. Collapse it so the FV reaches y=0 under the header. */
+@media (min-width: 769px) {
+  body.home-page .mcPage__contentBlock,
+  body.home-page .contentBlock_titleArea,
+  body.home-page .contentBlock_text {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
