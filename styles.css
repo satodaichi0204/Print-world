@@ -21,8 +21,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
-  min-height: 100dvh;
+  /* NOTE: removed `min-height:100dvh` — on MT (Maker Town) it stretched short
+     pages to full viewport, leaving a white gap below the footer. Standalone
+     pages have their own tall sections (.fv min-height:100vh) so this is safe. */
   overflow-x: hidden;
   font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
   font-feature-settings: "palt";
