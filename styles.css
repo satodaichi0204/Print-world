@@ -5446,14 +5446,3 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
     height: var(--fv-shirt-canvas-h) !important;
   }
 }
-
-/* home/TOP (426-767, MT + Vercel): ONLY the shirts-layer top gap. The range
-   used a fixed 97px top padding, which is proportionally too tall at narrow
-   widths (22.8% of 426 vs 15.1% of 768). Scale ONLY padding-top with width so
-   the top gap stays the SAME proportion as at 768 (116px@768 -> ~64px@426).
-   Shirt size (available-h) is intentionally left untouched. */
-@media (min-width: 426px) and (max-width: 767px) {
-  body.home-page .shirts-layer {
-    padding-top: calc(100vw * 116 / 768) !important;
-  }
-}
