@@ -5602,3 +5602,11 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 /* MT EC cluster (cart + login) placement inside our .fv-header (v1 — tune live) */
 .fv-header .mt-ec { display: flex; align-items: center; gap: 14px; margin-left: 14px; }
 .fv-header .mt-ec .header__item { position: relative; }
+
+/* =============================================================================
+   MT wrapper fix — remove reveal-footer reserve space
+   MT wraps every page in `.L-wrapper { padding-bottom: 100vh }`, reserved for its
+   own scroll-reveal fixed footer. We replaced the footer with a static one, so
+   that 100vh padding just left a white gap below our footer. Cancel it.
+   ============================================================================= */
+.L-wrapper { padding-bottom: 0 !important; }
