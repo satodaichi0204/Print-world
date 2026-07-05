@@ -3086,6 +3086,12 @@
     width: min(calc(86% + 2% * var(--sec9-t)), 315px);
   }
 
+  :is(.home-page, .product-detail-page) .sec9,
+  .product-detail-page .sec9 {
+    --sec9-scale-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
+    --sec9-aside-w: calc(var(--sec9-aside-lock-w) * var(--sec9-scale-s));
+  }
+
   :is(.home-page, .product-detail-page) .sec9-sub {
     --sec9-staff-lock-s: calc(1440px / 1920px);
     --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
@@ -3097,7 +3103,7 @@
   :is(.home-page, .product-detail-page) .sec9-sub > .sec9-ship-aside {
     grid-column: 1 / -1;
     justify-self: end;
-    width: var(--sec9-aside-lock-w);
+    width: var(--sec9-aside-w);
     max-width: 100%;
     min-height: 0;
     height: auto;
@@ -3119,7 +3125,7 @@
     bottom: 0;
     width: 100%;
     max-width: 100%;
-    margin-top: 48px;
+    margin-top: calc(48px * var(--sec9-scale-s));
     margin-right: 0;
     transform: scale(1.4);
     transform-origin: 100% 100%;
@@ -9679,5 +9685,31 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* =============================================================================
+   TOP sec9 staff — 426–768 final cascade (scale 768 lock: 60%@426 → 100%@768)
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body:is(.home-page, .product-detail-page) .sec9 {
+    --sec9-scale-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
+    --sec9-aside-w: calc(var(--sec9-aside-lock-w) * var(--sec9-scale-s));
+  }
+
+  body:is(.home-page, .product-detail-page) .sec9-sub > .sec9-ship-aside {
+    width: var(--sec9-aside-w);
+    margin-top: calc(12px * var(--sec9-scale-s));
+  }
+
+  body:is(.home-page, .product-detail-page) .sec9-ship-aside__staff {
+    margin-top: calc(48px * var(--sec9-scale-s));
+    transform: scale(1.4);
+    transform-origin: 100% 100%;
+  }
+
+  body:is(.home-page, .product-detail-page) .sec9-ship-aside__vertical {
+    font-size: max(calc(13px * var(--sec9-scale-s)), 10px);
+    padding-bottom: calc(10px * var(--sec9-scale-s));
   }
 }
