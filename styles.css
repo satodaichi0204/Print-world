@@ -5638,50 +5638,39 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 }
 
 /* =============================================================================
-   MT header integration — ALL our pages — 2026-07-06
-   Standard design: the header floats OVER section1; section1 rises to y=0. Applied
-   to every page WE created (home / PLP / PDP / 4 guides), never MT's own pages
-   (cart / checkout / mypage …).
+   MT header integration — ALL ページマスタ (custom) pages — 2026-07-06
+   Standard design: the header floats OVER section1; section1 rises to y=0.
 
-   Page gate = each page's unique body class. product-list-page is ALSO injected on
-   every page by the theme header, so real PLP is additionally guarded by
-   :has(.plp-main) (MT's own pages have no .plp-main).
+   Robust, NO :is()/:has() (an earlier :is(... :has()) selector was dropped whole by
+   the browser and silently broke every page). `mcPage__main` / `mcPage__contentBlock`
+   / `contentBlock__*` classes exist ONLY on ページマスタ custom pages (= the pages we
+   built). MT's system pages (cart / checkout / mypage) use different templates and
+   never carry these classes, so plain global rules here can't touch them.
 
-   (A) HEADER-HEIGHT removal (main 70px reserve + content-block top spacing) — ALL widths
-   (B) TRANSPARENT header bar (over base.css #fafafa)              — DESKTOP ONLY (769+)
+   (A) HEADER-HEIGHT removal (MT's main{padding-top:70px} reserve + content-block top
+       spacing) — ALL widths (320–1920).
+   (B) TRANSPARENT header bar (over base.css #fafafa) — DESKTOP ONLY (769+), limited to
+       ページマスタ pages via one plain :has() so cart's header stays solid.
    ============================================================================= */
 
-/* (A) header-height removal — ALL widths (320–1920) */
-:is(
-  body.home-page, body.product-detail-page,
-  body.guide-flow-page, body.guide-design-tool-page,
-  body.guide-data-submission-page, body.guide-print-method-page,
-  body.product-list-page:has(.plp-main)
-) :is(
-  .L-wrapper, main.mcPage__main, .mcPage__contentBlock, .mcPage__htmlContent,
-  .contentBlock__titleArea, .contentBlock_titleArea,
-  .contentBlock__text, .contentBlock_text, .home-mt
-) {
+/* (A) header-height removal — ALL widths, all ページマスタ pages */
+main.mcPage__main,
+.mcPage__contentBlock,
+.mcPage__htmlContent,
+.contentBlock__titleArea, .contentBlock_titleArea,
+.contentBlock__text, .contentBlock_text,
+.home-mt {
   padding-top: 0 !important;
   margin-top: 0 !important;
   border-top: 0 !important;
 }
 /* confirmed culprit: .mcPage__contentBlock .contentBlock__text { margin-top:6px } */
-:is(
-  body.home-page, body.product-detail-page,
-  body.guide-flow-page, body.guide-design-tool-page,
-  body.guide-data-submission-page, body.guide-print-method-page,
-  body.product-list-page:has(.plp-main)
-) .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
+.mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
 
-/* (B) transparent header bar — DESKTOP ONLY (769+) */
+/* (B) transparent header bar — DESKTOP ONLY (769+), ページマスタ pages only */
 @media (min-width: 769px) {
-  :is(
-    body.home-page, body.product-detail-page,
-    body.guide-flow-page, body.guide-design-tool-page,
-    body.guide-data-submission-page, body.guide-print-method-page,
-    body.product-list-page:has(.plp-main)
-  ) :is(.header_outer, .header__fixed) {
+  body:has(.mcPage__main) .header_outer,
+  body:has(.mcPage__main) .header__fixed {
     background-color: transparent !important;
     border-bottom: 0 !important;
   }
