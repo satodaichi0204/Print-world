@@ -5700,3 +5700,15 @@ main.mcPage__main,
 .pdp-hero * {
   background-color: transparent !important;
 }
+
+/* Non-home first section (hero): WHITE on mobile (≤768) only. Desktop (769+) keeps
+   the #efce0a yellow set above. Home's .fv is intentionally NOT included → stays
+   yellow at every width. Placed after the #efce0a rule so #fff wins at ≤768. */
+@media (max-width: 768px) {
+  .guide-flow-hero,
+  .guide-hero,
+  .plp-hero,
+  .pdp-hero {
+    background: #fff !important;
+  }
+}
