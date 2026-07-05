@@ -5636,3 +5636,23 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 @media (min-width: 769px) {
   .fv-header { background: transparent !important; }
 }
+
+/* =============================================================================
+   MT home header overlap — DESKTOP ONLY (min-width:769px) — 2026-07-06
+   Standard design: the transparent header floats OVER section1 (the FV), and the
+   FV rises to y=0 behind it. Two MT rules broke this:
+     1) base.css  : .header_outer/.header__fixed { background:#fafafa } — a solid
+        bar covered the FV behind our (already-transparent) .fv-header.
+     2) headerFix.css: main { padding-top: 70px } — reserved the fixed-header height,
+        pushing section1 down.
+   Neutralize both, scoped to body.home-page so MT's own pages (no .home-page class)
+   and ≤768 are completely untouched.
+   ============================================================================= */
+@media (min-width: 769px) {
+  body.home-page .header_outer,
+  body.home-page .header__fixed {
+    background-color: transparent !important;
+    border-bottom: 0 !important;
+  }
+  body.home-page main.mcPage__main { padding-top: 0 !important; }
+}
