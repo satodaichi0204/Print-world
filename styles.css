@@ -5681,3 +5681,12 @@ main.mcPage__main,
     border-bottom: 0 !important;
   }
 }
+
+/* First-section (hero) background — force #efce0a against MT's body* reset.
+   guide-flow / PDP / PLP lacked this defense (the other 3 guides already had it),
+   so MT was stripping their hero to white. These classes exist only on our pages. */
+.guide-flow-hero,
+.plp-hero,
+.pdp-hero {
+  background: #efce0a !important;
+}
