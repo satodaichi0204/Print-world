@@ -3135,7 +3135,7 @@
     overflow: visible;
   }
 
-  /* FV height lock (658px @425) — shortens header→text gap; shirts scale with same factor */
+  /* FV height lock (580px @425) — shortens header→text gap; shirts scale with same factor */
   .home-page .fv {
     --fv-sp-s: calc(100vw / 425px);
     --fv-sp-h: calc(580px * var(--fv-sp-s));
