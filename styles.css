@@ -5690,3 +5690,13 @@ main.mcPage__main,
 .pdp-hero {
   background: #efce0a !important;
 }
+
+/* Make the ENTIRE first section yellow. MT's body* reset paints the inner
+   containers (.guide-flow-inner etc.) white, so only a yellow "frame" showed.
+   Transparent-ize every hero descendant so #efce0a fills the whole section.
+   (Hero bg itself stays #efce0a via the rule above.) Scoped to our 3 heroes. */
+.guide-flow-hero *,
+.plp-hero *,
+.pdp-hero * {
+  background-color: transparent !important;
+}
