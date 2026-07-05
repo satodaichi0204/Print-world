@@ -5447,14 +5447,3 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
 }
 
-/* home/TOP (426-767, MT + Vercel): the content (text/figures) scales with
-   --fv-sec1-s (0.6@426 -> 1.0@768) but --fv-sec1-h used 100svh, so the section
-   stayed tall while the content shrank -> the top gap grew toward 426. Scale
-   the section height by --fv-sec1-s too so section and content shrink together
-   and the top gap stays proportional. (768 value unchanged = 100svh - 94px.) */
-@media (min-width: 426px) and (max-width: 767px) {
-  .home-page .fv {
-    --fv-sec1-h: calc((100svh - 94px) * var(--fv-sec1-s)) !important;
-  }
-}
-
