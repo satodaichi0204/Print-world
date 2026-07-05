@@ -5447,12 +5447,17 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
 }
 
-/* home/TOP (<=768, MT + Vercel): the 100px fixed header-clearance doesn't
-   shrink as the width narrows, so the top gap between the section top and the
-   content grows toward 320. Scale it with width (100px at 768, proportional
-   down to 320) so the 768 relationship is kept all the way to 320. */
-@media (max-width: 768px) {
-  .home-page .fv {
-    --fv-mobile-header-clear: calc(100vw / 7.68) !important;
+/* home/TOP (426-767, MT + Vercel): in this range the shirts-layer top
+   clearance was a FIXED 76px+21px=97px (not multiplied by the range's width
+   scale --fv-sec1-s, which every other value here uses). So the top gap didn't
+   shrink with width and grew toward 426. Multiply it by --fv-sec1-s (0.6 at 426
+   -> 1.0 at 768) so the gap scales proportionally and keeps the 768 look to 426.
+   --fv-sec1-s already covers 320-425 via its own scale. */
+@media (min-width: 426px) and (max-width: 767px) {
+  body.home-page .shirts-layer {
+    padding-top: calc(97px * var(--fv-sec1-s)) !important;
+    --fv-shirts-available-h: calc(
+      var(--fv-sec1-h) - calc(97px * var(--fv-sec1-s)) - var(--fv-shirts-pad) * 2
+    ) !important;
   }
 }
