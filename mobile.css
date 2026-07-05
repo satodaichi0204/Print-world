@@ -8360,14 +8360,14 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   TOP sec1 — 426–767 ONLY (768 unchanged = standard)
-   Sec1: scale 768 lock (100svh + shirts grid) by --fv-sec1-s (60%@426 → 100%@768).
+   TOP sec1 — 426–768: scale entire 768 lock by --fv-sec1-s (60%@426 → 100%@768).
+   768 lock: 100svh · shirts padding-top 116px · padding-bottom 16px.
    ============================================================================= */
-@media (min-width: 426px) and (max-width: 767px) {
+@media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv {
     --fv-sec1-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
     --fv-sec1-h: calc(100svh * var(--fv-sec1-s));
-    --fv-mobile-header-clear: calc(100px * var(--fv-sec1-s));
+    --fv-shirts-pad-top: calc(116px * var(--fv-sec1-s));
     --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
     height: var(--fv-sec1-h);
     min-height: var(--fv-sec1-h);
@@ -8381,12 +8381,12 @@ html.is-guide-flow-zoom-open body {
   .home-page .shirts-layer {
     inset: 0;
     height: 100%;
-    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
+    padding-top: var(--fv-shirts-pad-top);
     padding-bottom: var(--fv-shirts-pad);
     gap: calc(8px * var(--fv-sec1-s));
     --shirt-gap: calc(10px * var(--fv-sec1-s));
     --fv-shirts-available-h: calc(
-      var(--fv-sec1-h) - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2
+      var(--fv-sec1-h) - var(--fv-shirts-pad-top) - var(--fv-shirts-pad)
     );
     --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
   }
@@ -8408,30 +8408,30 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* TOP header — 426–767 only: lock 768 sizes; shrink red-area gap via flex-grow only */
-@media (min-width: 426px) and (max-width: 767px) {
+/* TOP header — 426–768: lock 768 layout; scale header with --fv-sec1-s */
+@media (min-width: 426px) and (max-width: 768px) {
   body.home-page {
+    --fv-sec1-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
     --sp-header-s: 1;
     --sp-header-clear: 100px;
-    --fv-mobile-header-clear: 100px;
   }
 
   body.home-page .fv-header {
-    gap: 8px;
-    min-height: 76px;
-    padding: 12px 16px;
+    gap: calc(8px * var(--fv-sec1-s));
+    min-height: calc(76px * var(--fv-sec1-s));
+    padding: calc(12px * var(--fv-sec1-s)) calc(16px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header__left {
     flex: 0 1 auto;
     overflow: visible;
-    gap: 8px;
+    gap: calc(8px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-logo {
     flex: 0 0 auto;
-    width: 56px;
-    height: 52px;
+    width: calc(56px * var(--fv-sec1-s));
+    height: calc(52px * var(--fv-sec1-s));
     overflow: hidden;
   }
 
@@ -8454,38 +8454,38 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.home-page .fv-header__brand-lead {
-    font-size: 11px;
+    font-size: calc(11px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header__brand-name {
-    font-size: 22px;
+    font-size: calc(22px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header__compact {
-    gap: 10px;
+    gap: calc(10px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-compact-action {
-    min-width: 46px;
-    gap: 5px;
-    padding: 0 3px;
-    font-size: 10px;
+    min-width: calc(46px * var(--fv-sec1-s));
+    gap: calc(5px * var(--fv-sec1-s));
+    padding: 0 calc(3px * var(--fv-sec1-s));
+    font-size: calc(10px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-compact-action img {
-    width: 34px;
-    height: 34px;
+    width: calc(34px * var(--fv-sec1-s));
+    height: calc(34px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header .menu-btn {
-    width: 48px;
-    height: 56px;
-    gap: 5px;
+    width: calc(48px * var(--fv-sec1-s));
+    height: calc(56px * var(--fv-sec1-s));
+    gap: calc(5px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header .menu-btn span {
-    width: 22px;
-    height: 3px;
+    width: calc(22px * var(--fv-sec1-s));
+    height: calc(3px * var(--fv-sec1-s));
   }
 
   /* Pull icons toward logo as width narrows — frees room for brand text (0 at 767 ≈ 768) */
@@ -9439,19 +9439,18 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-@media (min-width: 768px) and (max-width: 768px) {
-  body.home-page .shirts-layer {
-    padding-top: 116px;
-    padding-bottom: 16px;
+@media (min-width: 426px) and (max-width: 768px) {
+  /* Re-assert 768-lock scale after max-width:768 block resets vars to fixed px */
+  body.home-page .fv {
+    --fv-shirts-pad-top: calc(116px * var(--fv-sec1-s));
+    --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
   }
-}
 
-@media (min-width: 426px) and (max-width: 767px) {
   body.home-page .shirts-layer {
-    padding-top: calc(var(--fv-mobile-header-clear) + var(--fv-shirts-pad));
+    padding-top: var(--fv-shirts-pad-top);
     padding-bottom: var(--fv-shirts-pad);
     --fv-shirts-available-h: calc(
-      var(--fv-sec1-h) - var(--fv-mobile-header-clear) - var(--fv-shirts-pad) * 2
+      var(--fv-sec1-h) - var(--fv-shirts-pad-top) - var(--fv-shirts-pad)
     );
     --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3);
   }
