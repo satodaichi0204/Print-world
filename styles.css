@@ -5447,3 +5447,36 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   }
 }
 
+
+/* =========================================================================
+   home/TOP (426-767, MT + Vercel): REBUILD.
+   Cancel the range's own responsive relationships and instead scale the whole
+   768 FV layout down proportionally by width (--s768 = 100vw/768 : 1 at 768,
+   ~0.555 at 426). Every fixed value from the 768 block is multiplied by --s768
+   so the 768 relationship is kept identically, just smaller, all the way to 426.
+   ========================================================================= */
+@media (min-width: 426px) and (max-width: 767px) {
+  body.home-page .fv {
+    --s768: calc(100vw / 768px);
+    /* foreground scale follows the same proportional factor */
+    --fv-sec1-s: var(--s768) !important;
+    --fv-mobile-header-clear: calc(100px * var(--s768)) !important;
+    --fv-shirts-pad: calc(16px * var(--s768)) !important;
+    --fv-shirts-available-h: calc((100svh - 132px) * var(--s768)) !important;
+    height: calc(100svh * var(--s768)) !important;
+    min-height: calc(100svh * var(--s768)) !important;
+    max-height: calc(100svh * var(--s768)) !important;
+  }
+  body.home-page .shirts-layer {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    inset: 0 !important;
+    height: 100% !important;
+    gap: calc(8px * var(--s768)) !important;
+    padding-top: calc(116px * var(--s768)) !important;
+    padding-bottom: calc(16px * var(--s768)) !important;
+    --shirt-gap: calc(10px * var(--s768)) !important;
+    --shirt-col: calc((var(--fv-shirts-available-h) - 2 * var(--shirt-gap)) / 3) !important;
+  }
+}
