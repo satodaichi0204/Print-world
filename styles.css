@@ -5446,3 +5446,13 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
     height: var(--fv-shirt-canvas-h) !important;
   }
 }
+
+/* home/TOP (MT, <=768): the header is stripped on MT, so the 100px fixed
+   header-clearance is empty space that doesn't shrink as the width narrows,
+   making the top gap look too big at 320. Scale it with width (100px at 768,
+   proportional down to 320) so the 768 relationship is kept to 320. */
+@media (max-width: 768px) {
+  .home-mt .fv {
+    --fv-mobile-header-clear: calc(100vw / 7.68) !important;
+  }
+}
