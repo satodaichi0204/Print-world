@@ -5564,3 +5564,9 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .fv-header .phone-box__label,
 .fv-header .fv-header__brand-lead,
 .fv-header .fv-header__brand-name { color: #111 !important; }
+
+/* Fix: MT paints white bg on EVERY descendant (labels became white bars over
+   the coloured buttons). Transparent-ize all header descendants; coloured
+   buttons/bars above keep their fill via higher (0,2,0)/(0,2,1) specificity. */
+.fv-header * { background-color: transparent !important; }
+.fv-header .menu-btn span { background-color: #fff !important; }
