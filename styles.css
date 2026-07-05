@@ -5570,3 +5570,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
    buttons/bars above keep their fill via higher (0,2,0)/(0,2,1) specificity. */
 .fv-header * { background-color: transparent !important; }
 .fv-header .menu-btn span { background-color: #fff !important; }
+
+/* Fix: .fv-header * transparent-ize above also wiped the white phone card.
+   Restore the white "電話/メール/LINE" card background (drop-shadow on
+   .fv-header__links is a filter → MT never stripped it). */
+.fv-header .phone-box { background: #fff !important; }
