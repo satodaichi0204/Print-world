@@ -1,0 +1,45 @@
+<header class="m-header js-header mc__header__area">
+    {% set siteInfo = getSiteInfo(app.request) %}
+    <h1 class="header__logo header__logo--mc">
+        <a href="{{ path('wa_top') }}" class="header__logoLnk" {% if siteInfo.pageTheme.headerLogoImagePath is not empty %} style="background: url('{{ siteInfo.pageTheme.headerLogoImagePath|imagine_filter('mc_header_logo') }}') no-repeat;" {% endif %}>
+            {{ siteInfo.title }}
+        </a>
+    </h1>
+    <div class="header__area">
+        <div class="header__item header__cart js-num">
+            <a href="{{ path('wa_cart') }}"><i class="m-icon icon--cart"></i></a>
+            <i class="header__icon m-icon icon--count is-show" id="js-cart-count"></i>
+        </div>
+        <div class="header__item header__login">
+            <span class="m-btn btn--login js-login js-modal" data-modal="loginModal">
+                ログイン
+            </span>
+            <span class="m-btn btn--user js-subMenuShow">
+                <img src="/img/spacer.gif" class="js-header-username-image" width="34" height="34" alt="">
+            </span>
+            <nav class="m-listMenu listMenu--login js-subMenu">
+                <div class="listMenu__inner">
+                    <ul class="listMenu__area js-header-account-dropdown-menu">
+                        <li class="listMenu__item">
+                            <a href="{{ path('wa_my_page_account') }}" class="listMenu__lnk">
+                                アカウント情報
+                            </a>
+                        </li>
+                        <li class="listMenu__item">
+                            <a href="{{ path('fos_user_security_logout') }}" class="listMenu__lnk">
+                                ログアウト
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="header__trigger js-openSpMenu">
+        <div class="m-trigger">
+            <div class="trigger__item"></div>
+            <div class="trigger__item"></div>
+            <div class="trigger__item"></div>
+        </div>
+    </div>
+</header>
