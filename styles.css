@@ -5800,6 +5800,13 @@ main.mcPage__main,
    MTの「商品一覧」構造化ブロックが自動生成する実商品カード（.itemListContent__grid）
    を、私たちの .plp-card の見た目に合わせる。MT標準（flex:0 1 20%）を上書き。
    ============================================================================= */
+.mcPage__itemListContent-grid {
+  max-width: 1180px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 8px 20px 56px !important;
+  box-sizing: border-box;
+}
 .mcPage__itemListContent-grid .itemListContent__gridArea {
   display: grid !important;
   grid-template-columns: repeat(5, minmax(0, 1fr));
