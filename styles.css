@@ -4399,8 +4399,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.05em;
-  height: 0.78em;
+  width: 1.15em;
+  height: 0.96em;
   color: #fff;
   flex-shrink: 0;
 }
@@ -5496,6 +5496,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-main .plp-ranking__banner-title,
 .plp-main .plp-ranking__track .plp-rank-badge,
 .plp-main .plp-ranking__track .plp-rank-badge__icon,
+.plp-main .plp-ranking__track .plp-rank-badge__label,
 .plp-main .product-rank { color: #fff !important; }
 
 /* crown icon inside rank badge: MT reset paints the <path>/<svg> black + a white
