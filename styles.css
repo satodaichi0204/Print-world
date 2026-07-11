@@ -5599,8 +5599,28 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .site-footer img { background-color: transparent !important; }
 
 /* MT EC cluster (cart + login) placement inside our .fv-header (v1 — tune live) */
-.fv-header .mt-ec { display: flex; align-items: center; gap: 14px; margin-left: 14px; }
-.fv-header .mt-ec .header__item { position: relative; }
+/* Make the MT cart + user(login) icons clearly VISIBLE in the header (top-right,
+   before the hamburger). Functional markup is MT's; we only size/position/colour it.
+   Final placement is the client's call — this is a sensible, visible default. */
+.fv-header .mt-ec { display: flex; align-items: center; gap: 20px; margin-left: 16px; }
+.fv-header .mt-ec .header__item { position: relative; display: flex; align-items: center; }
+
+/* cart icon */
+.fv-header .mt-ec .header__cart a { color: #111 !important; text-decoration: none; display: inline-flex; align-items: center; }
+.fv-header .mt-ec .header__cart .m-icon { font-size: 30px; line-height: 1; color: #111 !important; }
+/* cart count badge — override .fv-header * transparent so the red shows */
+.fv-header .mt-ec #js-cart-count {
+  position: absolute; top: -8px; right: -12px;
+  min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box;
+  background-color: #d8001a !important; color: #fff !important;
+  border-radius: 999px; font-size: 11px; font-style: normal; line-height: 18px; text-align: center;
+}
+
+/* login / user (MT toggles which one shows by login state) */
+.fv-header .mt-ec .header__login .btn--login {
+  color: #111 !important; font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap;
+}
+.fv-header .mt-ec .header__login .btn--user img { width: 32px; height: 32px; }
 
 /* =============================================================================
    MT wrapper fix — remove reveal-footer reserve space
