@@ -4374,8 +4374,8 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 
 .plp-ranking__track .plp-rank-badge {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 8px;
+  left: 8px;
   z-index: 3;
   display: inline-flex;
   align-items: center;
@@ -4390,7 +4390,7 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0;
-  transform: translate(0, -50%);
+  transform: none;
   white-space: nowrap;
   pointer-events: none;
 }
