@@ -4595,18 +4595,23 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
   align-items: baseline;
   gap: 0;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.45;
-  color: #555;
+  letter-spacing: 0.04em;
+  color: #c91f2e;
+}
+
+.plp-subcat__link .tag-hash {
+  margin-right: 0.12em;
 }
 
 .plp-subcat__link:hover {
-  color: #111;
+  color: #a01521;
 }
 
 .plp-subcat__count {
-  color: #888;
+  color: #c91f2e;
   font-weight: 700;
 }
 
@@ -5517,6 +5522,12 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-main .product-tags li { color: #8a8a8a !important; }
 .plp-main .plp-ranking__track .product-tags li { color: #9a8578 !important; }
 .plp-main .plp-intro__body { color: #555 !important; }
+
+/* subcategory filter links: MT paints <a> blue — force brand red like standard */
+.plp-main .plp-subcat__link,
+.plp-main .plp-subcat__link .tag-hash,
+.plp-main .plp-subcat__count { color: #c91f2e !important; }
+.plp-main .plp-subcat__link:hover { color: #a01521 !important; }
 
 /* pagination: MT reset strips fills + paints links blue. Restore design. */
 .plp-main .plp-pagination__prev,
