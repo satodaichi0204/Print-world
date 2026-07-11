@@ -5518,6 +5518,28 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-main .plp-ranking__track .product-tags li { color: #9a8578 !important; }
 .plp-main .plp-intro__body { color: #555 !important; }
 
+/* pagination: MT reset strips fills + paints links blue. Restore design. */
+.plp-main .plp-pagination__prev,
+.plp-main .plp-pagination__next {
+  background-color: #efce0a !important;
+  color: #111 !important;
+}
+.plp-main .plp-pagination__page {
+  background-color: #fff !important;
+  border-color: #e4e4e4 !important;
+  color: #111 !important;
+}
+.plp-main .plp-pagination__page--current {
+  background-color: #fcf6c7 !important;
+  border-color: #fcf6c7 !important;
+  color: #111 !important;
+}
+.plp-main .plp-pagination__ellipsis {
+  background-color: #fff !important;
+  border-color: #e4e4e4 !important;
+  color: #111 !important;
+}
+
 /* =========================================================================
    Maker Town defense: product-detail (PDP). Scoped to .pdp-main.
    ========================================================================= */
