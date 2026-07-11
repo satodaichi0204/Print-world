@@ -5498,6 +5498,18 @@ img[src="images/guide-design-tool-image-03-color-mode.png"] {
 .plp-main .plp-ranking__track .plp-rank-badge__icon,
 .plp-main .product-rank { color: #fff !important; }
 
+/* crown icon inside rank badge: MT reset paints the <path>/<svg> black + a white
+   box behind the icon. Force white fill + transparent icon box so the crown shows. */
+.plp-main .plp-ranking__track .plp-rank-badge__icon,
+.plp-main .plp-ranking__track .plp-rank-badge__crown {
+  background-color: transparent !important;
+}
+.plp-main .plp-ranking__track .plp-rank-badge__crown,
+.plp-main .plp-ranking__track .plp-rank-badge__crown path {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
 /* colored text */
 .plp-main .product-price { color: #c91f2e !important; }
 .plp-main .product-chip { color: #606060 !important; }
