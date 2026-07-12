@@ -5816,15 +5816,11 @@ body {
    MTの「商品一覧」構造化ブロックが自動生成する実商品カード（.itemListContent__grid）
    を、私たちの .plp-card の見た目に合わせる。MT標準（flex:0 1 20%）を上書き。
    ============================================================================= */
-/* full-bleed the grid block out of MT's centered content wrapper, then center the
-   grid itself at the same 1440px inner width as .plp-inner (hero/intro/subcat). */
+/* The MT "商品グリッド" structured block is used ONLY as a hidden data source:
+   app.mt.js reads its rendered products and rebuilds them as .plp-card inside the
+   static .plp-grid. Hide the raw block (attributes stay readable while display:none). */
 .mcPage__itemListContent-grid {
-  width: 100vw;
-  max-width: none !important;
-  margin-left: calc(50% - 50vw) !important;
-  margin-right: calc(50% - 50vw) !important;
-  padding: 8px 0 56px !important;
-  box-sizing: border-box;
+  display: none !important;
 }
 .mcPage__itemListContent-grid .itemListContent__gridArea {
   width: min(1440px, calc(100% - 48px));

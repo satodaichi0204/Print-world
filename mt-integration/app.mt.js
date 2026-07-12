@@ -634,3 +634,56 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     scrollToHashOnLoad();
   }
 })();
+
+// ---------------------------------------------------------------------------
+// Product list: fill the static .plp-grid with REAL MakerTown products.
+// Data source = MT's structured "商品グリッド" block rendered on the same page
+// (.mcPage__itemListContent-grid, kept display:none via styles.css). We read its
+// items and rebuild them as our .plp-card markup inside .plp-grid, so the entire
+// Vercel static PLP stays unchanged and only the grid becomes dynamic. No API.
+// MT exposes: link (/item/{id}), image, name, price. Per-product tags are not
+// available from the block, so the generated cards omit the tag list.
+// ---------------------------------------------------------------------------
+(() => {
+  function esc(value) {
+    return String(value == null ? "" : value).replace(/[&<>"']/g, (ch) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[ch]));
+  }
+
+  function buildCard(item) {
+    const href = item.getAttribute("href") || "#";
+    const img = item.querySelector(".itemListContent__image");
+    const src = img ? img.getAttribute("src") || "" : "";
+    const alt = img ? img.getAttribute("alt") || "" : "";
+    const name = (item.querySelector(".itemListContent__name")?.textContent || "").trim();
+    const price = (item.querySelector(".itemListContent__price")?.textContent || "").trim();
+    return (
+      '<article class="plp-card">' +
+        '<a class="plp-card__link" href="' + esc(href) + '">' +
+          '<div class="plp-card__image"><img src="' + esc(src) + '" alt="' + esc(alt) + '" width="200" height="200" loading="lazy" /></div>' +
+          '<p class="plp-card__chip">Tシャツ</p>' +
+          '<h2 class="plp-card__name">' + esc(name) + "</h2>" +
+          '<p class="plp-card__price">' + esc(price) + "</p>" +
+        "</a>" +
+      "</article>"
+    );
+  }
+
+  function populatePlpGrid() {
+    const grid = document.querySelector(".plp-grid");
+    if (!grid) return;
+    const source = document.querySelector(".mcPage__itemListContent-grid .itemListContent__gridArea");
+    if (!source) return;
+    const items = source.querySelectorAll(".itemListContent__grid");
+    if (!items.length) return;
+
+    grid.innerHTML = Array.from(items).map(buildCard).join("");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", populatePlpGrid);
+  } else {
+    populatePlpGrid();
+  }
+})();
