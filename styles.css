@@ -5760,6 +5760,22 @@ main.mcPage__main,
   }
 }
 
+/* On MT, our decorative HTML block sits inside MT's centered content wrapper
+   (~1180px), which shrinks the hero into a boxed band with white side margins.
+   Break the whole .plp-main out to full viewport width; each inner .plp-inner
+   still centers content at 1440px, matching the standard full-bleed design.
+   Scoped to .mcPage__htmlContent so the standalone Vercel page is unaffected. */
+.mcPage__htmlContent .plp-main {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+/* kill the horizontal scrollbar that 100vw full-bleed can introduce */
+.L-wrapper,
+body {
+  overflow-x: hidden !important;
+}
+
 /* First-section (hero) background — force #efce0a against MT's body* reset.
    guide-flow / PDP / PLP lacked this defense (the other 3 guides already had it),
    so MT was stripping their hero to white. These classes exist only on our pages. */
@@ -5800,14 +5816,19 @@ main.mcPage__main,
    MTの「商品一覧」構造化ブロックが自動生成する実商品カード（.itemListContent__grid）
    を、私たちの .plp-card の見た目に合わせる。MT標準（flex:0 1 20%）を上書き。
    ============================================================================= */
+/* full-bleed the grid block out of MT's centered content wrapper, then center the
+   grid itself at the same 1440px inner width as .plp-inner (hero/intro/subcat). */
 .mcPage__itemListContent-grid {
-  max-width: 1180px;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 8px 20px 56px !important;
+  width: 100vw;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 8px 0 56px !important;
   box-sizing: border-box;
 }
 .mcPage__itemListContent-grid .itemListContent__gridArea {
+  width: min(1440px, calc(100% - 48px));
+  margin: 0 auto;
   display: grid !important;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 22px 16px;
