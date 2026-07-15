@@ -43,7 +43,7 @@ img {
   min-height: 100vh;
   min-height: 100dvh;
   background-color: var(--fv-bg);
-  background-image: url("images/fv-background.png");
+  background-image: url("https://print-world.jp/resource/4a424d2da0eee57aeac89df54598dd1784078343");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -661,7 +661,7 @@ img {
   margin-top: 0;
   overflow: hidden;
   background-color: #f6f6c2;
-  background-image: url("images/sec-background.png");
+  background-image: url("https://print-world.jp/resource/4f07559b2d7af570e117059e86bcc41784082250");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -3418,7 +3418,7 @@ img {
   height: auto;
 }
 
-img[src="images/guide-design-tool-image-03-color-mode.png"] {
+img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d01784079427"] {
   max-width: min(756px, 100%);
 }
 

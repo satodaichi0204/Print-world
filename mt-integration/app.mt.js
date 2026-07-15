@@ -3,9 +3,18 @@
  * translateX(-50%) moves exactly one sequence — loop is seamless.
  * Row 2 uses CSS animation-direction: reverse (same keyframes as row 1 & 3).
  *
- * Images: https://print-world-blond.vercel.app/images/thumbnail-shirt-1.png … thumbnail-shirt-8.png
+ * Images: MakerTown resources (thumbnail-shirt-1..8). No Vercel dependency.
  */
-const SHIRT_IMAGES = Array.from({ length: 8 }, (_, i) => `https://print-world-blond.vercel.app/images/thumbnail-shirt-${i + 1}.png`);
+const SHIRT_IMAGES = [
+  "https://print-world.jp/resource/b9e0a316c6badf9ec96901a68856161784082469",
+  "https://print-world.jp/resource/5d14afa11a608bd3d408b659cd54781784082524",
+  "https://print-world.jp/resource/6c5ccc46870a5b496fb078be8393561784082540",
+  "https://print-world.jp/resource/33224b4dc07a88bae51cdebf9cf5581784082579",
+  "https://print-world.jp/resource/7011c728ad632bc8f121fbeb5e7ce71784082596",
+  "https://print-world.jp/resource/788fa8334be7a82d5796e2e38eb8991784082612",
+  "https://print-world.jp/resource/8bcb8ae205bc8a23b6b43f339688f41784082627",
+  "https://print-world.jp/resource/c95a2c653e0cc4c8121c2de1d662c61784082646",
+];
 
 function cardHtml(src) {
   return `<div class="shirt-card"><img src="${src}" alt="" width="160" height="160" decoding="async" /></div>`;
