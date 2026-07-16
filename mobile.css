@@ -2229,7 +2229,8 @@
 
   .home-page .sec6-copy {
     padding: 0 calc(36px * var(--sec6-pc-s));
-    font-size: calc(16px * var(--sec6-pc-s));
+    padding-top: calc(10px * var(--sec6-pc-s));
+    font-size: calc(18px * var(--sec6-pc-s));
   }
 }
 
