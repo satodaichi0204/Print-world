@@ -1629,6 +1629,30 @@ img {
   color: #444;
 }
 
+/* sec7: 静的2枚レイアウト（旧5枚マーキーを置換）。PC=2列 / 768px以下=1列・スクロールなし。
+   新クラス .sec7-list で自己完結（既存の .sec7-marquee/.sec7-track/.sec7-grid には触れない）。 */
+.home-page .sec7-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 900px;
+}
+.home-page .sec7-list .sec7-card__name {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+@media (max-width: 768px) {
+  .home-page .sec7-list {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    padding: 0 20px;
+  }
+}
+
 /* --- Section 8: store + FAQ --- */
 .sec8 {
   position: relative;
