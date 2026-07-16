@@ -1484,11 +1484,6 @@
     width: min(78vw, 300px);
   }
 
-  .home-page .sec6-people {
-    bottom: 12px;
-    width: min(48vw, 196px);
-  }
-
   .home-page .sec6-panel {
     width: calc(100% - 48px);
     padding: 16px 12px;
