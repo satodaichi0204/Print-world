@@ -814,8 +814,6 @@
 
   .home-page .sec7-card {
     flex: 0 0 64vw;
-    width: 64vw;
-    min-width: 64vw;
   }
 
   .home-page .sec7-card__name {
@@ -1508,8 +1506,6 @@
 
   .home-page .sec7-card {
     flex-basis: min(66vw, 248px);
-    width: min(66vw, 248px);
-    min-width: min(66vw, 248px);
   }
 
   .home-page .sec8-inner {
