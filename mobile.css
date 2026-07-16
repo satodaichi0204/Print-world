@@ -739,7 +739,7 @@
   .home-page .sec6-people {
     left: auto;
     right: -6px;
-    bottom: 12px;
+    bottom: calc(12px * var(--sec67-m-s));
     width: 48vw;
     transform: none;
   }
