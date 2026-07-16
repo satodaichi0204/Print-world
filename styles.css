@@ -1189,6 +1189,14 @@ img {
   .sec5-people { display: none !important; }
   .sec5-people-mobile { display: block !important; }
 }
+/* 768px〜426px の範囲だけ .sec5-people-mobile の位置・サイズを上書き（他の範囲は不変） */
+@media (min-width: 426px) and (max-width: 768px) {
+  .sec5-people-mobile {
+    left: -13%;
+    width: 55%;
+    transform: translateY(38%);
+  }
+}
 
 .sec5-maincopy {
   position: relative;
