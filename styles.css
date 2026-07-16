@@ -1589,9 +1589,7 @@ img {
 }
 
 .sec7-card__photo {
-  aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #eee;
 }
 
 .sec7-card__photo img {
@@ -1633,22 +1631,31 @@ img {
    新クラス .sec7-list で自己完結（既存の .sec7-marquee/.sec7-track/.sec7-grid には触れない）。 */
 .home-page .sec7-list {
   list-style: none;
-  margin: 0 auto;
+  margin: 0 275px;
   padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(24px, 4vw, 56px);
-  max-width: 900px;
+  gap: clamp(24px, 4vw, 80px);
+  max-width: 1920px;
 }
 .home-page .sec7-list .sec7-card__name {
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
 }
+/* 769px以上：sec7 と同じ --sec7-pc-s（1920pxで=1）で余白・間隔をスケール */
+@media (min-width: 769px) {
+  .home-page .sec7-list {
+    margin: 0 calc(275px * var(--sec7-pc-s));
+    padding: 0 calc(24px * var(--sec7-pc-s));
+    gap: calc(80px * var(--sec7-pc-s));
+  }
+}
 @media (max-width: 768px) {
   .home-page .sec7-list {
     grid-template-columns: 1fr;
     max-width: 420px;
+    margin: 0 auto;
     padding: 0 20px;
   }
 }
@@ -5459,7 +5466,6 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .home-mt .sec6-kicker { background-color: #fff !important; }
 .home-mt .sec6-panel { background-color: #f7ede6 !important; }
 .home-mt .sec7 { background-color: #fff !important; }
-.home-mt .sec7-card__photo { background-color: #eee !important; }
 .home-mt .sec8-btn { background-color: #ff6700 !important; }
 .home-mt .sec8-details__body { background-color: #f7ede6 !important; }
 .home-mt .sec8-store { background-color: #f4efec !important; }
