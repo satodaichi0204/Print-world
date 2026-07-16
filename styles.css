@@ -1173,6 +1173,23 @@ img {
   transform: translateY(39%);
 }
 
+/* PC = .sec5-people / SP(<=768px) = .sec5-people-mobile を表示切替。
+   .sec5-people-mobile はPC位置を初期値として持たせてある（SPの値は適宜調整可）。 */
+.sec5-people-mobile {
+  display: none;
+  position: absolute;
+  left: -8%;
+  bottom: 0;
+  width: 44%;
+  height: auto;
+  z-index: 1;
+  transform: translateY(39%);
+}
+@media (max-width: 768px) {
+  .sec5-people { display: none !important; }
+  .sec5-people-mobile { display: block !important; }
+}
+
 .sec5-maincopy {
   position: relative;
   display: block;
