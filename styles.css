@@ -1172,6 +1172,13 @@ img {
   z-index: 1;
   transform: translateY(39%);
 }
+/* 769px以上のみ .sec5-people の位置を上書き（他の範囲は不変） */
+@media (min-width: 769px) {
+  .sec5-people {
+    left: -6%;
+    transform: translateY(45%);
+  }
+}
 
 /* PC = .sec5-people / SP(<=768px) = .sec5-people-mobile を表示切替。
    .sec5-people-mobile はPC位置を初期値として持たせてある（SPの値は適宜調整可）。 */
