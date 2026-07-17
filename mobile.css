@@ -2485,7 +2485,7 @@
 
   :is(.home-page, .product-detail-page) .sec9-contact__woman,
   .product-detail-page .sec9-contact__woman {
-    left: calc(-142px * var(--sec9-pc-s));
+    left: calc(-178px * var(--sec9-pc-s));
     bottom: calc(100% - 76px * var(--sec9-pc-s));
     width: calc(600px * var(--sec9-pc-s));
     top: calc(-320px * var(--sec9-pc-s));
@@ -2495,7 +2495,7 @@
   :is(.home-page, .product-detail-page) .sec9-contact picture,
   .product-detail-page .sec9-contact picture {
     position: absolute;
-    left: calc(156px * var(--sec9-pc-s));
+    left: calc(137px * var(--sec9-pc-s));
     bottom: calc(100% - 76px * var(--sec9-pc-s));
     top: calc(-76px * var(--sec9-pc-s));
     width: calc(568px * var(--sec9-pc-s));
