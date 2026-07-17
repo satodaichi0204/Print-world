@@ -1012,7 +1012,7 @@
 
   :is(.home-page, .product-detail-page) .sec9-contact__woman {
     position: absolute;
-    left: calc(-125px * var(--sec9-m-s));
+    left: calc(-140px * var(--sec9-m-s));
     top: calc(-240px * var(--sec9-m-s));
     bottom: auto;
     width: calc(469px * var(--sec9-m-s));
@@ -7396,7 +7396,7 @@ html.is-guide-flow-zoom-open body {
 
   :is(.home-page, .product-detail-page) .sec9-contact__woman {
     position: absolute;
-    left: calc(-125px * var(--sec9-m-s));
+    left: calc(-140px * var(--sec9-m-s));
     top: calc(-240px * var(--sec9-m-s));
     bottom: auto;
     width: calc(469px * var(--sec9-m-s));
