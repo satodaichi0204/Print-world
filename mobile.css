@@ -3044,9 +3044,9 @@
   }
 
   .home-page .sec8-collage__woman {
-    right: -16%;
-    top: calc(-245px * var(--sec8-s));
-    width: calc(379 / 660 * 100%);
+    right: -10%;
+    top: calc(-284px * var(--sec8-s));
+    width: calc(370 / 660 * 100%);
     z-index: 4;
   }
 
