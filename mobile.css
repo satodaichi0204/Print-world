@@ -2368,7 +2368,9 @@
   }
 
   .home-page .sec8-collage__woman {
-    width: calc(360px * var(--sec8-pc-s));
+    right: -23%;
+    top: -76%;
+    width: min(100%, 360px);
   }
 
   .home-page .sec8-btn {
