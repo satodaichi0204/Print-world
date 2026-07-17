@@ -1,20 +1,41 @@
 /**
- * Infinite shirt rows: each track gets two identical sequences.
- * translateX(-50%) moves exactly one sequence — loop is seamless.
- * Row 2 uses CSS animation-direction: reverse (same keyframes as row 1 & 3).
- *
- * Images: MakerTown resources (thumbnail-shirt-1..8). No Vercel dependency.
+ * FV マーキー：3行がそれぞれ「独自の画像セット」を表示します（全て別々の画像）。
+ * 各行は set+set の2連結でシームレスにループ（translateX(-50%)）。行2はCSSで逆方向。
+ * 画像はMakerTownのリソース。差し替えは各URLを入れ替えるだけ。
+ *   行1 = 8枚 / 行2 = 9枚 / 行3 = 8枚。
  */
-const SHIRT_IMAGES = [
-  "https://print-world.jp/resource/b9e0a316c6badf9ec96901a68856161784082469",
-  "https://print-world.jp/resource/5d14afa11a608bd3d408b659cd54781784082524",
-  "https://print-world.jp/resource/6c5ccc46870a5b496fb078be8393561784082540",
-  "https://print-world.jp/resource/33224b4dc07a88bae51cdebf9cf5581784082579",
-  "https://print-world.jp/resource/7011c728ad632bc8f121fbeb5e7ce71784082596",
-  "https://print-world.jp/resource/788fa8334be7a82d5796e2e38eb8991784082612",
-  "https://print-world.jp/resource/8bcb8ae205bc8a23b6b43f339688f41784082627",
-  "https://print-world.jp/resource/c95a2c653e0cc4c8121c2de1d662c61784082646",
+const FV_ROW1 = [
+  "https://print-world.jp/resource/b9e0a316c6badf9ec96901a68856161784082469", // 行1-1
+  "https://print-world.jp/resource/5d14afa11a608bd3d408b659cd54781784082524", // 行1-2
+  "https://print-world.jp/resource/6c5ccc46870a5b496fb078be8393561784082540", // 行1-3
+  "https://print-world.jp/resource/33224b4dc07a88bae51cdebf9cf5581784082579", // 行1-4
+  "https://print-world.jp/resource/7011c728ad632bc8f121fbeb5e7ce71784082596", // 行1-5
+  "https://print-world.jp/resource/788fa8334be7a82d5796e2e38eb8991784082612", // 行1-6
+  "https://print-world.jp/resource/8bcb8ae205bc8a23b6b43f339688f41784082627", // 行1-7
+  "https://print-world.jp/resource/c95a2c653e0cc4c8121c2de1d662c61784082646", // 行1-8
 ];
+const FV_ROW2 = [
+  "https://print-world.jp/resource/233d11dbacdbd7c6516987f2c231e51784293291", // 行2-1
+  "https://print-world.jp/resource/855e6c1ad6b80407305bcdbb3f1e0b1784293325", // 行2-2
+  "https://print-world.jp/resource/9daacb8dd90762f95c646f4d912a481784293362", // 行2-3
+  "https://print-world.jp/resource/d1d7cdb8750a1061e9f58725c8c96f1784293397", // 行2-4
+  "https://print-world.jp/resource/1e5cbc8760fc3a4572a0fb37659f131784293429", // 行2-5
+  "https://print-world.jp/resource/13817739655e754387358f6d8052e91784293459", // 行2-6
+  "https://print-world.jp/resource/abb39c716216b31cf4056143add5931784293485", // 行2-7
+  "https://print-world.jp/resource/6810fdd5e0ca59908a2c97c2f556f91784293511", // 行2-8
+  "https://print-world.jp/resource/946d54050b551f498b57de0f2b06c01784293549", // 行2-9
+];
+const FV_ROW3 = [
+  "https://print-world.jp/resource/708acc5c70a4ca75cded7df8ced51f1784293628", // 行3-1
+  "https://print-world.jp/resource/e9e78f6916f03e067c82c62dd9bcae1784293661", // 行3-2
+  "https://print-world.jp/resource/76ebc6a0fe7e47bed962ba712846d51784293688", // 行3-3
+  "https://print-world.jp/resource/10c48c382adc6aeea3635f4eda262b1784293714", // 行3-4
+  "https://print-world.jp/resource/9104f5272cd2bffc45967a5b6a622b1784293745", // 行3-5
+  "https://print-world.jp/resource/cfa4b0839f363623a78d0df0d3ca4c1784293771", // 行3-6
+  "https://print-world.jp/resource/4314ad2cc4dc9513ea4e386d7619831784293798", // 行3-7
+  "https://print-world.jp/resource/ff27e8966a1837f2af94a27506f8581784293820", // 行3-8
+];
+const FV_ROWS = { "1": FV_ROW1, "2": FV_ROW2, "3": FV_ROW3 };
 
 function cardHtml(src) {
   return `<div class="shirt-card"><img src="${src}" alt="" width="160" height="160" decoding="async" /></div>`;
@@ -27,10 +48,7 @@ function fillTrack(track, images) {
 
 document.querySelectorAll(".marquee__track").forEach((track) => {
   const row = track.getAttribute("data-row");
-  let images = [...SHIRT_IMAGES];
-  if (row === "2") {
-    images.reverse();
-  }
+  const images = FV_ROWS[row] || FV_ROW1;
   fillTrack(track, images);
 });
 
