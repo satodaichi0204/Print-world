@@ -938,6 +938,11 @@ img {
   margin-top: -44px;
 }
 
+/* 7列グリッドで、指定カードを次段の先頭（1列目）に送る＝上段6枚／下段7枚 */
+.sec3-grid .sec3-card--rowstart {
+  grid-column-start: 1;
+}
+
 .sec3-card {
   display: flex;
   flex-direction: column;
