@@ -951,15 +951,19 @@ img {
 }
 
 .sec3-card__image {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 0;
+  padding-top: 100%; /* 画像サイズに依存せず正方形を確定 */
   background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
 .sec3-card__image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 86%;
   height: 86%;
   object-fit: contain;
