@@ -938,9 +938,10 @@ img {
   margin-top: -44px;
 }
 
-/* 7列グリッドで、指定カードを次段の先頭（1列目）に送る＝上段6枚／下段7枚 */
-.sec3-grid .sec3-card--rowstart {
-  grid-column-start: 1;
+/* 上段6枚＋右端に不可視スペーサー1枚で「7列×2段」を確定。全カードを同一サイズ（1/7幅）に揃える */
+.sec3-grid .sec3-card--spacer {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .sec3-card {
