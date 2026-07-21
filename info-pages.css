@@ -312,6 +312,14 @@
   font-size: 12px;
 }
 
+.delivery-print-note {
+  margin: 22px 0 0 30px;
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
 .info-section {
   width: min(920px, 100%);
   margin: 0 auto 86px;
@@ -685,6 +693,11 @@
   .payment-card-logos {
     width: min(390px, 100%);
     margin-top: 12px;
+  }
+
+  .delivery-print-note {
+    margin-left: 18px;
+    font-size: 11px;
   }
 
   .info-section {
