@@ -7,6 +7,11 @@
   background: #f3d500;
 }
 
+.delivery-page .fv-header,
+.delivery-page .info-hero {
+  background: #efce0a;
+}
+
 .info-hero {
   min-height: 375px;
   padding-top: 108px;
@@ -37,6 +42,12 @@
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: 0.06em;
+}
+
+.delivery-title-image {
+  display: block;
+  width: min(720px, 72vw);
+  height: auto;
 }
 
 .info-main {
@@ -76,6 +87,42 @@
   height: 100%;
   object-fit: cover;
   object-position: center 46%;
+}
+
+.delivery-overview {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.delivery-overview > h2 {
+  margin: 0 0 54px;
+  font-size: clamp(34px, 3.4vw, 52px);
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+}
+
+.delivery-overview__block {
+  margin-bottom: 58px;
+}
+
+.delivery-overview__block:last-child {
+  margin-bottom: 0;
+}
+
+.delivery-overview__block h3 {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.delivery-overview__block p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.9;
 }
 
 .info-section {
@@ -337,6 +384,10 @@
     font-size: clamp(30px, 8vw, 44px);
   }
 
+  .delivery-title-image {
+    width: min(100%, 620px);
+  }
+
   .info-main {
     width: calc(100% - 40px);
     padding: 24px 0 80px;
@@ -350,6 +401,24 @@
   .delivery-team {
     margin-bottom: 56px;
     aspect-ratio: 1.75;
+  }
+
+  .delivery-overview > h2 {
+    margin-bottom: 38px;
+    font-size: clamp(29px, 7vw, 40px);
+  }
+
+  .delivery-overview__block {
+    margin-bottom: 42px;
+  }
+
+  .delivery-overview__block h3 {
+    font-size: 21px;
+  }
+
+  .delivery-overview__block p {
+    font-size: 14px;
+    line-height: 1.85;
   }
 
   .info-section {
