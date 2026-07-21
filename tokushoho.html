@@ -4,27 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>特定商取引法に基づく表示 — プリントワールド</title>
+  <meta name="description" content="プリントワールド（株式会社コバヤシ商事）の特定商取引法に基づく表記です。" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="mobile.css" />
-  <style>
-    .legal-main{max-width:820px;margin:0 auto;padding:64px 24px 96px;color:#333;line-height:1.9;}
-    .legal-main h1{font-size:26px;font-weight:700;text-align:center;margin-bottom:8px;}
-    .legal-main .legal-sub{text-align:center;color:#888;font-size:14px;margin-bottom:32px;}
-    .legal-notice{background:#fff8f2;border:1px solid #f0d9c2;border-radius:10px;padding:20px 22px;margin-bottom:32px;font-size:14px;color:#a15b1e;}
-    .legal-notice__badge{display:inline-block;background:#c86a1e;color:#fff;font-size:12px;letter-spacing:.08em;padding:5px 14px;border-radius:999px;margin-bottom:10px;}
-    .legal-table{width:100%;border-collapse:collapse;margin-top:8px;}
-    .legal-table th,.legal-table td{border:1px solid #e5e5e5;padding:14px 16px;font-size:14px;text-align:left;vertical-align:top;}
-    .legal-table th{background:#fafafa;width:34%;font-weight:600;}
-    .legal-pending{color:#c0392b;font-size:13px;}
-    .legal-back{display:inline-block;margin-top:32px;font-size:14px;color:#0a6;text-decoration:underline;}
-    @media(max-width:768px){
-      .legal-main{padding:40px 18px 72px;}
-      .legal-table th,.legal-table td{display:block;width:100%;box-sizing:border-box;}
-      .legal-table th{border-bottom:none;}
-    }
-  </style>
+  <link rel="stylesheet" href="info-pages.css" />
 </head>
-<body class="legal-page">
+<body class="info-page tokushoho-page">
   <header class="fv-header">
     <div class="fv-header__left">
       <a class="fv-logo" href="index.html">
@@ -35,7 +20,6 @@
         <p class="fv-header__brand-name">プリントワールド</p>
       </div>
     </div>
-
     <div class="fv-header__right">
       <div class="fv-header__actions">
         <div class="fv-header__main">
@@ -50,7 +34,7 @@
                 <span class="phone-box__label">電話受付:平日 9:00〜17:30</span>
               </span>
             </a>
-            <a class="cta cta--contact" href="#">
+            <a class="cta cta--contact" href="contact.html">
               <img class="cta__icon" src="images/icon-mail.png" alt="" aria-hidden="true" />
               <span class="cta__label">お問い合わせ</span>
             </a>
@@ -65,7 +49,7 @@
             <img src="images/icon-phone-mobile.png" alt="" width="32" height="32" aria-hidden="true" />
             <span>お電話</span>
           </a>
-          <a class="fv-compact-action fv-compact-action--mail" href="#">
+          <a class="fv-compact-action fv-compact-action--mail" href="contact.html">
             <img src="images/icon-mail-mobile.png" alt="" width="32" height="32" aria-hidden="true" />
             <span>お問合せ</span>
           </a>
@@ -81,32 +65,136 @@
     </div>
   </header>
 
-  <main class="legal-main">
-    <h1>特定商取引法に基づく表示</h1>
-    <p class="legal-sub">Notation based on the Specified Commercial Transactions Act</p>
+  <main>
+    <section class="info-hero">
+      <div class="info-hero__inner">
+        <h1>特定商取引法に基づく表示</h1>
+      </div>
+    </section>
 
-    <div class="legal-notice">
-      <span class="legal-notice__badge">準備中</span>
-      <p>本ページは項目枠のみ用意した準備中の状態です。「準備中」表記の各項目は、正式な情報をご提供いただき次第、確定・掲載いたします。（会社名・所在地・電話番号はフッター情報を仮入力しています。要確認）</p>
+    <div class="info-main tokushoho-main">
+      <nav class="info-breadcrumb" aria-label="パンくず">
+        <a href="index.html">トップページ</a>
+        <span aria-hidden="true">›</span>
+        <span>特定商取引法に基づく表示</span>
+      </nav>
+
+      <table class="tokushoho-table">
+        <tbody>
+          <tr>
+            <th scope="row">販売業者</th>
+            <td>コバヤシ商事</td>
+          </tr>
+          <tr>
+            <th scope="row">運営統括責任者</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">所在地</th>
+            <td>〒445-0873 愛知県西尾市川口町中切 87番地2</td>
+          </tr>
+          <tr>
+            <th scope="row">電話番号</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">URL</th>
+            <td><a href="https://print-world.jp" rel="noopener">https://print-world.jp</a></td>
+          </tr>
+          <tr>
+            <th scope="row">商品代金以外の必要料金</th>
+            <td>
+              <ul class="tokushoho-list">
+                <li>消費税（10％）</li>
+                <li>送料（※具体的な送料や無料条件をご記載ください）</li>
+                <li>銀行振込手数料（銀行振込をご利用の場合）</li>
+                <li>代金引換手数料（代金引換をご利用の場合）</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">ご注文方法</th>
+            <td>当サイトのお見積りメールに記載の注文フォーム、または電子メール</td>
+          </tr>
+          <tr>
+            <th scope="row">お支払方法</th>
+            <td>
+              <ul class="tokushoho-list">
+                <li>クレジットカード決済（一括払いのみ）</li>
+                <li>銀行振込</li>
+                <li>代金引換</li>
+                <li>店頭支払い（現金払いのみ）</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">支払期限</th>
+            <td>
+              <p>原則前払い</p>
+              <p>※商品出荷日の前日まで（代金引換は商品受け渡し時）</p>
+              <p>※お取り引き状況により、売り掛けも可能（法人様のみ）</p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">引渡し時期</th>
+            <td>
+              <p>ご注文確定後5日〜2週間</p>
+              <p>※ご注文内容、製品仕様、在庫状況、工場の混雑状況等により前後する場合がございます。</p>
+              <p>※正式な出荷予定日はご注文内容確定後にご案内します。</p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">返品・交換について</th>
+            <td class="tokushoho-returns">
+              <p>弊社から発送する商品は十分な検品をしておりますが、商品到着後はお客様ご自身でのご確認もお願いいたします。</p>
+              <p>また、衣料品の特性上、サイズスペックの若干の誤差（2.5cm前後）はご容赦ください。</p>
+              <p>お気付きの点がございましたら、商品到着後7日以内にご連絡をお願いいたします。</p>
+
+              <p class="tokushoho-subheading">■加工をした商品</p>
+              <p>
+                オーダーメイド品につき、弊社の不備によるものと判断した場合のみ返品・交換を受け付けいたします。弊社に不良品到着後、良品とお取り替えいたします。商品はお手数ですが、着払いにて弊社へご送付ください。交換品が欠品の場合は、代金をご返金または同等商品にて加工をさせていただきます。
+              </p>
+              <p>※万一、商品に不備があった場合の弊社の補償は、当該商品のご注文金額を上限といたします。それ以上の補償については、一切対応をいたしかねますので、予めご了承ください。</p>
+
+              <p class="tokushoho-subheading">■無地商品</p>
+              <p class="tokushoho-subheading tokushoho-subheading--bracket">[返品について]</p>
+              <p>お客様都合の返品は、返品手数料2,200円＋商品1点あたり220円を頂戴いたします（いずれも税込）。</p>
+              <p>弊社にて返品手数料の入金確認後、発送先のご案内をさせていただきます。</p>
+              <p>※一部メーカーの商品はお客様ご都合の返品・交換ができないものがございます。予めご了承ください。</p>
+              <p>※衣料品の特性上、サイズスペックの若干の誤差（2.5cm前後）はご容赦ください。</p>
+              <p>※納品後7日以内にご返送ください。送料はお客様ご負担。</p>
+              <p>※専用付属（下げ札、キーパー、専用袋等）も含め、納品時の状態でお戻しください。</p>
+              <p>※元の状態でお戻しいただけない場合は、返品いたしかねます。</p>
+
+              <p class="tokushoho-subheading tokushoho-subheading--bracket">[交換について]</p>
+              <p>サイズが合わない等の交換が必要な場合、交換手数料2,200円＋商品1点あたり220円を頂戴いたします（いずれも税込）。</p>
+              <p>弊社にて交換手数料＋商品実費の入金確認後、発送先のご案内をさせていただきます。</p>
+              <p>※一部メーカーの商品はお客様ご都合の返品・交換ができないものがございます。予めご了承ください。</p>
+              <p>※衣料品の特性上、サイズスペックの若干の誤差（2.5cm前後）はご容赦ください。</p>
+              <p>※納品後7日以内にご返送ください。送料はお客様ご負担。</p>
+              <p>※専用付属（下げ札、キーパー、専用袋等）も含め、納品時の状態でお戻しください。</p>
+              <p>※元の状態でお戻しいただけない場合は、交換いたしかねます。</p>
+
+              <p>以下の場合は、加工をした商品、無地商品にかかわらず、返品・交換をお断りいたします。</p>
+              <ol class="tokushoho-ordered">
+                <li>納品後7日以上経過した場合</li>
+                <li>着用済みの商品（洗濯済みやお直し済みを含む）</li>
+                <li>お客様が破損した商品</li>
+                <li>デザイン最終確認後のスペルミスやデータ不備によるプリント（刺繍）の相違</li>
+                <li>返品・交換不可商品の場合</li>
+                <li>該当カラーおよびサイズが在庫限り廃番商品の場合</li>
+                <li>専用付属（下げ札、キーパー、専用袋等）も含め、納品時の状態でお戻しいただけない場合</li>
+                <li>商品サイズスペック誤差（2.5cm前後まで）</li>
+                <li>生産ロットによる、商品色味や縫製形状、タグデザイン等の違い・個体差</li>
+              </ol>
+              <p>
+                ※ご連絡をいただかずに商品をご送付された場合、弊社が受取を拒否する場合がございますのでご注意ください。（往復の送料はお客様ご負担となります。）
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <table class="legal-table">
-      <tbody>
-        <tr><th>販売業者</th><td>株式会社　コバヤシ商事 <span class="legal-pending">（要確認）</span></td></tr>
-        <tr><th>運営統括責任者</th><td><span class="legal-pending">準備中</span></td></tr>
-        <tr><th>所在地</th><td>〒445-0873 愛知県西尾市川口町中切 87番地2 <span class="legal-pending">（要確認）</span></td></tr>
-        <tr><th>電話番号</th><td>0563-53-1066 <span class="legal-pending">（要確認）</span></td></tr>
-        <tr><th>メールアドレス</th><td><span class="legal-pending">準備中</span></td></tr>
-        <tr><th>販売価格</th><td>各商品ページに表示する価格（税込）<span class="legal-pending">（要確認）</span></td></tr>
-        <tr><th>商品代金以外の必要料金</th><td><span class="legal-pending">準備中</span>（送料・代引手数料など）</td></tr>
-        <tr><th>お支払い方法</th><td><span class="legal-pending">準備中</span></td></tr>
-        <tr><th>お支払い時期</th><td><span class="legal-pending">準備中</span></td></tr>
-        <tr><th>商品の引渡時期</th><td><span class="legal-pending">準備中</span></td></tr>
-        <tr><th>返品・交換について</th><td><span class="legal-pending">準備中</span></td></tr>
-      </tbody>
-    </table>
-
-    <a class="legal-back" href="index.html">トップページへ戻る</a>
   </main>
 
   <footer class="site-footer" aria-label="フッター">
@@ -117,34 +205,27 @@
         <p class="site-footer__address">〒445-0873 愛知県西尾市川口町中切 87番地2</p>
         <p class="site-footer__tel">0563-53-1066</p>
       </div>
-
-      <nav class="site-footer__col site-footer__nav site-footer__nav--categories" aria-label="アイテムカテゴリ一覧">
-        <h2 class="site-footer__title site-footer__title--section">アイテムカテゴリ一覧</h2>
-        <p class="site-footer__lead"><a class="site-footer__leadlink" href="guide-flow.html">ご利用ガイド</a></p>
-        <p class="site-footer__lead"><a class="site-footer__leadlink" href="#">はじめての方へ</a></p>
+      <nav class="site-footer__col site-footer__nav site-footer__nav--categories" aria-label="ご利用ガイド">
+        <h2 class="site-footer__title site-footer__title--section">ご利用ガイド</h2>
         <ul class="site-footer__list site-footer__list--dash">
           <li><a href="guide-flow.html">ご注文から到着までの流れ</a></li>
           <li><a href="guide-design-tool.html">デザインツールの使い方</a></li>
-          <li><a href="guide-data-submission.html">データ入稿ガイド(ai/psd/pdf/eps/tif/jpg/png...など)</a></li>
-          <li><a href="#">デザインにお悩みの方</a></li>
-          <li><a href="#">お届けまでの納期・配送について</a></li>
+          <li><a href="guide-data-submission.html">データ入稿ガイド</a></li>
+          <li><a href="delivery.html">お届けまでの納期・配送について</a></li>
           <li><a href="guide-print-method.html">プリント方法について</a></li>
-          <li><a href="#">よくある質問</a></li>
         </ul>
       </nav>
-
       <nav class="site-footer__col site-footer__nav site-footer__nav--corp" aria-label="会社情報・法務">
         <ul class="site-footer__list site-footer__list--corp">
-          <li><a href="#">会社概要</a></li>
+          <li><a href="company.html">会社概要</a></li>
           <li><a href="terms.html">利用規約</a></li>
           <li><a href="privacy.html">プライバシーポリシー</a></li>
           <li><a href="tokushoho.html">特定商取引法に基づく表示</a></li>
-          <li><a href="#">メール相談</a></li>
+          <li><a href="contact.html">メール相談</a></li>
         </ul>
       </nav>
     </div>
   </footer>
-
   <script src="app.js"></script>
 </body>
 </html>
