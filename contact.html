@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お問い合わせ — プリントワールド</title>
+  <meta name="description" content="プリントワールドへのお問い合わせはこちらのフォームからお送りください。" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="info-pages.css" />
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body class="info-page contact-page">
+  <header class="fv-header">
+    <div class="fv-header__left">
+      <a class="fv-logo" href="index.html">
+        <img src="images/logo.png" width="320" height="auto" alt="プリントワールド" decoding="async" />
+      </a>
+      <div class="fv-header__brand">
+        <p class="fv-header__brand-lead">はじめてのオリジナルTシャツは</p>
+        <p class="fv-header__brand-name">プリントワールド</p>
+      </div>
+    </div>
+    <div class="fv-header__right">
+      <div class="fv-header__actions">
+        <div class="fv-header__main">
+          <p class="fv-pill" role="note">相談しながら作りたい人はこちら！</p>
+          <div class="fv-header__links">
+            <a class="phone-box" href="tel:0566785885">
+              <span class="phone-box__body">
+                <span class="phone-box__top">
+                  <img class="phone-box__icon" src="images/icon-phone.png" alt="" aria-hidden="true" />
+                  <span class="phone-box__number">0566-78-5885</span>
+                </span>
+                <span class="phone-box__label">電話受付:平日 9:00〜17:30</span>
+              </span>
+            </a>
+            <a class="cta cta--contact" href="contact.html">
+              <img class="cta__icon" src="images/icon-mail.png" alt="" aria-hidden="true" />
+              <span class="cta__label">お問い合わせ</span>
+            </a>
+            <a class="cta cta--line" href="#" rel="noopener">
+              <img class="cta__icon" src="images/icon-line.png" alt="" aria-hidden="true" />
+              <span class="cta__label">LINE相談</span>
+            </a>
+          </div>
+        </div>
+        <nav class="fv-header__compact" aria-label="お問い合わせ">
+          <a class="fv-compact-action fv-compact-action--phone" href="tel:0566785885">
+            <img src="images/icon-phone-mobile.png" alt="" width="32" height="32" aria-hidden="true" />
+            <span>お電話</span>
+          </a>
+          <a class="fv-compact-action fv-compact-action--mail" href="contact.html">
+            <img src="images/icon-mail-mobile.png" alt="" width="32" height="32" aria-hidden="true" />
+            <span>お問合せ</span>
+          </a>
+          <a class="fv-compact-action fv-compact-action--line" href="#" rel="noopener">
+            <img src="images/icon-line-mobile.png" alt="" width="32" height="32" aria-hidden="true" />
+            <span>LINE</span>
+          </a>
+        </nav>
+        <button type="button" class="menu-btn" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="info-hero contact-hero">
+      <div class="info-hero__inner">
+        <h1 class="visually-hidden">お問い合わせ</h1>
+        <img class="contact-title-image" src="modify/2x/last page/Asset 8@2x.png" alt="お問い合わせ" />
+      </div>
+    </section>
+
+    <div class="contact-main">
+      <nav class="info-breadcrumb" aria-label="パンくず">
+        <a href="index.html">トップページ</a>
+        <span aria-hidden="true">›</span>
+        <span>お問い合わせ</span>
+      </nav>
+
+      <div class="contact-introduction">
+        <p>
+          お客様から多く寄せられるお問い合わせを「<a href="#">よくある質問</a>」にまとめて掲載しておりますので、まずはご参照ください。万が一解決しない場合や商品についてのお問い合わせ、カタログ発送のご希望などがございましたら、フォーム、お電話、FAXのいずれかよりお気軽にお問い合わせください。<br />
+          なお、お問い合わせの内容によっては、返答にお時間をいただく場合もございます。また、土日祝日、年末年始、夏季業務日以降の対応となります。<br />
+          ※「商品お見積り」のお問い合わせにつきましては、各商品アイテムページに専用フォームをご用意しておりますので、お手数ですがそちらよりお申し込みをお願いいたします。既にデザインデータをお持ちの方はお見積りフォーム内のデータアップロードをご利用いただけます。<br />
+          ※本フォームはお客様からのお問い合わせ専用です。営業・勧誘目的のご連絡は一切お断りしておりますので、ご遠慮ください。
+        </p>
+      </div>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="contact-field">
+          <div class="contact-field__label">
+            <span>お名前</span>
+            <span class="contact-required">必須</span>
+          </div>
+          <div class="contact-field__body">
+            <div class="contact-name-fields">
+              <label><span>姓</span><input type="text" name="last_name" placeholder="印刷" autocomplete="family-name" required /></label>
+              <label><span>名</span><input type="text" name="first_name" placeholder="太郎" autocomplete="given-name" required /></label>
+            </div>
+            <p class="contact-field__note">【全角】でご記入ください</p>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <div class="contact-field__label">
+            <span>フリガナ</span>
+            <span class="contact-required">必須</span>
+          </div>
+          <div class="contact-field__body">
+            <div class="contact-name-fields">
+              <label><span>姓</span><input type="text" name="last_name_kana" placeholder="インサツ" required /></label>
+              <label><span>名</span><input type="text" name="first_name_kana" placeholder="タロウ" required /></label>
+            </div>
+            <p class="contact-field__note">【全角】でご記入ください</p>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="inquiry-type">
+            <span>お問い合わせ内容の<br />種類</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body contact-field__body--medium">
+            <select id="inquiry-type" name="inquiry_type" required>
+              <option value="" selected disabled>選択してください</option>
+              <option value="product">商品について</option>
+              <option value="order">ご注文について</option>
+              <option value="design">デザイン・入稿について</option>
+              <option value="delivery">納期・配送について</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="phone">
+            <span>電話番号</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body">
+            <input id="phone" type="tel" name="phone" placeholder="（例）0312345678" inputmode="numeric" autocomplete="tel" required />
+            <p class="contact-field__note">【半角英数（ハイフンなし）】でご記入ください。</p>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="email">
+            <span>メールアドレス</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body">
+            <input id="email" type="email" name="email" placeholder="（例）example@example.com" autocomplete="email" required />
+            <p class="contact-field__note">【半角英数】でご記入ください。</p>
+            <label class="contact-confirm-label" for="email-confirm">▼確認のため、もう一度ご記入ください</label>
+            <input id="email-confirm" type="email" name="email_confirm" placeholder="（例）example@example.com" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="contact-field contact-field--message">
+          <label class="contact-field__label" for="message">
+            <span>お問い合わせ内容</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body">
+            <p class="contact-message-guide">
+              お決まりの商品名（品番）等、その他詳細事項があればご入力ください。<br />
+              ご来社打ち合わせご希望の方は、ご希望日時（第2希望まで）も併せてご入力ください。
+            </p>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+        </div>
+
+        <button class="contact-submit" type="submit">確認ページへ</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer" aria-label="フッター">
+    <div class="site-footer__inner">
+      <div class="site-footer__col site-footer__brand">
+        <img class="site-footer__logo" src="images/logo-footer.png" alt="プリントワールド" />
+        <p class="site-footer__company">株式会社　コバヤシ商事</p>
+        <p class="site-footer__address">〒445-0873 愛知県西尾市川口町中切 87番地2</p>
+        <p class="site-footer__tel">0563-53-1066</p>
+      </div>
+      <nav class="site-footer__col site-footer__nav site-footer__nav--categories" aria-label="ご利用ガイド">
+        <h2 class="site-footer__title site-footer__title--section">ご利用ガイド</h2>
+        <ul class="site-footer__list site-footer__list--dash">
+          <li><a href="guide-flow.html">ご注文から到着までの流れ</a></li>
+          <li><a href="guide-design-tool.html">デザインツールの使い方</a></li>
+          <li><a href="guide-data-submission.html">データ入稿ガイド</a></li>
+          <li><a href="delivery.html">お届けまでの納期・配送について</a></li>
+          <li><a href="guide-print-method.html">プリント方法について</a></li>
+        </ul>
+      </nav>
+      <nav class="site-footer__col site-footer__nav site-footer__nav--corp" aria-label="会社情報・法務">
+        <ul class="site-footer__list site-footer__list--corp">
+          <li><a href="company.html">会社概要</a></li>
+          <li><a href="terms.html">利用規約</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+          <li><a href="tokushoho.html">特定商取引法に基づく表示</a></li>
+          <li><a href="contact.html">メール相談</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
