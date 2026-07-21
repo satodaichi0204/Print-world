@@ -2712,7 +2712,7 @@ img {
 
 .print-method-embroidery {
   padding: 24px 0 96px;
-  border-top: 8px solid #f0f0f0;
+  /* border-top: 8px solid #f0f0f0; */
   background: #fff;
 }
 
