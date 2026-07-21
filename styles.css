@@ -2710,6 +2710,74 @@ img {
   object-fit: cover;
 }
 
+.print-method-embroidery {
+  padding: 24px 0 96px;
+  border-top: 8px solid #f0f0f0;
+  background: #fff;
+}
+
+.print-method-embroidery__inner {
+  padding-inline: 0;
+  max-width: min(1440px, 100%);
+  margin: 0 auto;
+}
+
+.print-method-embroidery__title {
+  margin: 0 0 28px;
+  line-height: 0;
+}
+
+.print-method-embroidery__title-img {
+  display: block;
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+}
+
+.print-method-embroidery__lead {
+  margin: 0 0 64px;
+  color: #666666;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.85;
+}
+
+.print-method-embroidery__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  width: min(1168px, 100%);
+  margin: 0 auto 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.print-method-embroidery__photos li {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  line-height: 0;
+}
+
+.print-method-embroidery__photos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1024 / 537;
+  object-fit: cover;
+}
+
+.print-method-embroidery__notes {
+  color: #e92b2b;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.print-method-embroidery__notes p {
+  margin: 0;
+}
+
 .print-method-finish {
   padding: 72px 0 96px;
   background: #ffffff;
