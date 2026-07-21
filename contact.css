@@ -143,6 +143,17 @@
   font-weight: 700;
 }
 
+.contact-error[hidden] {
+  display: none;
+}
+
+.contact-form input.is-invalid,
+.contact-form select.is-invalid,
+.contact-form textarea.is-invalid {
+  border-color: #c91b2c;
+  box-shadow: 0 0 0 3px rgba(201, 27, 44, 0.1);
+}
+
 .contact-confirm-label {
   display: block;
   margin: 11px 0 10px;

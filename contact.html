@@ -90,7 +90,7 @@
         </p>
       </div>
 
-      <form class="contact-form" action="#" method="post">
+      <form class="contact-form" action="#" method="post" novalidate>
         <div class="contact-field">
           <div class="contact-field__label">
             <span>お名前</span>
@@ -101,7 +101,7 @@
               <label><span>姓</span><input type="text" name="last_name" placeholder="印刷" autocomplete="family-name" required /></label>
               <label><span>名</span><input type="text" name="first_name" placeholder="太郎" autocomplete="given-name" required /></label>
             </div>
-            <p class="contact-field__note">【全角】でご記入ください</p>
+            <p class="contact-field__note contact-error" data-error-for="name" role="alert" hidden>【全角】でご記入ください</p>
           </div>
         </div>
 
@@ -115,7 +115,7 @@
               <label><span>姓</span><input type="text" name="last_name_kana" placeholder="インサツ" required /></label>
               <label><span>名</span><input type="text" name="first_name_kana" placeholder="タロウ" required /></label>
             </div>
-            <p class="contact-field__note">【全角】でご記入ください</p>
+            <p class="contact-field__note contact-error" data-error-for="kana" role="alert" hidden>【全角】でご記入ください</p>
           </div>
         </div>
 
@@ -133,6 +133,7 @@
               <option value="delivery">納期・配送について</option>
               <option value="other">その他</option>
             </select>
+            <p class="contact-field__note contact-error" data-error-for="inquiry-type" role="alert" hidden>お問い合わせ内容の種類を選択してください。</p>
           </div>
         </div>
 
@@ -143,7 +144,7 @@
           </label>
           <div class="contact-field__body">
             <input id="phone" type="tel" name="phone" placeholder="（例）0312345678" inputmode="numeric" autocomplete="tel" required />
-            <p class="contact-field__note">【半角英数（ハイフンなし）】でご記入ください。</p>
+            <p class="contact-field__note contact-error" data-error-for="phone" role="alert" hidden>【半角数字（ハイフンなし）】でご記入ください。</p>
           </div>
         </div>
 
@@ -154,9 +155,10 @@
           </label>
           <div class="contact-field__body">
             <input id="email" type="email" name="email" placeholder="（例）example@example.com" autocomplete="email" required />
-            <p class="contact-field__note">【半角英数】でご記入ください。</p>
+            <p class="contact-field__note contact-error" data-error-for="email" role="alert" hidden>正しいメールアドレスを半角英数でご記入ください。</p>
             <label class="contact-confirm-label" for="email-confirm">▼確認のため、もう一度ご記入ください</label>
             <input id="email-confirm" type="email" name="email_confirm" placeholder="（例）example@example.com" autocomplete="email" required />
+            <p class="contact-field__note contact-error" data-error-for="email-confirm" role="alert" hidden>メールアドレスが一致しません。</p>
           </div>
         </div>
 
@@ -171,6 +173,7 @@
               ご来社打ち合わせご希望の方は、ご希望日時（第2希望まで）も併せてご入力ください。
             </p>
             <textarea id="message" name="message" required></textarea>
+            <p class="contact-field__note contact-error" data-error-for="message" role="alert" hidden>お問い合わせ内容をご入力ください。</p>
           </div>
         </div>
 
@@ -209,5 +212,6 @@
     </div>
   </footer>
   <script src="app.js"></script>
+  <script src="contact.js"></script>
 </body>
 </html>
