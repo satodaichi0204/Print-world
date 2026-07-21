@@ -1308,54 +1308,58 @@
     transform: translateY(24%);
   }
 
+  .home-page .sec2 {
+    --sec2-480-s: calc(100vw / 480px);
+  }
+
   .home-page .sec2-inner {
-    min-height: clamp(268px, 70vw, 316px);
+    min-height: calc(316px * var(--sec2-480-s));
     padding: 0;
   }
 
   .home-page .sec2-maincopy-wrap {
     left: 3%;
-    top: clamp(38px, 10vw, 48px);
-    width: min(66vw, 270px);
+    top: calc(73px * var(--sec2-480-s));
+    width: calc(270px * var(--sec2-480-s));
   }
 
   .home-page .sec2-choicecopy-wrap {
     left: 6%;
-    top: clamp(214px, 56vw, 228px);
-    width: min(46vw, 220px);
+    top: calc(228px * var(--sec2-480-s));
+    width: calc(220px * var(--sec2-480-s));
   }
 
   .home-page .sec2-shirts {
-    top: clamp(58px, 15vw, 70px);
+    top: calc(70px * var(--sec2-480-s));
     right: -4%;
-    width: min(56vw, 240px);
+    width: calc(240px * var(--sec2-480-s));
   }
 
   .home-page .sec2-people {
-    top: 56px;
+    top: calc(56px * var(--sec2-480-s));
     right: -3%;
-    width: min(44vw, 190px);
+    width: calc(190px * var(--sec2-480-s));
   }
 
   .home-page .sec2-computer-wrap {
-    top: clamp(188px, 49vw, 202px);
+    top: calc(202px * var(--sec2-480-s));
     right: 3%;
     bottom: auto;
-    width: min(43vw, 190px);
+    width: calc(190px * var(--sec2-480-s));
   }
 
   .home-page .sec2-badge {
-    width: min(20vw, 64px);
-    top: clamp(124px, 34vw, 146px);
+    width: calc(64px * var(--sec2-480-s));
+    top: calc(146px * var(--sec2-480-s));
     left: 50%;
     z-index: 12;
   }
 
   .home-page .sec2-products {
-    --sec2-card-gap: 8px;
-    --sec2-card-pad: 10px;
+    --sec2-card-gap: calc(8px * var(--sec2-480-s));
+    --sec2-card-pad: calc(10px * var(--sec2-480-s));
     --sec2-card-width: calc((100vw - var(--sec2-card-pad) * 2 - var(--sec2-card-gap)) * 0.48);
-    padding-bottom: 78px;
+    padding-bottom: calc(78px * var(--sec2-480-s));
   }
 
   .home-page .sec3-inner {
@@ -1792,8 +1796,8 @@
   }
 }
 
-/* TOP sec2 — 480–768: 768px canvas scales only within this range. */
-@media (min-width: 480px) and (max-width: 768px) {
+/* TOP sec2 — 481–768: 768px canvas scales only within this range. */
+@media (min-width: 481px) and (max-width: 768px) {
   .home-page .sec2 {
     --sec2-768-s: calc(100vw / 768px);
     overflow-x: clip;
