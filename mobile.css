@@ -3338,6 +3338,7 @@
     width: calc(100% - 24px * var(--sec8-sp-s));
     padding: calc(50px * var(--sec8-sp-s)) calc(36px * var(--sec8-sp-s)) calc(42px * var(--sec8-sp-s));
     border-radius: calc(22px * var(--sec8-sp-s));
+    overflow: visible;
   }
 
   .home-page .sec8-collage {
