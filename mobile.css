@@ -1810,7 +1810,7 @@
 
   .home-page .sec2-maincopy-wrap {
     left: calc(17% - 10% * (100vw - 426px) / (768px - 426px));
-    top: calc(29.13% - 19% * (100vw - 426px) / (768px - 426px));
+    top: calc(33.13% - 19% * (100vw - 426px) / (768px - 426px));
     width: calc(35% - 1% * (100vw - 426px) / (768px - 426px));
   }
 
