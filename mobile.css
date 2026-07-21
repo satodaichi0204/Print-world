@@ -4802,6 +4802,15 @@
     gap: 32px;
   }
 
+  .guide-print-method-page .print-method-inkjet__photos {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .guide-print-method-page .print-method-inkjet__photos li {
+    border-radius: 8px;
+  }
+
   .guide-print-method-page .print-method-feature__title {
     font-size: 17px;
   }

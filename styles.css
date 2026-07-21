@@ -2685,6 +2685,31 @@ img {
   color: #666666;
 }
 
+.print-method-inkjet__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  width: min(1168px, 100%);
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.print-method-inkjet__photos li {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  line-height: 0;
+}
+
+.print-method-inkjet__photos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1024 / 537;
+  object-fit: cover;
+}
+
 .print-method-finish {
   padding: 72px 0 96px;
   background: #ffffff;
