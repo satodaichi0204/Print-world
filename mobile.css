@@ -1792,31 +1792,30 @@
   }
 }
 
-/* TOP sec2 — 426–768: 768px canvas 60% at 426; left copies interpolate layout. */
+/* TOP sec2 — 426–768: scale the complete 768px lock without changing relationships. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec2 {
+    --sec2-768-s: calc(100vw / 768px);
     overflow-x: clip;
   }
 
   .home-page .sec2-inner {
-    width: calc(768px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
+    width: 100vw;
     max-width: none;
-    min-height: calc(316px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px)));
-    margin-left: calc(
-      50vw - 384px * (0.6 + 0.4 * (100vw - 426px) / (768px - 426px))
-    );
+    min-height: calc(316px * var(--sec2-768-s));
+    margin-left: 0;
     margin-right: 0;
   }
 
   .home-page .sec2-maincopy-wrap {
-    left: calc(17% - 10% * (100vw - 426px) / (768px - 426px));
-    top: calc(33.13% - 19% * (100vw - 426px) / (768px - 426px));
-    width: calc(35% - 1% * (100vw - 426px) / (768px - 426px));
+    left: 7%;
+    top: 14.13%;
+    width: 34%;
   }
 
   .home-page .sec2-choicecopy-wrap {
-    left: calc(18% - 11% * (100vw - 426px) / (768px - 426px));
-    top: calc(83.32% - 18% * (100vw - 426px) / (768px - 426px));
+    left: 7%;
+    top: 65.32%;
     width: 33%;
   }
 
@@ -1845,20 +1844,20 @@
   }
 
   .home-page .sec2-products-marquee {
-    margin-top: 10px;
+    margin-top: calc(10px * var(--sec2-768-s));
   }
 
   .home-page .sec2-products {
-    --sec2-card-gap: 8px;
-    --sec2-card-pad: 10px;
+    --sec2-card-gap: calc(8px * var(--sec2-768-s));
+    --sec2-card-pad: calc(10px * var(--sec2-768-s));
     --sec2-card-width: calc(
       (100vw - var(--sec2-card-pad) * 2 - var(--sec2-card-gap) * 2) / 3
     );
-    padding-bottom: 72px;
+    padding-bottom: calc(72px * var(--sec2-768-s));
   }
 
   .home-page .sec2-products .product-card {
-    padding-bottom: 12px;
+    padding-bottom: calc(12px * var(--sec2-768-s));
   }
 
   .home-page .sec2-products .product-image-wrap {
