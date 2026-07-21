@@ -1792,8 +1792,8 @@
   }
 }
 
-/* TOP sec2 — 426–768: scale the complete 768px lock without changing relationships. */
-@media (min-width: 426px) and (max-width: 768px) {
+/* TOP sec2 — 480–768: 768px canvas scales only within this range. */
+@media (min-width: 480px) and (max-width: 768px) {
   .home-page .sec2 {
     --sec2-768-s: calc(100vw / 768px);
     overflow-x: clip;
