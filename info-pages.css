@@ -125,6 +125,193 @@
   line-height: 1.9;
 }
 
+.delivery-page .info-main {
+  width: min(1200px, calc(100% - 80px));
+}
+
+.delivery-page .delivery-team {
+  width: min(1040px, 100%);
+  margin-bottom: 34px;
+  aspect-ratio: 2.13;
+}
+
+.delivery-page .delivery-team img {
+  object-position: center;
+}
+
+.delivery-content {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  color: #171717;
+}
+
+.delivery-section {
+  margin-bottom: 96px;
+}
+
+.delivery-section:last-child {
+  margin-bottom: 0;
+}
+
+.delivery-heading-image {
+  display: block;
+  height: auto;
+  margin: 0 0 44px;
+}
+
+.delivery-heading-image--arrival {
+  width: min(278px, 46vw);
+}
+
+.delivery-heading-image--shipping {
+  width: min(249px, 44vw);
+}
+
+.delivery-heading-image--payment {
+  width: min(275px, 48vw);
+}
+
+.delivery-text-block {
+  margin: 0 40px 42px;
+}
+
+.delivery-text-block:last-child {
+  margin-bottom: 0;
+}
+
+.delivery-text-block h3,
+.payment-method h3 {
+  margin: 0 0 14px;
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.delivery-text-block p,
+.payment-method p,
+.delivery-shipping__lead,
+.delivery-notes {
+  margin: 0;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.delivery-section--shipping {
+  margin-top: 88px;
+}
+
+.delivery-shipping__free {
+  margin: 0 40px 56px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.7;
+}
+
+.delivery-shipping__lead {
+  margin: 0 40px 22px;
+}
+
+.delivery-table-wrap {
+  width: min(850px, calc(100% - 80px));
+  margin: 0 40px;
+  overflow-x: auto;
+}
+
+.delivery-fee-table,
+.cod-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.delivery-fee-table th,
+.delivery-fee-table td,
+.cod-table th,
+.cod-table td {
+  border: 1px solid #c8c8c8;
+  padding: 14px 20px;
+  color: #444;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.delivery-fee-table th {
+  width: 20%;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.delivery-fee-table td:nth-child(2) {
+  width: 20%;
+  text-align: center;
+}
+
+.delivery-fee-table td:last-child {
+  width: 60%;
+}
+
+.delivery-section--shipping > .delivery-notes {
+  margin: 18px 40px 0;
+  font-size: 12px;
+}
+
+.delivery-section--payment {
+  margin-top: 104px;
+}
+
+.payment-method {
+  margin: 0 40px 62px;
+}
+
+.payment-method:last-child {
+  margin-bottom: 0;
+}
+
+.payment-bank {
+  margin-bottom: 22px !important;
+  padding: 32px 40px;
+  background: #f0f0f0;
+  color: #111 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+.payment-card-logos {
+  display: block;
+  width: min(480px, 100%);
+  height: auto;
+  margin: -30px 0 -16px;
+}
+
+.payment-warning {
+  color: #e10d18;
+}
+
+.delivery-table-wrap--cod {
+  width: min(590px, 100%);
+  margin: 24px 0 18px;
+}
+
+.cod-table th,
+.cod-table td {
+  width: 50%;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.cod-table th {
+  background: #e9e9e9;
+}
+
+.payment-method--cod .delivery-notes {
+  font-size: 12px;
+}
+
 .info-section {
   width: min(920px, 100%);
   margin: 0 auto 86px;
@@ -421,6 +608,85 @@
     line-height: 1.85;
   }
 
+  .delivery-page .info-main {
+    width: calc(100% - 40px);
+  }
+
+  .delivery-page .delivery-team {
+    margin-bottom: 30px;
+    aspect-ratio: 1.75;
+  }
+
+  .delivery-heading-image {
+    margin-bottom: 32px;
+  }
+
+  .delivery-text-block,
+  .payment-method {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .delivery-text-block {
+    margin-bottom: 34px;
+  }
+
+  .delivery-text-block h3,
+  .payment-method h3 {
+    font-size: 18px;
+  }
+
+  .delivery-text-block p,
+  .payment-method p,
+  .delivery-shipping__lead,
+  .delivery-notes {
+    font-size: 12px;
+  }
+
+  .delivery-section {
+    margin-bottom: 70px;
+  }
+
+  .delivery-section--shipping,
+  .delivery-section--payment {
+    margin-top: 70px;
+  }
+
+  .delivery-shipping__free {
+    margin: 0 0 38px;
+    font-size: 16px;
+  }
+
+  .delivery-shipping__lead,
+  .delivery-section--shipping > .delivery-notes {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .delivery-table-wrap {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .delivery-fee-table {
+    min-width: 680px;
+  }
+
+  .payment-method {
+    margin-bottom: 48px;
+  }
+
+  .payment-bank {
+    padding: 24px 20px;
+    font-size: 13px !important;
+  }
+
+  .payment-card-logos {
+    width: min(390px, 100%);
+    margin-top: -20px;
+  }
+
   .info-section {
     margin-bottom: 60px;
     font-size: 14px;
@@ -450,6 +716,26 @@
 
   .info-main {
     width: calc(100% - 32px);
+  }
+
+  .delivery-page .info-main {
+    width: calc(100% - 32px);
+  }
+
+  .delivery-heading-image--arrival {
+    width: min(230px, 72vw);
+  }
+
+  .delivery-heading-image--shipping {
+    width: min(210px, 66vw);
+  }
+
+  .delivery-heading-image--payment {
+    width: min(230px, 72vw);
+  }
+
+  .delivery-shipping__free {
+    font-size: 15px;
   }
 
   .info-table {
