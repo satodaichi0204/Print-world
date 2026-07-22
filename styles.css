@@ -5914,7 +5914,9 @@ main.mcPage__main,
 .mcPage__htmlContent,
 .contentBlock__titleArea, .contentBlock_titleArea,
 .contentBlock__text, .contentBlock_text,
-.home-mt {
+.home-mt,
+.company-mt, .contact-mt, .delivery-mt, .privacy-mt, .tokushoho-mt, .terms-mt,
+.company-page main, .info-page main, .legal-page main {
   padding-top: 0 !important;
   margin-top: 0 !important;
   border-top: 0 !important;
