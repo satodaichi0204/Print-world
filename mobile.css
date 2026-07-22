@@ -9788,3 +9788,10 @@ html.is-guide-flow-zoom-open body {
     pointer-events: none;
   }
 }
+
+/* スマホ(320-678px): ヘッダー部分は白（MT側でbody*の背景リセットを外した後の担保。赤/緑ボタンの色は残すためコンテナのみ） */
+@media (min-width: 320px) and (max-width: 678px) {
+  .fv-header {
+    background-color: #ffffff !important;
+  }
+}
