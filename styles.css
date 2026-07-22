@@ -6078,3 +6078,9 @@ body {
     background: #ffffff !important;
   }
 }
+
+/* Contact submit button: restore orange bg + white text against MT's body* reset */
+.contact-submit {
+  background: #ff9863 !important;
+  color: #ffffff !important;
+}
