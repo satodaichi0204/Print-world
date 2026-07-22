@@ -67,95 +67,139 @@
   </header>
 
   <main>
-    <section class="info-hero design-help-hero">
-      <div class="info-hero__inner">
+    <!-- 1. Header title -->
+    <section class="dh-sec1" aria-label="ページタイトル">
+      <div class="dh-sec1__inner">
         <h1 class="visually-hidden">デザインにお悩みの方へ</h1>
-        <img class="design-help-title-image" src="images/design-help/title.png" alt="デザインにお悩みの方へ" />
-      </div>
-    </section>
-
-    <section class="design-help-visual" aria-label="デザイン相談のイメージ">
-      <div class="design-help-visual__inner">
-        <div class="design-help-visual__photo-wrap">
-          <img
-            class="design-help-visual__photo"
-            src="images/design-help/hero-photo.jpg"
-            alt="オレンジのTシャツを持って笑顔のスタッフ"
-          />
-          <p class="design-help-visual__bubble">デザインに悩んでも安心！</p>
-        </div>
         <img
-          class="design-help-visual__man"
-          src="images/design-help/man-point.png"
-          alt=""
-          aria-hidden="true"
+          class="dh-sec1__title"
+          src="images/design-help/struggle-header-title.png"
+          alt="デザインにお悩みの方へ"
+          width="1337"
+          height="119"
         />
       </div>
     </section>
 
-    <section class="design-help-intro" aria-labelledby="design-help-intro-title">
-      <div class="design-help-inner">
-        <h2 id="design-help-intro-title" class="design-help-intro__title">
-          当社のデザイナーがあなたのアイデアを<br class="design-help-break" /><span class="design-help-intro__em">カタチ</span>にします！
-        </h2>
-        <p class="design-help-intro__lead">
-          「アイデアはあるのに自分でデザインができない…」「絵心がないからオリジナルTシャツは諦めている…」そんなお悩みはありませんか？<br />
-          プリントワールドでは、プロのデザイナーがお客様のイメージを丁寧にヒアリングし、オリジナルのデザインデータ作成をお手伝いします。ラフな手書きや言葉でのご依頼でも大丈夫です。
-        </p>
+    <!-- 2. Hero visual + lead copy -->
+    <section class="dh-sec2" aria-labelledby="dh-sec2-title">
+      <div class="dh-sec2__stage">
+        <img
+          class="dh-sec2__photo"
+          src="images/design-help/struggle-image-1.jpg"
+          alt="オレンジのTシャツを手に笑顔のスタッフ"
+          width="1600"
+          height="1067"
+        />
+        <img
+          class="dh-sec2__bubble"
+          src="images/design-help/struggle-title-1.png"
+          alt="デザインに悩んでも安心！"
+          width="1227"
+          height="491"
+        />
+        <img
+          class="dh-sec2__man"
+          src="images/design-help/struggle-man.png"
+          alt=""
+          width="494"
+          height="331"
+          aria-hidden="true"
+        />
+      </div>
 
-        <h3 class="design-help-intro__sub">手書きのラフがプロの仕上がりに！</h3>
-        <p class="design-help-intro__text">
-          手書きのラフ、テキストだけのメモ、写真のイメージなど、どんな形でも構いません。いただいた素材をもとに、印刷に適したきれいなデザインデータへ仕上げます。
+      <div class="dh-sec2__copy">
+        <h2 id="dh-sec2-title" class="dh-sec2__heading">
+          当社のデザイナーがあなたのアイデアを<br />
+          <span class="dh-sec2__heading-em">カタチ</span>にします！
+        </h2>
+        <p class="dh-sec2__text">
+          「頭の中のイメージは完璧だけど、実際にデザインにはできない」<br />
+          「アイデアはあるけど、絵が得意じゃないし…。そもそも、デザイナーじゃないし…。」<br />
+          このような悩みを持たれていませんか？<br />
+          そんな時は気軽にご相談ください！当店のデザイナーがあなたのアイデアをカタチにします！
         </p>
       </div>
     </section>
 
-    <section class="design-help-cases" aria-label="デザイン事例">
-      <div class="design-help-inner">
-        <article class="design-help-case">
-          <p class="design-help-case__label">スポーツチームのTシャツのご依頼</p>
-          <figure class="design-help-case__figure">
-            <img src="images/design-help/case-sports.png" alt="手書きラフから完成したバスケットボールチームのオレンジTシャツ。左が依頼前の手書き、右が出来上がったTシャツ" />
+    <!-- 3. Rough sketch intro -->
+    <section class="dh-sec3" aria-labelledby="dh-sec3-title">
+      <div class="dh-inner">
+        <h2 id="dh-sec3-title" class="dh-sec3__heading">
+          <img
+            class="dh-sec3__title-img"
+            src="images/design-help/struggle-title-2.png"
+            alt="手書きのラフがプロの仕上がりに！"
+            width="1232"
+            height="85"
+          />
+        </h2>
+        <p class="dh-sec3__text">
+          たとえば手書きのラフ案をいただければ、それを基にキレイなデザインデータを作成いたします。もし、手書きのラフ案が難しい場合は文章や写真でもOK！まずはどんなことでも気軽にご連絡ください！
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Case studies -->
+    <section class="dh-sec4" aria-label="デザイン事例">
+      <div class="dh-inner">
+        <article class="dh-case">
+          <h3 class="dh-case__label">スポーツチームのTシャツのご依頼</h3>
+          <figure class="dh-case__figure">
+            <img
+              src="images/design-help/struggle-image-4.png"
+              alt="依頼前の手書きラフから、出来上がったバスケットボールチームのオレンジTシャツへ"
+              width="1200"
+              height="auto"
+            />
           </figure>
-          <p class="design-help-case__text">
-            スポーツチームのTシャツをご依頼いただきました。手書きのラフをもとに、チーム名を強調しつつバスケットボールチームであることが一目で伝わるようロゴを整理。力強く見やすいデザインに仕上げました。
+          <p class="dh-case__text">
+            バスケットボールチームのTシャツをご依頼いただきました。バスケットボールのチーム、ということがわかるように。またチーム名を大きく、配置し、ロゴのように配置して作成しました。
           </p>
         </article>
 
-        <article class="design-help-case">
-          <p class="design-help-case__label">大学祭のTシャツのご依頼</p>
-          <figure class="design-help-case__figure">
-            <img src="images/design-help/case-university.png" alt="手書きラフから完成した大学祭UNIFESTAの白いTシャツ。左が依頼前の手書き、右が出来上がったTシャツ" />
+        <article class="dh-case">
+          <h3 class="dh-case__label">大学祭のTシャツのご依頼</h3>
+          <figure class="dh-case__figure">
+            <img
+              src="images/design-help/struggle-image-2.png"
+              alt="依頼前の手書きラフから、出来上がった大学祭UNIFESTAの白いTシャツへ"
+              width="1200"
+              height="auto"
+            />
           </figure>
-          <p class="design-help-case__text">
+          <p class="dh-case__text">
             大学祭のTシャツをご依頼いただきました。手描きのラフ案をベースに、学園祭らしいにぎやかさと親しみやすさを表現。レトロアメリカン風の配色と太めのタイポで、イベント感のあるキャッチーなデザインに仕上げました。
           </p>
         </article>
       </div>
     </section>
 
-    <section class="design-help-cta" aria-labelledby="design-help-cta-title">
-      <div class="design-help-inner design-help-cta__inner">
-        <div class="design-help-cta__banner-wrap">
-          <img
-            class="design-help-cta__banner"
-            src="images/design-help/cta-banner.png"
-            alt="デザインについてのご相談はこちら"
-          />
-        </div>
-        <h2 id="design-help-cta-title" class="design-help-cta__title">
-          手書きのメモやスマホのスケッチ、<br class="design-help-break" />言葉でのイメージだけでも大丈夫です！
+    <!-- 5. CTA -->
+    <section class="dh-sec5" aria-labelledby="dh-sec5-title">
+      <div class="dh-inner dh-sec5__inner">
+        <img
+          class="dh-sec5__banner"
+          src="images/design-help/struggle-image-3.png"
+          alt="デザインについてのご相談はこちら"
+          width="1092"
+          height="301"
+        />
+        <h2 id="dh-sec5-title" class="dh-sec5__heading">
+          手書きのメモやスマホのスケッチ、<br class="dh-br" />言葉でのイメージだけでも大丈夫です！
         </h2>
-        <p class="design-help-cta__text">
-          「自分だけのオリジナルTシャツを作りたいけれど、絵心がないから…」と諦めていませんか？ 完璧なデザインデータがなくても大丈夫です。手書きのメモやスマホで描いたラフスケッチ、あるいは「こんな雰囲気で」という言葉や写真のイメージをそのまま私たちに届けてください。プロのデザイナーが、あなたのアイデアをカタチにします！
+        <p class="dh-sec5__text">
+          「自分だけのオリジナルTシャツを作りたいけれど、絵心がないから…」と諦めていませんか？<br />
+          完璧なデザインデータがなくても大丈夫です。<br />
+          手書きのメモやスマホで描いたラフスケッチ、あるいは「こんな雰囲気で」という言葉や写真のイメージをそのまま私たちに届けてください。プロのデザイナーが、あなたのアイデアをカタチにします！
         </p>
-        <div class="design-help-cta__actions">
-          <a class="design-help-cta__btn design-help-cta__btn--line" href="#" rel="noopener">
-            <img src="images/icon-line.png" alt="" aria-hidden="true" />
+        <div class="dh-sec5__actions">
+          <a class="dh-sec5__btn dh-sec5__btn--line" href="#" rel="noopener">
+            <img src="images/icon-line.png" alt="" width="28" height="28" aria-hidden="true" />
             <span>LINEで相談する</span>
           </a>
-          <a class="design-help-cta__btn design-help-cta__btn--mail" href="contact.html">
-            <img src="images/icon-mail.png" alt="" aria-hidden="true" />
+          <a class="dh-sec5__btn dh-sec5__btn--mail" href="contact.html">
+            <img src="images/icon-mail.png" alt="" width="28" height="28" aria-hidden="true" />
             <span>メールで相談する</span>
           </a>
         </div>
