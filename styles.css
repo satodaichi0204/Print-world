@@ -6058,3 +6058,14 @@ body {
 .info-page main img {
   background-color: transparent !important;
 }
+
+/* Hero band descendants -> transparent so the yellow band shows fully
+   (MT's body*{bg:#fff} paints inner containers white, covering the band). */
+.company-page .company-title *,
+.info-page .info-hero * {
+  background-color: transparent !important;
+}
+/* keep the white eyebrow badge white on info pages */
+.info-page .info-hero__eyebrow {
+  background-color: #ffffff !important;
+}
