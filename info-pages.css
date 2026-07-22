@@ -928,9 +928,10 @@
   padding-top: 120px;
 }
 
-.privacy-page .info-hero h1 {
-  font-size: clamp(28px, 4.2vw, 56px);
-  letter-spacing: 0.08em;
+.privacy-title-image {
+  display: block;
+  width: min(520px, 72vw);
+  height: auto;
 }
 
 .privacy-main {
@@ -1020,9 +1021,8 @@
     width: calc(100% - 32px);
   }
 
-  .privacy-page .info-hero h1 {
-    font-size: 24px;
-    letter-spacing: 0.04em;
+  .privacy-title-image {
+    width: min(300px, 82vw);
   }
 
   .privacy-lead {
