@@ -6090,3 +6090,8 @@ body {
   background: #c91b2c !important;
   color: #ffffff !important;
 }
+
+/* Bank-account box (delivery): restore gray background against MT's body* reset */
+.payment-bank {
+  background: #f0f0f0 !important;
+}
