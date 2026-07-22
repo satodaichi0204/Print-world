@@ -6037,3 +6037,22 @@ body {
     gap: 16px 12px;
   }
 }
+
+/* =========================================================================
+   Maker Town defense: info subpages (contact / delivery / privacy / tokushoho)
+   Counter MT's `body * { background:#fff!important }` — restore hero band color.
+   ========================================================================= */
+.info-page .info-hero {
+  background: #f3d500 !important;
+}
+.delivery-page .info-hero,
+.tokushoho-page .info-hero,
+.privacy-page .info-hero {
+  background: #efce0a !important;
+}
+.info-page main * {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+.info-page main img {
+  background-color: transparent !important;
+}
