@@ -6069,3 +6069,12 @@ body {
 .info-page .info-hero__eyebrow {
   background-color: #ffffff !important;
 }
+
+/* Hero band WHITE on mobile (<=768); desktop (769+) keeps the yellow.
+   Higher specificity (.company-page .company-title) beats the base !important yellow. */
+@media (max-width: 768px) {
+  .company-page .company-title,
+  .info-page .info-hero {
+    background: #ffffff !important;
+  }
+}
