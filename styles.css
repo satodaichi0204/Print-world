@@ -6049,7 +6049,8 @@ body {
 }
 .delivery-page .info-hero,
 .tokushoho-page .info-hero,
-.privacy-page .info-hero {
+.privacy-page .info-hero,
+.terms-page .info-hero {
   background: #efce0a !important;
 }
 .info-page main * {
