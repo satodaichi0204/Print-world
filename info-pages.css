@@ -788,9 +788,10 @@
   padding-top: 120px;
 }
 
-.tokushoho-page .info-hero h1 {
-  font-size: clamp(28px, 4.2vw, 56px);
-  letter-spacing: 0.04em;
+.tokushoho-title-image {
+  display: block;
+  width: min(720px, 88vw);
+  height: auto;
 }
 
 .tokushoho-main {
@@ -913,9 +914,8 @@
     width: calc(100% - 32px);
   }
 
-  .tokushoho-page .info-hero h1 {
-    font-size: 24px;
-    letter-spacing: 0.02em;
+  .tokushoho-title-image {
+    width: min(340px, 90vw);
   }
 }
 
