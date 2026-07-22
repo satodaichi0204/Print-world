@@ -46,8 +46,9 @@
 
 .delivery-title-image {
   display: block;
-  width: min(720px, 72vw);
+  width: min(500px, 72vw);
   height: auto;
+  padding-bottom: 30px;
 }
 
 .info-main {
