@@ -921,17 +921,26 @@
 }
 
 .privacy-page .info-hero,
-.privacy-page .fv-header {
+.privacy-page .fv-header,
+.terms-page .info-hero,
+.terms-page .fv-header {
   background: #efce0a;
 }
 
-.privacy-page .info-hero__inner {
+.privacy-page .info-hero__inner,
+.terms-page .info-hero__inner {
   padding-top: 120px;
 }
 
 .privacy-title-image {
   display: block;
   width: min(520px, 72vw);
+  height: auto;
+}
+
+.terms-title-image {
+  display: block;
+  width: min(280px, 42vw);
   height: auto;
 }
 
@@ -994,6 +1003,15 @@
   padding-left: 0.15em;
 }
 
+.privacy-ordered {
+  margin: 0 0 0.8em;
+  padding: 0 0 0 1.4em;
+}
+
+.privacy-ordered li {
+  margin: 0.35em 0;
+}
+
 .privacy-contact {
   margin: 1em 0 0;
   font-style: normal;
@@ -1015,6 +1033,10 @@
   .privacy-section h2 {
     font-size: 16px;
   }
+
+  .terms-title-image {
+    width: min(200px, 48vw);
+  }
 }
 
 @media (max-width: 480px) {
@@ -1024,6 +1046,10 @@
 
   .privacy-title-image {
     width: min(300px, 82vw);
+  }
+
+  .terms-title-image {
+    width: min(170px, 56vw);
   }
 
   .privacy-lead {
