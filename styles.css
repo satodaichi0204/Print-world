@@ -6084,3 +6084,9 @@ body {
   background: #ff9863 !important;
   color: #ffffff !important;
 }
+
+/* "必須" badge: restore red box + white text against MT's body* reset */
+.contact-required {
+  background: #c91b2c !important;
+  color: #ffffff !important;
+}
