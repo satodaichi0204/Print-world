@@ -10,7 +10,7 @@
 .company-title {
   min-height: 375px;
   padding-top: 108px;
-  background: #f3d500;
+  background: #f3d500 !important;
 }
 
 .company-title__inner {
