@@ -177,6 +177,7 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
         <a class="site-menu__link" href="guide-flow.html">ご注文から到着までの流れ</a>
         <a class="site-menu__link" href="guide-design-tool.html">デザインツールの使い方</a>
         <a class="site-menu__link" href="guide-data-submission.html">データ入稿ガイド</a>
+        <a class="site-menu__link" href="design-help.html">デザインにお悩みの方</a>
         <a class="site-menu__link" href="delivery.html">納期・配送について</a>
         <a class="site-menu__link" href="guide-print-method.html">プリント方法について</a>
         <a class="site-menu__link" href="faq.html">よくある質問</a>
