@@ -19,12 +19,10 @@
   padding-top: 130px;
 }
 
-.company-title h1 {
-  margin: 0;
-  font-size: clamp(38px, 4vw, 64px);
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: 0.08em;
+.company-title-image {
+  display: block;
+  width: min(280px, 42vw);
+  height: auto;
 }
 
 .company-story {
@@ -346,8 +344,8 @@
     padding-top: 82px;
   }
 
-  .company-title h1 {
-    font-size: clamp(30px, 8vw, 46px);
+  .company-title-image {
+    width: min(200px, 48vw);
   }
 
   .company-story {
@@ -416,6 +414,10 @@
 
   .company-title__inner {
     padding-top: 60px;
+  }
+
+  .company-title-image {
+    width: min(170px, 56vw);
   }
 
   .company-story__inner,
