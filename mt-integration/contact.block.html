@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/contact.css">
+<script>document.body.classList.add('info-page');document.body.classList.add('contact-page');</script>
+
+<div class="contact-mt" style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';">
+<main>
+    <section class="info-hero contact-hero">
+      <div class="info-hero__inner">
+        <h1 class="visually-hidden">お問い合わせ</h1>
+        <img class="contact-title-image" src="modify/2x/last page/Asset 8@2x.png" alt="お問い合わせ" />
+      </div>
+    </section>
+
+    <div class="contact-main">
+      <nav class="info-breadcrumb" aria-label="パンくず">
+        <a href="https://print-world-blond.vercel.app/index.html">トップページ</a>
+        <span aria-hidden="true">›</span>
+        <span>お問い合わせ</span>
+      </nav>
+
+      <div class="contact-introduction">
+        <p>
+          お客様から多く寄せられるお問い合わせを「<a href="#">よくある質問</a>」にまとめて掲載しておりますので、まずはご参照ください。万が一解決しない場合や商品についてのお問い合わせ、カタログ発送のご希望などがございましたら、フォーム、お電話、FAXのいずれかよりお気軽にお問い合わせください。<br />
+          なお、お問い合わせの内容によっては、返答にお時間をいただく場合もございます。また、土日祝日、年末年始、夏季業務日以降の対応となります。<br />
+          ※「商品お見積り」のお問い合わせにつきましては、各商品アイテムページに専用フォームをご用意しておりますので、お手数ですがそちらよりお申し込みをお願いいたします。既にデザインデータをお持ちの方はお見積りフォーム内のデータアップロードをご利用いただけます。<br />
+          ※本フォームはお客様からのお問い合わせ専用です。営業・勧誘目的のご連絡は一切お断りしておりますので、ご遠慮ください。
+        </p>
+      </div>
+
+      <form class="contact-form" action="#" method="post" novalidate>
+        <div class="contact-field">
+          <div class="contact-field__label">
+            <span>お名前</span>
+            <span class="contact-required">必須</span>
+          </div>
+          <div class="contact-field__body">
+            <div class="contact-name-fields">
+              <label><span>姓</span><input type="text" name="last_name" placeholder="印刷" autocomplete="family-name" required /></label>
+              <label><span>名</span><input type="text" name="first_name" placeholder="太郎" autocomplete="given-name" required /></label>
+            </div>
+            <p class="contact-field__note contact-error" data-error-for="name" role="alert" hidden>【全角】でご記入ください</p>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <div class="contact-field__label">
+            <span>フリガナ</span>
+            <span class="contact-required">必須</span>
+          </div>
+          <div class="contact-field__body">
+            <div class="contact-name-fields">
+              <label><span>姓</span><input type="text" name="last_name_kana" placeholder="インサツ" required /></label>
+              <label><span>名</span><input type="text" name="first_name_kana" placeholder="タロウ" required /></label>
+            </div>
+            <p class="contact-field__note contact-error" data-error-for="kana" role="alert" hidden>【全角】でご記入ください</p>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="inquiry-type">
+            <span>お問い合わせ内容の<br />種類</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body contact-field__body--medium">
+            <select id="inquiry-type" name="inquiry_type" required>
+              <option value="" selected disabled>選択してください</option>
+              <option value="product">商品について</option>
+              <option value="order">ご注文について</option>
+              <option value="design">デザイン・入稿について</option>
+              <option value="delivery">納期・配送について</option>
+              <option value="other">その他</option>
+            </select>
+            <p class="contact-field__note contact-error" data-error-for="inquiry-type" role="alert" hidden>お問い合わせ内容の種類を選択してください。</p>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="phone">
+            <span>電話番号</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body">
+            <input id="phone" type="tel" name="phone" placeholder="（例）0312345678" inputmode="numeric" autocomplete="tel" required />
+            <p class="contact-field__note contact-error" data-error-for="phone" role="alert" hidden>【半角数字（ハイフンなし）】でご記入ください。</p>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="email">
+            <span>メールアドレス</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body">
+            <input id="email" type="email" name="email" placeholder="（例）example@example.com" autocomplete="email" required />
+            <p class="contact-field__note contact-error" data-error-for="email" role="alert" hidden>正しいメールアドレスを半角英数でご記入ください。</p>
+            <label class="contact-confirm-label" for="email-confirm">▼確認のため、もう一度ご記入ください</label>
+            <input id="email-confirm" type="email" name="email_confirm" placeholder="（例）example@example.com" autocomplete="email" required />
+            <p class="contact-field__note contact-error" data-error-for="email-confirm" role="alert" hidden>メールアドレスが一致しません。</p>
+          </div>
+        </div>
+
+        <div class="contact-field contact-field--message">
+          <label class="contact-field__label" for="message">
+            <span>お問い合わせ内容</span>
+            <span class="contact-required">必須</span>
+          </label>
+          <div class="contact-field__body">
+            <p class="contact-message-guide">
+              お決まりの商品名（品番）等、その他詳細事項があればご入力ください。<br />
+              ご来社打ち合わせご希望の方は、ご希望日時（第2希望まで）も併せてご入力ください。
+            </p>
+            <textarea id="message" name="message" required></textarea>
+            <p class="contact-field__note contact-error" data-error-for="message" role="alert" hidden>お問い合わせ内容をご入力ください。</p>
+          </div>
+        </div>
+
+        <button class="contact-submit" type="submit">確認ページへ</button>
+      </form>
+    </div>
+  </main>
+</div>
