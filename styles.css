@@ -6112,15 +6112,24 @@ body {
 }
 
 /* FAQ accordion: restore band colors against MT's body*{background:#fff} reset.
-   Question bar (golden), +/- icon circle (orange), answer panel (light pink).
-   The white +/- lines are ::before/::after pseudo-elements -> not matched by
-   `body *`, so they stay white on their own. */
+   Question bar (golden), answer panel (light pink), +/- icon circle (orange). */
 .faq-item__question {
   background: #f0c15a !important;
 }
-.faq-item__icon {
-  background: #ef7a1a !important;
-}
 .faq-item__answer {
   background: #f7ebe6 !important;
+}
+/* MT's `body *{bg:#fff}` also paints the inner text nodes white (the qtext span
+   is flex:1 and covers the whole golden bar; the answer <p> covers the pink).
+   Make those descendants transparent so the parent band colour shows through. */
+.faq-item__question *,
+.faq-item__answer * {
+  background-color: transparent !important;
+}
+/* Keep the +/- icon circle orange. MUST come AFTER the transparent rule above:
+   `.faq-item__question *` also matches the icon (equal specificity), so source
+   order decides -> this later rule wins and the circle stays orange. The white
+   +/- cross is drawn by ::before/::after, which MT also forces #fff (fine). */
+.faq-item__icon {
+  background: #ef7a1a !important;
 }
