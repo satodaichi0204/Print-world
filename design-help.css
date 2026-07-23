@@ -253,11 +253,6 @@
 
 /* ----- Responsive ----- */
 @media (max-width: 768px) {
-  .design-help-page {
-    /* Lock composition at 768 and scale down to 320 */
-    --dh-768-s: calc(100vw / 768px);
-  }
-
   .dh-sec1 {
     padding: 0 0 40px;
   }
@@ -279,24 +274,17 @@
     padding: 24px 0 16px;
   }
 
-  /* 768 lock: bubble 420px — scale with viewport so photo↔bubble stays matched */
   .dh-sec2__bubble {
-    width: calc(420px * var(--dh-768-s));
+    width: min(420px, 88%);
   }
 
   .dh-sec2__copy {
-    margin: 0 0 40px;
-  }
-
-  /* Keep sec3 content on same left edge as photo (78%) */
-  .dh-sec3 > .dh-inner {
-    width: 78%;
-    margin: 0;
+    margin: 0 auto 40px;
   }
 
   .dh-sec3 {
     padding: 0 0 56px;
-    margin-top: calc(-50px * var(--dh-768-s));
+    margin-top: -50px;
   }
 
   .dh-sec2__text,
@@ -345,14 +333,12 @@
     width: calc(100% - 32px);
   }
 
-  /* Do not retarget bubble — keep 768→320 proportional lock */
-  .dh-sec3 > .dh-inner {
-    width: 78%;
-    margin: 0;
+  .dh-sec2__bubble {
+    width: min(340px, 92%);
   }
 
   .dh-sec2__copy {
-    margin: 0 0 32px;
+    margin: 0 auto 32px;
   }
 
   .dh-sec5__actions {
