@@ -185,6 +185,8 @@
   background: #ececec;
   padding: 0 0 88px;
   /* text-align: center; */
+  /* Lock banner/heading offsets at 560px banner width; scale down to 320 */
+  --dh-sec5-s: min(1, calc((100vw - 80px) / 560px));
 }
 
 .dh-sec5__banner {
@@ -192,11 +194,11 @@
   width: min(560px, 100%);
   height: auto;
   margin: 0 auto 0;
-  transform: translateY(-84px);
+  transform: translateY(calc(-84px * var(--dh-sec5-s)));
 }
 
 .dh-sec5__heading {
-  margin: -40px auto 20px;
+  margin: calc(-40px * var(--dh-sec5-s)) auto calc(20px * var(--dh-sec5-s));
   max-width: 720px;
   color: #111;
   font-size: clamp(20px, 1.8vw, 16px);
@@ -309,6 +311,7 @@
 
   .dh-sec5 {
     padding: 48px 0 64px;
+    --dh-sec5-s: min(1, calc((100vw - 40px) / 560px));
   }
 
   .dh-sec5__btn {
@@ -334,6 +337,10 @@
 
   .dh-inner {
     width: calc(100% - 32px);
+  }
+
+  .dh-sec5 {
+    --dh-sec5-s: min(1, calc((100vw - 32px) / 560px));
   }
 
   .dh-sec2__bubble {
