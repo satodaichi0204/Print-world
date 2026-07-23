@@ -184,22 +184,14 @@
 .dh-sec5 {
   background: #ececec;
   padding: 0 0 88px;
-  overflow: visible;
   /* text-align: center; */
-}
-
-.dh-sec5__inner {
-  overflow: visible;
 }
 
 .dh-sec5__banner {
   display: block;
-  width: min(560px, 92%);
+  width: min(560px, 100%);
   height: auto;
-  /* Sit on the white/gray boundary (≈ half of displayed banner height) */
-  margin: -90px auto 36px;
-  position: relative;
-  z-index: 2;
+  margin: 0 auto 28px;
 }
 
 .dh-sec5__heading {
@@ -209,7 +201,6 @@
   font-size: clamp(20px, 1.8vw, 30px);
   font-weight: 900;
   line-height: 1.5;
-  text-align: left;
 }
 
 .dh-sec5__text {
@@ -219,7 +210,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.95;
-  text-align: left;
+  /* text-align: center; */
 }
 
 .dh-sec5__actions {
@@ -316,12 +307,7 @@
   }
 
   .dh-sec5 {
-    padding: 0 0 64px;
-  }
-
-  .dh-sec5__banner {
-    width: min(420px, 88%);
-    margin: -70px auto 28px;
+    padding: 48px 0 64px;
   }
 
   .dh-sec5__btn {
@@ -367,10 +353,5 @@
   .dh-sec3 {
     padding: 0 0 56px;
     margin-top: -44px;
-  }
-
-  .dh-sec5__banner {
-    width: min(300px, 90%);
-    margin: -52px auto 24px;
   }
 }
