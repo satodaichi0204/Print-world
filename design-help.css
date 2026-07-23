@@ -35,6 +35,10 @@
 .dh-sec2 {
   background: #fff;
   padding: 36px 0 24px;
+  /* Design lock @ stage 1400px: man right 284 · top 300 · width 300
+     Stage = min(1400px, 78vw) → scale 1 when viewport ≥ 1400/0.78 ≈ 1795px */
+  --dh-sec2-stage-max: 1400px;
+  --dh-sec2-s: min(1, calc((100vw * 0.78) / 1400px));
 }
 
 .dh-sec2__frame {
@@ -44,7 +48,7 @@
 
 .dh-sec2__stage {
   position: relative;
-  width: min(860px, 78%);
+  width: min(var(--dh-sec2-stage-max), 78%);
   z-index: 1;
 }
 
@@ -58,10 +62,10 @@
 
 .dh-sec2__man {
   position: absolute;
-  right: 0;
-  top: 48px;
+  right: calc(284px * var(--dh-sec2-s));
+  top: calc(300px * var(--dh-sec2-s));
   z-index: 4;
-  width: min(300px, 28%);
+  width: calc(300px * var(--dh-sec2-s));
   height: auto;
   pointer-events: none;
 }
@@ -241,13 +245,6 @@
 }
 
 /* ----- Responsive ----- */
-@media (max-width: 1024px) {
-  .dh-sec2__man {
-    width: min(240px, 26%);
-    top: 24px;
-  }
-}
-
 @media (max-width: 768px) {
   .dh-sec1 {
     padding: 0 0 40px;
@@ -270,19 +267,8 @@
     padding: 24px 0 16px;
   }
 
-  .dh-sec2__stage {
-    width: 100%;
-  }
-
   .dh-sec2__bubble {
     width: min(420px, 88%);
-  }
-
-  .dh-sec2__man {
-    right: -2%;
-    top: auto;
-    bottom: 0;
-    width: min(160px, 32vw);
   }
 
   .dh-sec2__copy {
@@ -337,10 +323,6 @@
 
   .dh-inner {
     width: calc(100% - 32px);
-  }
-
-  .dh-sec2__man {
-    display: none;
   }
 
   .dh-sec2__bubble {
