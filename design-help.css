@@ -310,12 +310,16 @@
   }
 
   .dh-sec5 {
-    padding: 48px 0 64px;
-    --dh-sec5-s: min(1, calc((100vw - 40px) / 560px));
+    /* Freeze 768 composition; scale to 320 */
+    --dh-sec5-768-s: calc(100vw / 768px);
+    --dh-sec5-s: var(--dh-sec5-768-s);
+    padding: calc(48px * var(--dh-sec5-768-s)) 0 calc(64px * var(--dh-sec5-768-s));
   }
 
   .dh-sec5__banner {
-    transform: translateY(calc(-124px * 100vw / 768px));
+    width: calc(560px * var(--dh-sec5-768-s));
+    max-width: 100%;
+    transform: translateY(calc(-124px * var(--dh-sec5-768-s)));
   }
 
   .dh-sec5__btn {
@@ -344,7 +348,9 @@
   }
 
   .dh-sec5 {
-    --dh-sec5-s: min(1, calc((100vw - 32px) / 560px));
+    /* Keep 768→320 lock (do not switch to a different scale) */
+    --dh-sec5-768-s: calc(100vw / 768px);
+    --dh-sec5-s: var(--dh-sec5-768-s);
   }
 
   .dh-sec2__bubble {
