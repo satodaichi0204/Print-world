@@ -191,7 +191,10 @@
   display: block;
   width: min(560px, 100%);
   height: auto;
-  margin: 0 auto 28px;
+  /* Section edge stays fixed; only this image sits on the boundary */
+  margin: -90px auto 28px;
+  position: relative;
+  z-index: 2;
 }
 
 .dh-sec5__heading {
@@ -307,7 +310,12 @@
   }
 
   .dh-sec5 {
-    padding: 48px 0 64px;
+    /* Keep section top edge fixed (no top padding) */
+    padding: 0 0 64px;
+  }
+
+  .dh-sec5__banner {
+    margin-top: -70px;
   }
 
   .dh-sec5__btn {
