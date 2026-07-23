@@ -34,7 +34,7 @@
 /* ----- 2. Photo + man + bubble + copy ----- */
 .dh-sec2 {
   background: #fff;
-  padding: 36px 0 72px;
+  padding: 36px 0 24px;
 }
 
 .dh-sec2__frame {
@@ -72,8 +72,8 @@
   position: relative;
   z-index: 2;
   width: min(760px, 100%);
-  margin: 56px auto 0;
-  padding: 0 12px;
+  margin: 0 auto 48px;
+  padding: 0;
   text-align: center;
 }
 
@@ -97,10 +97,10 @@
   line-height: 2;
 }
 
-/* ----- 3. Rough intro ----- */
+/* ----- 3. Lead copy + rough intro + cases ----- */
 .dh-sec3 {
   background: #fff;
-  padding: 24px 0 48px;
+  padding: 48px 0 72px;
   text-align: center;
 }
 
@@ -117,19 +117,13 @@
 }
 
 .dh-sec3__text {
-  margin: 0 auto;
+  margin: 0 auto 56px;
   max-width: 760px;
   color: #444;
   font-size: 15px;
   font-weight: 500;
   line-height: 1.95;
   text-align: center;
-}
-
-/* ----- 4. Cases ----- */
-.dh-sec4 {
-  background: #fff;
-  padding: 12px 0 72px;
 }
 
 .dh-case {
@@ -276,7 +270,7 @@
   }
 
   .dh-sec2 {
-    padding: 24px 0 56px;
+    padding: 24px 0 16px;
   }
 
   .dh-sec2__stage {
@@ -290,13 +284,16 @@
   .dh-sec2__man {
     right: -2%;
     top: auto;
-    bottom: 42%;
+    bottom: 0;
     width: min(160px, 32vw);
   }
 
   .dh-sec2__copy {
-    margin-top: 48px;
-    padding: 0;
+    margin: 0 auto 40px;
+  }
+
+  .dh-sec3 {
+    padding: 32px 0 56px;
   }
 
   .dh-sec2__text,
@@ -355,7 +352,7 @@
   }
 
   .dh-sec2__copy {
-    margin-top: 40px;
+    margin: 0 auto 32px;
   }
 
   .dh-sec5__actions {
