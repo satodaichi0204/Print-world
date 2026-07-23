@@ -335,7 +335,7 @@
   }
 
   .dh-sec2__bubble {
-    width: min(340px, 92%);
+    width: min(300px, 83%);
   }
 
   .dh-sec2__copy {
@@ -345,5 +345,12 @@
   .dh-sec5__actions {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+@media (max-width: 425px) {
+  .dh-sec3 {
+    padding: 0 0 56px;
+    margin-top: -44px;
   }
 }
