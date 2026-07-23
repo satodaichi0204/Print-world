@@ -191,11 +191,12 @@
   display: block;
   width: min(560px, 100%);
   height: auto;
-  margin: 0 auto 28px;
+  margin: 0 auto 0;
+  transform: translateY(-84px);
 }
 
 .dh-sec5__heading {
-  margin: 0 auto 20px;
+  margin: -40px auto 20px;
   max-width: 720px;
   color: #111;
   font-size: clamp(20px, 1.8vw, 16px);
