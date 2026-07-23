@@ -234,14 +234,7 @@
   min-width: min(280px, 100%);
   min-height: 64px;
   padding: 14px 28px;
-  border-radius: 999px;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.dh-sec5__btn img {
+  border-radius: 10px;
   width: 28px;
   height: 28px;
   object-fit: contain;
