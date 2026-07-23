@@ -39,7 +39,6 @@
 
 .dh-sec2__frame {
   position: relative;
-  width: min(1120px, calc(100% - 48px));
   margin: 0 auto;
 }
 
@@ -53,7 +52,6 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: center 22%;
 }
@@ -260,8 +258,7 @@
     padding-top: 140px;
   }
 
-  .dh-inner,
-  .dh-sec2__frame {
+  .dh-inner {
     width: calc(100% - 40px);
   }
 
@@ -338,8 +335,7 @@
     padding-top: 120px;
   }
 
-  .dh-inner,
-  .dh-sec2__frame {
+  .dh-inner {
     width: calc(100% - 32px);
   }
 
