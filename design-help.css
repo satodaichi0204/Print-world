@@ -2,6 +2,9 @@
 
 .design-help-page {
   background: #fff;
+  /* Shared lock: stage/content track photo width from 1920 → 320 */
+  --dh-sec2-stage-max: 1400px;
+  --dh-sec2-s: min(1, calc((100vw * 0.78) / 1400px));
 }
 
 .design-help-page .fv-header {
@@ -34,10 +37,7 @@
 /* ----- 2. Photo + man + bubble + copy ----- */
 .dh-sec2 {
   background: #fff;
-  /* Design lock @ stage 1400px: man width 300 · top 300 · overlap 64 into photo right edge
-     Stage = min(1400px, 78vw) → scale 1 when viewport ≥ 1400/0.78 ≈ 1795px */
-  --dh-sec2-stage-max: 1400px;
-  --dh-sec2-s: min(1, calc((100vw * 0.78) / 1400px));
+  /* Design lock @ stage 1400px: man width 300 · top 300 · overlap 64 into photo right edge */
   padding: calc(180px * var(--dh-sec2-s)) 0 24px;
   overflow: visible;
 }
@@ -78,20 +78,20 @@
 .dh-sec2__copy {
   position: relative;
   z-index: 2;
-  width: min(760px, 100%);
-  margin: 0 0 48px;
+  width: 100%;
+  margin: 0 0 calc(48px * var(--dh-sec2-s));
   padding: 0;
   text-align: left;
 }
 
 .dh-sec2__heading {
-  margin: 0 0 28px;
+  margin: 0 0 calc(28px * var(--dh-sec2-s));
   line-height: 0;
 }
 
 .dh-sec2__bubble {
   display: block;
-  width: min(520px, 92%);
+  width: min(100%, calc(520px * var(--dh-sec2-s)));
   height: auto;
   margin: 0;
 }
@@ -110,24 +110,34 @@
   background: #fff;
   padding: 0 0 72px;
   text-align: left;
-  margin-top: -70px;
+  /* Pull up with same scale as hero so bubble/title keep 1920 lock to photo */
+  margin-top: calc(-70px * var(--dh-sec2-s));
+}
+
+/* Same left edge + width as .dh-sec2__frame (photo) */
+.dh-sec3 > .dh-inner {
+  width: min(var(--dh-sec2-stage-max), 78%);
+  margin: 0;
 }
 
 .dh-sec3__heading {
-  margin: 0 0 22px;
+  margin: 0 0 calc(22px * var(--dh-sec2-s));
   line-height: 0;
 }
 
 .dh-sec3__title-img {
   display: block;
-  width: min(720px, 100%);
+  width: min(100%, calc(720px * var(--dh-sec2-s)));
+  max-width: 100%;
   height: auto;
   margin: 0;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .dh-sec3__text {
-  margin: 0 0 56px;
-  max-width: 760px;
+  margin: 0 0 calc(56px * var(--dh-sec2-s));
+  max-width: none;
   color: #444;
   font-size: 15px;
   font-weight: 500;
@@ -279,12 +289,17 @@
   }
 
   .dh-sec2__copy {
-    margin: 0 auto 40px;
+    margin: 0 0 calc(40px * var(--dh-sec2-s));
   }
 
   .dh-sec3 {
     padding: 0 0 56px;
-    margin-top: -70px;
+    margin-top: calc(-70px * var(--dh-sec2-s));
+  }
+
+  .dh-sec3 > .dh-inner {
+    width: min(var(--dh-sec2-stage-max), 78%);
+    margin: 0;
   }
 
   .dh-sec2__text,
@@ -338,7 +353,7 @@
   }
 
   .dh-sec2__copy {
-    margin: 0 auto 32px;
+    margin: 0 0 calc(32px * var(--dh-sec2-s));
   }
 
   .dh-sec5__actions {
