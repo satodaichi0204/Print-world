@@ -184,7 +184,7 @@
 .dh-sec5 {
   background: #ececec;
   padding: 64px 0 88px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .dh-sec5__banner {
@@ -197,7 +197,7 @@
 .dh-sec5__heading {
   margin: 0 0 20px;
   color: #111;
-  font-size: clamp(20px, 2.8vw, 30px);
+  font-size: clamp(20px, 1.8vw, 30px);
   font-weight: 900;
   line-height: 1.5;
 }
@@ -209,7 +209,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.95;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .dh-sec5__actions {
