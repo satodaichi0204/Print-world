@@ -52,6 +52,7 @@
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: center 22%;
 }
