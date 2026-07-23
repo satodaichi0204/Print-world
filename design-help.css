@@ -194,7 +194,7 @@
   width: min(560px, 100%);
   height: auto;
   margin: 0 auto 0;
-  transform: translateY(calc(-120px * var(--dh-sec5-s)));
+  transform: translateY(calc(-84px * var(--dh-sec5-s)));
 }
 
 .dh-sec5__heading {
@@ -311,8 +311,7 @@
 
   .dh-sec5 {
     padding: 48px 0 64px;
-    /* 768 lock: -120px at 768 → scale to 320 */
-    --dh-sec5-s: calc(100vw / 768px);
+    --dh-sec5-s: min(1, calc((100vw - 40px) / 560px));
   }
 
   .dh-sec5__btn {
@@ -338,6 +337,10 @@
 
   .dh-inner {
     width: calc(100% - 32px);
+  }
+
+  .dh-sec5 {
+    --dh-sec5-s: min(1, calc((100vw - 32px) / 560px));
   }
 
   .dh-sec2__bubble {
