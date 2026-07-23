@@ -193,7 +193,10 @@
   display: block;
   width: min(560px, 100%);
   height: auto;
+  /* Align left edge with .dh-sec5__heading / __text (max-width: 720px, centered) */
   margin: 0 auto 0;
+  margin-left: max(0px, calc((100% - min(720px, 100%)) / 2));
+  margin-right: auto;
   transform: translateY(calc(-84px * var(--dh-sec5-s)));
 }
 
