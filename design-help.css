@@ -16,7 +16,7 @@
 /* ----- 1. Yellow title ----- */
 .dh-sec1 {
   background: #efce0a;
-  padding: 108px 0 72px;
+  padding: 0 0 56px;
 }
 
 .dh-sec1__inner {
@@ -34,65 +34,59 @@
 /* ----- 2. Photo + man + bubble + copy ----- */
 .dh-sec2 {
   background: #fff;
-  padding: 0 0 64px;
+  padding: 36px 0 72px;
+}
+
+.dh-sec2__frame {
+  position: relative;
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
 }
 
 .dh-sec2__stage {
   position: relative;
-  width: min(1120px, 100%);
-  margin: 0 auto;
-  min-height: 420px;
+  width: min(860px, 78%);
+  z-index: 1;
 }
 
 .dh-sec2__photo {
   display: block;
-  width: min(860px, 78%);
+  width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: center 22%;
 }
 
-.dh-sec2__bubble {
-  position: absolute;
-  left: 18%;
-  bottom: -4%;
-  z-index: 3;
-  width: min(380px, 46%);
-  height: auto;
-  pointer-events: none;
-}
-
 .dh-sec2__man {
   position: absolute;
-  right: 2%;
-  bottom: 0;
+  right: 0;
+  top: 48px;
   z-index: 4;
-  width: min(240px, 26vw);
+  width: min(300px, 28%);
   height: auto;
   pointer-events: none;
 }
 
 .dh-sec2__copy {
-  width: min(760px, calc(100% - 80px));
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
   margin: 56px auto 0;
+  padding: 0 12px;
   text-align: center;
 }
 
 .dh-sec2__heading {
   margin: 0 0 28px;
-  color: #111;
-  font-size: clamp(26px, 3.6vw, 42px);
-  font-weight: 900;
-  line-height: 1.45;
-  letter-spacing: 0.03em;
+  line-height: 0;
 }
 
-.dh-sec2__heading-em {
-  display: inline-block;
-  font-size: 1.45em;
-  line-height: 1;
-  letter-spacing: 0.06em;
+.dh-sec2__bubble {
+  display: block;
+  width: min(520px, 92%);
+  height: auto;
+  margin: 0 auto;
 }
 
 .dh-sec2__text {
@@ -256,23 +250,24 @@
 
 /* ----- Responsive ----- */
 @media (max-width: 1024px) {
-  .dh-sec2__stage {
-    min-height: 360px;
-  }
-
   .dh-sec2__man {
-    width: min(200px, 28vw);
+    width: min(240px, 26%);
+    top: 24px;
   }
 }
 
 @media (max-width: 768px) {
   .dh-sec1 {
-    padding: 96px 0 48px;
+    padding: 0 0 40px;
   }
 
-  .dh-sec1__inner,
+  .dh-sec1__inner {
+    width: calc(100% - 40px);
+    padding-top: 140px;
+  }
+
   .dh-inner,
-  .dh-sec2__copy {
+  .dh-sec2__frame {
     width: calc(100% - 40px);
   }
 
@@ -280,28 +275,28 @@
     width: min(480px, 92%);
   }
 
-  .dh-sec2__photo {
+  .dh-sec2 {
+    padding: 24px 0 56px;
+  }
+
+  .dh-sec2__stage {
     width: 100%;
   }
 
   .dh-sec2__bubble {
-    left: 50%;
-    bottom: -8%;
-    width: min(280px, 70%);
-    transform: translateX(-50%);
+    width: min(420px, 88%);
   }
 
   .dh-sec2__man {
-    right: 0;
-    width: min(150px, 34vw);
+    right: -2%;
+    top: auto;
+    bottom: 42%;
+    width: min(160px, 32vw);
   }
 
   .dh-sec2__copy {
-    margin-top: 72px;
-  }
-
-  .dh-sec2__heading {
-    font-size: 24px;
+    margin-top: 48px;
+    padding: 0;
   }
 
   .dh-sec2__text,
@@ -338,12 +333,16 @@
   }
 
   .dh-sec1 {
-    padding: 88px 0 36px;
+    padding: 0 0 32px;
   }
 
-  .dh-sec1__inner,
+  .dh-sec1__inner {
+    width: calc(100% - 32px);
+    padding-top: 120px;
+  }
+
   .dh-inner,
-  .dh-sec2__copy {
+  .dh-sec2__frame {
     width: calc(100% - 32px);
   }
 
@@ -352,16 +351,11 @@
   }
 
   .dh-sec2__bubble {
-    bottom: -12%;
-    width: min(240px, 78%);
+    width: min(340px, 92%);
   }
 
   .dh-sec2__copy {
-    margin-top: 56px;
-  }
-
-  .dh-sec2__heading {
-    font-size: 22px;
+    margin-top: 40px;
   }
 
   .dh-sec5__actions {
