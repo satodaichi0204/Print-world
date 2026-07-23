@@ -198,7 +198,7 @@
   margin: 0 auto 20px;
   max-width: 720px;
   color: #111;
-  font-size: clamp(20px, 1.8vw, 30px);
+  font-size: clamp(20px, 1.8vw, 16px);
   font-weight: 900;
   line-height: 1.5;
 }
