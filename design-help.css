@@ -108,8 +108,9 @@
 /* ----- 3. Lead copy + rough intro + cases ----- */
 .dh-sec3 {
   background: #fff;
-  padding: 48px 0 72px;
+  padding: 0 0 72px;
   text-align: left;
+  margin-top: -70px;
 }
 
 .dh-sec3__heading {
