@@ -34,22 +34,26 @@
 /* ----- 2. Photo + man + bubble + copy ----- */
 .dh-sec2 {
   background: #fff;
-  padding: 36px 0 24px;
-  /* Design lock @ stage 1400px: man right 284 · top 300 · width 300
+  /* Design lock @ stage 1400px: man width 300 · top 300 · overlap 64 into photo right edge
      Stage = min(1400px, 78vw) → scale 1 when viewport ≥ 1400/0.78 ≈ 1795px */
   --dh-sec2-stage-max: 1400px;
   --dh-sec2-s: min(1, calc((100vw * 0.78) / 1400px));
+  padding: calc(180px * var(--dh-sec2-s)) 0 24px;
+  overflow: visible;
 }
 
 .dh-sec2__frame {
   position: relative;
-  margin: 0 auto;
+  width: min(var(--dh-sec2-stage-max), 78%);
+  margin: 0;
+  overflow: visible;
 }
 
 .dh-sec2__stage {
   position: relative;
-  width: min(var(--dh-sec2-stage-max), 78%);
+  width: 100%;
   z-index: 1;
+  overflow: visible;
 }
 
 .dh-sec2__photo {
@@ -62,7 +66,8 @@
 
 .dh-sec2__man {
   position: absolute;
-  right: calc(284px * var(--dh-sec2-s));
+  /* Anchor to photo right edge; 64px design overlap into photo */
+  left: calc(100% - (64px * var(--dh-sec2-s)));
   top: calc(300px * var(--dh-sec2-s));
   z-index: 4;
   width: calc(300px * var(--dh-sec2-s));
