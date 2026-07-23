@@ -314,6 +314,10 @@
     --dh-sec5-s: min(1, calc((100vw - 40px) / 560px));
   }
 
+  .dh-sec5__banner {
+    transform: translateY(calc(-124px * 100vw / 768px));
+  }
+
   .dh-sec5__btn {
     min-width: min(100%, 320px);
     min-height: 56px;
