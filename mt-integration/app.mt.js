@@ -180,8 +180,13 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
   sec4Track.dataset.loopReady = "true";
 }
 
-// --- Global hamburger menu (all pages) ---
+// --- Global hamburger menu ---
+// DISABLED on MakerTown: MT provides its own SP menu (js-openSpMenu) on the same
+// hamburger button, and our site nav now lives in the ページテーマ「ナビ」Twig.
+// Generating a second site-menu here made two menus open from one tap. Keeping
+// the code (behind an early return) for reference / Vercel-only preview parity.
 (() => {
+  return; // MT: do not build the duplicate site-menu
   const menuBtn = document.querySelector(".menu-btn");
   if (!menuBtn) return;
 

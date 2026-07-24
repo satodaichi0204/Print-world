@@ -1,0 +1,135 @@
+<!-- ============================================================ -->
+<!-- Print World グローバルメニュー                                -->
+<!-- メーカータウン管理画面 → Mst → ページテーマ → 「ナビ」Twig に丸ごと貼付 -->
+<!-- 全ページ共通。自己完結の <style> 付きで MT の body* リセットに耐性あり -->
+<!-- ============================================================ -->
+<style>
+  .pw-nav {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 24px 20px 32px !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    text-align: left !important;
+    line-height: normal !important;
+  }
+  .pw-nav * { box-sizing: border-box !important; }
+
+  /* トップ（強調バー） */
+  .pw-nav__home {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 20px !important;
+    margin: 0 0 20px !important;
+    background: #efce0a !important;
+    color: #111111 !important;
+    font-size: 17px !important;
+    font-weight: 900 !important;
+    text-decoration: none !important;
+    border-radius: 12px !important;
+  }
+  .pw-nav__home::after { content: "\203A" !important; font-size: 20px !important; color: #111111 !important; }
+  .pw-nav__home:hover { filter: brightness(0.96) !important; }
+
+  /* グループ */
+  .pw-nav__groups {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 22px 32px !important;
+  }
+  .pw-nav__group { margin: 0 !important; }
+  .pw-nav__group-title {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 0 0 10px !important;
+    padding: 0 0 8px !important;
+    border-bottom: 2px solid #efce0a !important;
+    color: #111111 !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.08em !important;
+    background: transparent !important;
+  }
+  .pw-nav__group-title::before {
+    content: "" !important;
+    width: 8px !important; height: 8px !important;
+    border-radius: 50% !important;
+    background: #f15a24 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .pw-nav__list { list-style: none !important; margin: 0 !important; padding: 0 !important; }
+  .pw-nav__list li { margin: 0 !important; background: transparent !important; }
+  .pw-nav__link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    padding: 11px 6px !important;
+    border-bottom: 1px solid #eeeeee !important;
+    color: #222222 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    background: transparent !important;
+  }
+  .pw-nav__link::after { content: "\203A" !important; color: #bbbbbb !important; font-size: 16px !important; }
+  .pw-nav__link:hover { color: #f15a24 !important; padding-left: 12px !important; }
+  .pw-nav__link:hover::after { color: #f15a24 !important; }
+
+  @media (max-width: 600px) {
+    .pw-nav { padding: 16px 14px 24px !important; }
+    .pw-nav__groups { grid-template-columns: 1fr !important; gap: 18px !important; }
+  }
+</style>
+
+<nav class="pw-nav" aria-label="サイトメニュー">
+  <a class="pw-nav__home" href="/test-home">トップページ</a>
+
+  <div class="pw-nav__groups">
+    <div class="pw-nav__group">
+      <p class="pw-nav__group-title">商品</p>
+      <ul class="pw-nav__list">
+        <li><a class="pw-nav__link" href="/test-products-list">商品一覧</a></li>
+        <li><a class="pw-nav__link" href="/test-product-list">商品一覧（テスト）</a></li>
+        <li><a class="pw-nav__link" href="/test-product-detail">商品詳細（サンプル）</a></li>
+      </ul>
+    </div>
+
+    <div class="pw-nav__group">
+      <p class="pw-nav__group-title">ご利用ガイド</p>
+      <ul class="pw-nav__list">
+        <li><a class="pw-nav__link" href="/test-guide-flow">ご注文から到着までの流れ</a></li>
+        <li><a class="pw-nav__link" href="/test-design-tool">デザインツールの使い方</a></li>
+        <li><a class="pw-nav__link" href="/test-data-submission">データ入稿ガイド</a></li>
+        <li><a class="pw-nav__link" href="/test-print-method">プリント方法について</a></li>
+        <li><a class="pw-nav__link" href="/test-design-help">デザインにお悩みの方へ</a></li>
+        <li><a class="pw-nav__link" href="/test-delivery">納期・配送</a></li>
+        <li><a class="pw-nav__link" href="/test-faq">よくある質問</a></li>
+      </ul>
+    </div>
+
+    <div class="pw-nav__group">
+      <p class="pw-nav__group-title">会社案内・お問い合わせ</p>
+      <ul class="pw-nav__list">
+        <li><a class="pw-nav__link" href="/test-about">プリントワールドについて</a></li>
+        <li><a class="pw-nav__link" href="/test-company">会社概要</a></li>
+        <li><a class="pw-nav__link" href="/test-contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+
+    <div class="pw-nav__group">
+      <p class="pw-nav__group-title">規約・ポリシー</p>
+      <ul class="pw-nav__list">
+        <li><a class="pw-nav__link" href="/test-terms">利用規約</a></li>
+        <li><a class="pw-nav__link" href="/test-privacy">プライバシーポリシー</a></li>
+        <li><a class="pw-nav__link" href="/test-tokushoho">特定商取引法に基づく表示</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
