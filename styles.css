@@ -1185,8 +1185,8 @@ img {
 /* 769px以上のみ .sec5-people の位置を上書き（他の範囲は不変） */
 @media (min-width: 769px) {
   .sec5-people {
-    left: -6%;
-    transform: translateY(45%);
+    left: -4%;
+    transform: translateY(36%);
   }
 }
 
