@@ -150,8 +150,19 @@
   if (!menu) return;
 
   function isHamburger(t) { return t && t.closest && t.closest(".menu-btn"); }
-  function open() { menu.classList.add("is-open"); menu.setAttribute("aria-hidden", "false"); }
-  function close() { menu.classList.remove("is-open"); menu.setAttribute("aria-hidden", "true"); }
+  function open() {
+    menu.classList.add("is-open");
+    menu.setAttribute("aria-hidden", "false");
+    // Lock the background page scroll so only the drawer scrolls (no 2nd scrollbar)
+    document.documentElement.style.setProperty("overflow", "hidden", "important");
+    if (document.body) document.body.style.setProperty("overflow", "hidden", "important");
+  }
+  function close() {
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
+    document.documentElement.style.removeProperty("overflow");
+    if (document.body) document.body.style.removeProperty("overflow");
+  }
 
   // Intercept the hamburger (click + the down-events MT may use) in the capture
   // phase so MT's own SP menu never opens -- only our drawer does.
