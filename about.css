@@ -506,7 +506,6 @@
   }
 
   .ap-card:first-child .ap-card__media img {
-    transform: translateY(-12px);
     max-height: 180px;
   }
 
