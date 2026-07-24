@@ -181,6 +181,7 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
         <a class="site-menu__link" href="delivery.html">納期・配送について</a>
         <a class="site-menu__link" href="guide-print-method.html">プリント方法について</a>
         <a class="site-menu__link" href="faq.html">よくある質問</a>
+        <a class="site-menu__link" href="about.html">プリントワールドについて</a>
         <a class="site-menu__link" href="company.html">会社概要</a>
       </nav>
       <div class="site-menu__actions" aria-label="お問い合わせ">
