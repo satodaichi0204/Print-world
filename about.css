@@ -465,6 +465,29 @@
   }
 }
 
+/* Keep sec2 layout relationships exactly as at 1024px, down to 679px */
+@media (max-width: 1024px) and (min-width: 679px) {
+  .ap-sec2 {
+    zoom: calc(100vw / 1024px);
+  }
+
+  .ap-sec2__hero {
+    width: 976px;
+  }
+
+  .ap-sec2__people {
+    width: 354px;
+  }
+
+  .ap-sec2__title {
+    width: min(640px, 52%);
+  }
+
+  .ap-sec2__body {
+    width: 976px;
+  }
+}
+
 @media (max-width: 768px) {
   .ap-inner,
   .ap-hero__inner {
