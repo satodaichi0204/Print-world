@@ -6169,24 +6169,6 @@ body {
   background-color: transparent !important;
 }
 
-/* The pointing "man" cut-out (dh-sec2__man). Its native size/position use
-   calc(...*--dh-sec2-s) where --dh-sec2-s is derived from 100vw. On MT that vw
-   resolves wrong (~330px), so the man renders tiny and mis-placed. Re-express
-   size/position as PERCENTAGES of the stage (its positioned container) — no vw,
-   no custom property — which is mathematically identical to the original at the
-   1400px design stage (width 300/1400, left 100%-64/1400, top 300/photoHeight).
-   Robust on both Vercel and MT. */
-.dh-sec2__man {
-  left: 95.43% !important;   /* 100% - 64px/1400px overlap into photo */
-  top: 41.4% !important;     /* 300px / 724px photo height at stage 1400 */
-  right: auto !important;    /* MT sets right/bottom on img -> neutralise them, */
-  bottom: auto !important;   /* else top+bottom both fixed squash the height */
-  width: 21.43% !important;  /* 300px / 1400px stage */
-  height: auto !important;
-  aspect-ratio: 482 / 1124 !important; /* force correct height from width */
-  max-width: none !important;
-}
-
 /* Gray "case" label pill (h3 with direct text -> no descendant fix needed) */
 .dh-case__label {
   background: #e8e8e8 !important;
