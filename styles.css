@@ -6195,3 +6195,61 @@ body {
 .dh-sec5__btn span {
   color: #ffffff !important;
 }
+
+/* =========================================================================
+   Maker Town defense: about (プリントワールドについて) page
+   Restore band/card/button colors against MT's body*{background:#fff} reset.
+   ========================================================================= */
+/* Hero yellow title band (desktop); native turns it off (white) at <=768. */
+.ap-hero {
+  background: #efce0a !important;
+}
+.ap-hero * {
+  background-color: transparent !important;
+}
+@media (max-width: 768px) {
+  .ap-hero {
+    background: #ffffff !important;
+  }
+}
+
+/* Sec2 green band; its inner divs/imgs cover it -> transparent-ize descendants,
+   then re-assert the white reason cards AFTER (equal specificity -> later wins). */
+.ap-sec2 {
+  background: #d3e283 !important;
+}
+.ap-sec2 * {
+  background-color: transparent !important;
+}
+.ap-card {
+  background: #ffffff !important;
+}
+
+/* Guide arrow dark circle + white glyph */
+.ap-guide-arrow {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* Sec5 contact buttons: colored bg + white label; phone chip stays gray.
+   Transparent-ize inner icon/text so the button colour shows through. */
+.ap-method__btn--mail {
+  background: #d8001a !important;
+}
+.ap-method__btn--line {
+  background: #06c755 !important;
+}
+.ap-method__btn--visit {
+  background: #f15a24 !important;
+}
+.ap-method__btn,
+.ap-method__btn * {
+  color: #ffffff !important;
+}
+.ap-method__btn *,
+.ap-method__phone * {
+  background-color: transparent !important;
+}
+.ap-method__phone {
+  background: #ececec !important;
+}
