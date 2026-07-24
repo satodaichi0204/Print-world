@@ -66,11 +66,10 @@
 
 .dh-sec2__man {
   position: absolute;
-  /* Anchor to photo right edge; 64px design overlap into photo */
-  left: calc(100% - (64px * var(--dh-sec2-s)));
-  top: calc(300px * var(--dh-sec2-s));
+  left: calc(74% - (64px * var(--dh-sec2-s)));
+  top: calc(220px * var(--dh-sec2-s));
   z-index: 4;
-  width: calc(300px * var(--dh-sec2-s));
+  width: calc(1000px * var(--dh-sec2-s));
   height: auto;
   pointer-events: none;
 }
