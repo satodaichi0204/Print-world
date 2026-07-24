@@ -2138,7 +2138,7 @@
   .home-page .sec5-card__text {
     padding: calc(8px * var(--sec5-pc-s)) 0 calc(14px * var(--sec5-pc-s)) calc(4px * var(--sec5-pc-s));
     font-size: calc(18px * var(--sec5-pc-s));
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .home-page .sec5-cta {
