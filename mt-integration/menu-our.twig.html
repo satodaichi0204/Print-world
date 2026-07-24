@@ -145,13 +145,51 @@
   var menu = document.getElementById("pwMenu");
   if (!menu) return;
 
-  function open() { menu.classList.add("is-open"); menu.setAttribute("aria-hidden", "false"); }
-  function close() { menu.classList.remove("is-open"); menu.setAttribute("aria-hidden", "true"); }
   function isHamburger(t) { return t && t.closest && t.closest(".menu-btn"); }
 
-  // MT opens its own SP menu (an opaque grey curtain) on pointerdown/mousedown/
-  // touchstart -- which fire BEFORE click. Swallow those on the hamburger in the
-  // capture phase so MT's menu never opens; we then toggle our drawer on click.
+  // Class-agnostic: after opening, find any full-screen, high z-index, visible
+  // fixed/absolute element that is NOT our menu (= MT's SP-menu curtain, however
+  // it was triggered) and hide it. Restore on close. This survives CSS-driven
+  // curtains that event interception can't stop.
+  var hidden = [];
+  function hideCurtains() {
+    var els = document.body ? document.body.getElementsByTagName("*") : [];
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el === menu || menu.contains(el)) continue;
+      if (el.getAttribute && el.getAttribute("data-pw-hidden") === "1") continue;
+      var s = window.getComputedStyle(el);
+      if (s.position !== "fixed" && s.position !== "absolute") continue;
+      if (s.display === "none" || s.visibility === "hidden" || parseFloat(s.opacity) === 0) continue;
+      var z = parseInt(s.zIndex, 10);
+      if (isNaN(z) || z < 1) continue;
+      var r = el.getBoundingClientRect();
+      if (r.width >= window.innerWidth * 0.7 && r.height >= window.innerHeight * 0.7) {
+        el.setAttribute("data-pw-hidden", "1");
+        el.style.setProperty("display", "none", "important");
+        hidden.push(el);
+      }
+    }
+  }
+  function restoreCurtains() {
+    hidden.forEach(function (el) { el.style.removeProperty("display"); el.removeAttribute("data-pw-hidden"); });
+    hidden = [];
+  }
+
+  function open() {
+    menu.classList.add("is-open");
+    menu.setAttribute("aria-hidden", "false");
+    hideCurtains();
+    setTimeout(hideCurtains, 30);
+    setTimeout(hideCurtains, 150);
+  }
+  function close() {
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
+    restoreCurtains();
+  }
+
+  // Also try to stop MT's JS-based menu at the source (best effort).
   ["pointerdown", "mousedown", "touchstart"].forEach(function (type) {
     document.addEventListener(type, function (e) {
       if (isHamburger(e.target)) e.stopImmediatePropagation();
@@ -172,7 +210,6 @@
     if (e.key === "Escape" && menu.classList.contains("is-open")) close();
   });
 
-  // Close after navigating via a menu link
   menu.addEventListener("click", function (e) {
     if (e.target.closest(".pwm__link, .pwm__action")) close();
   });
