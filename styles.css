@@ -6179,8 +6179,11 @@ body {
 .dh-sec2__man {
   left: 95.43% !important;   /* 100% - 64px/1400px overlap into photo */
   top: 41.4% !important;     /* 300px / 724px photo height at stage 1400 */
+  right: auto !important;    /* MT sets right/bottom on img -> neutralise them, */
+  bottom: auto !important;   /* else top+bottom both fixed squash the height */
   width: 21.43% !important;  /* 300px / 1400px stage */
   height: auto !important;
+  aspect-ratio: 482 / 1124 !important; /* force correct height from width */
   max-width: none !important;
 }
 
