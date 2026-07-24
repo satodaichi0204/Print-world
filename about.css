@@ -494,10 +494,6 @@
     width: calc(100% - 40px);
   }
 
-  .ap-hero {
-    padding: 0 0 40px;
-  }
-
   .ap-hero__inner {
     padding-top: 140px;
   }
@@ -517,6 +513,13 @@
 
   .ap-method__photo {
     order: -1;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 320px) {
+  .ap-hero {
+    background: none;
+    padding: 0 0 56px;
   }
 }
 
