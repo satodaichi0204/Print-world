@@ -465,8 +465,8 @@
   }
 }
 
-/* Keep sec2 layout relationships exactly as at 1024px, down to 426px */
-@media (max-width: 1024px) and (min-width: 426px) {
+/* Keep sec2 layout relationships from 1024px down to 320px */
+@media (max-width: 1024px) and (min-width: 320px) {
   .ap-sec2 {
     zoom: calc(100vw / 1024px);
   }
