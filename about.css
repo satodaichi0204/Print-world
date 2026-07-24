@@ -486,15 +486,6 @@
   .ap-sec2__body {
     width: 976px;
   }
-
-  /* Counteract section zoom so card text stays at 1440 size */
-  .ap-card__title {
-    font-size: calc(28px * 1024px / 100vw);
-  }
-
-  .ap-card__text {
-    font-size: calc(16px * 1024px / 100vw);
-  }
 }
 
 @media (max-width: 768px) {
