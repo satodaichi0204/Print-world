@@ -133,7 +133,6 @@
 
 .ap-card:first-child .ap-card__media img {
   max-height: 230px;
-  transform: translateY(-28px);
 }
 
 .ap-card::before {
