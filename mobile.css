@@ -2886,11 +2886,16 @@
   }
 }
 
-/* TOP sec5 — 426–768: keep 425 layout; scale sizes up reasonably toward 768 (no vw blow-up). */
+/* TOP sec5 — 426–768: lock exact 768px composition; scale whole section to fit. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec5 {
-    /* Lock 768px composition through 426px (do not interpolate) */
+    /* Freeze 768px layout values, then scale the section to the viewport */
     --sec5-t: 1;
+    --sec5-lock-s: calc(100vw / 768px);
+    width: 768px;
+    max-width: none;
+    box-sizing: border-box;
+    zoom: var(--sec5-lock-s);
     overflow: visible;
     padding: 0 20px calc(60px + 36px * var(--sec5-t));
   }
@@ -2910,11 +2915,12 @@
     overflow: visible;
   }
 
-  .home-page .sec5-people {
-    left: calc(-16% + 2% * var(--sec5-t));
-    bottom: calc(-128px - 7px * var(--sec5-t));
-    width: calc(260px + 80px * var(--sec5-t));
-    transform: none;
+  .home-page .sec5-people,
+  .home-page .sec5-people-mobile {
+    left: -9%;
+    bottom: 0;
+    width: 55%;
+    transform: translateY(35%);
     z-index: 3;
   }
 
