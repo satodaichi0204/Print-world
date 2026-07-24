@@ -1,0 +1,173 @@
+<!-- ============================================================ -->
+<!-- Print World 当社メニュー（デモ用 / 全ページ共通）               -->
+<!-- 貼付先: 管理画面 → Mst → ページテーマ → 「ナビ」Twig に丸ごと貼付 -->
+<!--                                                              -->
+<!-- 仕組み: ハンバーガー(.menu-btn)のクリックをキャプチャ段階で横取りし、  -->
+<!-- MT標準SPメニューの起動を止めて、この当社ドロワーを開く。            -->
+<!-- 自己完結(HTML+CSS+JS)。MTの body* リセットに !important で耐性。     -->
+<!-- ============================================================ -->
+<style>
+  #pwMenu, #pwMenu * { box-sizing: border-box !important; }
+  #pwMenu {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147483000 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    text-align: left !important;
+    line-height: normal !important;
+  }
+  #pwMenu.is-open { visibility: visible !important; pointer-events: auto !important; }
+
+  #pwMenu .pwm__overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(0,0,0,0.45) !important;
+    opacity: 0 !important;
+    transition: opacity .2s ease !important;
+  }
+  #pwMenu.is-open .pwm__overlay { opacity: 1 !important; }
+
+  #pwMenu .pwm__panel {
+    position: absolute !important;
+    top: 0 !important; right: 0 !important;
+    height: 100% !important;
+    width: min(420px, 92vw) !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    transform: translateX(100%) !important;
+    transition: transform .24s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 16px 18px 22px !important;
+    overflow-y: auto !important;
+    box-shadow: -8px 0 28px rgba(0,0,0,0.16) !important;
+  }
+  #pwMenu.is-open .pwm__panel { transform: translateX(0) !important; }
+
+  #pwMenu .pwm__head {
+    display: flex !important; align-items: center !important; justify-content: space-between !important;
+    padding: 4px 2px 12px !important; flex: 0 0 auto !important;
+  }
+  #pwMenu .pwm__brand { font-size: 15px !important; font-weight: 900 !important; color: #111 !important; background: transparent !important; }
+  #pwMenu .pwm__close {
+    width: 40px !important; height: 40px !important; border: 0 !important; border-radius: 50% !important;
+    background: #f2f2f2 !important; color: #111 !important; font-size: 22px !important; line-height: 1 !important;
+    cursor: pointer !important;
+  }
+  #pwMenu .pwm__close:hover { background: #e6e6e6 !important; }
+
+  #pwMenu .pwm__group { margin: 6px 0 4px !important; }
+  #pwMenu .pwm__group-title {
+    display: flex !important; align-items: center !important; gap: 8px !important;
+    margin: 12px 2px 6px !important; padding-bottom: 6px !important;
+    border-bottom: 2px solid #efce0a !important;
+    font-size: 12px !important; font-weight: 900 !important; letter-spacing: 0.06em !important; color: #111 !important;
+    background: transparent !important;
+  }
+  #pwMenu .pwm__group-title::before { content:"" !important; width:7px !important; height:7px !important; border-radius:50% !important; background:#f15a24 !important; flex:0 0 auto !important; }
+
+  #pwMenu .pwm__link {
+    display: flex !important; align-items: center !important; justify-content: space-between !important;
+    padding: 12px 4px !important; border-bottom: 1px solid #eee !important;
+    color: #222 !important; font-size: 15px !important; font-weight: 600 !important; text-decoration: none !important;
+    background: transparent !important;
+  }
+  #pwMenu .pwm__link::after { content: "\203A" !important; color: #bbb !important; font-size: 16px !important; }
+  #pwMenu .pwm__link:hover { color: #f15a24 !important; padding-left: 10px !important; }
+  #pwMenu .pwm__link:hover::after { color: #f15a24 !important; }
+
+  #pwMenu .pwm__actions { display: grid !important; gap: 10px !important; margin-top: 18px !important; flex: 0 0 auto !important; }
+  #pwMenu .pwm__action {
+    display: flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important;
+    min-height: 52px !important; border-radius: 10px !important; text-decoration: none !important;
+    font-size: 15px !important; font-weight: 800 !important; color: #fff !important;
+  }
+  #pwMenu .pwm__action--phone { background: #333 !important; }
+  #pwMenu .pwm__action--mail  { background: #f15a24 !important; }
+  #pwMenu .pwm__action--line  { background: #06c755 !important; }
+  #pwMenu .pwm__action:hover { filter: brightness(1.06) !important; }
+</style>
+
+<div id="pwMenu" role="dialog" aria-modal="true" aria-label="サイトメニュー" aria-hidden="true">
+  <div class="pwm__overlay" data-pwm-close></div>
+  <div class="pwm__panel">
+    <div class="pwm__head">
+      <span class="pwm__brand">メニュー</span>
+      <button type="button" class="pwm__close" data-pwm-close aria-label="メニューを閉じる">&times;</button>
+    </div>
+
+    <a class="pwm__link" href="/test-home">トップページ</a>
+
+    <div class="pwm__group">
+      <div class="pwm__group-title">商品</div>
+      <a class="pwm__link" href="/test-products-list">商品一覧</a>
+      <a class="pwm__link" href="/test-product-list">商品一覧（テスト）</a>
+      <a class="pwm__link" href="/test-product-detail">商品詳細（サンプル）</a>
+    </div>
+
+    <div class="pwm__group">
+      <div class="pwm__group-title">ご利用ガイド</div>
+      <a class="pwm__link" href="/test-guide-flow">ご注文から到着までの流れ</a>
+      <a class="pwm__link" href="/test-design-tool">デザインツールの使い方</a>
+      <a class="pwm__link" href="/test-data-submission">データ入稿ガイド</a>
+      <a class="pwm__link" href="/test-print-method">プリント方法について</a>
+      <a class="pwm__link" href="/test-design-help">デザインにお悩みの方へ</a>
+      <a class="pwm__link" href="/test-delivery">納期・配送</a>
+      <a class="pwm__link" href="/test-faq">よくある質問</a>
+    </div>
+
+    <div class="pwm__group">
+      <div class="pwm__group-title">会社案内・お問い合わせ</div>
+      <a class="pwm__link" href="/test-about">プリントワールドについて</a>
+      <a class="pwm__link" href="/test-company">会社概要</a>
+      <a class="pwm__link" href="/test-contact">お問い合わせ</a>
+    </div>
+
+    <div class="pwm__group">
+      <div class="pwm__group-title">規約・ポリシー</div>
+      <a class="pwm__link" href="/test-terms">利用規約</a>
+      <a class="pwm__link" href="/test-privacy">プライバシーポリシー</a>
+      <a class="pwm__link" href="/test-tokushoho">特定商取引法に基づく表示</a>
+    </div>
+
+    <div class="pwm__actions">
+      <a class="pwm__action pwm__action--phone" href="tel:0566785885">電話する</a>
+      <a class="pwm__action pwm__action--mail" href="/test-contact">お問い合わせ</a>
+      <a class="pwm__action pwm__action--line" href="#" rel="noopener">LINE相談</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var menu = document.getElementById("pwMenu");
+  if (!menu) return;
+
+  function open() { menu.classList.add("is-open"); menu.setAttribute("aria-hidden", "false"); document.documentElement.style.overflow = "hidden"; }
+  function close() { menu.classList.remove("is-open"); menu.setAttribute("aria-hidden", "true"); document.documentElement.style.overflow = ""; }
+
+  // Intercept the hamburger in the CAPTURE phase so MT's own SP-menu handler
+  // (bound to the same .menu-btn) never fires -> only our drawer opens.
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest(".menu-btn");
+    if (btn) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (menu.classList.contains("is-open")) { close(); } else { open(); }
+      return;
+    }
+    if (e.target.closest && e.target.closest("[data-pwm-close]")) { close(); }
+  }, true);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && menu.classList.contains("is-open")) close();
+  });
+
+  // Close after navigating via a menu link
+  menu.addEventListener("click", function (e) {
+    if (e.target.closest(".pwm__link, .pwm__action")) close();
+  });
+})();
+</script>
