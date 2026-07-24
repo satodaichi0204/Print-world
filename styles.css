@@ -6169,13 +6169,17 @@ body {
   background-color: transparent !important;
 }
 
-/* The pointing "man" cut-out (dh-sec2__man) is absolutely positioned and sized
-   with width:calc(300px*s)+height:auto. MT's image reset (img{width/height ...
-   !important}) overrides our non-important width/height, so on MT the man
-   renders tiny with a broken aspect ratio. Re-pin its size + ratio with
-   !important (var fallback = 1 for wide screens) so it matches Vercel. */
+/* The pointing "man" cut-out (dh-sec2__man). Its native size/position use
+   calc(...*--dh-sec2-s) where --dh-sec2-s is derived from 100vw. On MT that vw
+   resolves wrong (~330px), so the man renders tiny and mis-placed. Re-express
+   size/position as PERCENTAGES of the stage (its positioned container) — no vw,
+   no custom property — which is mathematically identical to the original at the
+   1400px design stage (width 300/1400, left 100%-64/1400, top 300/photoHeight).
+   Robust on both Vercel and MT. */
 .dh-sec2__man {
-  width: calc(300px * var(--dh-sec2-s, 1)) !important;
+  left: 95.43% !important;   /* 100% - 64px/1400px overlap into photo */
+  top: 41.4% !important;     /* 300px / 724px photo height at stage 1400 */
+  width: 21.43% !important;  /* 300px / 1400px stage */
   height: auto !important;
   max-width: none !important;
 }
