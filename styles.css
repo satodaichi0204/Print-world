@@ -6133,3 +6133,49 @@ body {
 .faq-item__icon {
   background: #ef7a1a !important;
 }
+
+/* =========================================================================
+   Maker Town defense: design-help page
+   Restore band/label/button colors against MT's body*{background:#fff} reset.
+   ========================================================================= */
+/* Sec1 yellow title band (desktop). MT's body*{bg:#fff} also paints the inner
+   div white, covering the band -> transparent-ize descendants. Native turns the
+   band white at <=768, so mobile keeps white (below). */
+.dh-sec1 {
+  background: #efce0a !important;
+}
+.dh-sec1 * {
+  background-color: transparent !important;
+}
+@media (max-width: 768px) {
+  .dh-sec1 {
+    background: #ffffff !important;
+  }
+}
+
+/* Gray "case" label pill (h3 with direct text -> no descendant fix needed) */
+.dh-case__label {
+  background: #e8e8e8 !important;
+}
+
+/* CTA section gray band; inner divs/heading/text cover it -> transparent-ize
+   descendants so the gray shows through. */
+.dh-sec5 {
+  background: #ececec !important;
+}
+.dh-sec5 * {
+  background-color: transparent !important;
+}
+/* Re-assert CTA buttons AFTER the transparent rule (equal specificity -> later
+   wins): colored backgrounds + white label text (MT forces text #000, and the
+   inner <span> is targeted directly by body* so it needs its own white rule). */
+.dh-sec5__btn--line {
+  background: #06c755 !important;
+}
+.dh-sec5__btn--mail {
+  background: #d3122a !important;
+}
+.dh-sec5__btn,
+.dh-sec5__btn span {
+  color: #ffffff !important;
+}
