@@ -2996,7 +2996,7 @@
 
   .home-page .sec5-card__text {
     padding: 10px 0 12px;
-    font-size: calc(12px + 1px * var(--sec5-t));
+    font-size: calc(18px + 2.9px * var(--sec5-t));
     line-height: 1.55;
   }
 
