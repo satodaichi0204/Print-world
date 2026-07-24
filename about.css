@@ -34,7 +34,7 @@
 /* ----- Sec1: team ----- */
 .ap-sec1 {
   background: #fff;
-  padding: 80px 0 72px;
+  padding: 80px 0 40px;
 }
 
 .ap-sec1__photo {
@@ -52,7 +52,7 @@
   font-size: clamp(22px, 2.4vw, 32px);
   font-weight: 900;
   line-height: 1.45;
-  text-align: left;
+  text-align: center;
 }
 
 .ap-sec1__text {
@@ -62,49 +62,53 @@
   font-size: 15px;
   font-weight: 500;
   line-height: 1.9;
-  text-align: left;
+  text-align: center;
 }
 
 /* ----- Sec2: reasons (sec5-like) ----- */
 .ap-sec2 {
-  background: #cfe28a;
+  background: #d3e283;
   padding: 0 0 72px;
   overflow: visible;
 }
 
 .ap-sec2__hero {
   position: relative;
-  width: min(1200px, calc(100% - 48px));
+  width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
-  min-height: 220px;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 12px;
-  padding-top: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 20px;
+  padding: 36px 0 0;
+  min-height: clamp(320px, 42vw, 480px);
 }
 
 .ap-sec2__people {
-  width: min(380px, 42%);
+  width: min(560px, 50%);
   height: auto;
   flex-shrink: 0;
   position: relative;
-  z-index: 2;
-  margin-bottom: -28px;
+  z-index: 4;
+  margin: 0 0 -120px;
+  align-self: flex-end;
 }
 
 .ap-sec2__title {
-  width: min(640px, 58%);
+  width: min(640px, 52%);
   height: auto;
   position: relative;
-  z-index: 1;
-  margin-bottom: 24px;
+  z-index: 3;
+  margin: 0 0 80px;
+  flex-shrink: 1;
 }
 
 .ap-sec2__body {
-  width: min(1200px, calc(100% - 48px));
+  position: relative;
+  z-index: 5;
+  width: min(1000px, calc(100% - 48px));
   margin: 0 auto;
-  padding-top: 24px;
+  padding-top: 0;
 }
 
 .ap-sec2__grid {
@@ -115,8 +119,6 @@
   grid-template-columns: 1fr;
   gap: 22px;
   counter-reset: apcard;
-  max-width: 980px;
-  margin-inline: auto;
 }
 
 .ap-card {
@@ -132,6 +134,11 @@
   overflow: visible;
 }
 
+.ap-card:first-child .ap-card__media img {
+  max-height: 230px;
+  transform: translateY(-28px);
+}
+
 .ap-card::before {
   content: none;
 }
@@ -142,6 +149,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: visible;
 }
 
 .ap-card__media img {
@@ -486,16 +494,24 @@
     align-items: center;
     text-align: center;
     min-height: 0;
+    padding-top: 24px;
   }
 
   .ap-sec2__people {
-    width: min(260px, 70%);
-    margin-bottom: -12px;
+    width: min(300px, 78%);
+    margin: 0 0 -40px;
+    order: 1;
   }
 
   .ap-sec2__title {
     width: min(520px, 100%);
-    margin-bottom: 8px;
+    margin: 0 0 12px;
+    order: 0;
+  }
+
+  .ap-card:first-child .ap-card__media img {
+    transform: translateY(-12px);
+    max-height: 180px;
   }
 
   .ap-card {
