@@ -14,6 +14,10 @@
     z-index: 2147483000 !important;
     pointer-events: none !important;
     visibility: hidden !important;
+    /* MT's `body *{background-color:#fff!important}` was painting this full-screen
+       container white, covering the page (grey = our overlay over that white).
+       Force it transparent so the real page shows through behind the drawer. */
+    background: transparent !important;
     font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     text-align: left !important;
     line-height: normal !important;
@@ -146,50 +150,11 @@
   if (!menu) return;
 
   function isHamburger(t) { return t && t.closest && t.closest(".menu-btn"); }
+  function open() { menu.classList.add("is-open"); menu.setAttribute("aria-hidden", "false"); }
+  function close() { menu.classList.remove("is-open"); menu.setAttribute("aria-hidden", "true"); }
 
-  // Class-agnostic: after opening, find any full-screen, high z-index, visible
-  // fixed/absolute element that is NOT our menu (= MT's SP-menu curtain, however
-  // it was triggered) and hide it. Restore on close. This survives CSS-driven
-  // curtains that event interception can't stop.
-  var hidden = [];
-  function hideCurtains() {
-    var els = document.body ? document.body.getElementsByTagName("*") : [];
-    for (var i = 0; i < els.length; i++) {
-      var el = els[i];
-      if (el === menu || menu.contains(el)) continue;
-      if (el.getAttribute && el.getAttribute("data-pw-hidden") === "1") continue;
-      var s = window.getComputedStyle(el);
-      if (s.position !== "fixed" && s.position !== "absolute") continue;
-      if (s.display === "none" || s.visibility === "hidden" || parseFloat(s.opacity) === 0) continue;
-      var z = parseInt(s.zIndex, 10);
-      if (isNaN(z) || z < 1) continue;
-      var r = el.getBoundingClientRect();
-      if (r.width >= window.innerWidth * 0.7 && r.height >= window.innerHeight * 0.7) {
-        el.setAttribute("data-pw-hidden", "1");
-        el.style.setProperty("display", "none", "important");
-        hidden.push(el);
-      }
-    }
-  }
-  function restoreCurtains() {
-    hidden.forEach(function (el) { el.style.removeProperty("display"); el.removeAttribute("data-pw-hidden"); });
-    hidden = [];
-  }
-
-  function open() {
-    menu.classList.add("is-open");
-    menu.setAttribute("aria-hidden", "false");
-    hideCurtains();
-    setTimeout(hideCurtains, 30);
-    setTimeout(hideCurtains, 150);
-  }
-  function close() {
-    menu.classList.remove("is-open");
-    menu.setAttribute("aria-hidden", "true");
-    restoreCurtains();
-  }
-
-  // Also try to stop MT's JS-based menu at the source (best effort).
+  // Intercept the hamburger (click + the down-events MT may use) in the capture
+  // phase so MT's own SP menu never opens -- only our drawer does.
   ["pointerdown", "mousedown", "touchstart"].forEach(function (type) {
     document.addEventListener(type, function (e) {
       if (isHamburger(e.target)) e.stopImmediatePropagation();
