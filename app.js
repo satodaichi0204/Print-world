@@ -183,6 +183,10 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
         <a class="site-menu__link" href="faq.html">よくある質問</a>
         <a class="site-menu__link" href="about.html">プリントワールドについて</a>
         <a class="site-menu__link" href="company.html">会社概要</a>
+        <a class="site-menu__link" href="contact.html">お問い合わせ</a>
+        <a class="site-menu__link" href="terms.html">利用規約</a>
+        <a class="site-menu__link" href="privacy.html">プライバシーポリシー</a>
+        <a class="site-menu__link" href="tokushoho.html">特定商取引法に基づく表示</a>
       </nav>
       <div class="site-menu__actions" aria-label="お問い合わせ">
         <a class="site-menu__action site-menu__action--phone" href="tel:0566785885">電話する</a>
