@@ -2149,10 +2149,18 @@
   }
 }
 
-/* TOP sec5 — 769–1024: 2 cards per row only */
+/* TOP sec5 — 769–1024: 2 cards per row; shrink media so text has more room */
 @media (min-width: 769px) and (max-width: 1024px) {
   .home-page .sec5-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-page .sec5-card__media {
+    flex: 0 0 32%;
+  }
+
+  .home-page .sec5-card__media img {
+    max-height: calc(180px * var(--sec5-pc-s));
   }
 }
 
