@@ -2960,7 +2960,7 @@
   }
 
   .home-page .sec5-intro__body {
-    font-size: calc(13px + 1px * var(--sec5-t));
+    font-size: calc(16px + 4px * var(--sec5-t));
     line-height: 1.7;
   }
 
