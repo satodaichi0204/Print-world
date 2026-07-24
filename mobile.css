@@ -2889,7 +2889,8 @@
 /* TOP sec5 — 426–768: keep 425 layout; scale sizes up reasonably toward 768 (no vw blow-up). */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec5 {
-    --sec5-t: calc((100vw - 426px) / (768px - 426px));
+    /* Lock 768px composition through 426px (do not interpolate) */
+    --sec5-t: 1;
     overflow: visible;
     padding: 0 20px calc(60px + 36px * var(--sec5-t));
   }
