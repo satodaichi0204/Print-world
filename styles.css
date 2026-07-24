@@ -6153,6 +6153,22 @@ body {
   }
 }
 
+/* Sec3 overlaps the hero photo (margin-top:-70px) so the bubble/catch-copy PNG
+   floats over it. In the original these elements are transparent; MT's
+   body*{bg:#fff} paints them white, forming an opaque white box over the photo.
+   Keep sec3 + the copy/heading wrappers + the text images transparent so the
+   photo shows behind the bubble. Below the photo it reveals the white body, so
+   the rest of the section still looks white. (.dh-case__label / .dh-sec5 keep
+   their own colours via their explicit rules.) */
+.dh-sec3,
+.dh-sec2__copy,
+.dh-sec2__heading,
+.dh-sec2__bubble,
+.dh-sec3__heading,
+.dh-sec3__title-img {
+  background-color: transparent !important;
+}
+
 /* Gray "case" label pill (h3 with direct text -> no descendant fix needed) */
 .dh-case__label {
   background: #e8e8e8 !important;
