@@ -2162,6 +2162,12 @@
   .home-page .sec5-card__media img {
     max-height: calc(180px * var(--sec5-pc-s));
   }
+
+  .home-page .sec5-card__text {
+    padding: calc(8px * var(--sec5-pc-s)) 0 calc(14px * var(--sec5-pc-s)) calc(4px * var(--sec5-pc-s));
+    font-size: calc(25px * var(--sec5-pc-s));
+    font-weight: 600;
+  }
 }
 
 /* TOP sec6 — 769+: proportional scale from 1920px design lock (same as FV). */
