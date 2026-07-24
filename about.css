@@ -521,6 +521,10 @@
     background: none;
     padding: 0 0 56px;
   }
+
+  .ap-sec3 .sec6-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
