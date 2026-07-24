@@ -1217,9 +1217,9 @@ img {
 /* 425px〜320px の範囲だけ .sec5-people-mobile の位置・サイズを上書き（他の範囲は不変） */
 @media (min-width: 320px) and (max-width: 425px) {
   .sec5-people-mobile {
-    left: -11%;
-    width: 53%;
-    transform: translateY(16%);
+    left: -6%;
+    width: 56%;
+    transform: translateY(9%);
   }
 }
 

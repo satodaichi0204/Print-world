@@ -3298,9 +3298,9 @@
 
   .home-page .sec5-maincopy {
     position: absolute;
-    left: 21%;
+    left: 27%;
     top: calc(-50px * var(--sec5-sp-s));
-    width: min(73vw, calc(292px * var(--sec5-sp-s)));
+    width: min(73vw, calc(240px * var(--sec5-sp-s)));
     max-width: none;
     margin: 0;
     transform: none;
@@ -3319,7 +3319,7 @@
   }
 
   .home-page .sec5-intro {
-    margin: calc(-40px * var(--sec5-sp-s)) auto calc(34px * var(--sec5-sp-s));
+    margin: calc(-96px * var(--sec5-sp-s)) auto calc(34px * var(--sec5-sp-s));
     padding: calc(57px * var(--sec5-sp-s)) calc(33px * var(--sec5-sp-s));
     border-radius: calc(17px * var(--sec5-sp-s));
     max-width: none;
