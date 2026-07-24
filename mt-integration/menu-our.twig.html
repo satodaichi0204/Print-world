@@ -23,7 +23,7 @@
   #pwMenu .pwm__overlay {
     position: absolute !important;
     inset: 0 !important;
-    background: rgba(0,0,0,0.45) !important;
+    background: rgba(0,0,0,0.28) !important;
     opacity: 0 !important;
     transition: opacity .2s ease !important;
   }
@@ -145,14 +145,21 @@
   var menu = document.getElementById("pwMenu");
   if (!menu) return;
 
-  function open() { menu.classList.add("is-open"); menu.setAttribute("aria-hidden", "false"); document.documentElement.style.overflow = "hidden"; }
-  function close() { menu.classList.remove("is-open"); menu.setAttribute("aria-hidden", "true"); document.documentElement.style.overflow = ""; }
+  function open() { menu.classList.add("is-open"); menu.setAttribute("aria-hidden", "false"); }
+  function close() { menu.classList.remove("is-open"); menu.setAttribute("aria-hidden", "true"); }
+  function isHamburger(t) { return t && t.closest && t.closest(".menu-btn"); }
 
-  // Intercept the hamburger in the CAPTURE phase so MT's own SP-menu handler
-  // (bound to the same .menu-btn) never fires -> only our drawer opens.
+  // MT opens its own SP menu (an opaque grey curtain) on pointerdown/mousedown/
+  // touchstart -- which fire BEFORE click. Swallow those on the hamburger in the
+  // capture phase so MT's menu never opens; we then toggle our drawer on click.
+  ["pointerdown", "mousedown", "touchstart"].forEach(function (type) {
+    document.addEventListener(type, function (e) {
+      if (isHamburger(e.target)) e.stopImmediatePropagation();
+    }, true);
+  });
+
   document.addEventListener("click", function (e) {
-    var btn = e.target.closest && e.target.closest(".menu-btn");
-    if (btn) {
+    if (isHamburger(e.target)) {
       e.preventDefault();
       e.stopImmediatePropagation();
       if (menu.classList.contains("is-open")) { close(); } else { open(); }
