@@ -5967,11 +5967,44 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
    .fv-header__links is a filter → MT never stripped it). */
 .fv-header .phone-box { background: #fff !important; }
 
-/* Hamburger button: DESKTOP (769–1920) = orange square + white bars (standard).
+/* Fix: same transparent-ize wiped the orange cart/login/menu cluster and the
+   white cart glyph (mask uses background-color). Re-assert fills. */
+.fv-header .fv-header__util {
+  background: #f15a24 !important;
+  background-color: #f15a24 !important;
+}
+.fv-header .fv-cart-icon {
+  background-color: #fff !important;
+}
+.fv-header .fv-cart-link,
+.fv-header .fv-cart-label {
+  color: #fff !important;
+}
+.fv-header .fv-header__util .header__login .btn--login {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+.fv-header .fv-header__util #js-cart-count {
+  background-color: #fff !important;
+  color: #f15a24 !important;
+}
+
+/* Hamburger: DESKTOP with util cluster = transparent button + white bars on
+   the shared orange util. Without util (legacy), orange square + white bars.
    ≤768 intentionally untouched → stays transparent button + orange bars. */
 @media (min-width: 769px) {
   .fv-header .menu-btn { background: #f15a24 !important; }
   .fv-header .menu-btn span { background: #fff !important; }
+  .fv-header .fv-header__util .menu-btn {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+  .fv-header .fv-header__util .menu-btn span {
+    background: #fff !important;
+    background-color: #fff !important;
+  }
 }
 
 /* =============================================================================
