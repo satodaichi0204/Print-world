@@ -138,8 +138,8 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-header__actions {
-    align-items: stretch;
-    gap: 0;
+    align-items: center;
+    gap: 8px;
   }
 
   .home-page .fv-header__main {
@@ -148,8 +148,8 @@ HIT HIT HIT /* =================================================================
 
   .home-page .fv-header__compact {
     display: flex;
-    align-items: flex-end;
-    gap: 2px;
+    align-items: center;
+    gap: 8px;
     margin: 0;
     padding: 0;
     height: auto;
@@ -160,15 +160,19 @@ HIT HIT HIT /* =================================================================
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    gap: 3px;
-    min-width: 44px;
-    padding: 2px 4px 0;
+    justify-content: center;
+    gap: 0;
+    min-width: 0;
+    padding: 0;
     text-decoration: none;
     font-size: 10px;
     font-weight: 700;
     line-height: 1.1;
     white-space: nowrap;
+  }
+
+  .home-page .fv-compact-action span {
+    display: none;
   }
 
   .home-page .fv-compact-action img {
@@ -190,8 +194,8 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-header .menu-btn {
-    width: 48px;
-    height: 56px;
+    width: 28px;
+    height: 28px;
     gap: 5px;
     margin: 0;
     background: transparent;
@@ -199,14 +203,14 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-header .menu-btn span {
-    width: 22px;
+    width: 100%;
     height: 3px;
-    margin: 0 auto;
+    margin: 0;
     background: #f15a24;
   }
 
   .home-page .fv-header .menu-btn:hover span {
-    width: 22px;
+    width: 100%;
   }
 
   .home-page .fv-header__left {
@@ -1700,18 +1704,23 @@ HIT HIT HIT /* =================================================================
 
   .home-page .fv-header__actions {
     align-items: center;
+    gap: calc(8px * var(--fv-header-s));
   }
 
   .home-page .fv-header__compact {
-    align-items: flex-end;
-    gap: calc(10px * var(--fv-header-s));
+    align-items: center;
+    gap: calc(8px * var(--fv-header-s));
   }
 
   .home-page .fv-compact-action {
-    min-width: calc(46px * var(--fv-header-s));
-    gap: calc(5px * var(--fv-header-s));
-    padding: 0 calc(3px * var(--fv-header-s));
+    min-width: 0;
+    gap: 0;
+    padding: 0;
     font-size: calc(10px * var(--fv-header-s));
+  }
+
+  .home-page .fv-compact-action span {
+    display: none;
   }
 
   .home-page .fv-compact-action img {
@@ -1720,14 +1729,15 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-header .menu-btn {
-    width: calc(48px * var(--fv-header-s));
-    height: calc(56px * var(--fv-header-s));
+    width: calc(28px * var(--fv-header-s));
+    height: calc(28px * var(--fv-header-s));
     gap: calc(5px * var(--fv-header-s));
   }
 
   .home-page .fv-header .menu-btn span {
-    width: calc(22px * var(--fv-header-s));
+    width: 100%;
     height: calc(3px * var(--fv-header-s));
+    margin: 0;
   }
 }
 
@@ -3933,25 +3943,26 @@ HIT HIT HIT /* =================================================================
   }
 
   .guide-flow-page .fv-header__util {
-    height: 96px;
-    padding: 0 18px 0 16px;
-    gap: 12px;
-    border-radius: 0 0 0 18px;
+    height: auto;
+    padding: 0;
+    gap: 8px;
+    background: transparent;
+    border-radius: 0;
   }
 
   .guide-flow-page .fv-header__util .menu-btn {
-    width: 32px;
-    height: 48px;
-    gap: 7px;
+    width: 28px;
+    height: 28px;
+    gap: 5px;
     background: transparent;
     border-radius: 0;
   }
 
   .guide-flow-page .fv-header__util .menu-btn span {
-    height: 4px;
+    height: 3px;
     width: 100%;
     margin: 0;
-    background: #fff;
+    background: #f15a24;
   }
 
   /* Tap to zoom flow screenshots (see app.js) */
@@ -4371,25 +4382,26 @@ HIT HIT HIT /* =================================================================
   }
 
   .guide-design-tool-page .fv-header__util {
-    height: 96px;
-    padding: 0 18px 0 16px;
-    gap: 12px;
-    border-radius: 0 0 0 18px;
+    height: auto;
+    padding: 0;
+    gap: 8px;
+    background: transparent;
+    border-radius: 0;
   }
 
   .guide-design-tool-page .fv-header__util .menu-btn {
-    width: 32px;
-    height: 48px;
-    gap: 7px;
+    width: 28px;
+    height: 28px;
+    gap: 5px;
     background: transparent;
     border-radius: 0;
   }
 
   .guide-design-tool-page .fv-header__util .menu-btn span {
-    height: 4px;
+    height: 3px;
     width: 100%;
     margin: 0;
-    background: #fff;
+    background: #f15a24;
   }
 
   .guide-design-tool-page .design-simulator__screen img,
@@ -4597,25 +4609,26 @@ HIT HIT HIT /* =================================================================
   }
 
   .guide-data-submission-page .fv-header__util {
-    height: 96px;
-    padding: 0 18px 0 16px;
-    gap: 12px;
-    border-radius: 0 0 0 18px;
+    height: auto;
+    padding: 0;
+    gap: 8px;
+    background: transparent;
+    border-radius: 0;
   }
 
   .guide-data-submission-page .fv-header__util .menu-btn {
-    width: 32px;
-    height: 48px;
-    gap: 7px;
+    width: 28px;
+    height: 28px;
+    gap: 5px;
     background: transparent;
     border-radius: 0;
   }
 
   .guide-data-submission-page .fv-header__util .menu-btn span {
-    height: 4px;
+    height: 3px;
     width: 100%;
     margin: 0;
-    background: #fff;
+    background: #f15a24;
   }
 
   .guide-data-submission-page .data-submission-guide__file-type-img,
@@ -4878,25 +4891,26 @@ HIT HIT HIT /* =================================================================
   }
 
   .guide-print-method-page .fv-header__util {
-    height: 96px;
-    padding: 0 18px 0 16px;
-    gap: 12px;
-    border-radius: 0 0 0 18px;
+    height: auto;
+    padding: 0;
+    gap: 8px;
+    background: transparent;
+    border-radius: 0;
   }
 
   .guide-print-method-page .fv-header__util .menu-btn {
-    width: 32px;
-    height: 48px;
-    gap: 7px;
+    width: 28px;
+    height: 28px;
+    gap: 5px;
     background: transparent;
     border-radius: 0;
   }
 
   .guide-print-method-page .fv-header__util .menu-btn span {
-    height: 4px;
+    height: 3px;
     width: 100%;
     margin: 0;
-    background: #fff;
+    background: #f15a24;
   }
 
   .guide-print-method-page .print-method-feature__icon img,
@@ -7581,7 +7595,7 @@ html.is-guide-flow-zoom-open body {
     .fv-header__actions {
     display: flex;
     align-items: center;
-    gap: 0;
+    gap: calc(8px * var(--sp-header-s, 1));
   }
 
   body:is(
@@ -7595,8 +7609,8 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header__compact {
     display: flex;
-    align-items: flex-end;
-    gap: calc(10px * var(--sp-header-s, 1));
+    align-items: center;
+    gap: calc(8px * var(--sp-header-s, 1));
     margin: 0;
     padding: 0;
     height: auto;
@@ -7616,10 +7630,10 @@ html.is-guide-flow-zoom-open body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    gap: calc(5px * var(--sp-header-s, 1));
-    min-width: calc(46px * var(--sp-header-s, 1));
-    padding: 0 calc(3px * var(--sp-header-s, 1));
+    justify-content: center;
+    gap: 0;
+    min-width: 0;
+    padding: 0;
     text-decoration: none;
     font-size: calc(10px * var(--sp-header-s, 1));
     font-weight: 700;
@@ -7637,10 +7651,107 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-compact-action
+    span {
+    display: none;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action
     img {
     width: calc(34px * var(--sp-header-s, 1));
     height: calc(34px * var(--sp-header-s, 1));
     object-fit: contain;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util {
+    height: auto;
+    padding: 0;
+    gap: calc(8px * var(--sp-header-s, 1));
+    background: transparent !important;
+    border-radius: 0;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec {
+    flex-direction: row;
+    align-items: center;
+    gap: calc(8px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-label {
+    display: none;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-icon {
+    width: calc(26px * var(--sp-header-s, 1));
+    height: calc(26px * var(--sp-header-s, 1));
+    background-color: #f15a24 !important;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .header__login
+    .btn--login {
+    min-width: calc(28px * var(--sp-header-s, 1));
+    width: calc(28px * var(--sp-header-s, 1));
+    height: calc(28px * var(--sp-header-s, 1));
+    padding: 0;
+    border: 0;
+    font-size: 0;
+    color: transparent;
+    background: transparent !important;
   }
 
   body:is(
@@ -7693,8 +7804,8 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header
     .menu-btn {
-    width: calc(48px * var(--sp-header-s, 1));
-    height: calc(56px * var(--sp-header-s, 1));
+    width: calc(28px * var(--sp-header-s, 1));
+    height: calc(28px * var(--sp-header-s, 1));
     gap: calc(5px * var(--sp-header-s, 1));
     margin: 0;
     padding: 0;
@@ -7715,9 +7826,9 @@ html.is-guide-flow-zoom-open body {
     .fv-header
     .menu-btn
     span {
-    width: calc(22px * var(--sp-header-s, 1));
+    width: 100%;
     height: calc(3px * var(--sp-header-s, 1));
-    margin: 0 auto;
+    margin: 0;
     background: #f15a24;
   }
 
@@ -7747,7 +7858,7 @@ html.is-guide-flow-zoom-open body {
     .fv-header
     .menu-btn:hover
     span {
-    width: calc(22px * var(--sp-header-s, 1));
+    width: 100%;
   }
 
   body:is(
