@@ -104,7 +104,7 @@ img {
   display: flex;
   align-items: flex-end;
   flex-wrap: nowrap;
-  gap: 14px;
+  gap: 50px;
 }
 
 .fv-header__compact {
