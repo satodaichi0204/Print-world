@@ -7352,16 +7352,16 @@ html.is-guide-flow-zoom-open body {
 
 /* =============================================================================
    Sitewide fixed header — Excel 全体的に ④ (final cascade)
-   PC (768+): transparent · SP (≤767): white bar
+   PC (769+): transparent · SP (≤768): white bar
    ============================================================================= */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .fv-header {
     background: #fff;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .fv-header {
     background: transparent;
   }
@@ -7369,7 +7369,7 @@ html.is-guide-flow-zoom-open body {
 
 /* =============================================================================
    Unified mobile header — Excel 全体的に ② (Step 3, final cascade)
-   All pages match TOP: logo + brand + TEL/mail/LINE + orange menu (≤767)
+   All pages match TOP: logo + brand + TEL/mail/LINE + orange menu (≤768)
    ============================================================================= */
 @media (max-width: 425px) {
   body {
@@ -7385,7 +7385,7 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   body:is(
       .home-page,
       .guide-flow-page,
@@ -9262,17 +9262,17 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* スマホ(320-767px): ヘッダー部分は白（MT側でbody*の背景リセットを外した後の担保。赤/緑ボタンの色は残すためコンテナのみ） */
-@media (min-width: 320px) and (max-width: 767px) {
+/* スマホ(320-768px): ヘッダー部分は白（MT側でbody*の背景リセットを外した後の担保。赤/緑ボタンの色は残すためコンテナのみ） */
+@media (min-width: 320px) and (max-width: 768px) {
   .fv-header {
     background-color: #ffffff !important;
   }
 }
 
 /* =============================================================================
-   Header — 768–1919: keep 1920 desktop composition (header only, final cascade)
+   Header — 769–1919: keep 1920 desktop composition (header only, final cascade)
    ============================================================================= */
-@media (min-width: 768px) and (max-width: 1919px) {
+@media (min-width: 769px) and (max-width: 1919px) {
   .fv-header {
     display: block !important;
     align-items: stretch !important;

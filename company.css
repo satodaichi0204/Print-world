@@ -205,7 +205,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .company-page .fv-header {
     display: flex;
     align-items: center;
