@@ -286,13 +286,6 @@
   text-align: center;
 }
 
-.ap-sec4__kicker {
-  margin: 0 0 18px;
-  color: #111;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 900;
-}
-
 .ap-sec4__banner {
   display: block;
   width: min(920px, 100%);
