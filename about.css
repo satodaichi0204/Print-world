@@ -587,6 +587,15 @@
     z-index: 4;
     margin: 0 0 -300px;
     align-self: flex-end;
-    transform: translate(-8px, -120px);
+    transform: translate(41px, -120px);
+  }
+
+  .ap-sec2__title {
+    width: min(626px, 70%);
+    height: auto;
+    position: relative;
+    z-index: 5;
+    flex-shrink: 1;
+    transform: translate(-74px, -158px);
   }
 }
