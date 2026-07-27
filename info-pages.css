@@ -433,7 +433,7 @@
   border: 0 !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 678px) {
   .info-page .fv-header {
     display: flex;
     align-items: center;
