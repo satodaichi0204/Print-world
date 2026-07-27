@@ -107,8 +107,8 @@ img {
   gap: 50px;
 }
 
-/* Header — 679–1919: lock 1920 composition via uniform zoom. */
-@media (min-width: 679px) and (max-width: 1919px) {
+/* Header — 768–1919: lock 1920 composition via uniform zoom. */
+@media (min-width: 768px) and (max-width: 1919px) {
   .fv-header {
     width: 1920px;
     zoom: calc(100vw / 1920px);
@@ -405,7 +405,7 @@ img {
   filter: brightness(0.95);
 }
 
-@media (max-width: 678px) {
+@media (max-width: 767px) {
   .fv-header__util {
     height: 56px;
     padding: 0 12px 0 14px;
@@ -448,7 +448,7 @@ img {
   }
 }
 
-@media (min-width: 679px) {
+@media (min-width: 768px) {
   .fv-header__util .menu-btn {
     width: 48px;
     height: 72px;
@@ -6003,7 +6003,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 /* Hamburger: DESKTOP with util cluster = transparent button + white bars on
    the shared orange util. Without util (legacy), orange square + white bars.
    ≤768 intentionally untouched → stays transparent button + orange bars. */
-@media (min-width: 679px) {
+@media (min-width: 768px) {
   .fv-header .menu-btn { background: #f15a24 !important; }
   .fv-header .menu-btn span { background: #fff !important; }
   .fv-header .fv-header__util .menu-btn {
@@ -6068,7 +6068,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 /* Header bar itself must be transparent so it floats over the hero. MT's body*
    reset painted .fv-header white. Re-assert transparent — DESKTOP ONLY (769–1920+);
    ≤768 keeps its own (white) mobile-header background. */
-@media (min-width: 679px) {
+@media (min-width: 768px) {
   .fv-header { background: transparent !important; }
 }
 
