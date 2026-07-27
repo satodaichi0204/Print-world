@@ -139,7 +139,9 @@ HIT HIT HIT /* =================================================================
 
   .home-page .fv-header__actions {
     align-items: center;
-    gap: 8px;
+    --fv-sp-icon: 34px;
+    --fv-sp-icon-gap: 10px;
+    gap: var(--fv-sp-icon-gap);
   }
 
   .home-page .fv-header__main {
@@ -149,7 +151,7 @@ HIT HIT HIT /* =================================================================
   .home-page .fv-header__compact {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--fv-sp-icon-gap);
     margin: 0;
     padding: 0;
     height: auto;
@@ -161,8 +163,11 @@ HIT HIT HIT /* =================================================================
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
     gap: 0;
-    min-width: 0;
     padding: 0;
     text-decoration: none;
     font-size: 10px;
@@ -176,8 +181,8 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-compact-action img {
-    width: 32px;
-    height: 32px;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     object-fit: contain;
   }
 
@@ -194,9 +199,9 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-header .menu-btn {
-    width: 28px;
-    height: 28px;
-    gap: 5px;
+    width: var(--fv-sp-icon, 34px);
+    height: var(--fv-sp-icon, 34px);
+    gap: 6px;
     margin: 0;
     background: transparent;
     border-radius: 0;
@@ -1704,16 +1709,20 @@ HIT HIT HIT /* =================================================================
 
   .home-page .fv-header__actions {
     align-items: center;
-    gap: calc(8px * var(--fv-header-s));
+    --fv-sp-icon: calc(34px * var(--fv-header-s));
+    --fv-sp-icon-gap: calc(10px * var(--fv-header-s));
+    gap: var(--fv-sp-icon-gap);
   }
 
   .home-page .fv-header__compact {
     align-items: center;
-    gap: calc(8px * var(--fv-header-s));
+    gap: var(--fv-sp-icon-gap);
   }
 
   .home-page .fv-compact-action {
-    min-width: 0;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
     gap: 0;
     padding: 0;
     font-size: calc(10px * var(--fv-header-s));
@@ -1724,14 +1733,14 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-compact-action img {
-    width: calc(34px * var(--fv-header-s));
-    height: calc(34px * var(--fv-header-s));
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
   }
 
   .home-page .fv-header .menu-btn {
-    width: calc(28px * var(--fv-header-s));
-    height: calc(28px * var(--fv-header-s));
-    gap: calc(5px * var(--fv-header-s));
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    gap: calc(6px * var(--fv-header-s));
   }
 
   .home-page .fv-header .menu-btn span {
@@ -7595,7 +7604,9 @@ html.is-guide-flow-zoom-open body {
     .fv-header__actions {
     display: flex;
     align-items: center;
-    gap: calc(8px * var(--sp-header-s, 1));
+    --fv-sp-icon: calc(34px * var(--sp-header-s, 1));
+    --fv-sp-icon-gap: calc(10px * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
   }
 
   body:is(
@@ -7610,7 +7621,7 @@ html.is-guide-flow-zoom-open body {
     .fv-header__compact {
     display: flex;
     align-items: center;
-    gap: calc(8px * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
     margin: 0;
     padding: 0;
     height: auto;
@@ -7631,8 +7642,11 @@ html.is-guide-flow-zoom-open body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
     gap: 0;
-    min-width: 0;
     padding: 0;
     text-decoration: none;
     font-size: calc(10px * var(--sp-header-s, 1));
@@ -7666,8 +7680,8 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-compact-action
     img {
-    width: calc(34px * var(--sp-header-s, 1));
-    height: calc(34px * var(--sp-header-s, 1));
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     object-fit: contain;
   }
 
@@ -7683,9 +7697,10 @@ html.is-guide-flow-zoom-open body {
     .fv-header__util {
     height: auto;
     padding: 0;
-    gap: calc(8px * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
     background: transparent !important;
     border-radius: 0;
+    align-items: center;
   }
 
   body:is(
@@ -7701,7 +7716,26 @@ html.is-guide-flow-zoom-open body {
     .mt-ec {
     flex-direction: row;
     align-items: center;
-    gap: calc(8px * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec
+    .header__item {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   body:is(
@@ -7726,9 +7760,26 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
+    .fv-cart-link {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
     .fv-cart-icon {
-    width: calc(26px * var(--sp-header-s, 1));
-    height: calc(26px * var(--sp-header-s, 1));
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     background-color: #f15a24 !important;
   }
 
@@ -7744,14 +7795,30 @@ html.is-guide-flow-zoom-open body {
     .fv-header__util
     .header__login
     .btn--login {
-    min-width: calc(28px * var(--sp-header-s, 1));
-    width: calc(28px * var(--sp-header-s, 1));
-    height: calc(28px * var(--sp-header-s, 1));
+    min-width: var(--fv-sp-icon);
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     padding: 0;
     border: 0;
     font-size: 0;
     color: transparent;
     background: transparent !important;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-login-icon {
+    display: block;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    object-fit: contain;
   }
 
   body:is(
@@ -7804,9 +7871,9 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header
     .menu-btn {
-    width: calc(28px * var(--sp-header-s, 1));
-    height: calc(28px * var(--sp-header-s, 1));
-    gap: calc(5px * var(--sp-header-s, 1));
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    gap: calc(6px * var(--sp-header-s, 1));
     margin: 0;
     padding: 0;
     background: transparent;

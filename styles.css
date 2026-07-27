@@ -397,23 +397,34 @@ img {
 }
 
 @media (max-width: 768px) {
-  /* Mobile standard: icon-only row (phone / mail / LINE / cart / user / menu).
-     No orange util panel, no labels, no login pill. */
+  /* Mobile icon row: phone / mail / LINE / cart / login — equal size + equal gap.
+     Menu follows the same box size for alignment. */
   .fv-header__actions {
+    --fv-sp-icon: 34px;
+    --fv-sp-icon-gap: 10px;
     align-items: center;
-    gap: 8px;
+    gap: var(--fv-sp-icon-gap);
   }
 
   .fv-header__compact {
     align-items: center;
-    gap: 8px;
+    gap: var(--fv-sp-icon-gap);
   }
 
   .fv-compact-action {
+    box-sizing: border-box;
     justify-content: center;
-    min-width: 0;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
     gap: 0;
     padding: 0;
+  }
+
+  .fv-compact-action img {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    object-fit: contain;
   }
 
   .fv-compact-action span {
@@ -423,24 +434,38 @@ img {
   .fv-header__util {
     height: auto;
     padding: 0;
-    gap: 8px;
+    gap: var(--fv-sp-icon-gap);
     background: transparent;
     border-radius: 0;
+    align-items: center;
   }
 
   .fv-header__util .mt-ec {
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: var(--fv-sp-icon-gap);
+  }
+
+  .fv-header__util .mt-ec .header__item {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .fv-cart-link {
+    box-sizing: border-box;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     gap: 0;
+    justify-content: center;
+    align-items: center;
   }
 
   .fv-cart-icon {
-    width: 26px;
-    height: 26px;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     background-color: #f15a24;
   }
 
@@ -450,12 +475,13 @@ img {
 
   .fv-header__util .header__login .btn--login {
     position: relative;
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 28px;
-    width: 28px;
-    height: 28px;
+    min-width: var(--fv-sp-icon);
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     padding: 0;
     border: 0;
     border-radius: 0;
@@ -467,14 +493,16 @@ img {
 
   .fv-header__util .header__login .btn--login .fv-login-icon {
     display: block;
-    width: 26px;
-    height: 26px;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    object-fit: contain;
   }
 
   .fv-header__util .menu-btn {
-    width: 28px;
-    height: 28px;
-    gap: 5px;
+    box-sizing: border-box;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    gap: 6px;
     background: transparent;
   }
 

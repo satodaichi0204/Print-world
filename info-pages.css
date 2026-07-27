@@ -515,11 +515,13 @@
   }
 
   .info-page .fv-header__actions {
-    gap: calc(8px * var(--sp-header-s, 1));
+    --fv-sp-icon: calc(34px * var(--sp-header-s, 1));
+    --fv-sp-icon-gap: calc(10px * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
   }
 
   .info-page .fv-header__compact {
-    gap: calc(8px * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
   }
 
   .info-page .fv-compact-action {
@@ -527,8 +529,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
     gap: 0;
-    min-width: 0;
     padding: 0;
     font-size: calc(10px * var(--sp-header-s, 1));
     font-weight: 700;
@@ -541,8 +546,8 @@
   }
 
   .info-page .fv-compact-action img {
-    width: calc(34px * var(--sp-header-s, 1));
-    height: calc(34px * var(--sp-header-s, 1));
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
     object-fit: contain;
   }
 
@@ -551,9 +556,9 @@
   .info-page .fv-compact-action--line { color: #06c755; }
 
   .info-page .fv-header .menu-btn {
-    width: calc(28px * var(--sp-header-s, 1));
-    height: calc(28px * var(--sp-header-s, 1));
-    gap: calc(5px * var(--sp-header-s, 1));
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    gap: calc(6px * var(--sp-header-s, 1));
     margin: 0;
     padding: 0;
     background: transparent;
