@@ -1,0 +1,113 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word">
+<title>プリントワールド CSS調整マニュアル</title>
+<style>
+  body{ font-family:"Meiryo","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif; font-size:10.5pt; color:#222222; line-height:1.7; }
+  h1{ font-size:18pt; color:#1a1a1a; border-bottom:3px solid #efce0a; padding-bottom:6px; }
+  h2{ font-size:13pt; color:#ffffff; background:#f15a24; padding:5px 10px; margin-top:22px; }
+  h3{ font-size:11.5pt; color:#c0491a; border-left:5px solid #efce0a; padding-left:8px; margin-top:16px; }
+  p{ margin:6px 0; }
+  ol,ul{ margin:6px 0 10px 0; }
+  li{ margin:3px 0; }
+  code,.mono{ font-family:Consolas,"Courier New",monospace; font-size:10pt; }
+  .lead{ border:1px solid #e0e0e0; border-left:6px solid #f15a24; background:#fafafa; padding:10px 14px; }
+  .safe{ border:1px solid #bfe3c2; background:#eefaef; padding:10px 14px; margin:12px 0; }
+  .warn{ border:1px solid #f0d9a8; background:#fff6e6; padding:10px 14px; margin:12px 0; }
+  .safe b,.safe .t{ color:#2e7d32; }
+  .warn b,.warn .t{ color:#b26a00; }
+  .t{ font-weight:bold; display:block; margin-bottom:3px; }
+  .recipe{ font-family:Consolas,"Courier New",monospace; font-size:10pt; color:#1a4d8f; background:#f5f6f8; border:1px solid #dddddd; padding:8px 12px; margin:6px 0; }
+  .rlabel{ font-weight:bold; color:#333333; margin:10px 0 2px 0; }
+  .pill{ background:#fff4cf; border:1px solid #ecd67a; color:#7a6a12; font-weight:bold; padding:1px 8px; font-size:9pt; }
+  .kbd{ font-family:Consolas,monospace; background:#ffffff; border:1px solid #cccccc; padding:0 5px; }
+</style>
+</head>
+<body>
+
+<h1>プリントワールド サイト　デザイン（CSS）調整マニュアル</h1>
+<p style="color:#666666;">御社ご自身で、色・文字サイズ・余白などの「見た目」を調整いただくための手引きです。</p>
+
+<div class="lead">
+色・文字の大きさ・余白などの「見た目（CSS）」を、御社ご自身で調整できるようにしました。むずかしい知識は必要ありません。そして何より、<b>元のデザインが壊れない仕組み</b>になっていますので、安心してお試しください。
+</div>
+
+<h2>1. はじめにお読みください（安全の仕組み）</h2>
+<div class="safe">
+<span class="t">絶対に壊れない仕組みです</span>
+サイトの<b>元のデザインは別の場所にあり、この作業では一切変更しません</b>。御社が書き込むのは「上書き専用のスペース」だけです。
+<ul>
+  <li>書いた分だけ、上書きして反映されます。</li>
+  <li><b>スペースが空なら、今の見た目はまったく変わりません。</b></li>
+  <li>元に戻したいときは、<b>書いた行を消すだけ</b>。元のデザインは無傷です。</li>
+</ul>
+</div>
+
+<h2>2. 準備（最初に一度だけ）</h2>
+<ol>
+  <li>お渡しする「<b>カスタムCSS枠</b>」のコード（別ファイル <span class="mono">custom-css-footer</span>）を用意します。</li>
+  <li>MakerTown管理画面 → 「<b>ページテーマ</b>」→ 「<b>フッタ</b>」の入力欄を開きます。</li>
+  <li>入力欄の<b>一番下</b>に、用意したコードを貼り付けて「<b>保存</b>」します。<span class="pill">設置は一度だけ</span></li>
+  <li>以降、見た目の調整は、この枠の中の「<b>編集エリア</b>」だけを編集します。</li>
+</ol>
+<div class="warn">
+<span class="t">ご注意</span>
+編集してよいのは<b>カスタムCSS枠の「編集エリア」の中だけ</b>です。その外（ヘッダーや他の設定）は触らないでください。
+</div>
+
+<h2>3. 変え方（基本の流れ）</h2>
+<p>画像の差し替えで使った「<b>検証（Inspect）</b>」と同じ感覚です。</p>
+<ol>
+  <li>サイト上で、変えたい部分を<b>右クリック</b> → 「<b>検証（Inspect）</b>」を選びます。</li>
+  <li>青くハイライトされたコードの中の <code>class="○○○"</code> の <b>○○○（クラス名）をメモ</b>します。（複数あるときは、変えたい部分に一番近いもの）</li>
+  <li>「フッタ」のカスタムCSS枠の「<b>編集エリア</b>」に、下の「変更例」を参考に<b>1行足します</b>。</li>
+  <li>「<b>保存</b>」を押し、実ページを <span class="kbd">Ctrl</span>+<span class="kbd">F5</span>（強制再読み込み）で確認します。</li>
+  <li>戻したいときは、<b>足した行を消して</b>保存すれば元通りです。</li>
+</ol>
+
+<h2>4. よく使う変更例（コピーして、クラス名と数字・色を変えるだけ）</h2>
+<p><code>クラス名</code> の部分を、メモしたクラス名に置き換えてお使いください。行末の <code>!important</code> は<b>消さないでください</b>（元のデザインに上書きするために必要です）。</p>
+
+<div class="rlabel">① 文字の色を変える</div>
+<div class="recipe">.クラス名 { color: #d8001a !important; }</div>
+
+<div class="rlabel">② 背景の色を変える</div>
+<div class="recipe">.クラス名 { background-color: #ffd54a !important; }</div>
+
+<div class="rlabel">③ 文字の大きさを変える</div>
+<div class="recipe">.クラス名 { font-size: 18px !important; }</div>
+
+<div class="rlabel">④ ある部分を隠す（非表示にする）</div>
+<div class="recipe">.クラス名 { display: none !important; }</div>
+
+<div class="rlabel">⑤ 余白（すき間）を変える</div>
+<div class="recipe">.クラス名 { padding-top: 40px !important; }</div>
+
+<div class="safe">
+<span class="t">色コードの調べ方</span>
+色は <code>#</code> で始まる6桁のコードです。Googleで「<b>カラーピッカー</b>」と検索すると、好きな色のコードをかんたんに取得できます。
+</div>
+
+<h2>5. 安全にお使いいただくために</h2>
+<ul>
+  <li>1回に<b>1か所ずつ</b>変えて、都度 <span class="kbd">Ctrl</span>+<span class="kbd">F5</span> で確認すると、安全で原因も分かりやすいです。</li>
+  <li>色・文字サイズ・余白・表示/非表示 などの<b>部分的な調整</b>は御社で安全に行えます。</li>
+  <li>正しく書いても<b>まれに反映されない部分</b>があります（デザイン保持のため固定している箇所です）。その場合は無理に重ねず、「<b>この部分をこう変えたい</b>」とご連絡ください。すぐ対応いたします。</li>
+  <li>配置の入れ替えなど<b>大きなレイアウトの作り替え</b>は崩れやすいため、ご希望をお知らせいただければ私どもで対応します。</li>
+  <li>万一おかしくなっても、<b>編集エリアを空にして保存</b>すれば、必ず元のデザインに戻ります。</li>
+</ul>
+
+<h2>6. よくあるご質問</h2>
+<h3>Q. 操作を間違えて、サイトが壊れませんか？</h3>
+<p>A. ご安心ください。上書き専用スペースを空にすれば必ず元に戻ります。元のデザインは別の場所にあり、この作業では変更されません。</p>
+<h3>Q. 変更したのに反映されません。</h3>
+<p>A. まず <span class="kbd">Ctrl</span>+<span class="kbd">F5</span> をお試しください。それでも変わらない場合は、クラス名の綴りと <code>!important</code> の付け忘れをご確認ください。それでも反映されない箇所は「保護された部分」ですので、ご連絡ください。</p>
+<h3>Q. 自分でやるのが不安です。</h3>
+<p>A. もちろんお任せいただけます。「どのページの、どこを、どう変えたいか」をお知らせいただければ、私どもで対応いたします。</p>
+
+<p style="margin-top:24px; color:#666666; text-align:center;">ご不明な点は、お気軽にお問い合わせください。<br>プリントワールド 運用サポート</p>
+
+</body>
+</html>
