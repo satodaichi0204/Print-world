@@ -256,26 +256,130 @@ img {
   font-weight: 800;
 }
 
+/* Orange utility cluster: cart + login + hamburger */
+.fv-header__util {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  height: 172px;
+  padding: 0 36px 0 28px;
+  background: #f15a24;
+  border-radius: 0 0 0 24px;
+}
+
+.fv-header__util .mt-ec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
+}
+
+.fv-header__util .mt-ec .header__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fv-cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.fv-cart-icon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  background-color: #fff;
+  -webkit-mask: url("images/header-backet-icon.png") center / contain no-repeat;
+  mask: url("images/header-backet-icon.png") center / contain no-repeat;
+}
+
+.fv-cart-label {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.fv-header__util .header__cart .m-icon.icon--cart,
+.fv-header__util .header__cart a > .m-icon {
+  display: none !important;
+}
+
+.fv-header__util #js-cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  background-color: #fff !important;
+  color: #f15a24 !important;
+  border-radius: 999px;
+  font-size: 11px;
+  font-style: normal;
+  line-height: 18px;
+  text-align: center;
+}
+
+.fv-header__util .header__login .btn--login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 108px;
+  padding: 7px 22px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  color: #fff !important;
+  background: transparent !important;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.fv-header__util .header__login .btn--user img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
 .menu-btn {
-  width: 172px;
+  width: 48px;
   flex-shrink: 0;
   border: 0;
-  background: #f15a24;
+  background: transparent;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  height: 172px;
-  border-radius: 0 0 0 24px;
+  height: 72px;
+  padding: 0;
+  border-radius: 0;
   transition: filter 140ms ease;
 }
 
 .menu-btn span {
   display: block;
-  height: 7px;
-  margin: 0 auto;
-  width: 33%;
+  height: 6px;
+  margin: 0;
+  width: 100%;
   background: #fff;
   transition: width 140ms ease;
 }
@@ -285,11 +389,69 @@ img {
 }
 
 .menu-btn:hover span {
-  width: 44%;
+  width: 100%;
 }
 
 .menu-btn:active {
   filter: brightness(0.95);
+}
+
+@media (max-width: 768px) {
+  .fv-header__util {
+    height: 56px;
+    padding: 0 12px 0 14px;
+    gap: 10px;
+    border-radius: 0 0 0 14px;
+  }
+
+  .fv-header__util .mt-ec {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .fv-cart-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .fv-cart-label {
+    font-size: 12px;
+  }
+
+  .fv-header__util .header__login .btn--login {
+    min-width: 0;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  .fv-header__util .menu-btn {
+    width: 28px;
+    height: 40px;
+    gap: 5px;
+  }
+
+  .fv-header__util .menu-btn span {
+    width: 100%;
+    height: 3px;
+    margin: 0;
+    background: #fff !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .fv-header__util .menu-btn {
+    width: 48px;
+    height: 72px;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .fv-header__util .menu-btn span {
+    width: 100%;
+    margin: 0;
+    background: #fff;
+  }
 }
 
 /* --- Hamburger menu drawer (JP service-site style: list rows, calm header) --- */
@@ -5827,29 +5989,11 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 /* logo: drop MT's forced white box */
 .site-footer img { background-color: transparent !important; }
 
-/* MT EC cluster (cart + login) placement inside our .fv-header (v1 — tune live) */
-/* Make the MT cart + user(login) icons clearly VISIBLE in the header (top-right,
-   before the hamburger). Functional markup is MT's; we only size/position/colour it.
-   Final placement is the client's call — this is a sensible, visible default. */
+/* MT EC cluster lives inside .fv-header__util (orange cart/login/menu block).
+   Keep a harmless fallback if util wrap is missing on a page. */
 .fv-header .mt-ec { display: flex; align-items: center; gap: 20px; margin-left: 16px; }
 .fv-header .mt-ec .header__item { position: relative; display: flex; align-items: center; }
-
-/* cart icon */
-.fv-header .mt-ec .header__cart a { color: #111 !important; text-decoration: none; display: inline-flex; align-items: center; }
-.fv-header .mt-ec .header__cart .m-icon { font-size: 30px; line-height: 1; color: #111 !important; }
-/* cart count badge — override .fv-header * transparent so the red shows */
-.fv-header .mt-ec #js-cart-count {
-  position: absolute; top: -8px; right: -12px;
-  min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box;
-  background-color: #d8001a !important; color: #fff !important;
-  border-radius: 999px; font-size: 11px; font-style: normal; line-height: 18px; text-align: center;
-}
-
-/* login / user (MT toggles which one shows by login state) */
-.fv-header .mt-ec .header__login .btn--login {
-  color: #111 !important; font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap;
-}
-.fv-header .mt-ec .header__login .btn--user img { width: 32px; height: 32px; }
+.fv-header__util .mt-ec { margin-left: 0; }
 
 /* =============================================================================
    MT wrapper fix — remove reveal-footer reserve space

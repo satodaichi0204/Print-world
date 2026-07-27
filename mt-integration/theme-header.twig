@@ -55,36 +55,40 @@
         </a>
       </nav>
 
-      <!-- ===== MT機能クラスタ（カート＋ログイン）: MTの正確なマークアップを維持 ===== -->
-      <div class="mt-ec">
-        <div class="header__item header__cart js-num">
-          <a href="{{ path('wa_cart') }}"><i class="m-icon icon--cart"></i></a>
-          <i class="header__icon m-icon icon--count is-show" id="js-cart-count"></i>
+      <!-- Orange util: cart + login + hamburger -->
+      <div class="fv-header__util">
+        <div class="mt-ec">
+          <div class="header__item header__cart js-num">
+            <a class="fv-cart-link" href="{{ path('wa_cart') }}">
+              <span class="fv-cart-icon" aria-hidden="true"></span>
+              <span class="fv-cart-label">カート</span>
+            </a>
+            <i class="header__icon m-icon icon--count is-show" id="js-cart-count"></i>
+          </div>
+          <div class="header__item header__login">
+            <span class="m-btn btn--login js-login js-modal" data-modal="loginModal">ログイン</span>
+            <span class="m-btn btn--user js-subMenuShow">
+              <img src="/img/spacer.gif" class="js-header-username-image" width="34" height="34" alt="">
+            </span>
+            <nav class="m-listMenu listMenu--login js-subMenu">
+              <div class="listMenu__inner">
+                <ul class="listMenu__area js-header-account-dropdown-menu">
+                  <li class="listMenu__item">
+                    <a href="{{ path('wa_my_page_account') }}" class="listMenu__lnk">アカウント情報</a>
+                  </li>
+                  <li class="listMenu__item">
+                    <a href="{{ path('fos_user_security_logout') }}" class="listMenu__lnk">ログアウト</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
         </div>
-        <div class="header__item header__login">
-          <span class="m-btn btn--login js-login js-modal" data-modal="loginModal">ログイン</span>
-          <span class="m-btn btn--user js-subMenuShow">
-            <img src="/img/spacer.gif" class="js-header-username-image" width="34" height="34" alt="">
-          </span>
-          <nav class="m-listMenu listMenu--login js-subMenu">
-            <div class="listMenu__inner">
-              <ul class="listMenu__area js-header-account-dropdown-menu">
-                <li class="listMenu__item">
-                  <a href="{{ path('wa_my_page_account') }}" class="listMenu__lnk">アカウント情報</a>
-                </li>
-                <li class="listMenu__item">
-                  <a href="{{ path('fos_user_security_logout') }}" class="listMenu__lnk">ログアウト</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
 
-      <!-- ハンバーガー: 私たちのデザインのまま、MTのSPメニューを開く -->
-      <button type="button" class="menu-btn js-openSpMenu" aria-label="メニューを開く" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+        <button type="button" class="menu-btn js-openSpMenu" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </div>
 </header>
