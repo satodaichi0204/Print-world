@@ -297,13 +297,6 @@
   margin: 0 auto 20px;
 }
 
-.ap-sec4__sub {
-  margin: 0 0 18px;
-  color: #111;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 900;
-}
-
 .ap-sec4__list {
   list-style: none;
   margin: 0 auto 16px;
