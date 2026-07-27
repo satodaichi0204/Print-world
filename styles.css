@@ -351,6 +351,14 @@ img {
   border: 2px solid #fff;
 }
 
+.fv-login-icon {
+  display: none;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .menu-btn {
   width: 48px;
   flex-shrink: 0;
@@ -457,16 +465,10 @@ img {
     background: transparent !important;
   }
 
-  .fv-header__util .header__login .btn--login::before {
-    content: "";
+  .fv-header__util .header__login .btn--login .fv-login-icon {
     display: block;
     width: 26px;
     height: 26px;
-    background-color: #f15a24;
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='black'/%3E%3Cpath d='M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8' fill='black'/%3E%3C/svg%3E")
-      center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='black'/%3E%3Cpath d='M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8' fill='black'/%3E%3C/svg%3E")
-      center / contain no-repeat;
   }
 
   .fv-header__util .menu-btn {
@@ -6052,8 +6054,8 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
     background-color: transparent !important;
     font-size: 0 !important;
   }
-  .fv-header .fv-header__util .header__login .btn--login::before {
-    background-color: #f15a24 !important;
+  .fv-header .fv-header__util .header__login .btn--login .fv-login-icon {
+    display: block !important;
   }
   .fv-header .fv-header__util .menu-btn {
     background: transparent !important;
