@@ -598,4 +598,10 @@
     flex-shrink: 1;
     transform: translate(-74px, -158px);
   }
+
+  .ap-method__head img {
+    display: block;
+    width: min(270px, 70%);
+    height: auto;
+  }
 }
