@@ -3678,7 +3678,8 @@ HIT HIT HIT /* =================================================================
   }
 
   .home-page .fv-header__actions {
-    gap: calc(14px * var(--fv-pc-s));
+    align-items: flex-end;
+    gap: calc(50px * var(--fv-pc-s));
   }
 
   .home-page .fv-header__links {
@@ -5158,7 +5159,8 @@ HIT HIT HIT /* =================================================================
   }
 
   .product-list-page .fv-header__actions {
-    gap: calc(14px * var(--fv-pc-s));
+    align-items: flex-end;
+    gap: calc(50px * var(--fv-pc-s));
   }
 
   .product-list-page .fv-header__links {
@@ -6724,7 +6726,8 @@ html.is-guide-flow-zoom-open body {
   }
 
   .product-detail-page .fv-header__actions {
-    gap: calc(14px * var(--pdp-pc-s));
+    align-items: flex-end;
+    gap: calc(50px * var(--pdp-pc-s));
   }
 
   .product-detail-page .fv-header__links {
@@ -8307,7 +8310,8 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-header__actions {
-    gap: calc(14px * var(--fv-pc-s));
+    align-items: flex-end;
+    gap: calc(50px * var(--fv-pc-s));
   }
 
   :is(
