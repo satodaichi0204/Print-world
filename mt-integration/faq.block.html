@@ -388,18 +388,35 @@
   </main>
 </div>
 
-<!-- faq.js inlined (single-open accordion) -->
+<!-- Smooth single-open accordion (JS height animation) -->
 <script>
-(() => {
-  const items = document.querySelectorAll(".faq-item");
-  if (!items.length) return;
-
-  items.forEach((item) => {
-    item.addEventListener("toggle", () => {
-      if (!item.open) return;
-      items.forEach((other) => {
-        if (other !== item) other.open = false;
-      });
+(function () {
+  var DUR = 280;
+  var list = [].slice.call(document.querySelectorAll("details.faq-item"));
+  if (!list.length || typeof list[0].animate !== "function") return;
+  list.forEach(function (el) {
+    var sum = el.querySelector("summary");
+    var body = el.querySelector(".faq-item__answer");
+    if (!sum || !body) return;
+    function run(open) {
+      var start = body.getBoundingClientRect().height;
+      if (el._a) { el._a.cancel(); el._a = null; }
+      el.open = true;
+      var prevBox = body.style.boxSizing;
+      body.style.boxSizing = "border-box";
+      body.style.overflow = "hidden";
+      var end = open ? body.scrollHeight : 0;
+      var a = body.animate([{ height: start + "px" }, { height: end + "px" }], { duration: DUR, easing: "ease" });
+      el._a = a; el._open = open;
+      a.onfinish = function () { el.open = open; body.style.height = ""; body.style.overflow = ""; body.style.boxSizing = prevBox; el._a = null; };
+      a.oncancel = function () { el._a = null; };
+    }
+    el._close = function () { if (el.open || (el._a && el._open)) run(false); };
+    sum.addEventListener("click", function (e) {
+      e.preventDefault();
+      var willOpen = el._a ? !el._open : !el.open;
+      if (willOpen) list.forEach(function (o) { if (o !== el && o._close) o._close(); });
+      run(willOpen);
     });
   });
 })();

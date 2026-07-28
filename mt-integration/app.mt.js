@@ -719,3 +719,56 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     populatePlpGrid();
   }
 })();
+
+// --- Smooth accordion (details open/close animation) ---
+(function () {
+  var DUR = 280;
+  function smooth(detailsSel, bodySel, singleOpen) {
+    var list = [].slice.call(document.querySelectorAll(detailsSel));
+    if (!list.length || typeof list[0].animate !== "function") return;
+    list.forEach(function (el) {
+      var sum = el.querySelector("summary");
+      var body = el.querySelector(bodySel);
+      if (!sum || !body) return;
+
+      function run(open) {
+        var start = body.getBoundingClientRect().height;
+        if (el._a) { el._a.cancel(); el._a = null; }
+        el.open = true;
+        var prevBox = body.style.boxSizing;
+        body.style.boxSizing = "border-box";
+        body.style.overflow = "hidden";
+        var end = open ? body.scrollHeight : 0;
+        var a = body.animate(
+          [{ height: start + "px" }, { height: end + "px" }],
+          { duration: DUR, easing: "ease" }
+        );
+        el._a = a; el._open = open;
+        a.onfinish = function () {
+          el.open = open;
+          body.style.height = "";
+          body.style.overflow = "";
+          body.style.boxSizing = prevBox;
+          el._a = null;
+        };
+        a.oncancel = function () { el._a = null; };
+      }
+      el._close = function () { if (el.open || (el._a && el._open)) run(false); };
+
+      sum.addEventListener("click", function (e) {
+        e.preventDefault();
+        var willOpen = el._a ? !el._open : !el.open;
+        if (singleOpen && willOpen) {
+          list.forEach(function (o) { if (o !== el && o._close) o._close(); });
+        }
+        run(willOpen);
+      });
+    });
+  }
+  function init() {
+    smooth("details.sec8-details", ".sec8-details__body", false);
+    smooth("details.faq-item", ".faq-item__answer", true);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
