@@ -6632,17 +6632,13 @@ body {
    sec9 card heads — design: white on orange head, orange on white pill
    (MT body* forces #000; re-assert with !important)
    ========================================================================= */
-.sec9-card__head .sec9-card__head-main,
-.home-mt .sec9-card__head .sec9-card__head-main,
-.home-page .sec9-card__head .sec9-card__head-main,
-.product-detail-page .sec9-card__head .sec9-card__head-main {
+.sec9-card__head > .sec9-card__head-main,
+.home-mt .sec9-card__head > .sec9-card__head-main {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
 }
-.sec9-card__head .sec9-card__head-pill,
-.home-mt .sec9-card__head .sec9-card__head-pill,
-.home-page .sec9-card__head .sec9-card__head-pill,
-.product-detail-page .sec9-card__head .sec9-card__head-pill {
+.sec9-card__head > .sec9-card__head-pill,
+.home-mt .sec9-card__head > .sec9-card__head-pill {
   color: #ff6700 !important;
   -webkit-text-fill-color: #ff6700 !important;
 }
