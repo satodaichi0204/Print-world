@@ -2476,8 +2476,8 @@ img {
 }
 
 .sec9-card__head-main {
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
   font-weight: 900;
   font-size: clamp(15px, 1.4vw, 24px);
   letter-spacing: 0.02em;
@@ -2486,8 +2486,8 @@ img {
 .sec9-card__head-pill {
   display: inline-block;
   background: #fff;
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
+  color: var(--sec9-orange) !important;
+  -webkit-text-fill-color: var(--sec9-orange) !important;
   font-weight: 800;
   font-size: clamp(11px, 0.92vw, 18px);
   padding: 8px 14px;
@@ -5833,13 +5833,13 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .home-mt .sec9-card__btn { background-color: #ff9b64 !important; }
 .home-mt .sec9-card__head { background-color: #ff6700 !important; }
 .home-mt .sec9-card__head-main {
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 .home-mt .sec9-card__head-pill {
   background-color: #fff !important;
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
+  color: #ff6700 !important;
+  -webkit-text-fill-color: #ff6700 !important;
 }
 .home-mt .sec9-contact__panel { background-color: #f7ede6 !important; }
 .home-mt .sec9-wave { background-color: #fff !important; }
@@ -5856,6 +5856,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .home-mt .sec4-card__link,
 .home-mt .sec8-btn,
 .home-mt .sec9-card__btn,
+.home-mt .sec9-card__head-main,
 .home-mt .sec9-action--line,
 .home-mt .sec9-action--mail,
 .home-mt .sec9-action--line .sec9-action__label,
@@ -6617,16 +6618,20 @@ body {
 }
 
 /* =========================================================================
-   sec9 card heads ? force design black text (beats MT/cascade leftovers)
+   sec9 card heads — design: white on orange head, orange on white pill
+   (MT body* forces #000; re-assert with !important)
    ========================================================================= */
 .sec9-card__head .sec9-card__head-main,
-.sec9-card__head .sec9-card__head-pill,
 .home-mt .sec9-card__head .sec9-card__head-main,
-.home-mt .sec9-card__head .sec9-card__head-pill,
 .home-page .sec9-card__head .sec9-card__head-main,
+.product-detail-page .sec9-card__head .sec9-card__head-main {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.sec9-card__head .sec9-card__head-pill,
+.home-mt .sec9-card__head .sec9-card__head-pill,
 .home-page .sec9-card__head .sec9-card__head-pill,
-.product-detail-page .sec9-card__head .sec9-card__head-main,
 .product-detail-page .sec9-card__head .sec9-card__head-pill {
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
+  color: #ff6700 !important;
+  -webkit-text-fill-color: #ff6700 !important;
 }
