@@ -2,11 +2,11 @@
 <!-- Print World / home (TOP)  メーカータウン「HTML直書き」貼付用     -->
 <!-- ヘッダーは除外（MT共通ヘッダーを使用）/ app.mt.jsでアニメーション -->
 <!-- ============================================================ -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260729e">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260729e">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260729f">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260729f">
 <script>document.body.classList.add('home-page');</script>
 <style id="pw-sec9-head-color-fix">
-  /* Scoped to sec9 cards only — does not affect other page copy */
+  /* Design: white on orange head, orange on white pill, orange ship lead */
   .sec9-card__head > .sec9-card__head-main {
     color: #fff !important;
     -webkit-text-fill-color: #fff !important;
@@ -15,28 +15,11 @@
     color: #ff6700 !important;
     -webkit-text-fill-color: #ff6700 !important;
   }
-  /* ONLY this one line: free-shipping lead */
   .sec9-card--ship .sec9-ship__lead {
-    color: #001f5b !important;
-    -webkit-text-fill-color: #001f5b !important;
+    color: #ff6700 !important;
+    -webkit-text-fill-color: #ff6700 !important;
   }
 </style>
-<script>
-(function () {
-  function pwPaintShipLead() {
-    document.querySelectorAll('.sec9-card--ship .sec9-ship__lead').forEach(function (el) {
-      el.style.setProperty('color', '#001f5b', 'important');
-      el.style.setProperty('-webkit-text-fill-color', '#001f5b', 'important');
-    });
-  }
-  pwPaintShipLead();
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', pwPaintShipLead);
-  }
-  setTimeout(pwPaintShipLead, 0);
-  setTimeout(pwPaintShipLead, 400);
-})();
-</script>
 
 <div class="home-mt" style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';">
 
@@ -659,10 +642,10 @@
         <article class="sec9-card sec9-card--ship">
           <header class="sec9-card__head">
             <span class="sec9-card__head-main" style="color:#fff!important;-webkit-text-fill-color:#fff!important">送料</span>
-            <span class="sec9-card__head-pill" style="color:#ff6700!important;-webkit-text-fill-color:#ff6700!important">3,800円以上で送料無料！</span>
+            <span class="sec9-card__head-pill" style="color:#ff6700!important;-webkit-text-fill-color:#ff6700!important">55,000円以上で送料無料！</span>
           </header>
           <div class="sec9-card__body">
-            <p class="sec9-ship__lead" style="color:#001f5b!important;-webkit-text-fill-color:#001f5b!important">3,800円以上(税込)のお買上げで送料無料となります！</p>
+            <p class="sec9-ship__lead" style="color:#ff6700!important;-webkit-text-fill-color:#ff6700!important">55,000円以上(税込)のお買上げで送料無料となります！</p>
             <p class="sec9-ship__note">
               ※沖縄本島、離島、海外、無地・持込は除く。割引併用不可。
             </p>

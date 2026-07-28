@@ -2485,13 +2485,16 @@ img {
 
 .sec9-card__head-pill {
   display: inline-block;
+  box-sizing: border-box;
   background: #fff;
   color: var(--sec9-orange) !important;
   -webkit-text-fill-color: var(--sec9-orange) !important;
   font-weight: 800;
   font-size: clamp(11px, 0.92vw, 18px);
-  padding: 8px 14px;
+  line-height: 1.35;
+  padding: 10px 14px;
   border-radius: 2px;
+  overflow: visible;
 }
 
 .sec9-pay-list {
@@ -2517,8 +2520,8 @@ img {
   flex: 0 0 38px;
   height: 38px;
   border-radius: 50%;
-  background: #FFF0E6;
-  color: var(--sec9-orange);
+  background: #ff9b64;
+  color: #fff;
   font-weight: 900;
   font-size: 15px;
   line-height: 38px;
@@ -2570,18 +2573,18 @@ img {
 
 .sec9-ship__lead {
   margin: 0 0 14px;
-  color: #001f5b !important;
-  -webkit-text-fill-color: #001f5b !important;
+  color: var(--sec9-orange) !important;
+  -webkit-text-fill-color: var(--sec9-orange) !important;
   font-weight: 900;
   font-size: clamp(14px, 1.12vw, 24px);
   line-height: 1.6;
   text-align: left;
 }
 
-/* Scope: ONLY the free-shipping lead inside the ship card (not site-wide). */
+/* Scope: ONLY the free-shipping lead inside the ship card (MT body* black). */
 .sec9-card--ship .sec9-ship__lead {
-  color: #001f5b !important;
-  -webkit-text-fill-color: #001f5b !important;
+  color: #ff6700 !important;
+  -webkit-text-fill-color: #ff6700 !important;
 }
 
 .sec9-ship__note {
@@ -5849,8 +5852,8 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   -webkit-text-fill-color: #ff6700 !important;
 }
 .home-mt .sec9-card--ship .sec9-ship__lead {
-  color: #001f5b !important;
-  -webkit-text-fill-color: #001f5b !important;
+  color: #ff6700 !important;
+  -webkit-text-fill-color: #ff6700 !important;
 }
 .home-mt .sec9-contact__panel { background-color: #f7ede6 !important; }
 .home-mt .sec9-wave { background-color: #fff !important; }
@@ -6643,9 +6646,9 @@ body {
   -webkit-text-fill-color: #ff6700 !important;
 }
 
-/* MT body* black — only ship-card lead, never other page copy */
+/* MT body* black — only ship-card lead (design: orange) */
 .sec9-card--ship .sec9-ship__lead,
 .home-mt .sec9-card--ship .sec9-ship__lead {
-  color: #001f5b !important;
-  -webkit-text-fill-color: #001f5b !important;
+  color: #ff6700 !important;
+  -webkit-text-fill-color: #ff6700 !important;
 }

@@ -8264,9 +8264,9 @@ html.is-guide-flow-zoom-open body {
     box-sizing: border-box;
     max-width: 100%;
     margin: 0;
-    padding: calc(8px * var(--sec9-card-s)) calc(12px * var(--sec9-card-s));
+    padding: calc(10px * var(--sec9-card-s)) calc(12px * var(--sec9-card-s));
     font-size: calc(12px * var(--sec9-card-s));
-    line-height: 1.2;
+    line-height: 1.35;
     border-radius: 2px;
     background: #fff;
     color: #ff6700 !important;
@@ -8274,6 +8274,7 @@ html.is-guide-flow-zoom-open body {
     font-weight: 800;
     text-align: center;
     white-space: normal;
+    overflow: visible;
   }
 
   body:is(.home-page, .product-detail-page) .sec9-pay-list {
@@ -8324,8 +8325,8 @@ html.is-guide-flow-zoom-open body {
     margin-bottom: calc(12px * var(--sec9-card-s));
     font-size: calc(17px * var(--sec9-card-s));
     line-height: 1.45;
-    color: #001f5b !important;
-    -webkit-text-fill-color: #001f5b !important;
+    color: #ff6700 !important;
+    -webkit-text-fill-color: #ff6700 !important;
     font-weight: 900;
   }
 
@@ -9081,8 +9082,8 @@ html.is-guide-flow-zoom-open body {
     line-height: calc(32px * var(--sec9-card-type-s));
     font-size: max(calc(14px * var(--sec9-card-type-s)), 11px);
     border-radius: 50%;
-    background: #fff0e6;
-    color: var(--sec9-orange);
+    background: #ff9b64;
+    color: #fff;
   }
 
   body:is(.home-page, .product-detail-page) .sec9-card__logos {
