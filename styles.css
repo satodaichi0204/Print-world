@@ -6615,3 +6615,18 @@ body {
     padding: 16px 18px 18px;
   }
 }
+
+/* =========================================================================
+   sec9 card heads ? force design black text (beats MT/cascade leftovers)
+   ========================================================================= */
+.sec9-card__head .sec9-card__head-main,
+.sec9-card__head .sec9-card__head-pill,
+.home-mt .sec9-card__head .sec9-card__head-main,
+.home-mt .sec9-card__head .sec9-card__head-pill,
+.home-page .sec9-card__head .sec9-card__head-main,
+.home-page .sec9-card__head .sec9-card__head-pill,
+.product-detail-page .sec9-card__head .sec9-card__head-main,
+.product-detail-page .sec9-card__head .sec9-card__head-pill {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+}
