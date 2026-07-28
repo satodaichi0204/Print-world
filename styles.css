@@ -2476,7 +2476,8 @@ img {
 }
 
 .sec9-card__head-main {
-  color: #fff;
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
   font-weight: 900;
   font-size: clamp(15px, 1.4vw, 24px);
   letter-spacing: 0.02em;
@@ -2485,7 +2486,8 @@ img {
 .sec9-card__head-pill {
   display: inline-block;
   background: #fff;
-  color: var(--sec9-orange);
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
   font-weight: 800;
   font-size: clamp(11px, 0.92vw, 18px);
   padding: 8px 14px;
@@ -5830,7 +5832,15 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .home-mt .sec9-card { background-color: #fff !important; }
 .home-mt .sec9-card__btn { background-color: #ff9b64 !important; }
 .home-mt .sec9-card__head { background-color: #ff6700 !important; }
-.home-mt .sec9-card__head-pill { background-color: #fff !important; }
+.home-mt .sec9-card__head-main {
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+}
+.home-mt .sec9-card__head-pill {
+  background-color: #fff !important;
+  color: #111 !important;
+  -webkit-text-fill-color: #111 !important;
+}
 .home-mt .sec9-contact__panel { background-color: #f7ede6 !important; }
 .home-mt .sec9-wave { background-color: #fff !important; }
 .home-mt .product-chip { background-color: #fff !important; }

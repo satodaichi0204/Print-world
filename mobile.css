@@ -7975,8 +7975,10 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-header__compact {
-    gap: calc(4px * var(--sp-header-s, 1));
+    .fv-header__actions {
+    --fv-sp-icon: calc(30px * var(--sp-header-s, 1));
+    --fv-sp-icon-gap: calc(8px * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
   }
 
   body:is(
@@ -7988,11 +7990,7 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-compact-action {
-    min-width: calc(36px * var(--sp-header-s, 1));
-    font-size: calc(9px * var(--sp-header-s, 1));
-  }
-
+    .fv-header__compact,
   body:is(
       .home-page,
       .guide-flow-page,
@@ -8002,12 +8000,7 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-compact-action
-    img {
-    width: calc(28px * var(--sp-header-s, 1));
-    height: calc(28px * var(--sp-header-s, 1));
-  }
-
+    .fv-header__util,
   body:is(
       .home-page,
       .guide-flow-page,
@@ -8017,26 +8010,9 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-header
-    .menu-btn {
-    width: calc(44px * var(--sp-header-s, 1));
-    height: calc(52px * var(--sp-header-s, 1));
-    gap: calc(4px * var(--sp-header-s, 1));
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
-    .fv-header
-    .menu-btn
-    span {
-    width: calc(20px * var(--sp-header-s, 1));
+    .fv-header__util
+    .mt-ec {
+    gap: var(--fv-sp-icon-gap);
   }
 }
 
@@ -8164,29 +8140,44 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.home-page .fv-header__compact {
-    gap: calc(10px * var(--fv-sec1-s));
+    gap: var(--fv-sp-icon-gap, calc(10px * var(--fv-sec1-s)));
   }
 
-  body.home-page .fv-compact-action {
-    min-width: calc(46px * var(--fv-sec1-s));
-    gap: calc(5px * var(--fv-sec1-s));
-    padding: 0 calc(3px * var(--fv-sec1-s));
-    font-size: calc(10px * var(--fv-sec1-s));
+  body.home-page .fv-header__actions {
+    --fv-sp-icon: calc(34px * var(--fv-sec1-s));
+    --fv-sp-icon-gap: calc(10px * var(--fv-sec1-s));
   }
 
-  body.home-page .fv-compact-action img {
-    width: calc(34px * var(--fv-sec1-s));
-    height: calc(34px * var(--fv-sec1-s));
+  body.home-page .fv-header__util,
+  body.home-page .fv-header__util .mt-ec {
+    gap: var(--fv-sp-icon-gap);
+  }
+
+  body.home-page .fv-compact-action,
+  body.home-page .fv-header__util .mt-ec .header__item,
+  body.home-page .fv-cart-link,
+  body.home-page .fv-header__util .header__login .btn--login,
+  body.home-page .fv-header .menu-btn {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
+    gap: 0;
+    padding: 0;
+  }
+
+  body.home-page .fv-compact-action img,
+  body.home-page .fv-cart-icon,
+  body.home-page .fv-login-icon {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
   }
 
   body.home-page .fv-header .menu-btn {
-    width: calc(48px * var(--fv-sec1-s));
-    height: calc(56px * var(--fv-sec1-s));
-    gap: calc(5px * var(--fv-sec1-s));
+    gap: calc(6px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header .menu-btn span {
-    width: calc(22px * var(--fv-sec1-s));
+    width: 100%;
     height: calc(3px * var(--fv-sec1-s));
   }
 
@@ -8262,7 +8253,8 @@ html.is-guide-flow-zoom-open body {
     text-align: center;
     font-size: calc(20px * var(--sec9-card-s));
     line-height: 1.2;
-    color: #fff;
+    color: #111 !important;
+    -webkit-text-fill-color: #111 !important;
     font-weight: 900;
   }
 
@@ -8277,7 +8269,8 @@ html.is-guide-flow-zoom-open body {
     line-height: 1.2;
     border-radius: 2px;
     background: #fff;
-    color: var(--sec9-orange);
+    color: #111 !important;
+    -webkit-text-fill-color: #111 !important;
     font-weight: 800;
     text-align: center;
     white-space: normal;
@@ -8469,8 +8462,10 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Mobile header icons — 768 lock → 320 gradual scale (final cascade)
-   Larger icons + spacing at 768 to match standard design; scales down to 320.
+   Mobile header icons — 768→320: ALL 6 icons share one size (--fv-sp-icon).
+   Fixes cascade that enlarged only .fv-compact-action img (50px) while util
+   cart/login stayed at 34px and menu used a third size.
+   Desktop 769+ untouched.
    ============================================================================= */
 @media (max-width: 768px) {
   body:is(
@@ -8483,15 +8478,8 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     ) {
     --sp-header-icons-s: calc(clamp(320px, 100vw, 768px) / 768px);
-    --sp-header-icon-size: calc(50px * var(--sp-header-icons-s));
-    --sp-header-icon-gap: calc(20px * var(--sp-header-icons-s));
-    --sp-header-actions-gap: calc(16px * var(--sp-header-icons-s));
-    --sp-header-action-min-w: calc(58px * var(--sp-header-icons-s));
-    --sp-header-action-font: calc(12px * var(--sp-header-icons-s));
-    --sp-header-menu-w: calc(64px * var(--sp-header-icons-s));
-    --sp-header-menu-h: calc(70px * var(--sp-header-icons-s));
-    --sp-header-menu-bar-w: calc(32px * var(--sp-header-icons-s));
-    --sp-header-menu-bar-h: calc(5px * var(--sp-header-icons-s));
+    --fv-sp-icon: calc(34px * var(--sp-header-icons-s));
+    --fv-sp-icon-gap: calc(10px * var(--sp-header-icons-s));
   }
 
   body:is(
@@ -8504,7 +8492,10 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-header__actions {
-    gap: var(--sp-header-actions-gap);
+    --fv-sp-icon: calc(34px * var(--sp-header-icons-s));
+    --fv-sp-icon-gap: calc(10px * var(--sp-header-icons-s));
+    gap: var(--fv-sp-icon-gap);
+    align-items: center;
   }
 
   body:is(
@@ -8516,8 +8507,30 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-header__compact {
-    gap: var(--sp-header-icon-gap);
+    .fv-header__compact,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec {
+    gap: var(--fv-sp-icon-gap);
+    align-items: center;
   }
 
   body:is(
@@ -8529,11 +8542,58 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-compact-action {
-    gap: calc(7px * var(--sp-header-icons-s));
-    min-width: var(--sp-header-action-min-w);
-    padding: 0 calc(4px * var(--sp-header-icons-s));
-    font-size: var(--sp-header-action-font);
+    .fv-compact-action,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec
+    .header__item,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-link,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .header__login
+    .btn--login,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    box-sizing: border-box;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
+    gap: 0;
+    padding: 0;
   }
 
   body:is(
@@ -8546,9 +8606,30 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-compact-action
-    img {
-    width: var(--sp-header-icon-size);
-    height: var(--sp-header-icon-size);
+    img,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-icon,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-login-icon {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    object-fit: contain;
   }
 
   body:is(
@@ -8562,9 +8643,7 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header
     .menu-btn {
-    width: var(--sp-header-menu-w);
-    height: var(--sp-header-menu-h);
-    gap: calc(7px * var(--sp-header-icons-s));
+    gap: calc(6px * var(--sp-header-icons-s));
   }
 
   body:is(
@@ -8591,14 +8670,13 @@ html.is-guide-flow-zoom-open body {
     .fv-header
     .menu-btn:hover
     span {
-    width: var(--sp-header-menu-bar-w);
-    height: var(--sp-header-menu-bar-h);
+    width: 100%;
+    height: calc(3px * var(--sp-header-icons-s));
   }
 }
 
 /* =============================================================================
-   Narrow phones 320–425 — header 425 lock → 320 proportional scale (final cascade)
-   Freezes current 425 header; logo + right icons scale together via --sp-header-s.
+   Narrow phones 320–425 — same equal icon size via --fv-sp-icon.
    ============================================================================= */
 @media (max-width: 425px) {
   body:is(
@@ -8611,15 +8689,8 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     ) {
     --fv-logo-w: calc(158px * var(--sp-header-s, 1));
-    --sp-header-icon-size: calc(38px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-icon-gap: calc(12px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-actions-gap: calc(10px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-action-min-w: calc(44px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-action-font: calc(11px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-menu-w: calc(52px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-menu-h: calc(58px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-menu-bar-w: calc(26px * 0.8 * var(--sp-header-s, 1));
-    --sp-header-menu-bar-h: calc(4px * 0.8 * var(--sp-header-s, 1));
+    --fv-sp-icon: calc(34px * 0.8 * var(--sp-header-s, 1));
+    --fv-sp-icon-gap: calc(10px * 0.8 * var(--sp-header-s, 1));
   }
 
   body.home-page .fv-header__right {
@@ -8663,21 +8734,10 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-header__compact {
-    gap: var(--sp-header-icon-gap);
-  }
-
-  body:is(
-      .home-page,
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page,
-      .product-list-page,
-      .product-detail-page
-    )
     .fv-header__actions {
-    gap: var(--sp-header-actions-gap);
+    --fv-sp-icon: calc(34px * 0.8 * var(--sp-header-s, 1));
+    --fv-sp-icon-gap: calc(10px * 0.8 * var(--sp-header-s, 1));
+    gap: var(--fv-sp-icon-gap);
   }
 
   body:is(
@@ -8689,11 +8749,91 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
-    .fv-compact-action {
-    gap: calc(6px * 0.8 * var(--sp-header-s, 1));
-    min-width: var(--sp-header-action-min-w);
-    padding: 0 calc(4px * 425px / 768px * var(--sp-header-s, 1));
-    font-size: var(--sp-header-action-font);
+    .fv-header__compact,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec {
+    gap: var(--fv-sp-icon-gap);
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec
+    .header__item,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-link,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .header__login
+    .btn--login,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
+    gap: 0;
+    padding: 0;
   }
 
   body:is(
@@ -8706,9 +8846,29 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-compact-action
-    img {
-    width: var(--sp-header-icon-size);
-    height: var(--sp-header-icon-size);
+    img,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-icon,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-login-icon {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
   }
 
   body:is(
@@ -8722,8 +8882,6 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header
     .menu-btn {
-    width: var(--sp-header-menu-w);
-    height: var(--sp-header-menu-h);
     gap: calc(6px * 0.8 * var(--sp-header-s, 1));
   }
 
@@ -8751,8 +8909,8 @@ html.is-guide-flow-zoom-open body {
     .fv-header
     .menu-btn:hover
     span {
-    width: var(--sp-header-menu-bar-w);
-    height: var(--sp-header-menu-bar-h);
+    width: 100%;
+    height: calc(3px * 0.8 * var(--sp-header-s, 1));
   }
 }
 
