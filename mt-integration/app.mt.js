@@ -722,7 +722,8 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
 
 // --- Smooth accordion (details open/close animation) ---
 (function () {
-  var DUR = 300;
+  var DUR = 340;
+  var EASE = "cubic-bezier(.4,0,.2,1)";
   function smooth(detailsSel, bodySel, singleOpen) {
     var list = [].slice.call(document.querySelectorAll(detailsSel));
     list.forEach(function (el) {
@@ -730,54 +731,56 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
       var body = el.querySelector(bodySel);
       if (!sum || !body) return;
 
-      function settle(open) {
+      function cleanup() {
         body.style.transition = "";
         body.style.height = "";
         body.style.overflow = "";
         body.style.boxSizing = "";
-        if (!open) el.open = false;
-        el._busy = false;
+        body.style.willChange = "";
       }
-      function animate(open) {
-        el._busy = true; el._dir = open;
+      function go(show) {
+        // cancel anything still pending from a previous toggle
+        if (el._end) { body.removeEventListener("transitionend", el._end); el._end = null; }
+        if (el._to) { clearTimeout(el._to); el._to = null; }
+
+        var from = body.getBoundingClientRect().height; // 0 if closed, current if mid-anim
+        if (show) el.open = true;
+        var to = show ? body.scrollHeight : 0;
+
         body.style.overflow = "hidden";
         body.style.boxSizing = "border-box";
-        var from, to;
-        if (open) {
-          from = body.getBoundingClientRect().height; // 0 if closed, or current if mid-anim
-          el.open = true;
-          to = body.scrollHeight;
-        } else {
-          from = body.getBoundingClientRect().height;
-          to = 0;
-        }
-        // lock the start height WITHOUT a transition (no flash), then transition to target
+        body.style.willChange = "height";
         body.style.transition = "none";
         body.style.height = from + "px";
-        void body.offsetHeight; // force reflow so the browser registers the start height
-        body.style.transition = "height " + DUR + "ms ease";
-        body.style.height = to + "px";
+        void body.offsetHeight; // commit the start height
 
-        var done = false;
-        var end = function (e) {
+        el._busy = true; el._dir = show;
+        el._end = function (e) {
           if (e && e.propertyName && e.propertyName !== "height") return;
-          if (done) return; done = true;
-          body.removeEventListener("transitionend", end);
-          settle(open);
+          if (el._end) body.removeEventListener("transitionend", el._end);
+          el._end = null;
+          if (el._to) { clearTimeout(el._to); el._to = null; }
+          if (!show) el.open = false;
+          cleanup();
+          el._busy = false;
         };
-        body.addEventListener("transitionend", end);
-        setTimeout(end, DUR + 80); // fallback if transitionend doesn't fire
+        body.addEventListener("transitionend", el._end);
+        el._to = setTimeout(function () { if (el._end) el._end(); }, DUR + 140);
+
+        // start the transition on the NEXT frame so it reliably fires
+        requestAnimationFrame(function () {
+          body.style.transition = "height " + DUR + "ms " + EASE;
+          body.style.height = to + "px";
+        });
       }
-      el._close = function () {
-        if (el.open && !(el._busy && el._dir === false)) animate(false);
-      };
+      el._close = function () { if (el.open && !(el._busy && el._dir === false)) go(false); };
       sum.addEventListener("click", function (e) {
         e.preventDefault();
-        var willOpen = el._busy ? !el._dir : !el.open;
-        if (singleOpen && willOpen) {
+        var want = el._busy ? !el._dir : !el.open;
+        if (singleOpen && want) {
           list.forEach(function (o) { if (o !== el && o._close) o._close(); });
         }
-        animate(willOpen);
+        go(want);
       });
     });
   }

@@ -388,49 +388,55 @@
   </main>
 </div>
 
-<!-- Smooth single-open accordion (CSS height transition, no flash) -->
+<!-- Smooth single-open accordion (rAF-started height transition) -->
 <script>
 (function () {
-  var DUR = 300;
+  var DUR = 340;
+  var EASE = "cubic-bezier(.4,0,.2,1)";
   var list = [].slice.call(document.querySelectorAll("details.faq-item"));
   list.forEach(function (el) {
     var sum = el.querySelector("summary");
     var body = el.querySelector(".faq-item__answer");
     if (!sum || !body) return;
-    function settle(open) {
+    function cleanup() {
       body.style.transition = ""; body.style.height = "";
-      body.style.overflow = ""; body.style.boxSizing = "";
-      if (!open) el.open = false;
-      el._busy = false;
+      body.style.overflow = ""; body.style.boxSizing = ""; body.style.willChange = "";
     }
-    function animate(open) {
-      el._busy = true; el._dir = open;
+    function go(show) {
+      if (el._end) { body.removeEventListener("transitionend", el._end); el._end = null; }
+      if (el._to) { clearTimeout(el._to); el._to = null; }
+      var from = body.getBoundingClientRect().height;
+      if (show) el.open = true;
+      var to = show ? body.scrollHeight : 0;
       body.style.overflow = "hidden";
       body.style.boxSizing = "border-box";
-      var from, to;
-      if (open) { from = body.getBoundingClientRect().height; el.open = true; to = body.scrollHeight; }
-      else { from = body.getBoundingClientRect().height; to = 0; }
+      body.style.willChange = "height";
       body.style.transition = "none";
       body.style.height = from + "px";
       void body.offsetHeight;
-      body.style.transition = "height " + DUR + "ms ease";
-      body.style.height = to + "px";
-      var done = false;
-      var end = function (e) {
+      el._busy = true; el._dir = show;
+      el._end = function (e) {
         if (e && e.propertyName && e.propertyName !== "height") return;
-        if (done) return; done = true;
-        body.removeEventListener("transitionend", end);
-        settle(open);
+        if (el._end) body.removeEventListener("transitionend", el._end);
+        el._end = null;
+        if (el._to) { clearTimeout(el._to); el._to = null; }
+        if (!show) el.open = false;
+        cleanup();
+        el._busy = false;
       };
-      body.addEventListener("transitionend", end);
-      setTimeout(end, DUR + 80);
+      body.addEventListener("transitionend", el._end);
+      el._to = setTimeout(function () { if (el._end) el._end(); }, DUR + 140);
+      requestAnimationFrame(function () {
+        body.style.transition = "height " + DUR + "ms " + EASE;
+        body.style.height = to + "px";
+      });
     }
-    el._close = function () { if (el.open && !(el._busy && el._dir === false)) animate(false); };
+    el._close = function () { if (el.open && !(el._busy && el._dir === false)) go(false); };
     sum.addEventListener("click", function (e) {
       e.preventDefault();
-      var willOpen = el._busy ? !el._dir : !el.open;
-      if (willOpen) list.forEach(function (o) { if (o !== el && o._close) o._close(); });
-      animate(willOpen);
+      var want = el._busy ? !el._dir : !el.open;
+      if (want) list.forEach(function (o) { if (o !== el && o._close) o._close(); });
+      go(want);
     });
   });
 })();
