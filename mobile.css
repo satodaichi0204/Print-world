@@ -8324,7 +8324,8 @@ html.is-guide-flow-zoom-open body {
     margin-bottom: calc(12px * var(--sec9-card-s));
     font-size: calc(17px * var(--sec9-card-s));
     line-height: 1.45;
-    color: var(--sec9-orange);
+    color: #001f5b !important;
+    -webkit-text-fill-color: #001f5b !important;
     font-weight: 900;
   }
 
