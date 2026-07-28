@@ -95,46 +95,45 @@
   </div>
 </header>
 
-<!-- Keep page position when the login (and other MT modals) close.
-     MT's modal close can jump the page down; we remember the scroll position when
-     a modal trigger is tapped and restore it once the modal is hidden. -->
+<!-- Keep page position when the login screen (MT modal) closes.
+     MT's modal close jumps the page down. On a modal trigger tap we save the
+     scroll position, then poll the modal's visibility every frame; once it goes
+     open -> closed we re-assert the saved position for ~0.5s (absorbs MT's async
+     jump). Independent of how MT hides the modal (class/style/display/aria). -->
 <script>
 (function () {
-  var savedY = null;
+  var MODAL_SEL = "#js-login-modal, .loginModal, .m-modal, .js-modalContent";
+  var TRIGGER_SEL = ".js-modal, .js-login, .btn--login, [data-modal]";
   function y() { return window.pageYOffset || document.documentElement.scrollTop || 0; }
   function vis(m) {
     if (!m || !m.getClientRects || !m.getClientRects().length) return false;
     var s = window.getComputedStyle(m);
-    return s.display !== "none" && s.visibility !== "hidden" && parseFloat(s.opacity) !== 0;
+    return s.display !== "none" && s.visibility !== "hidden" && parseFloat(s.opacity) !== 0
+      && m.getAttribute("aria-hidden") !== "true";
   }
-  // remember scroll the moment a modal trigger is tapped
-  document.addEventListener("click", function (e) {
-    var t = e.target;
-    if (t && t.closest && t.closest(".js-modal, .js-login, .btn--login, [data-modal]")) {
-      savedY = y();
-    }
-  }, true);
-  function restore() {
-    if (savedY == null) return;
-    var yy = savedY;
-    window.scrollTo(0, yy);
-    requestAnimationFrame(function () { window.scrollTo(0, yy); });
-    setTimeout(function () { window.scrollTo(0, yy); savedY = null; }, 80);
+  function anyModalVisible() {
+    var mods = document.querySelectorAll(MODAL_SEL);
+    for (var i = 0; i < mods.length; i++) { if (vis(mods[i])) return true; }
+    return false;
   }
-  function watch() {
-    var mods = [].slice.call(document.querySelectorAll("#js-login-modal, .loginModal, .m-modal, .js-modalContent"));
-    mods.forEach(function (m) {
-      if (m._pwWatched) return;
-      m._pwWatched = true;
-      var shown = vis(m);
-      new MutationObserver(function () {
-        var now = vis(m);
-        if (shown && !now) restore(); // just closed
-        shown = now;
-      }).observe(m, { attributes: true, attributeFilter: ["class", "style"] });
+  function reassert(yy) {
+    [0, 1, 60, 150, 300, 500].forEach(function (d) {
+      setTimeout(function () { window.scrollTo(0, yy); }, d);
     });
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", watch);
-  else watch();
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    if (!(t && t.closest && t.closest(TRIGGER_SEL))) return;
+    var savedY = y();
+    var opened = false;
+    var t0 = Date.now();
+    (function loop() {
+      var open = anyModalVisible();
+      if (open) opened = true;
+      if (opened && !open) { reassert(savedY); return; } // modal just closed
+      if (Date.now() - t0 > 30000) return;               // give up after 30s
+      requestAnimationFrame(loop);
+    })();
+  }, true);
 })();
 </script>
