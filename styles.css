@@ -6537,3 +6537,15 @@ body {
 .ap-method__phone {
   background: #ececec !important;
 }
+
+/* =========================================================================
+   PC (>=769px): phone (tel:) links must NOT initiate a call — desktop has no
+   dialer. The number still shows; it's just not clickable. On mobile (<769px)
+   tel: links stay tappable. Covers header phone-box / compact / sec9 / etc.
+   ========================================================================= */
+@media (min-width: 769px) {
+  a[href^="tel:"] {
+    pointer-events: none !important;
+    cursor: default !important;
+  }
+}
