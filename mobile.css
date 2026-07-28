@@ -8320,7 +8320,7 @@ html.is-guide-flow-zoom-open body {
     text-align: center;
   }
 
-  body:is(.home-page, .product-detail-page) .sec9-ship__lead {
+  body:is(.home-page, .product-detail-page) .sec9-card--ship .sec9-ship__lead {
     margin-bottom: calc(12px * var(--sec9-card-s));
     font-size: calc(17px * var(--sec9-card-s));
     line-height: 1.45;

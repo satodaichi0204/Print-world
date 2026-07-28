@@ -2578,6 +2578,12 @@ img {
   text-align: left;
 }
 
+/* Scope: ONLY the free-shipping lead inside the ship card (not site-wide). */
+.sec9-card--ship .sec9-ship__lead {
+  color: #001f5b !important;
+  -webkit-text-fill-color: #001f5b !important;
+}
+
 .sec9-ship__note {
   margin: 0 0 14px;
   font-size: clamp(11px, 0.88vw, 16px);
@@ -5842,7 +5848,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   color: #ff6700 !important;
   -webkit-text-fill-color: #ff6700 !important;
 }
-.home-mt .sec9-ship__lead {
+.home-mt .sec9-card--ship .sec9-ship__lead {
   color: #001f5b !important;
   -webkit-text-fill-color: #001f5b !important;
 }
@@ -6641,10 +6647,9 @@ body {
   -webkit-text-fill-color: #ff6700 !important;
 }
 
-.sec9-ship__lead,
-.home-mt .sec9-ship__lead,
-.home-page .sec9-ship__lead,
-.product-detail-page .sec9-ship__lead {
+/* MT body* black — only ship-card lead, never other page copy */
+.sec9-card--ship .sec9-ship__lead,
+.home-mt .sec9-card--ship .sec9-ship__lead {
   color: #001f5b !important;
   -webkit-text-fill-color: #001f5b !important;
 }
