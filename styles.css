@@ -2359,14 +2359,28 @@ img {
 
 .sec9-action--line {
   background: #00c300;
-  color: #fff;
+  color: #fff !important;
   border-color: #009b00;
 }
 
 .sec9-action--mail {
   background: #d8001a;
-  color: #fff;
+  color: #fff !important;
   border-color: #a50014;
+}
+
+.sec9-action--line .sec9-action__label,
+.sec9-action--mail .sec9-action__label,
+.home-page .sec9-action--line,
+.home-page .sec9-action--mail,
+.home-page .sec9-action--line .sec9-action__label,
+.home-page .sec9-action--mail .sec9-action__label,
+.product-detail-page .sec9-action--line,
+.product-detail-page .sec9-action--mail,
+.product-detail-page .sec9-action--line .sec9-action__label,
+.product-detail-page .sec9-action--mail .sec9-action__label {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 
 .sec9-action__label {
@@ -5832,7 +5846,14 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .home-mt .sec4-card__link,
 .home-mt .sec8-btn,
 .home-mt .sec9-card__btn,
-.home-mt .product-rank { color: #fff !important; }
+.home-mt .sec9-action--line,
+.home-mt .sec9-action--mail,
+.home-mt .sec9-action--line .sec9-action__label,
+.home-mt .sec9-action--mail .sec9-action__label,
+.home-mt .product-rank {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
 
 /* other colored text */
 .home-mt .sec5-card__text { color: #5c5c5c !important; }
