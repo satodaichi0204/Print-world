@@ -722,8 +722,6 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
 
 // --- Smooth accordion (details open/close animation) ---
 (function () {
-  var DUR = 340;
-  var EASE = "cubic-bezier(.4,0,.2,1)";
   function smooth(detailsSel, bodySel, singleOpen) {
     var list = [].slice.call(document.querySelectorAll(detailsSel));
     list.forEach(function (el) {
@@ -731,56 +729,37 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
       var body = el.querySelector(bodySel);
       if (!sum || !body) return;
 
-      function cleanup() {
-        body.style.transition = "";
-        body.style.height = "";
-        body.style.overflow = "";
-        body.style.boxSizing = "";
-        body.style.willChange = "";
-      }
-      function go(show) {
-        // cancel anything still pending from a previous toggle
-        if (el._end) { body.removeEventListener("transitionend", el._end); el._end = null; }
+      el.classList.add("pw-acc"); // activate the grid CSS
+      if (el.open) el.classList.add("pw-open");
+
+      function openIt() {
         if (el._to) { clearTimeout(el._to); el._to = null; }
-
-        var from = body.getBoundingClientRect().height; // 0 if closed, current if mid-anim
-        if (show) el.open = true;
-        var to = show ? body.scrollHeight : 0;
-
-        body.style.overflow = "hidden";
-        body.style.boxSizing = "border-box";
-        body.style.willChange = "height";
-        body.style.transition = "none";
-        body.style.height = from + "px";
-        void body.offsetHeight; // commit the start height
-
-        el._busy = true; el._dir = show;
-        el._end = function (e) {
-          if (e && e.propertyName && e.propertyName !== "height") return;
-          if (el._end) body.removeEventListener("transitionend", el._end);
-          el._end = null;
-          if (el._to) { clearTimeout(el._to); el._to = null; }
-          if (!show) el.open = false;
-          cleanup();
-          el._busy = false;
-        };
-        body.addEventListener("transitionend", el._end);
-        el._to = setTimeout(function () { if (el._end) el._end(); }, DUR + 140);
-
-        // start the transition on the NEXT frame so it reliably fires
-        requestAnimationFrame(function () {
-          body.style.transition = "height " + DUR + "ms " + EASE;
-          body.style.height = to + "px";
-        });
+        el.open = true;         // render content (collapsed at grid 0fr)
+        void body.offsetWidth;  // paint the collapsed state first
+        el.classList.add("pw-open"); // 0fr -> 1fr (animates)
       }
-      el._close = function () { if (el.open && !(el._busy && el._dir === false)) go(false); };
+      function closeIt() {
+        el.classList.remove("pw-open"); // 1fr -> 0fr (animates)
+        var done = function (e) {
+          if (e && e.propertyName && e.propertyName.indexOf("grid-template") === -1) return;
+          body.removeEventListener("transitionend", done);
+          if (el._to) { clearTimeout(el._to); el._to = null; }
+          if (!el.classList.contains("pw-open")) el.open = false; // hide after collapse
+        };
+        body.addEventListener("transitionend", done);
+        if (el._to) clearTimeout(el._to);
+        el._to = setTimeout(function () { done(); }, 440);
+      }
+      el._close = function () { if (el.classList.contains("pw-open")) closeIt(); };
+
       sum.addEventListener("click", function (e) {
         e.preventDefault();
-        var want = el._busy ? !el._dir : !el.open;
-        if (singleOpen && want) {
-          list.forEach(function (o) { if (o !== el && o._close) o._close(); });
+        if (el.classList.contains("pw-open")) {
+          closeIt();
+        } else {
+          if (singleOpen) list.forEach(function (o) { if (o !== el && o._close) o._close(); });
+          openIt();
         }
-        go(want);
       });
     });
   }

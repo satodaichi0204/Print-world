@@ -388,55 +388,43 @@
   </main>
 </div>
 
-<!-- Smooth single-open accordion (rAF-started height transition) -->
+<!-- Smooth single-open accordion (grid-template-rows animation) -->
 <script>
 (function () {
-  var DUR = 340;
-  var EASE = "cubic-bezier(.4,0,.2,1)";
   var list = [].slice.call(document.querySelectorAll("details.faq-item"));
   list.forEach(function (el) {
     var sum = el.querySelector("summary");
     var body = el.querySelector(".faq-item__answer");
     if (!sum || !body) return;
-    function cleanup() {
-      body.style.transition = ""; body.style.height = "";
-      body.style.overflow = ""; body.style.boxSizing = ""; body.style.willChange = "";
-    }
-    function go(show) {
-      if (el._end) { body.removeEventListener("transitionend", el._end); el._end = null; }
+    el.classList.add("pw-acc");
+    if (el.open) el.classList.add("pw-open");
+    function openIt() {
       if (el._to) { clearTimeout(el._to); el._to = null; }
-      var from = body.getBoundingClientRect().height;
-      if (show) el.open = true;
-      var to = show ? body.scrollHeight : 0;
-      body.style.overflow = "hidden";
-      body.style.boxSizing = "border-box";
-      body.style.willChange = "height";
-      body.style.transition = "none";
-      body.style.height = from + "px";
-      void body.offsetHeight;
-      el._busy = true; el._dir = show;
-      el._end = function (e) {
-        if (e && e.propertyName && e.propertyName !== "height") return;
-        if (el._end) body.removeEventListener("transitionend", el._end);
-        el._end = null;
-        if (el._to) { clearTimeout(el._to); el._to = null; }
-        if (!show) el.open = false;
-        cleanup();
-        el._busy = false;
-      };
-      body.addEventListener("transitionend", el._end);
-      el._to = setTimeout(function () { if (el._end) el._end(); }, DUR + 140);
-      requestAnimationFrame(function () {
-        body.style.transition = "height " + DUR + "ms " + EASE;
-        body.style.height = to + "px";
-      });
+      el.open = true;
+      void body.offsetWidth;
+      el.classList.add("pw-open");
     }
-    el._close = function () { if (el.open && !(el._busy && el._dir === false)) go(false); };
+    function closeIt() {
+      el.classList.remove("pw-open");
+      var done = function (e) {
+        if (e && e.propertyName && e.propertyName.indexOf("grid-template") === -1) return;
+        body.removeEventListener("transitionend", done);
+        if (el._to) { clearTimeout(el._to); el._to = null; }
+        if (!el.classList.contains("pw-open")) el.open = false;
+      };
+      body.addEventListener("transitionend", done);
+      if (el._to) clearTimeout(el._to);
+      el._to = setTimeout(function () { done(); }, 440);
+    }
+    el._close = function () { if (el.classList.contains("pw-open")) closeIt(); };
     sum.addEventListener("click", function (e) {
       e.preventDefault();
-      var want = el._busy ? !el._dir : !el.open;
-      if (want) list.forEach(function (o) { if (o !== el && o._close) o._close(); });
-      go(want);
+      if (el.classList.contains("pw-open")) {
+        closeIt();
+      } else {
+        list.forEach(function (o) { if (o !== el && o._close) o._close(); });
+        openIt();
+      }
     });
   });
 })();
