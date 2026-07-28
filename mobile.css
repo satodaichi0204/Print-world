@@ -7178,9 +7178,10 @@ html.is-guide-flow-zoom-open body {
   }
 
   .product-detail-page .sec9-card__head-pill {
-    padding: calc(8px * var(--sec9-sp-s)) calc(12px * var(--sec9-sp-s));
+    padding: calc(10px * var(--sec9-sp-s)) calc(12px * var(--sec9-sp-s));
     font-size: max(calc(12px * var(--sec9-sp-s)), 10px);
-    line-height: 1;
+    line-height: 1.35;
+    overflow: visible;
   }
 
   .product-detail-page .sec9-pay-list {
@@ -9049,11 +9050,12 @@ html.is-guide-flow-zoom-open body {
     max-width: 50%;
     margin-inline: auto;
     font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
-    line-height: 1.2;
-    padding: calc(8px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
+    line-height: 1.35;
+    padding: calc(10px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
     border-radius: 2px;
     text-align: center;
     white-space: normal;
+    overflow: visible;
   }
 
   body:is(.home-page, .product-detail-page) .sec9-card--pay .sec9-card__main {
@@ -9168,24 +9170,20 @@ html.is-guide-flow-zoom-open body {
     max-width: 50%;
     margin-inline: auto;
     font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
-    line-height: 1.2;
-    padding: calc(8px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
+    line-height: 1.35;
+    padding: calc(10px * var(--sec9-card-type-s)) calc(12px * var(--sec9-card-type-s));
     border-radius: 2px;
     text-align: center;
     white-space: normal;
+    overflow: visible;
   }
 }
 
 /* =============================================================================
-   Product list — 320–768 only: white hero, header shadow, 40px top gap
+   Product list — 320–768 only: header shadow, 40px top gap
    ============================================================================= */
 @media (max-width: 768px) {
-  body.product-list-page {
-    --plp-header-bg: #fff;
-  }
-
   body.product-list-page .plp-hero {
-    background-color: #fff;
     padding-top: calc(var(--sp-header-clear, 76px) + 40px * var(--sp-header-s, 1));
   }
 
@@ -9217,13 +9215,9 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Product detail — pdp-hero white background (320–768 only)
+   Product detail — header shadow (320–768 only)
    ============================================================================= */
 @media (max-width: 768px) {
-  body.product-detail-page .pdp-hero {
-    background-color: #fff;
-  }
-
   body.product-detail-page .fv-header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
@@ -9526,13 +9520,8 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* Guide pages — hero band white on mobile (320–768) */
+/* Guide pages — header shadow on mobile (320–768) */
 @media (max-width: 768px) {
-  .guide-flow-hero,
-  .guide-hero {
-    background-color: #fff;
-  }
-
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,

@@ -261,8 +261,7 @@
 /* ----- Responsive ----- */
 @media (max-width: 768px) {
   .dh-sec1 {
-    /* background: #efce0a; */
-    background: #fff;
+    background: #efce0a;
     padding: 0 0 56px;
   }
 
@@ -339,8 +338,7 @@
   }
 
   .dh-sec1 {
-    /* Keep 768→320: white bg + padding 0 0 56px */
-    background: #fff;
+    background: #efce0a;
     padding: 0 0 56px;
   }
 
