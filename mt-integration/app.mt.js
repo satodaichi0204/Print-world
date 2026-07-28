@@ -722,46 +722,62 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
 
 // --- Smooth accordion (details open/close animation) ---
 (function () {
-  var DUR = 280;
+  var DUR = 300;
   function smooth(detailsSel, bodySel, singleOpen) {
     var list = [].slice.call(document.querySelectorAll(detailsSel));
-    if (!list.length || typeof list[0].animate !== "function") return;
     list.forEach(function (el) {
       var sum = el.querySelector("summary");
       var body = el.querySelector(bodySel);
       if (!sum || !body) return;
 
-      function run(open) {
-        var start = body.getBoundingClientRect().height;
-        if (el._a) { el._a.cancel(); el._a = null; }
-        el.open = true;
-        var prevBox = body.style.boxSizing;
-        body.style.boxSizing = "border-box";
-        body.style.overflow = "hidden";
-        var end = open ? body.scrollHeight : 0;
-        var a = body.animate(
-          [{ height: start + "px" }, { height: end + "px" }],
-          { duration: DUR, easing: "ease" }
-        );
-        el._a = a; el._open = open;
-        a.onfinish = function () {
-          el.open = open;
-          body.style.height = "";
-          body.style.overflow = "";
-          body.style.boxSizing = prevBox;
-          el._a = null;
-        };
-        a.oncancel = function () { el._a = null; };
+      function settle(open) {
+        body.style.transition = "";
+        body.style.height = "";
+        body.style.overflow = "";
+        body.style.boxSizing = "";
+        if (!open) el.open = false;
+        el._busy = false;
       }
-      el._close = function () { if (el.open || (el._a && el._open)) run(false); };
+      function animate(open) {
+        el._busy = true; el._dir = open;
+        body.style.overflow = "hidden";
+        body.style.boxSizing = "border-box";
+        var from, to;
+        if (open) {
+          from = body.getBoundingClientRect().height; // 0 if closed, or current if mid-anim
+          el.open = true;
+          to = body.scrollHeight;
+        } else {
+          from = body.getBoundingClientRect().height;
+          to = 0;
+        }
+        // lock the start height WITHOUT a transition (no flash), then transition to target
+        body.style.transition = "none";
+        body.style.height = from + "px";
+        void body.offsetHeight; // force reflow so the browser registers the start height
+        body.style.transition = "height " + DUR + "ms ease";
+        body.style.height = to + "px";
 
+        var done = false;
+        var end = function (e) {
+          if (e && e.propertyName && e.propertyName !== "height") return;
+          if (done) return; done = true;
+          body.removeEventListener("transitionend", end);
+          settle(open);
+        };
+        body.addEventListener("transitionend", end);
+        setTimeout(end, DUR + 80); // fallback if transitionend doesn't fire
+      }
+      el._close = function () {
+        if (el.open && !(el._busy && el._dir === false)) animate(false);
+      };
       sum.addEventListener("click", function (e) {
         e.preventDefault();
-        var willOpen = el._a ? !el._open : !el.open;
+        var willOpen = el._busy ? !el._dir : !el.open;
         if (singleOpen && willOpen) {
           list.forEach(function (o) { if (o !== el && o._close) o._close(); });
         }
-        run(willOpen);
+        animate(willOpen);
       });
     });
   }
