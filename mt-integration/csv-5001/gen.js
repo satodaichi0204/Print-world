@@ -69,9 +69,10 @@ writeCsv("5001-01_3_itemIndiv.csv", indivHdr, skus.map(s => {
     "（仮）", CODE, s.cname, s.ccode, s.size, janOf[s.ccode + "|" + s.size], String(zei)];
 }));
 
+// per-color underlay image: 5001-01-<色コード>.jpg (verified all 61 exist in the ZIP)
 writeCsv("5001-01_4_itemPosImage.csv",
   ["アイテムID(NC)","アイテムコード","アイテム名(NC)","位置別アイテム画像コード","表示名","表示順","表示可否","プラットフォームプリセット","カラーID","カラー名称(NC)","サムネイルファイル名","マスク画像ファイル名"],
-  colorOrder.map(c => [ITEM_ID, CODE, NAME, CODE + "_chest_left", "左胸", "1", "1", "0", colorId[c.cname], c.cname, FIXED_IMG, ""]));
+  colorOrder.map(c => [ITEM_ID, CODE, NAME, CODE + "_chest_left", "左胸", "1", "1", "0", colorId[c.cname], c.cname, CODE + "-" + c.ccode + ".jpg", ""]));
 
 writeCsv("5001-01_5_workOverItem.csv",
   ["ID","加工方法指定コード","アイテムコード","アイテムID(NC)","加工方法コード","加工方法ID(NC)","表示名","表示順","表示可否","キャンバス画像ファイル名","キャンバス座標Ax","キャンバス座標Ay","キャンバス座標Bx","キャンバス座標By","キャンバス座標Cx","キャンバス座標Cy","プラットフォームプリセット"],
