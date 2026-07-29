@@ -17,6 +17,53 @@
   (document.head || document.documentElement).appendChild(m);
 })();
 </script>
+<!-- Pre-launch simple password gate (SOFT protection — bypassable by technical
+     users; NOT real BASIC auth). Shown until the correct password is entered;
+     the pass is remembered (localStorage). ★公開時はこの <script> を削除★ -->
+<script>
+(function () {
+  var PW = "printworld2026";      /* ★閲覧用パスワード（自由に変更してください）★ */
+  var KEY = "pw_preview_ok";
+  try { if (localStorage.getItem(KEY) === "1") return; } catch (e) {}
+
+  function build() {
+    if (document.getElementById("pwGate")) return;
+    var g = document.createElement("div");
+    g.id = "pwGate";
+    g.style.cssText = "position:fixed;inset:0;z-index:2147483600;background:#ffffff;display:flex;align-items:center;justify-content:center;font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;";
+    g.innerHTML =
+      '<div style="width:min(360px,88vw);text-align:center;padding:34px 26px;border:1px solid #eee;border-radius:16px;box-shadow:0 12px 44px rgba(0,0,0,.10);">' +
+      '<div style="font-size:20px;font-weight:900;color:#111;margin-bottom:8px;">プリントワールド</div>' +
+      '<div style="font-size:13px;color:#666;line-height:1.7;margin-bottom:20px;">現在サイトは公開準備中です。<br>閲覧用パスワードを入力してください。</div>' +
+      '<input id="pwGateInput" type="password" placeholder="パスワード" autocomplete="off" style="width:100%;box-sizing:border-box;padding:12px 14px;font-size:15px;border:2px solid #ddd;border-radius:10px;outline:none;" />' +
+      '<div id="pwGateErr" style="display:none;color:#d8001a;font-size:13px;margin-top:8px;">パスワードが違います。</div>' +
+      '<button id="pwGateBtn" type="button" style="width:100%;margin-top:16px;padding:12px;font-size:15px;font-weight:800;color:#111;background:#efce0a;border:0;border-radius:10px;cursor:pointer;">閲覧する</button>' +
+      '</div>';
+    document.body.appendChild(g);
+    document.documentElement.style.overflow = "hidden";
+
+    var input = document.getElementById("pwGateInput");
+    var err = document.getElementById("pwGateErr");
+    function submit() {
+      if (input.value === PW) {
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+        g.parentNode.removeChild(g);
+        document.documentElement.style.overflow = "";
+      } else {
+        err.style.display = "block";
+        input.value = "";
+        input.focus();
+      }
+    }
+    document.getElementById("pwGateBtn").addEventListener("click", submit);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") submit(); });
+    input.focus();
+  }
+
+  if (document.body) build();
+  else document.addEventListener("DOMContentLoaded", build);
+})();
+</script>
 {% set siteInfo = getSiteInfo(app.request) %}
 <header class="fv-header">
   <div class="fv-header__left">
