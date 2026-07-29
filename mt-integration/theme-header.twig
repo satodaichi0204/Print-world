@@ -4,6 +4,19 @@
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css">
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css">
 <script>document.body.classList.add("product-list-page");</script>
+<!-- Pre-launch: keep the whole site OUT of search engines (noindex).
+     Injected into <head> via JS (Google renders pages and honours it).
+     ★公開時はこの <script> ブロックを削除してください★ -->
+<script>
+(function () {
+  if (document.querySelector('meta[data-pw-noindex]')) return;
+  var m = document.createElement("meta");
+  m.name = "robots";
+  m.content = "noindex, nofollow, noarchive, noimageindex";
+  m.setAttribute("data-pw-noindex", "1");
+  (document.head || document.documentElement).appendChild(m);
+})();
+</script>
 {% set siteInfo = getSiteInfo(app.request) %}
 <header class="fv-header">
   <div class="fv-header__left">
