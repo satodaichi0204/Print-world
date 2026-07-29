@@ -770,3 +770,186 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+
+// ---------------------------------------------------------------------------
+// Product detail (/item/{id}): fill the PW shell (#pw-pdp-shell) from MakerTown's
+// native `.make__detail__*` markup. Same pattern as PLP grid hydration.
+// - Keeps MT "デザインする" (#js-make-design-btn) as the real action target
+// - Price/size GRID tables are NOT in MT item detail by default → sections stay hidden
+// ---------------------------------------------------------------------------
+(() => {
+  function textOf(el) {
+    return (el && el.textContent ? el.textContent : "").replace(/\s+/g, " ").trim();
+  }
+
+  function setText(root, key, value) {
+    const el = root.querySelector('[data-pw-pdp="' + key + '"]');
+    if (!el) return;
+    el.textContent = value == null ? "" : String(value);
+  }
+
+  function setHtml(root, key, html) {
+    const el = root.querySelector('[data-pw-pdp="' + key + '"]');
+    if (!el) return;
+    el.innerHTML = html == null ? "" : String(html);
+  }
+
+  function explanationValue(titleIncludes) {
+    const boxes = document.querySelectorAll(
+      ".make__detail__explanation-box .make__detail__explanation__description, " +
+      ".make__detail__explanation-box .make__detail__explanation__material, " +
+      ".make__detail__explanation-box .make__detail__size-area"
+    );
+    for (const box of boxes) {
+      const title = textOf(box.querySelector("h3"));
+      if (!title || title.indexOf(titleIncludes) === -1) continue;
+      return textOf(box.querySelector(".detail_area"));
+    }
+    return "";
+  }
+
+  function collectColorThumbs() {
+    return Array.from(
+      document.querySelectorAll(".make__detail__selectColor__box")
+    ).map((box) => {
+      const img = box.querySelector(".make__detail__selectColor__image");
+      return {
+        src: img ? img.getAttribute("src") || "" : "",
+        name: textOf(box.querySelector(".make__detail__selectColor__name")) ||
+          (img ? img.getAttribute("alt") || "" : ""),
+        mtBox: box
+      };
+    }).filter((c) => c.src);
+  }
+
+  function hydratePdpShell() {
+    const shell = document.querySelector("[data-pw-pdp-shell]");
+    if (!shell) return;
+
+    document.body.classList.add("product-detail-page", "pw-pdp-hydrated");
+    document.body.classList.remove("product-list-page");
+
+    const name =
+      textOf(document.querySelector(".make__detail__main__item")) ||
+      textOf(document.querySelector("h1.make__detail__main__item"));
+    const price = textOf(document.querySelector(".make__detail__main__price"));
+    const mainImg = document.querySelector("#js-item-detail-image");
+    const mainSrc = mainImg ? mainImg.getAttribute("src") || "" : "";
+    const mainAlt = mainImg ? mainImg.getAttribute("alt") || name : name;
+
+    const feature = explanationValue("特徴");
+    const material = explanationValue("素材");
+    const ship = explanationValue("出荷");
+    const size = explanationValue("サイズ");
+
+    setText(shell, "name", name || "商品詳細");
+    setText(shell, "spec-name", name || "—");
+    setText(shell, "spec-price", price || "—");
+    setText(shell, "spec-material", material || "—");
+    setText(shell, "spec-size", size || "—");
+    setText(shell, "spec-feature", feature || "—");
+    setText(shell, "spec-ship", ship || "—");
+
+    // Headline: use first line of feature, or product name
+    setText(
+      shell,
+      "headline",
+      feature ? feature.slice(0, 80) : (name || "商品詳細")
+    );
+
+    const desc = shell.querySelector('[data-pw-pdp="description"]');
+    if (desc) {
+      const parts = [feature, material].filter(Boolean);
+      desc.innerHTML = parts.length
+        ? parts.map((p) => "<p>" + p.replace(/</g, "&lt;") + "</p>").join("")
+        : "<p></p>";
+    }
+
+    const shellImg = shell.querySelector('[data-pw-pdp="main-image"]');
+    if (shellImg && mainSrc) {
+      shellImg.src = mainSrc;
+      shellImg.alt = mainAlt || "";
+    }
+
+    // Thumbs from MT color swatches (+ main image as first thumb)
+    const thumbsWrap = shell.querySelector('[data-pw-pdp="thumbs"]');
+    const colors = collectColorThumbs();
+    if (thumbsWrap) {
+      const entries = [];
+      if (mainSrc) {
+        entries.push({ src: mainSrc, name: mainAlt || "メイン", mtBox: null });
+      }
+      colors.forEach((c) => {
+        if (!entries.some((e) => e.src === c.src)) entries.push(c);
+      });
+
+      thumbsWrap.innerHTML = entries.map((c, i) => {
+        const active = i === 0 ? " is-active" : "";
+        const label = (c.name || "カラー").replace(/"/g, "&quot;");
+        return (
+          '<button type="button" class="pdp-gallery__thumb' + active + '" ' +
+          'data-pdp-src="' + c.src.replace(/"/g, "&quot;") + '" ' +
+          'data-pw-mt-color-index="' + i + '" ' +
+          'aria-label="' + label + 'を表示">' +
+          '<img src="' + c.src.replace(/"/g, "&quot;") + '" alt="" width="88" height="88" />' +
+          "</button>"
+        );
+      }).join("");
+
+      // Keep a side map for click → MT color box
+      thumbsWrap._pwColorEntries = entries;
+    }
+
+    // Design button → click MT's real button (keeps design-tool flow)
+    const designBtn = shell.querySelector('[data-pw-pdp="design-btn"]');
+    const mtDesign = document.querySelector("#js-make-design-btn");
+    if (designBtn && mtDesign) {
+      designBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        mtDesign.click();
+      });
+    } else if (designBtn && mtDesign == null) {
+      const href = document.querySelector("[data-href*='/item/design/']");
+      if (href && href.getAttribute("data-href")) {
+        designBtn.addEventListener("click", function () {
+          location.href = href.getAttribute("data-href");
+        });
+      }
+    }
+
+    // Gallery thumb clicks: swap main image; if linked to MT color box, click it
+    if (thumbsWrap) {
+      thumbsWrap.addEventListener("click", function (e) {
+        const thumb = e.target.closest(".pdp-gallery__thumb");
+        if (!thumb || !thumbsWrap.contains(thumb)) return;
+        const src = thumb.getAttribute("data-pdp-src");
+        if (!src || !shellImg) return;
+
+        shellImg.src = src;
+        thumbsWrap.querySelectorAll(".pdp-gallery__thumb").forEach(function (t) {
+          t.classList.toggle("is-active", t === thumb);
+        });
+
+        const idx = Number(thumb.getAttribute("data-pw-mt-color-index") || -1);
+        const entry = thumbsWrap._pwColorEntries && thumbsWrap._pwColorEntries[idx];
+        if (entry && entry.mtBox) {
+          try { entry.mtBox.click(); } catch (_) {}
+        }
+      });
+    }
+
+    // Meta line under gallery
+    const metaBits = [size ? "サイズ " + size : "", colors.length ? ("カラー " + colors.length + "色") : ""]
+      .filter(Boolean);
+    setText(shell, "gallery-meta", metaBits.join(" ／ "));
+
+    // Price/size grid tables: not provided by MT item detail HTML → leave hidden
+    // (Sample /product-detail page keeps its own static tables.)
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hydratePdpShell);
+  } else {
+    hydratePdpShell();
+  }
+})();

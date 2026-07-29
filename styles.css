@@ -5389,6 +5389,18 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* When the PW item-detail shell is on the page, hide MT's stock detail chrome
+   (it remains in the DOM as the data + design-button source). */
+body.pw-pdp-hydrated .make__detail__box,
+body.pw-pdp-hydrated .header__bread-crumb {
+  display: none !important;
 }
 
 .pdp-btn--design {

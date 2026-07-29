@@ -1,0 +1,144 @@
+<!-- ============================================================ -->
+<!-- 【ステップ1+2】商品詳細 /item/{id} 用シェル + 自動流し込み       -->
+<!--                                                               -->
+<!-- 使い方（ステップ3で MT に貼る）:                               -->
+<!--   商品詳細ページの HTML直書き に、このファイル全文を貼る       -->
+<!--   → app.mt.js が MT標準の商品情報をこの枠に流し込む           -->
+<!--                                                               -->
+<!-- 見本ページ用の完成HTMLは product-detail.block.html のまま。     -->
+<!-- ============================================================ -->
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260729pdp2">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260729pdp2">
+<script>
+  /* 商品詳細ページ専用クラス（一覧用 product-list-page は付けない） */
+  document.body.classList.add('product-detail-page');
+  document.body.classList.remove('product-list-page');
+</script>
+
+<div
+  id="pw-pdp-shell"
+  data-pw-pdp-shell
+  style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';"
+>
+  <main class="pdp-main">
+    <!-- 黄色の先頭帯 + 商品名 -->
+    <section class="pdp-hero" aria-labelledby="pdp-title">
+      <div class="pdp-inner pdp-hero__inner">
+        <h1 id="pdp-title" class="pdp-hero__title" data-pw-pdp="name">（商品名）</h1>
+      </div>
+    </section>
+
+    <section class="pdp-body" aria-label="商品詳細">
+      <div class="pdp-inner pdp-body__inner">
+        <!-- 左: 画像ギャラリー（サムネは後で JS が作る） -->
+        <div class="pdp-gallery" data-pdp-gallery>
+          <div class="pdp-gallery__viewport">
+            <button type="button" class="pdp-gallery__nav pdp-gallery__nav--prev" aria-label="前の画像へ">
+              <span aria-hidden="true"></span>
+            </button>
+            <div class="pdp-gallery__main">
+              <img
+                class="pdp-gallery__main-img"
+                data-pw-pdp="main-image"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                alt=""
+                width="520"
+                height="520"
+              />
+            </div>
+            <button type="button" class="pdp-gallery__nav pdp-gallery__nav--next" aria-label="次の画像へ">
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="pdp-gallery__meta" data-pw-pdp="gallery-meta"></p>
+          <div class="pdp-gallery__thumbs" data-pw-pdp="thumbs" role="tablist" aria-label="商品画像"></div>
+        </div>
+
+        <!-- 右: 説明・ボタン・仕様 -->
+        <div class="pdp-info">
+          <p class="pdp-point"><span class="pdp-point__label">POINT</span></p>
+
+          <h2 class="pdp-headline" data-pw-pdp="headline">（キャッチコピー）</h2>
+
+          <div class="pdp-desc" data-pw-pdp="description">
+            <p>（商品説明）</p>
+          </div>
+
+          <p class="pdp-related" data-pw-pdp="related" hidden>
+            <a class="pdp-related__link" href="#"></a>
+          </p>
+
+          <div class="pdp-actions">
+            <!-- 見た目用。実クリックは後で MT の「デザインする」ボタンに繋ぐ -->
+            <button type="button" class="pdp-btn pdp-btn--design" data-pw-pdp="design-btn">
+              この商品でデザインをする
+            </button>
+            <a class="pdp-btn pdp-btn--support" href="/contact">サポートスタッフに相談する</a>
+          </div>
+
+          <div class="pdp-spec">
+            <table class="pdp-spec__table">
+              <caption class="visually-hidden">商品仕様</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">商品名</th>
+                  <td data-pw-pdp="spec-name">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">販売価格</th>
+                  <td data-pw-pdp="spec-price">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">素材</th>
+                  <td data-pw-pdp="spec-material">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">サイズ</th>
+                  <td data-pw-pdp="spec-size">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">特徴</th>
+                  <td data-pw-pdp="spec-feature">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">出荷予定日</th>
+                  <td data-pw-pdp="spec-ship">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 価格表・サイズ表は商品によって大きく違うので、ステップ1では枠だけ（中身は後回し） -->
+    <section class="pdp-price" data-pw-pdp="price-section" hidden aria-labelledby="pdp-price-title">
+      <div class="pdp-inner">
+        <div class="pdp-table-block">
+          <div class="pdp-table-block__head">
+            <div class="pdp-table-block__intro">
+              <h2 id="pdp-price-title" class="pdp-section-title">価格表</h2>
+            </div>
+          </div>
+          <div class="pdp-table-block__scroll" data-pw-pdp="price-table"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pdp-size" data-pw-pdp="size-section" hidden aria-labelledby="pdp-size-title">
+      <div class="pdp-inner">
+        <div class="pdp-table-block">
+          <div class="pdp-table-block__head">
+            <div class="pdp-table-block__intro">
+              <h2 id="pdp-size-title" class="pdp-section-title">サイズ</h2>
+            </div>
+          </div>
+          <div class="pdp-size__tables" data-pw-pdp="size-tables"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- app.mt.js: この骨組みへ MT 商品情報を流し込む（ステップ2済み） -->
+<script src="https://print-world-blond.vercel.app/mt-integration/app.mt.js?v=20260729pdp2"></script>
