@@ -5,8 +5,8 @@ const XLSX = "C:/Users/Taku/Pictures/print-world/mt-integration/product data/_xl
 const OPTMAP = "C:/Users/Taku/Pictures/print-world/mt-integration/csv/_optmap.json";
 
 // ---- params (verify after uploads; regenerate if different) ----
-const ITEM_ID = "__ITEMID__";        // set after uploading item.csv (MT assigns アイテムID)
-const NEWCOLOR_START = 6115;         // predicted first ID for the 37 new colors (verify via export)
+const ITEM_ID = "13566";             // MT-assigned アイテムID (confirmed from アイテム編集:13566)
+const NEWCOLOR_START = 6241;         // confirmed first ID of the 37 new colors (6241 ミックスグレー .. 6277 ヘイジーブルー)
 const JAN_BASE = 2900000020001;      // provisional JANs for 5001-01 (distinct from CVT)
 const CODE = "5001-01";
 const NAME = "5.6オンス ハイクオリティー Tシャツ〈アダルト〉";
