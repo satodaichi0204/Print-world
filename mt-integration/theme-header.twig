@@ -22,6 +22,10 @@
      the pass is remembered (localStorage). ★公開時はこの <script> を削除★ -->
 <script>
 (function () {
+  /* Never gate MT admin / login / logout flows — otherwise the client cannot
+     sign in to the management screen (it redirects through the front page). */
+  var _p = location.pathname || "";
+  if (/^\/(mc|admin|login|logout)(\/|$)/.test(_p) || /[?&]login=/.test(location.search || "")) return;
   var PW = "printworld2026";      /* ★閲覧用パスワード（自由に変更してください）★ */
   var KEY = "pw_preview_ok";
   try { if (localStorage.getItem(KEY) === "1") return; } catch (e) {}
