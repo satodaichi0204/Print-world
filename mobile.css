@@ -925,6 +925,9 @@
   }
 
   .home-page .sec8-dl dd {
+    margin: 0;
+    color: #1A1A1A;
+    font-weight: 500;
     line-height: 1.7;
   }
 
