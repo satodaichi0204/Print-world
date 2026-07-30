@@ -9670,9 +9670,8 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Header icons — 426–768 ONLY (320–425 untouched)
-   Design: larger equal icons + wider gaps; hamburger 3 bars fully visible.
-   Measured design @~768: ~48px icons, ~22–36px visual gaps; menu bars intact.
+   Header — 426–768 ONLY: lock the exact 768 composition, scale by 100vw/768.
+   (320–425 untouched. No other sections.)
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   body:is(
@@ -9684,11 +9683,94 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     ) {
-    /* 65% @426 → 100% @768 — keeps icons readable vs old 100vw/768 shrink */
-    --pw-hdr-icon-s: calc(0.65 + 0.35 * (100vw - 426px) / (768px - 426px));
-    --fv-sp-icon: calc(48px * var(--pw-hdr-icon-s));
-    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-icon-s));
-    --sp-header-icons-s: var(--pw-hdr-icon-s);
+    --pw-hdr-s: calc(100vw / 768px);
+    --fv-sp-icon: calc(48px * var(--pw-hdr-s));
+    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-s));
+    --sp-header-icons-s: var(--pw-hdr-s);
+    --pw-hdr-icon-s: var(--pw-hdr-s);
+  }
+
+  /* Keep 768 header chrome; only shrink with --pw-hdr-s (no layout shift) */
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header {
+    gap: calc(8px * var(--pw-hdr-s));
+    min-height: calc(76px * var(--pw-hdr-s));
+    padding: calc(12px * var(--pw-hdr-s)) calc(16px * var(--pw-hdr-s));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__left {
+    gap: calc(8px * var(--pw-hdr-s));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo {
+    width: calc(56px * var(--pw-hdr-s));
+    height: calc(52px * var(--pw-hdr-s));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand-lead {
+    font-size: calc(11px * var(--pw-hdr-s));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand-name {
+    font-size: calc(22px * var(--pw-hdr-s));
+  }
+
+  /* Cancel viewport-based pull that changes composition while resizing */
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__right {
+    margin-left: 0;
   }
 
   body:is(
@@ -9701,8 +9783,8 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-header__actions {
-    --fv-sp-icon: calc(48px * var(--pw-hdr-icon-s));
-    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-icon-s));
+    --fv-sp-icon: calc(48px * var(--pw-hdr-s));
+    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-s));
     gap: var(--fv-sp-icon-gap);
     align-items: center;
   }
@@ -9842,7 +9924,6 @@ html.is-guide-flow-zoom-open body {
     object-fit: contain;
   }
 
-  /* Hamburger: keep all 3 bars inside the icon box (no clip) */
   body:is(
       .home-page,
       .guide-flow-page,
@@ -9859,7 +9940,7 @@ html.is-guide-flow-zoom-open body {
     justify-content: space-evenly;
     align-items: stretch;
     gap: 0;
-    padding: calc(6px * var(--pw-hdr-icon-s)) 0;
+    padding: calc(6px * var(--pw-hdr-s)) 0;
     overflow: visible;
     background: transparent;
   }
@@ -9890,8 +9971,8 @@ html.is-guide-flow-zoom-open body {
     span {
     flex: 0 0 auto;
     width: 100%;
-    height: calc(4px * var(--pw-hdr-icon-s));
-    min-height: calc(4px * var(--pw-hdr-icon-s));
+    height: calc(4px * var(--pw-hdr-s));
+    min-height: calc(4px * var(--pw-hdr-s));
     margin: 0;
     background: #f15a24;
   }
