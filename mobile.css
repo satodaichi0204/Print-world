@@ -3048,6 +3048,18 @@
   }
 }
 
+/* TOP sec6-copy — 426–768 only: 20px@426 → 22.9px@768; weight 500. */
+@media (min-width: 426px) and (max-width: 768px) {
+  .home-page .sec6-copy {
+    --sec5-t: calc((100vw - 426px) / (768px - 426px));
+    margin: 6px 0 2px;
+    padding: 0 12px;
+    font-size: calc(20px + 2.9px * var(--sec5-t));
+    line-height: 1.55;
+    font-weight: 500;
+  }
+}
+
 /* TOP sec8 — 426–768: 768px collage ratios; work covers half of woman with whitespace. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec8-store {
