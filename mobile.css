@@ -9822,3 +9822,23 @@ html.is-guide-flow-zoom-open body {
     object-fit: contain;
   }
 }
+
+/* =============================================================================
+   Header logo image — 426-768 ONLY: slightly smaller (header chrome untouched).
+   Base lock remains 270px@768; apply 90% so only .fv-logo img shrinks.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    ) {
+    --fv-logo-w: calc(
+      360px * 1440px / 1920px * clamp(426px, 100vw, 768px) / 768px * 0.9
+    );
+  }
+}
