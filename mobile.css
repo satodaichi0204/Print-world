@@ -9719,6 +9719,7 @@ html.is-guide-flow-zoom-open body {
     gap: calc(8px * var(--pw-hdr-s));
   }
 
+  /* Circle mark only — do not shrink the full wordmark into the 56px box */
   body:is(
       .home-page,
       .guide-flow-page,
@@ -9729,8 +9730,49 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-logo {
+    flex: 0 0 auto;
     width: calc(56px * var(--pw-hdr-s));
     height: calc(52px * var(--pw-hdr-s));
+    min-width: calc(56px * var(--pw-hdr-s));
+    overflow: hidden;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-logo
+    img {
+    display: block;
+    width: auto;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  /* Re-show HTML brand (hidden by max-width:768 full-logo rule) */
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: visible;
   }
 
   body:is(
@@ -9937,10 +9979,11 @@ html.is-guide-flow-zoom-open body {
     .menu-btn {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: stretch;
+    justify-content: space-between;
+    align-items: center;
     gap: 0;
-    padding: calc(6px * var(--pw-hdr-s)) 0;
+    /* Design: bar stack nearly square (W/H ≈ 1.13), not a wide flat triple-line */
+    padding: calc(8px * var(--pw-hdr-s)) 0;
     overflow: visible;
     background: transparent;
   }
@@ -9970,10 +10013,11 @@ html.is-guide-flow-zoom-open body {
     .menu-btn:hover
     span {
     flex: 0 0 auto;
-    width: 100%;
-    height: calc(4px * var(--pw-hdr-s));
-    min-height: calc(4px * var(--pw-hdr-s));
+    width: 78%;
+    height: calc(5px * var(--pw-hdr-s));
+    min-height: calc(5px * var(--pw-hdr-s));
     margin: 0;
+    border-radius: 1px;
     background: #f15a24;
   }
 }
