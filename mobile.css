@@ -9668,3 +9668,231 @@ html.is-guide-flow-zoom-open body {
     display: none !important;
   }
 }
+
+/* =============================================================================
+   Header icons — 426–768 ONLY (320–425 untouched)
+   Design: larger equal icons + wider gaps; hamburger 3 bars fully visible.
+   Measured design @~768: ~48px icons, ~22–36px visual gaps; menu bars intact.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    ) {
+    /* 65% @426 → 100% @768 — keeps icons readable vs old 100vw/768 shrink */
+    --pw-hdr-icon-s: calc(0.65 + 0.35 * (100vw - 426px) / (768px - 426px));
+    --fv-sp-icon: calc(48px * var(--pw-hdr-icon-s));
+    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-icon-s));
+    --sp-header-icons-s: var(--pw-hdr-icon-s);
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__actions {
+    --fv-sp-icon: calc(48px * var(--pw-hdr-icon-s));
+    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-icon-s));
+    gap: var(--fv-sp-icon-gap);
+    align-items: center;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__compact,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec {
+    gap: var(--fv-sp-icon-gap);
+    align-items: center;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec
+    .header__item,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-link,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .header__login
+    .btn--login,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    box-sizing: border-box;
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    min-width: var(--fv-sp-icon);
+    min-height: var(--fv-sp-icon);
+    padding: 0;
+    overflow: visible;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action
+    img,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-icon,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-login-icon {
+    width: var(--fv-sp-icon);
+    height: var(--fv-sp-icon);
+    object-fit: contain;
+  }
+
+  /* Hamburger: keep all 3 bars inside the icon box (no clip) */
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 0;
+    padding: calc(6px * var(--pw-hdr-icon-s)) 0;
+    overflow: visible;
+    background: transparent;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn
+    span,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn:hover
+    span {
+    flex: 0 0 auto;
+    width: 100%;
+    height: calc(4px * var(--pw-hdr-icon-s));
+    min-height: calc(4px * var(--pw-hdr-icon-s));
+    margin: 0;
+    background: #f15a24;
+  }
+}
