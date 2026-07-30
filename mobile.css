@@ -829,13 +829,13 @@
     margin: 10px 0 5px;
     overflow: visible;
     text-overflow: clip;
-    white-space: normal;
+    white-space: nowrap;
     font-size: 18px;
   }
 
   .home-page .sec7-card__role {
-    display: block;
-    margin-left: 0;
+    display: inline;
+    margin-left: 8px;
     font-size: 14px;
   }
 
