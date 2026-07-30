@@ -119,8 +119,9 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 22px;
+  gap: 52px;
   counter-reset: apcard;
+  overflow: visible;
 }
 
 .ap-card {
@@ -131,12 +132,14 @@
   gap: 20px 28px;
   background: #fff;
   border-radius: 48px;
-  min-height: 180px;
+  height: 148px;
+  min-height: 148px;
+  max-height: 148px;
   overflow: visible;
 }
 
 .ap-card:first-child .ap-card__media img {
-  max-height: 300px;
+  max-height: 220px;
 }
 
 .ap-card::before {
@@ -144,8 +147,11 @@
 }
 
 .ap-card__media {
-  flex: 0 0 240px;
+  flex: 0 0 220px;
   min-width: 0;
+  height: 220px;
+  margin-top: -72px;
+  align-self: flex-end;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -156,7 +162,7 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: 300px;
+  max-height: 220px;
   object-fit: contain;
   object-position: bottom center;
 }
@@ -164,23 +170,26 @@
 .ap-card__copy {
   flex: 1 1 0;
   min-width: 0;
-  padding: 8px 40px 0px 0px;
+  padding: 8px 40px 8px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ap-card__title {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: #111;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 900;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .ap-card__text {
   margin: 0;
   color: #333;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 /* ----- Sec3: guide panel ----- */
