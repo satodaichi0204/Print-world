@@ -9864,3 +9864,67 @@ html.is-guide-flow-zoom-open body {
     );
   }
 }
+
+/* =============================================================================
+   Header menu-btn — 426-768 ONLY: match other icons (48x48) + thicker bars.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn {
+    box-sizing: border-box;
+    width: var(--pw-hdr-5icon, 48px);
+    height: var(--pw-hdr-5icon, 48px);
+    min-width: var(--pw-hdr-5icon, 48px);
+    min-height: var(--pw-hdr-5icon, 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0;
+    padding: calc(10px * var(--pw-hdr-5icon-s, 1)) 0;
+    margin: 0;
+    overflow: visible;
+    background: transparent;
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn
+    span,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
+    .menu-btn:hover
+    span {
+    flex: 0 0 auto;
+    width: 100%;
+    height: calc(5px * var(--pw-hdr-5icon-s, 1));
+    min-height: calc(5px * var(--pw-hdr-5icon-s, 1));
+    margin: 0;
+    background: #f15a24;
+  }
+}
