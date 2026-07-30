@@ -2948,12 +2948,7 @@
   }
 
   .home-page .sec5-body {
-    padding: 0 12px;
-  }
-
-  .home-page .sec5-hero {
-    min-height: calc(179px + 21px * var(--sec5-t));
-    overflow: visible;
+    padding: 0 12px 45px 12px;
   }
 
   .home-page .sec5-people,
