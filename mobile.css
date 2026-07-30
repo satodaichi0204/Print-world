@@ -3062,8 +3062,17 @@
   }
 }
 
-/* TOP sec7-card__text — 426–768 only. */
+/* TOP sec7 name+role — 426–768: keep name and role on one line (override ≤768 block role). */
 @media (min-width: 426px) and (max-width: 768px) {
+  .home-page .sec7-card__name {
+    white-space: nowrap;
+  }
+
+  .home-page .sec7-card__role {
+    display: inline;
+    margin-left: 8px;
+  }
+
   .home-page .sec7-card__text {
     font-size: 14px;
     line-height: 1.55;
