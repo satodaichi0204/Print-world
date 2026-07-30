@@ -9056,14 +9056,14 @@ html.is-guide-flow-zoom-open body {
   }
 
   body:is(.home-page, .product-detail-page) .sec9-card--pay .sec9-card__main {
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
+    text-align: left;
   }
 
   body:is(.home-page, .product-detail-page) .sec9-pay-list {
-    width: fit-content;
-    max-width: calc(100% - 2 * var(--sec9-card-pad));
-    margin: calc(26px * var(--sec9-card-type-s)) auto 0;
+    width: auto;
+    max-width: none;
+    margin: calc(26px * var(--sec9-card-type-s)) var(--sec9-card-pad) 0;
     padding: 0;
     text-align: left;
   }
@@ -9086,12 +9086,13 @@ html.is-guide-flow-zoom-open body {
   }
 
   body:is(.home-page, .product-detail-page) .sec9-card__logos {
-    align-self: center;
+    align-self: flex-start;
     display: block;
     width: auto;
     max-width: calc(100% - 2 * var(--sec9-card-pad));
     height: auto;
-    margin: calc(20px * var(--sec9-card-type-s)) auto calc(28px * var(--sec9-card-type-s));
+    margin: calc(20px * var(--sec9-card-type-s)) var(--sec9-card-pad)
+      calc(28px * var(--sec9-card-type-s));
   }
 
   body:is(.home-page, .product-detail-page) .sec9-card--ship .sec9-card__body {
