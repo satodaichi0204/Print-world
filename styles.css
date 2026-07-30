@@ -4429,7 +4429,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 
 .guide-flow-order3__title-wrap {
   display: flex;
-  margin: 0 40px 76px;
+  margin: 0 164px 76px;
   /* MT's `body * { background-color:#fff !important }` paints this wrapper
      white behind the transparent title PNG; force it back to transparent. */
   background-color: transparent !important;
@@ -4463,10 +4463,10 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 
 .guide-flow-order3__cards {
   position: relative;
-  top: -36px;
+  top: -17px;
   z-index: 3;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   /* MT paints this grid white; keep it transparent so the gray panel shows
      through the gaps between cards. */
