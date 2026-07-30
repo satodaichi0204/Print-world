@@ -9683,11 +9683,12 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     ) {
+    /* Header chrome scales; icon size stays at the corrected 768 lock */
     --pw-hdr-s: calc(100vw / 768px);
-    --fv-sp-icon: calc(48px * var(--pw-hdr-s));
-    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-s));
-    --sp-header-icons-s: var(--pw-hdr-s);
-    --pw-hdr-icon-s: var(--pw-hdr-s);
+    --fv-sp-icon: 48px;
+    --fv-sp-icon-gap: 22px;
+    --sp-header-icons-s: 1;
+    --pw-hdr-icon-s: 1;
   }
 
   /* Keep 768 header chrome; only shrink with --pw-hdr-s (no layout shift) */
@@ -9783,8 +9784,8 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-header__actions {
-    --fv-sp-icon: calc(48px * var(--pw-hdr-s));
-    --fv-sp-icon-gap: calc(22px * var(--pw-hdr-s));
+    --fv-sp-icon: 48px;
+    --fv-sp-icon-gap: 22px;
     gap: var(--fv-sp-icon-gap);
     align-items: center;
   }
@@ -9940,7 +9941,7 @@ html.is-guide-flow-zoom-open body {
     justify-content: space-evenly;
     align-items: stretch;
     gap: 0;
-    padding: calc(6px * var(--pw-hdr-s)) 0;
+    padding: calc(6px * var(--pw-hdr-icon-s)) 0;
     overflow: visible;
     background: transparent;
   }
@@ -9971,8 +9972,8 @@ html.is-guide-flow-zoom-open body {
     span {
     flex: 0 0 auto;
     width: 100%;
-    height: calc(4px * var(--pw-hdr-s));
-    min-height: calc(4px * var(--pw-hdr-s));
+    height: 4px;
+    min-height: 4px;
     margin: 0;
     background: #f15a24;
   }
