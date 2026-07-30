@@ -9070,8 +9070,8 @@ html.is-guide-flow-zoom-open body {
 
   body:is(.home-page, .product-detail-page) .sec9-pay-list li {
     gap: calc(16px * var(--sec9-card-type-s));
-    margin-bottom: calc(10px * var(--sec9-card-type-s));
-    font-size: max(calc(16px * var(--sec9-card-type-s)), 13px);
+    margin-bottom: calc(15px * var(--sec9-card-type-s));
+    font-size: max(calc(20px * var(--sec9-card-type-s)), 13px);
   }
 
   body:is(.home-page, .product-detail-page) .sec9-pay-list li::before {
@@ -9107,7 +9107,7 @@ html.is-guide-flow-zoom-open body {
   }
 
   body:is(.home-page, .product-detail-page) .sec9-ship__note {
-    font-size: max(calc(12px * var(--sec9-card-type-s)), 10px);
+    font-size: max(calc(20px * var(--sec9-card-type-s)), 10px);
     line-height: 1.45;
   }
 
