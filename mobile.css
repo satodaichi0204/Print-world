@@ -9668,3 +9668,157 @@ html.is-guide-flow-zoom-open body {
     display: none !important;
   }
 }
+
+/* =============================================================================
+   Header -- 426-768 ONLY: match design size/gap for the 5 right icons
+   (phone / mail / LINE / cart / user). Logo, hamburger, and other ranges untouched.
+   Design@~768: icon ~48px, gap ~28-32px. Current was ~34px / 10px.
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    ) {
+    --pw-hdr-5icon-s: calc(100vw / 768px);
+    --pw-hdr-5icon: calc(48px * var(--pw-hdr-5icon-s));
+    --pw-hdr-5icon-gap: calc(28px * var(--pw-hdr-5icon-s));
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__actions,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__compact,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec {
+    gap: var(--pw-hdr-5icon-gap);
+    align-items: center;
+  }
+
+  /* 5 icons only - do not touch .menu-btn size/bars */
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .mt-ec
+    .header__item,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-link,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header__util
+    .header__login
+    .btn--login {
+    box-sizing: border-box;
+    width: var(--pw-hdr-5icon);
+    height: var(--pw-hdr-5icon);
+    min-width: var(--pw-hdr-5icon);
+    min-height: var(--pw-hdr-5icon);
+  }
+
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-compact-action
+    img,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-cart-icon,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-login-icon {
+    width: var(--pw-hdr-5icon);
+    height: var(--pw-hdr-5icon);
+    object-fit: contain;
+  }
+}
