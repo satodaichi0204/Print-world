@@ -8913,7 +8913,7 @@ html.is-guide-flow-zoom-open body {
     .menu-btn:hover
     span {
     width: 100%;
-    height: calc(3px * 0.8 * var(--sp-header-s, 1));
+    height: calc(5.5px * 0.85 * var(--sp-header-s, 1));
   }
 }
 
