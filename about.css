@@ -83,6 +83,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
 .ap-sec2__people {
@@ -111,6 +112,7 @@
   width: min(1000px, calc(100% - 48px));
   margin: -190px auto 0;
   padding-top: 0;
+  overflow: visible;
 }
 
 .ap-sec2__grid {
@@ -119,27 +121,30 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 52px;
+  gap: 48px;
   counter-reset: apcard;
   overflow: visible;
 }
 
+/* Design lock (~1000px row): short stadium cards; person pops above/below white. */
 .ap-card {
   position: relative;
   counter-increment: apcard;
   display: flex;
   align-items: center;
-  gap: 20px 28px;
+  gap: 8px 18px;
+  box-sizing: border-box;
   background: #fff;
-  border-radius: 48px;
-  height: 148px;
-  min-height: 148px;
-  max-height: 148px;
+  border-radius: 999px;
+  height: 124px;
+  min-height: 124px;
+  max-height: 124px;
+  padding: 0 44px 0 8px;
   overflow: visible;
 }
 
 .ap-card:first-child .ap-card__media img {
-  max-height: 220px;
+  max-height: 198px;
 }
 
 .ap-card::before {
@@ -147,11 +152,15 @@
 }
 
 .ap-card__media {
-  flex: 0 0 220px;
-  min-width: 0;
-  height: 220px;
-  margin-top: -72px;
-  align-self: flex-end;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 200px;
+  width: 200px;
+  min-width: 200px;
+  height: 198px;
+  margin-top: -58px;
+  margin-bottom: -16px;
+  align-self: center;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -160,36 +169,40 @@
 
 .ap-card__media img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  max-height: 220px;
+  max-height: 198px;
   object-fit: contain;
   object-position: bottom center;
 }
 
 .ap-card__copy {
+  position: relative;
+  z-index: 1;
   flex: 1 1 0;
   min-width: 0;
-  padding: 8px 40px 8px 0;
+  padding: 0 8px 0 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .ap-card__title {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   color: #111;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 900;
   line-height: 1.25;
+  letter-spacing: 0.02em;
 }
 
 .ap-card__text {
   margin: 0;
-  color: #333;
-  font-size: 18px;
+  color: #222;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 /* ----- Sec3: guide panel ----- */
@@ -302,6 +315,36 @@
 .about-page .ap-sec3 .sec6-panel *,
 .about-mt .ap-sec3 .sec6-panel * {
   background-color: transparent !important;
+}
+
+/* Reason cards — fight MT body* font/overflow resets. */
+.about-page .ap-sec2,
+.about-mt .ap-sec2,
+.about-page .ap-sec2__body,
+.about-mt .ap-sec2__body,
+.about-page .ap-sec2__grid,
+.about-mt .ap-sec2__grid,
+.about-page .ap-card,
+.about-mt .ap-card,
+.about-page .ap-card__media,
+.about-mt .ap-card__media {
+  overflow: visible !important;
+}
+
+.about-page .ap-card__title,
+.about-mt .ap-card__title {
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+  color: #111 !important;
+}
+
+.about-page .ap-card__text,
+.about-mt .ap-card__text {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
+  color: #222 !important;
 }
 
 /* ----- Sec4: consultation intro ----- */
@@ -556,33 +599,38 @@
 
 @media (max-width: 425px) and (min-width: 320px) {
   .ap-card {
-    height: 148px;
-    min-height: 148px;
-    max-height: 148px;
+    height: 124px;
+    min-height: 124px;
+    max-height: 124px;
+    border-radius: 999px;
+    padding: 0 44px 0 8px;
+    gap: 8px 18px;
   }
 
   .ap-card__title {
-    margin: 0 0 8px;
+    margin: 0 0 6px;
     color: #111;
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 900;
     line-height: 1.25;
   }
 
   .ap-card__text {
     margin: 0;
-    color: #333;
-    font-size: 18px;
+    color: #222;
+    font-size: 15px;
     font-weight: 500;
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
   .ap-card__media {
-    flex: 0 0 220px;
-    min-width: 0;
-    height: 220px;
-    margin-top: -72px;
-    align-self: flex-end;
+    flex: 0 0 200px;
+    width: 200px;
+    min-width: 200px;
+    height: 198px;
+    margin-top: -58px;
+    margin-bottom: -16px;
+    align-self: center;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -591,15 +639,16 @@
 
   .ap-card__media img {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
-    max-height: 220px;
+    max-height: 198px;
     object-fit: contain;
     object-position: bottom center;
   }
 
   .ap-card:first-child .ap-card__media img {
-    max-height: 220px;
+    max-height: 198px;
   }
 
   .ap-sec2__people {
