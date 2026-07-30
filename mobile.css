@@ -8693,7 +8693,7 @@ html.is-guide-flow-zoom-open body {
     ) {
     --fv-logo-w: calc(158px * var(--sp-header-s, 1));
     --fv-sp-icon: calc(34px * 0.8 * var(--sp-header-s, 1));
-    --fv-sp-icon-gap: calc(10px * 0.8 * var(--sp-header-s, 1));
+    --fv-sp-icon-gap: calc(14px * 0.8 * var(--sp-header-s, 1));
   }
 
   body.home-page .fv-header__right {
@@ -8739,7 +8739,7 @@ html.is-guide-flow-zoom-open body {
     )
     .fv-header__actions {
     --fv-sp-icon: calc(34px * 0.8 * var(--sp-header-s, 1));
-    --fv-sp-icon-gap: calc(10px * 0.8 * var(--sp-header-s, 1));
+    --fv-sp-icon-gap: calc(14px * 0.8 * var(--sp-header-s, 1));
     gap: var(--fv-sp-icon-gap);
   }
 
