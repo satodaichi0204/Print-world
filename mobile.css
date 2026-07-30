@@ -830,13 +830,13 @@
     overflow: visible;
     text-overflow: clip;
     white-space: normal;
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .home-page .sec7-card__role {
     display: block;
     margin-left: 0;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .home-page .sec7-card__text {
@@ -3062,17 +3062,8 @@
   }
 }
 
-/* TOP sec7 name+role — 426–768: keep name and role on one line (override ≤768 block role). */
+/* TOP sec7-card__text — 426–768 only. */
 @media (min-width: 426px) and (max-width: 768px) {
-  .home-page .sec7-card__name {
-    white-space: nowrap;
-  }
-
-  .home-page .sec7-card__role {
-    display: inline;
-    margin-left: 8px;
-  }
-
   .home-page .sec7-card__text {
     font-size: 14px;
     line-height: 1.55;
