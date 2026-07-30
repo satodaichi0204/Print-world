@@ -733,8 +733,7 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
   }
 
   function buildPagination(nav, current, totalPages) {
-    // single page → hide (style.display beats any CSS display on the nav)
-    if (totalPages <= 1) { nav.style.display = "none"; return; }
+    // always show at least page "1" (prev/next disabled on a single page)
     nav.style.display = "";
     let h = '<a class="plp-pagination__prev" href="' + esc(hrefFor(current - 1)) + '"' +
       (current <= 1 ? ' aria-disabled="true"' : "") + ' data-page="' + (current - 1) + '">前へ</a>';
