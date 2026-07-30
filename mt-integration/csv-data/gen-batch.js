@@ -8,14 +8,15 @@ const CD = ROOT + "/csv-data";
 const WORK = CD + "/_work";
 
 // ---------- product configs (name from sheet2; material = best guess, VERIFY; jan = distinct base) ----------
+// itemId = MT-assigned アイテムID (confirmed 2026-07-31 after item.csv upload)
 const PRODUCTS = {
-  "2020-01": { name: "4.7オンス スペシャルドライカノコ ポロシャツ（ローブリード）", material: "ポリエステル100%", jan: 2900000030001, sizeHtml: "XS,S,M,L,XL,XXL,XXXL,XXXXL,5XL" },
-  "2024-01": { name: "4.7オンス スペシャルドライカノコ ロングスリーブ ポロシャツ（ポケット付）（ローブリード）", material: "ポリエステル100%", jan: 2900000031001, sizeHtml: "S,M,L,XL,XXL" },
-  "5010-01": { name: "5.6オンス ロングスリーブ Tシャツ", material: "綿100%", jan: 2900000032001, sizeHtml: "S,M,L,XL,XXL" },
-  "5041-01": { name: "5.6オンス ラグランスリーブ Tシャツ", material: "綿100%", jan: 2900000033001, sizeHtml: "S,M,L,XL" },
-  "5397-01": { name: "8.8オンス オーセンティックパイル スウェット フルジップパーカ（裏パイル）", material: "綿90% ポリエステル10%", jan: 2900000034001, sizeHtml: "S,M,L,XL,XXL" },
-  "5399-01": { name: "8.8オンス オーセンティックパイル クルーネックスウェット（裏パイル）", material: "綿90% ポリエステル10%", jan: 2900000035001, sizeHtml: "S,M,L,XL,XXL" },
-  "5942-01": { name: "6.2オンス プレミアム Tシャツ", material: "綿100%", jan: 2900000036001, sizeHtml: "XS,S,M,L,XL,XXL,XXXL" },
+  "2020-01": { itemId: "13567", name: "4.7オンス スペシャルドライカノコ ポロシャツ（ローブリード）", material: "ポリエステル100%", jan: 2900000030001, sizeHtml: "XS,S,M,L,XL,XXL,XXXL,XXXXL,5XL" },
+  "2024-01": { itemId: "13568", name: "4.7オンス スペシャルドライカノコ ロングスリーブ ポロシャツ（ポケット付）（ローブリード）", material: "ポリエステル100%", jan: 2900000031001, sizeHtml: "S,M,L,XL,XXL" },
+  "5010-01": { itemId: "13569", name: "5.6オンス ロングスリーブ Tシャツ", material: "綿100%", jan: 2900000032001, sizeHtml: "S,M,L,XL,XXL" },
+  "5041-01": { itemId: "13570", name: "5.6オンス ラグランスリーブ Tシャツ", material: "綿100%", jan: 2900000033001, sizeHtml: "S,M,L,XL" },
+  "5397-01": { itemId: "13571", name: "8.8オンス オーセンティックパイル スウェット フルジップパーカ（裏パイル）", material: "綿90% ポリエステル10%", jan: 2900000034001, sizeHtml: "S,M,L,XL,XXL" },
+  "5399-01": { itemId: "13572", name: "8.8オンス オーセンティックパイル クルーネックスウェット（裏パイル）", material: "綿90% ポリエステル10%", jan: 2900000035001, sizeHtml: "S,M,L,XL,XXL" },
+  "5942-01": { itemId: "13573", name: "6.2オンス プレミアム Tシャツ", material: "綿100%", jan: 2900000036001, sizeHtml: "XS,S,M,L,XL,XXL,XXXL" },
 };
 const ORDER = Object.keys(PRODUCTS); // deterministic
 
@@ -123,16 +124,16 @@ for (const code of ORDER) {
 
   writeCsv(dir + "/" + code + "_3_itemIndiv.csv", indivHdr, rows.map(r => {
     const zei = Math.round(r.price / 1.1);
-    return ["__ITEMID__", code, NAME, "", DESC, P.material, P.sizeHtml, "3", "1", NORTAN, DELIV, "1", "0",
+    return [P.itemId, code, NAME, "", DESC, P.material, P.sizeHtml, "3", "1", NORTAN, DELIV, "1", "0",
       "", colorId[r.cname], r.cname, String(colorDisp[r.cname]), sizeId[r.size], "", "", "", "1", "0",
       "（仮）", code, r.cname, r.ccode, r.size, janOf[r.ccode + "|" + r.size], String(zei)];
   }));
 
   writeCsv(dir + "/" + code + "_4_itemPosImage.csv", posHdr, colorOrder.map(c =>
-    ["__ITEMID__", code, NAME, code + "_chest_left", "左胸", "1", "1", "0", colorId[c.cname], c.cname, img(c), ""]));
+    [P.itemId, code, NAME, code + "_chest_left", "左胸", "1", "1", "0", colorId[c.cname], c.cname, img(c), ""]));
 
   writeCsv(dir + "/" + code + "_5_workOverItem.csv", woHdr,
-    [["", code + "_chest_left", code, "__ITEMID__", "inkjet_chest_left", "20286", "左胸", "1", "1", repImg, "380", "300", "620", "300", "380", "540", "0"]]);
+    [["", code + "_chest_left", code, P.itemId, "inkjet_chest_left", "20286", "左胸", "1", "1", repImg, "380", "300", "620", "300", "380", "540", "0"]]);
 
   writeCsv(dir + "/" + code + "_6_stock.csv", stockHdr, rows.map(r =>
     ["", janOf[r.ccode + "|" + r.size], "195", "", "", "100"]));
