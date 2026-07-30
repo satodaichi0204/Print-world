@@ -283,6 +283,18 @@
   line-height: 1.7;
 }
 
+/* Guide panel fill — fight MT body*{background:#fff!important}. */
+.about-page .ap-sec3 .sec6-panel,
+.about-mt .ap-sec3 .sec6-panel {
+  background: #f7ede6 !important;
+  background-color: #f7ede6 !important;
+}
+
+.about-page .ap-sec3 .sec6-panel *,
+.about-mt .ap-sec3 .sec6-panel * {
+  background-color: transparent !important;
+}
+
 /* ----- Sec4: consultation intro ----- */
 .ap-sec4 {
   background: #fff;
