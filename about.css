@@ -694,38 +694,28 @@
   }
 }
 
+@media (max-width: 425px) {
+  .ap-sec2__grid {
+    gap: 80px 16px;
+  }
+}
+
 @media (max-width: 425px) and (min-width: 320px) {
   .ap-card {
     height: 152px;
-    min-height: 170px;
+    min-height: 280px;
     max-height: 124px;
     border-radius: 20px;
     padding: 0 44px 0 8px;
     gap: 8px 18px;
   }
 
-  .ap-card__title {
-    margin: 0 0 6px;
-    color: #111;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 1.25;
-  }
-
-  .ap-card__text {
-    margin: 0;
-    color: #222;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.65;
-  }
-
   .ap-card__media {
-    flex: 0 0 200px;
+    flex: 0 0 280px;
     width: 200px;
     min-width: 186px;
     height: 198px;
-    margin-top: -45px;
+    margin-top: 66px;
     margin-bottom: -16px;
     align-self: center;
     display: flex;
@@ -737,15 +727,31 @@
   .ap-card__media img {
     display: block;
     width: auto;
-    max-width: 100%;
+    max-width: 159%;
     height: auto;
-    max-height: 198px;
+    max-height: 340px;
     object-fit: contain;
     object-position: bottom center;
   }
 
   .ap-card:first-child .ap-card__media img {
-    max-height: 198px;
+    max-height: 340px;
+  }
+
+  .about-page .ap-card__title,
+  .about-mt .ap-card__title {
+    font-size: 30px !important;
+    font-weight: 900;
+    line-height: 1.25 !important;
+    color: #111 !important;
+  }
+
+  .about-page .ap-card__text,
+  .about-mt .ap-card__text {
+    font-size: 27px !important;
+    font-weight: 500 !important;
+    line-height: 1.65 !important;
+    color: #222 !important;
   }
 
   .ap-sec2__people {
