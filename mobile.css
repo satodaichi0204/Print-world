@@ -3051,6 +3051,15 @@
   }
 }
 
+/* TOP sec5-cta — 320 only. */
+@media (max-width: 320px) {
+  .home-page .sec5-cta {
+    margin: 32px auto 0;
+    padding: 16px 18px;
+    font-size: 12px;
+  }
+}
+
 /* TOP sec6-copy — 426–768 only: 16px@426 → ~18.9px@768; weight 500. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec6-copy {
