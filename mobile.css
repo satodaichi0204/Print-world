@@ -9148,11 +9148,9 @@ html.is-guide-flow-zoom-open body {
   }
 
   body:is(.home-page, .product-detail-page) .sec9-pay-list li {
-    gap: calc(16px * var(--sec9-card-s));
-    margin-bottom: calc(10px * var(--sec9-card-s));
-    font-size: calc(16px * var(--sec9-card-s));
-    font-weight: 600;
-    color: #222;
+    gap: calc(16px * var(--sec9-card-type-s));
+    margin-bottom: calc(15px * var(--sec9-card-type-s));
+    font-size: max(calc(20px * var(--sec9-card-type-s)), 13px);
   }
 
   body:is(.home-page, .product-detail-page) .sec9-pay-list li::before {
@@ -9188,8 +9186,8 @@ html.is-guide-flow-zoom-open body {
   }
 
   body:is(.home-page, .product-detail-page) .sec9-ship__note {
-    margin-bottom: calc(10px * var(--sec9-card-s));
-    font-size: calc(14px * var(--sec9-card-s));
+    margin-bottom: calc(10px * var(--sec9-card-type-s));
+    font-size: max(calc(12px * var(--sec9-card-type-s)), 11px);
     line-height: 1.45;
     color: #222;
     font-weight: 400;
@@ -9210,6 +9208,25 @@ html.is-guide-flow-zoom-open body {
     padding: calc(13px * var(--sec9-card-type-s)) calc(18px * var(--sec9-card-type-s));
     font-size: max(calc(14px * var(--sec9-card-type-s)), 12px);
     border-radius: 999px;
+  }
+}
+
+/* TOP sec9 ship note + pay list — ≤425 only (final cascade). */
+@media (max-width: 425px) {
+  body:is(.home-page, .product-detail-page) .sec9-ship__note {
+    margin-bottom: calc(10px * var(--sec9-card-s));
+    font-size: calc(14px * var(--sec9-card-s));
+    line-height: 1.45;
+    color: #222;
+    font-weight: 400;
+  }
+
+  body:is(.home-page, .product-detail-page) .sec9-pay-list li {
+    gap: calc(16px * var(--sec9-card-s));
+    margin-bottom: calc(10px * var(--sec9-card-s));
+    font-size: calc(16px * var(--sec9-card-s));
+    font-weight: 600;
+    color: #222;
   }
 }
 
