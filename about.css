@@ -542,6 +542,19 @@
   }
 }
 
+/* 769–1024: body only — undo parent zoom so type + person stay 1024 size; gap only. */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ap-sec2__body {
+    zoom: calc(1024px / 100vw);
+    width: calc(100vw - 48px);
+    max-width: none;
+  }
+
+  .ap-sec2__body .ap-sec2__grid {
+    gap: 40px 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .ap-inner,
   .ap-hero__inner {
