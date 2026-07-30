@@ -3069,15 +3069,6 @@
   }
 }
 
-/* TOP sec7-card__text — 426–768 only. */
-@media (min-width: 426px) and (max-width: 768px) {
-  .home-page .sec7-card__text {
-    font-size: 14px;
-    line-height: 1.55;
-    font-weight: 500;
-  }
-}
-
 /* TOP sec8 — 426–768: 768px collage ratios; work covers half of woman with whitespace. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec8-store {
