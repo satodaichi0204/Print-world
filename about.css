@@ -542,6 +542,26 @@
   }
 }
 
+/* 769–1024: keep card title/body at the same on-screen size as 1024
+   (counteract parent .ap-sec2 zoom). Scope: .ap-sec2__body only. */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ap-sec2__body .ap-sec2__grid {
+    gap: 40px 16px;
+  }
+
+  .about-page .ap-sec2__body .ap-card__title,
+  .about-mt .ap-sec2__body .ap-card__title,
+  .ap-sec2__body .ap-card__title {
+    font-size: calc(18px * 1024px / 100vw) !important;
+  }
+
+  .about-page .ap-sec2__body .ap-card__text,
+  .about-mt .ap-sec2__body .ap-card__text,
+  .ap-sec2__body .ap-card__text {
+    font-size: calc(15px * 1024px / 100vw) !important;
+  }
+}
+
 @media (max-width: 768px) {
   .ap-inner,
   .ap-hero__inner {
