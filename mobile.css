@@ -8098,7 +8098,7 @@ html.is-guide-flow-zoom-open body {
   body.home-page .fv-header {
     gap: calc(8px * var(--fv-sec1-s));
     min-height: calc(76px * var(--fv-sec1-s));
-    padding: calc(12px * var(--fv-sec1-s)) calc(16px * var(--fv-sec1-s));
+    padding: calc(22px * var(--fv-sec1-s)) calc(22px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header__left {
