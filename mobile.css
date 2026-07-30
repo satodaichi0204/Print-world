@@ -9816,9 +9816,15 @@ html.is-guide-flow-zoom-open body {
       .product-list-page,
       .product-detail-page
     )
+    .fv-header
+    .fv-header__util
+    .header__login
+    .btn--login
     .fv-login-icon {
     width: var(--pw-hdr-5icon);
     height: var(--pw-hdr-5icon);
+    max-width: none;
+    max-height: none;
     object-fit: contain;
   }
 }
