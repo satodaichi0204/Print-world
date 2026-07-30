@@ -4999,6 +4999,14 @@
    Site footer (all pages)
    ============================================================================= */
 
+/* Mobile type: do not optically thicken vs PC (iOS Hiragino reads heavier). */
+@media (max-width: 768px) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
 @media (max-width: 768px) {
   .site-footer__inner {
     display: flex;
@@ -5013,6 +5021,26 @@
 
   .site-footer {
     padding: 56px 32px 88px;
+  }
+
+  /* Footer type: match PC optical weight on mobile (Hiragino 900 reads too heavy).
+     Same role hierarchy as PC, one step lighter for readability. */
+  .site-footer__company,
+  .site-footer__title,
+  .site-footer__leadlink,
+  .site-footer__list--corp a {
+    font-weight: 700 !important;
+  }
+
+  .site-footer__address,
+  .site-footer__tel,
+  .site-footer__list a {
+    font-weight: 500 !important;
+  }
+
+  .site-footer__list--dash a,
+  .site-footer__list--dash li::before {
+    font-weight: 600 !important;
   }
 }
 
