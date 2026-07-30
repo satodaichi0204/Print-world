@@ -2996,13 +2996,15 @@
 
   .home-page .sec5-intro__lead {
     margin-bottom: 10px;
-    font-size: calc(15px + 2px * var(--sec5-t));
+    font-size: calc(17px + 2px * var(--sec5-t));
     line-height: 1.55;
+    font-weight: 600;
   }
 
   .home-page .sec5-intro__body {
-    font-size: calc(16px + 4px * var(--sec5-t));
+    font-size: calc(15px + 4px * var(--sec5-t));
     line-height: 1.7;
+    font-weight: 500;
   }
 
   .home-page .sec5-grid {
