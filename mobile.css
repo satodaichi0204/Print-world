@@ -3054,7 +3054,7 @@
     --sec5-t: calc((100vw - 426px) / (768px - 426px));
     margin: 6px 0 2px;
     padding: 0 12px;
-    font-size: calc(20px + 2.9px * var(--sec5-t));
+    font-size: calc(16px + 2.9px * var(--sec5-t));
     line-height: 1.55;
     font-weight: 500;
   }
