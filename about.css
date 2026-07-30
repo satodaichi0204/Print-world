@@ -135,9 +135,9 @@
   gap: 8px 18px;
   box-sizing: border-box;
   background: #fff;
-  border-radius: 999px;
+  border-radius: 20px;
   height: 124px;
-  min-height: 124px;
+  min-height: 180px;
   max-height: 124px;
   padding: 0 44px 0 8px;
   overflow: visible;
@@ -158,7 +158,7 @@
   width: 200px;
   min-width: 200px;
   height: 198px;
-  margin-top: -58px;
+  margin-top: -35px;
   margin-bottom: -16px;
   align-self: center;
   display: flex;
@@ -600,9 +600,9 @@
 @media (max-width: 425px) and (min-width: 320px) {
   .ap-card {
     height: 124px;
-    min-height: 124px;
+    min-height: 180px;
     max-height: 124px;
-    border-radius: 999px;
+    border-radius: 20px;
     padding: 0 44px 0 8px;
     gap: 8px 18px;
   }
@@ -628,7 +628,7 @@
     width: 200px;
     min-width: 200px;
     height: 198px;
-    margin-top: -58px;
+    margin-top: -35px;
     margin-bottom: -16px;
     align-self: center;
     display: flex;
