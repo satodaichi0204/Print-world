@@ -6573,37 +6573,35 @@ body {
 }
 
 /* =========================================================================
-   Smooth accordion (grid-template-rows 0fr<->1fr). Gated behind `.pw-acc`,
-   which the JS adds on init — so without the JS it falls back to native
-   <details> (no broken state). Padding lives on the inner <p> so the collapsed
-   (0fr) state has ZERO height (no left-over padding strip / "frozen" look).
+   Smooth accordion — height tween (JS sets px ↔ 0). Gated behind `.pw-acc`.
+   Avoid grid 0fr↔1fr: Chrome often eases then snaps. Padding on inner <p>
+   so collapsed height is truly 0.
    ========================================================================= */
 .faq-item.pw-acc .faq-item__answer,
 .sec8-details.pw-acc .sec8-details__body {
-  display: grid !important;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 340ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block !important;
+  overflow: hidden;
+  height: 0;
   padding: 0 !important;
-  overflow: hidden;
-}
-.faq-item.pw-acc.pw-open .faq-item__answer,
-.sec8-details.pw-acc.pw-open .sec8-details__body {
-  grid-template-rows: 1fr;
-}
-.faq-item.pw-acc .faq-item__answer > *,
-.sec8-details.pw-acc .sec8-details__body > * {
-  min-height: 0;
-  overflow: hidden;
+  transition: height 360ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .faq-item.pw-acc .faq-item__answer > p {
+  margin: 0;
   padding: 18px 24px 22px;
 }
 .sec8-details.pw-acc .sec8-details__body > p {
+  margin: 0;
   padding: 14px 18px 18px;
 }
 @media (max-width: 768px) {
   .faq-item.pw-acc .faq-item__answer > p {
     padding: 16px 18px 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-item.pw-acc .faq-item__answer,
+  .sec8-details.pw-acc .sec8-details__body {
+    transition: none;
   }
 }
 

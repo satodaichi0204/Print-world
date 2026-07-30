@@ -720,55 +720,130 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
   }
 })();
 
-// --- Smooth accordion (details open/close animation) ---
+// --- Smooth accordion (details open/close) — height tween, not grid 0fr/1fr.
+// grid-template-rows 0fr↔1fr often eases then snaps in Chrome; pixel height is reliable.
 (function () {
+  var REDUCE =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var DURATION = 360;
+
   function smooth(detailsSel, bodySel, singleOpen) {
     var list = [].slice.call(document.querySelectorAll(detailsSel));
     list.forEach(function (el) {
+      if (el.dataset.pwAccInit === "1") return;
+      el.dataset.pwAccInit = "1";
+
       var sum = el.querySelector("summary");
       var body = el.querySelector(bodySel);
       if (!sum || !body) return;
 
-      el.classList.add("pw-acc"); // activate the grid CSS
-      if (el.open) el.classList.add("pw-open");
+      el.classList.add("pw-acc");
+      if (el.open) {
+        el.classList.add("pw-open");
+        body.style.height = "auto";
+      } else {
+        body.style.height = "0px";
+      }
+
+      function clearWait() {
+        if (el._to) {
+          clearTimeout(el._to);
+          el._to = null;
+        }
+        if (el._onEnd) {
+          body.removeEventListener("transitionend", el._onEnd);
+          el._onEnd = null;
+        }
+      }
+
+      function afterHeight(done) {
+        clearWait();
+        if (REDUCE) {
+          done();
+          return;
+        }
+        el._onEnd = function (e) {
+          if (e.target !== body) return;
+          if (e.propertyName && e.propertyName !== "height") return;
+          clearWait();
+          done();
+        };
+        body.addEventListener("transitionend", el._onEnd);
+        el._to = setTimeout(function () {
+          clearWait();
+          done();
+        }, DURATION + 80);
+      }
 
       function openIt() {
-        if (el._to) { clearTimeout(el._to); el._to = null; }
-        el.open = true;         // render content (collapsed at grid 0fr)
-        void body.offsetWidth;  // paint the collapsed state first
-        el.classList.add("pw-open"); // 0fr -> 1fr (animates)
+        clearWait();
+        el.open = true;
+        el.classList.add("pw-open");
+        if (REDUCE) {
+          body.style.height = "auto";
+          return;
+        }
+        var from = body.getBoundingClientRect().height;
+        body.style.height = from + "px";
+        void body.offsetHeight;
+        body.style.height = body.scrollHeight + "px";
+        afterHeight(function () {
+          if (el.classList.contains("pw-open")) body.style.height = "auto";
+        });
       }
+
       function closeIt() {
-        el.classList.remove("pw-open"); // 1fr -> 0fr (animates)
-        var done = function (e) {
-          if (e && e.propertyName && e.propertyName.indexOf("grid-template") === -1) return;
-          body.removeEventListener("transitionend", done);
-          if (el._to) { clearTimeout(el._to); el._to = null; }
-          if (!el.classList.contains("pw-open")) el.open = false; // hide after collapse
-        };
-        body.addEventListener("transitionend", done);
-        if (el._to) clearTimeout(el._to);
-        el._to = setTimeout(function () { done(); }, 440);
+        clearWait();
+        if (REDUCE) {
+          el.classList.remove("pw-open");
+          body.style.height = "0px";
+          el.open = false;
+          return;
+        }
+        var h = body.getBoundingClientRect().height;
+        if (h < 1) h = body.scrollHeight;
+        body.style.height = h + "px";
+        void body.offsetHeight;
+        el.classList.remove("pw-open");
+        body.style.height = "0px";
+        afterHeight(function () {
+          if (!el.classList.contains("pw-open")) {
+            el.open = false;
+            body.style.height = "0px";
+          }
+        });
       }
-      el._close = function () { if (el.classList.contains("pw-open")) closeIt(); };
+
+      el._close = function () {
+        if (el.classList.contains("pw-open")) closeIt();
+      };
 
       sum.addEventListener("click", function (e) {
         e.preventDefault();
         if (el.classList.contains("pw-open")) {
           closeIt();
         } else {
-          if (singleOpen) list.forEach(function (o) { if (o !== el && o._close) o._close(); });
+          if (singleOpen) {
+            list.forEach(function (o) {
+              if (o !== el && o._close) o._close();
+            });
+          }
           openIt();
         }
       });
     });
   }
+
   function init() {
     smooth("details.sec8-details", ".sec8-details__body", false);
     smooth("details.faq-item", ".faq-item__answer", true);
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-  else init();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
 
 // ---------------------------------------------------------------------------

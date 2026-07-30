@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260730acc">
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css">
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css">
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/faq.css">
@@ -388,40 +388,85 @@
   </main>
 </div>
 
-<!-- Smooth single-open accordion (grid-template-rows animation) -->
+<!-- Smooth single-open accordion (height tween) -->
 <script>
 (function () {
+  var REDUCE =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var DURATION = 360;
   var list = [].slice.call(document.querySelectorAll("details.faq-item"));
   list.forEach(function (el) {
+    if (el.dataset.pwAccInit === "1") return;
+    el.dataset.pwAccInit = "1";
     var sum = el.querySelector("summary");
     var body = el.querySelector(".faq-item__answer");
     if (!sum || !body) return;
     el.classList.add("pw-acc");
-    if (el.open) el.classList.add("pw-open");
-    function openIt() {
-      if (el._to) { clearTimeout(el._to); el._to = null; }
-      el.open = true;
-      void body.offsetWidth;
+    if (el.open) {
       el.classList.add("pw-open");
+      body.style.height = "auto";
+    } else {
+      body.style.height = "0px";
+    }
+    function clearWait() {
+      if (el._to) { clearTimeout(el._to); el._to = null; }
+      if (el._onEnd) {
+        body.removeEventListener("transitionend", el._onEnd);
+        el._onEnd = null;
+      }
+    }
+    function afterHeight(done) {
+      clearWait();
+      if (REDUCE) { done(); return; }
+      el._onEnd = function (e) {
+        if (e.target !== body) return;
+        if (e.propertyName && e.propertyName !== "height") return;
+        clearWait();
+        done();
+      };
+      body.addEventListener("transitionend", el._onEnd);
+      el._to = setTimeout(function () { clearWait(); done(); }, DURATION + 80);
+    }
+    function openIt() {
+      clearWait();
+      el.open = true;
+      el.classList.add("pw-open");
+      if (REDUCE) { body.style.height = "auto"; return; }
+      var from = body.getBoundingClientRect().height;
+      body.style.height = from + "px";
+      void body.offsetHeight;
+      body.style.height = body.scrollHeight + "px";
+      afterHeight(function () {
+        if (el.classList.contains("pw-open")) body.style.height = "auto";
+      });
     }
     function closeIt() {
+      clearWait();
+      if (REDUCE) {
+        el.classList.remove("pw-open");
+        body.style.height = "0px";
+        el.open = false;
+        return;
+      }
+      var h = body.getBoundingClientRect().height;
+      if (h < 1) h = body.scrollHeight;
+      body.style.height = h + "px";
+      void body.offsetHeight;
       el.classList.remove("pw-open");
-      var done = function (e) {
-        if (e && e.propertyName && e.propertyName.indexOf("grid-template") === -1) return;
-        body.removeEventListener("transitionend", done);
-        if (el._to) { clearTimeout(el._to); el._to = null; }
-        if (!el.classList.contains("pw-open")) el.open = false;
-      };
-      body.addEventListener("transitionend", done);
-      if (el._to) clearTimeout(el._to);
-      el._to = setTimeout(function () { done(); }, 440);
+      body.style.height = "0px";
+      afterHeight(function () {
+        if (!el.classList.contains("pw-open")) {
+          el.open = false;
+          body.style.height = "0px";
+        }
+      });
     }
     el._close = function () { if (el.classList.contains("pw-open")) closeIt(); };
     sum.addEventListener("click", function (e) {
       e.preventDefault();
-      if (el.classList.contains("pw-open")) {
-        closeIt();
-      } else {
+      if (el.classList.contains("pw-open")) closeIt();
+      else {
         list.forEach(function (o) { if (o !== el && o._close) o._close(); });
         openIt();
       }
