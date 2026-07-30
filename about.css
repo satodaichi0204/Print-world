@@ -590,9 +590,9 @@
   }
 }
 
-/* 426–768: lock card height + person size to 768 look (counteract zoom).
+/* 550–768: lock card / person / type to 768 look (counteract zoom).
    Scope: .ap-sec2__body only. */
-@media (max-width: 768px) and (min-width: 426px) {
+@media (max-width: 768px) and (min-width: 550px) {
   .ap-sec2__body .ap-sec2__grid {
     gap: 55px 16px;
   }
@@ -656,6 +656,78 @@
   .about-mt .ap-sec2__body .ap-card__text,
   .ap-sec2__body .ap-card__text {
     font-size: calc(19px * 768px / 100vw) !important;
+    font-weight: 500 !important;
+    line-height: 1.65 !important;
+    color: #222 !important;
+  }
+}
+
+/* 426–549: taper from locked 768 size down toward natural zoom at 426.
+   Scope: .ap-sec2__body only. */
+@media (max-width: 549px) and (min-width: 426px) {
+  .ap-sec2__body .ap-sec2__grid {
+    gap: 55px 16px;
+  }
+
+  .ap-sec2__body .ap-card {
+    position: relative;
+    counter-increment: apcard;
+    display: flex;
+    align-items: center;
+    gap: 8px 18px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 20px;
+    height: calc(221px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    min-height: calc(201px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    max-height: calc(124px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    padding: 0 44px 0 8px;
+    overflow: visible;
+  }
+
+  .ap-sec2__body .ap-card__media {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 calc(200px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    width: calc(200px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    min-width: calc(186px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    height: calc(230px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    margin-top: calc(-45px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    margin-bottom: calc(-16px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    align-self: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .ap-sec2__body .ap-card__media img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(230px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+    object-fit: contain;
+    object-position: bottom center;
+  }
+
+  .ap-sec2__body .ap-card:first-child .ap-card__media img {
+    max-height: calc(230px * (426px + 342 * (100vw - 426px) / 124) / 100vw);
+  }
+
+  .about-page .ap-sec2__body .ap-card__title,
+  .about-mt .ap-sec2__body .ap-card__title,
+  .ap-sec2__body .ap-card__title {
+    font-size: calc(21px * (426px + 342 * (100vw - 426px) / 124) / 100vw) !important;
+    font-weight: 900;
+    line-height: 1.25 !important;
+    color: #111 !important;
+  }
+
+  .about-page .ap-sec2__body .ap-card__text,
+  .about-mt .ap-sec2__body .ap-card__text,
+  .ap-sec2__body .ap-card__text {
+    font-size: calc(19px * (426px + 342 * (100vw - 426px) / 124) / 100vw) !important;
     font-weight: 500 !important;
     line-height: 1.65 !important;
     color: #222 !important;
