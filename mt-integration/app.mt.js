@@ -677,6 +677,8 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
 // available from the block, so the generated cards omit the tag list.
 // ---------------------------------------------------------------------------
 (() => {
+  const PER_PAGE = 12; // cards per page
+
   function esc(value) {
     return String(value == null ? "" : value).replace(/[&<>"']/g, (ch) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -702,7 +704,88 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     );
   }
 
-  function populatePlpGrid() {
+  // page tokens with ellipsis: 1 … (c-1) c (c+1) … last
+  function pageList(current, total) {
+    const nums = [];
+    for (let i = 1; i <= total; i++) {
+      if (i === 1 || i === total || (i >= current - 1 && i <= current + 1)) nums.push(i);
+    }
+    const out = [];
+    let prev = 0;
+    for (const n of nums) {
+      if (prev && n - prev > 1) out.push("…");
+      out.push(n);
+      prev = n;
+    }
+    return out;
+  }
+
+  function hrefFor(page) {
+    const u = new URL(location.href);
+    if (page <= 1) u.searchParams.delete("page");
+    else u.searchParams.set("page", String(page));
+    return u.pathname + u.search;
+  }
+
+  function currentPage() {
+    const n = parseInt(new URLSearchParams(location.search).get("page") || "1", 10);
+    return n > 0 ? n : 1;
+  }
+
+  function buildPagination(nav, current, totalPages) {
+    // single page → hide (style.display beats any CSS display on the nav)
+    if (totalPages <= 1) { nav.style.display = "none"; return; }
+    nav.style.display = "";
+    let h = '<a class="plp-pagination__prev" href="' + esc(hrefFor(current - 1)) + '"' +
+      (current <= 1 ? ' aria-disabled="true"' : "") + ' data-page="' + (current - 1) + '">前へ</a>';
+    h += '<div class="plp-pagination__pages">';
+    for (const p of pageList(current, totalPages)) {
+      if (p === "…") { h += '<span class="plp-pagination__ellipsis" aria-hidden="true">…</span>'; continue; }
+      const cur = p === current;
+      h += '<a class="plp-pagination__page' + (cur ? " plp-pagination__page--current" : "") + '" href="' +
+        esc(hrefFor(p)) + '"' + (cur ? ' aria-current="page"' : "") + ' data-page="' + p + '">' + p + "</a>";
+    }
+    h += "</div>";
+    h += '<a class="plp-pagination__next" href="' + esc(hrefFor(current + 1)) + '"' +
+      (current >= totalPages ? ' aria-disabled="true"' : "") + ' data-page="' + (current + 1) + '">次へ</a>';
+    nav.innerHTML = h;
+  }
+
+  function scrollToGridTop(grid) {
+    const section = grid.closest("section") || grid;
+    const header = document.querySelector(".fv-header");
+    const offset = header && /fixed|sticky/.test(getComputedStyle(header).position)
+      ? header.getBoundingClientRect().height : 0;
+    const y = window.scrollY + section.getBoundingClientRect().top - offset - 12;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  }
+
+  let ALL = [];
+
+  function render(scroll) {
+    const grid = document.querySelector(".plp-grid");
+    if (!grid) return;
+    const totalPages = Math.max(1, Math.ceil(ALL.length / PER_PAGE));
+    const current = Math.min(currentPage(), totalPages);
+    const start = (current - 1) * PER_PAGE;
+    grid.innerHTML = ALL.slice(start, start + PER_PAGE).join("");
+    const nav = document.querySelector(".plp-pagination");
+    if (nav) buildPagination(nav, current, totalPages);
+    if (scroll) scrollToGridTop(grid);
+  }
+
+  function onNavClick(e) {
+    const a = e.target.closest("a[data-page]");
+    if (!a) return;
+    e.preventDefault();
+    if (a.getAttribute("aria-disabled") === "true") return;
+    const page = parseInt(a.getAttribute("data-page"), 10) || 1;
+    if (page === currentPage()) return;
+    history.pushState({ plpPage: page }, "", hrefFor(page));
+    render(true);
+  }
+
+  function initPlpGrid() {
     const grid = document.querySelector(".plp-grid");
     if (!grid) return;
     const source = document.querySelector(".mcPage__itemListContent-grid .itemListContent__gridArea");
@@ -710,13 +793,19 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     const items = source.querySelectorAll(".itemListContent__grid");
     if (!items.length) return;
 
-    grid.innerHTML = Array.from(items).map(buildCard).join("");
+    ALL = Array.from(items).map(buildCard);
+
+    const nav = document.querySelector(".plp-pagination");
+    if (nav) nav.addEventListener("click", onNavClick);
+    window.addEventListener("popstate", () => render(false)); // back/forward
+
+    render(false);
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", populatePlpGrid);
+    document.addEventListener("DOMContentLoaded", initPlpGrid);
   } else {
-    populatePlpGrid();
+    initPlpGrid();
   }
 })();
 
