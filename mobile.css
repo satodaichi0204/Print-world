@@ -7393,8 +7393,9 @@ html.is-guide-flow-zoom-open body {
   }
 
   :is(.home-page, .product-detail-page) .sec9-bullets li {
-    font-size: max(calc(15px * var(--sec9-m-s)), 13px);
-    margin-bottom: calc(8px * var(--sec9-m-s));
+    margin: 0 0 10px;
+    font-weight: 500;
+    font-size: medium;
   }
 
   :is(.home-page, .product-detail-page) .sec9-contact__actions {
