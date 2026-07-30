@@ -590,6 +590,59 @@
   }
 }
 
+/* 426–768: taller reason cards + larger person media */
+@media (max-width: 768px) and (min-width: 426px) {
+  .ap-sec2__grid {
+    gap: 55px 16px;
+  }
+
+  .ap-card {
+    position: relative;
+    counter-increment: apcard;
+    display: flex;
+    align-items: center;
+    gap: 8px 18px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 20px;
+    height: 221px;
+    min-height: 201px;
+    max-height: 124px;
+    padding: 0 44px 0 8px;
+    overflow: visible;
+  }
+
+  .ap-card__media {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 200px;
+    width: 200px;
+    min-width: 186px;
+    height: 230px;
+    margin-top: -45px;
+    margin-bottom: -16px;
+    align-self: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .ap-card__media img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 230px;
+    object-fit: contain;
+    object-position: bottom center;
+  }
+
+  .ap-card:first-child .ap-card__media img {
+    max-height: 230px;
+  }
+}
+
 @media (max-width: 768px) and (min-width: 320px) {
   .ap-hero {
     background: #efce0a;
