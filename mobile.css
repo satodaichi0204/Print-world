@@ -9672,7 +9672,7 @@ html.is-guide-flow-zoom-open body {
 /* =============================================================================
    Header -- 426-768 ONLY: match design size/gap for the 5 right icons
    (phone / mail / LINE / cart / user). Logo, hamburger, and other ranges untouched.
-   Design@~768: icon ~48px, gap ~28-32px. Current was ~34px / 10px.
+   Design@~768: icon ~48px, gap ~26px (equal across all five icon boxes).
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   body:is(
@@ -9686,7 +9686,7 @@ html.is-guide-flow-zoom-open body {
     ) {
     --pw-hdr-5icon-s: calc(100vw / 768px);
     --pw-hdr-5icon: calc(48px * var(--pw-hdr-5icon-s));
-    --pw-hdr-5icon-gap: calc(28px * var(--pw-hdr-5icon-s));
+    --pw-hdr-5icon-gap: calc(26px * var(--pw-hdr-5icon-s));
   }
 
   body:is(
@@ -9729,9 +9729,23 @@ html.is-guide-flow-zoom-open body {
       .product-detail-page
     )
     .fv-header__util
+    .mt-ec,
+  body:is(
+      .home-page,
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-data-submission-page,
+      .guide-print-method-page,
+      .product-list-page,
+      .product-detail-page
+    )
+    .fv-header
     .mt-ec {
     gap: var(--pw-hdr-5icon-gap);
     align-items: center;
+    margin: 0;
+    margin-left: 0;
+    padding: 0;
   }
 
   /* 5 icons only - do not touch .menu-btn size/bars */
@@ -9784,6 +9798,8 @@ html.is-guide-flow-zoom-open body {
     height: var(--pw-hdr-5icon);
     min-width: var(--pw-hdr-5icon);
     min-height: var(--pw-hdr-5icon);
+    margin: 0;
+    padding: 0;
   }
 
   body:is(
