@@ -642,17 +642,19 @@
     max-height: 230px;
   }
 
-  .about-page .ap-card__title,
-  .about-mt .ap-card__title {
-    font-size: 21px !important;
+  .about-page .ap-sec2__body .ap-card__title,
+  .about-mt .ap-sec2__body .ap-card__title,
+  .ap-sec2__body .ap-card__title {
+    font-size: calc(21px * 768px / 100vw) !important;
     font-weight: 900;
     line-height: 1.25 !important;
     color: #111 !important;
   }
 
-  .about-page .ap-card__text,
-  .about-mt .ap-card__text {
-    font-size: 19px !important;
+  .about-page .ap-sec2__body .ap-card__text,
+  .about-mt .ap-sec2__body .ap-card__text,
+  .ap-sec2__body .ap-card__text {
+    font-size: calc(19px * 768px / 100vw) !important;
     font-weight: 500 !important;
     line-height: 1.65 !important;
     color: #222 !important;
