@@ -590,13 +590,14 @@
   }
 }
 
-/* 426–768: taller reason cards + larger person media */
+/* 426–768: lock card height + person size to 768 look (counteract zoom).
+   Scope: .ap-sec2__body only. */
 @media (max-width: 768px) and (min-width: 426px) {
-  .ap-sec2__grid {
+  .ap-sec2__body .ap-sec2__grid {
     gap: 55px 16px;
   }
 
-  .ap-card {
+  .ap-sec2__body .ap-card {
     position: relative;
     counter-increment: apcard;
     display: flex;
@@ -605,22 +606,22 @@
     box-sizing: border-box;
     background: #fff;
     border-radius: 20px;
-    height: 221px;
-    min-height: 201px;
-    max-height: 124px;
+    height: calc(221px * 768px / 100vw);
+    min-height: calc(201px * 768px / 100vw);
+    max-height: calc(124px * 768px / 100vw);
     padding: 0 44px 0 8px;
     overflow: visible;
   }
 
-  .ap-card__media {
+  .ap-sec2__body .ap-card__media {
     position: relative;
     z-index: 2;
-    flex: 0 0 200px;
-    width: 200px;
-    min-width: 186px;
-    height: 230px;
-    margin-top: -45px;
-    margin-bottom: -16px;
+    flex: 0 0 calc(200px * 768px / 100vw);
+    width: calc(200px * 768px / 100vw);
+    min-width: calc(186px * 768px / 100vw);
+    height: calc(230px * 768px / 100vw);
+    margin-top: calc(-45px * 768px / 100vw);
+    margin-bottom: calc(-16px * 768px / 100vw);
     align-self: center;
     display: flex;
     align-items: flex-end;
@@ -628,18 +629,18 @@
     overflow: visible;
   }
 
-  .ap-card__media img {
+  .ap-sec2__body .ap-card__media img {
     display: block;
     width: auto;
     max-width: 100%;
     height: auto;
-    max-height: 230px;
+    max-height: calc(230px * 768px / 100vw);
     object-fit: contain;
     object-position: bottom center;
   }
 
-  .ap-card:first-child .ap-card__media img {
-    max-height: 230px;
+  .ap-sec2__body .ap-card:first-child .ap-card__media img {
+    max-height: calc(230px * 768px / 100vw);
   }
 
   .about-page .ap-sec2__body .ap-card__title,
