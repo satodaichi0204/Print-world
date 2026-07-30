@@ -641,6 +641,22 @@
   .ap-card:first-child .ap-card__media img {
     max-height: 230px;
   }
+
+  .about-page .ap-card__title,
+  .about-mt .ap-card__title {
+    font-size: 24px !important;
+    font-weight: 900;
+    line-height: 1.25 !important;
+    color: #111 !important;
+  }
+
+  .about-page .ap-card__text,
+  .about-mt .ap-card__text {
+    font-size: 23px !important;
+    font-weight: 500 !important;
+    line-height: 1.65 !important;
+    color: #222 !important;
+  }
 }
 
 @media (max-width: 768px) and (min-width: 320px) {
