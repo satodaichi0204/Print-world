@@ -3359,6 +3359,7 @@
 
   .home-page .sec5-body {
     padding: 0 calc(24px * var(--sec5-sp-s));
+    padding-bottom: 26px;
   }
 
   .home-page .sec5-hero {
