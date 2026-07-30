@@ -9890,7 +9890,7 @@ html.is-guide-flow-zoom-open body {
     justify-content: space-between;
     align-items: stretch;
     gap: 0;
-    padding: calc(10px * var(--pw-hdr-5icon-s, 1)) 0;
+    padding: calc(4px * var(--pw-hdr-5icon-s, 1)) 0;
     margin: 0;
     overflow: visible;
     background: transparent;
@@ -9922,8 +9922,8 @@ html.is-guide-flow-zoom-open body {
     span {
     flex: 0 0 auto;
     width: 100%;
-    height: calc(5px * var(--pw-hdr-5icon-s, 1));
-    min-height: calc(5px * var(--pw-hdr-5icon-s, 1));
+    height: calc(6px * var(--pw-hdr-5icon-s, 1));
+    min-height: calc(6px * var(--pw-hdr-5icon-s, 1));
     margin: 0;
     background: #f15a24;
   }
