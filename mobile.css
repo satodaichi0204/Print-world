@@ -3398,9 +3398,8 @@
   .home-page .sec5-intro__body {
     font-size: calc(15px * var(--sec5-sp-s));
     line-height: 1.7;
+    font-weight: 500;
   }
-
-  /* TOP sec8 — 425 lock; scales to 320 */
   .home-page .sec8 {
     --sec8-sp-s: calc(100vw / 425px);
   }
