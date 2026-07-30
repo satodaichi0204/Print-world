@@ -191,7 +191,7 @@
 .ap-card__title {
   margin: 0 0 6px;
   color: #111;
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 900;
   line-height: 1.25;
   letter-spacing: 0.02em;
@@ -333,8 +333,8 @@
 
 .about-page .ap-card__title,
 .about-mt .ap-card__title {
-  font-size: 28px !important;
-  font-weight: 900 !important;
+  font-size: 18px !important;
+  font-weight: 900;
   line-height: 1.25 !important;
   color: #111 !important;
 }
@@ -610,7 +610,7 @@
   .ap-card__title {
     margin: 0 0 6px;
     color: #111;
-    font-size: 28px;
+    font-size: 18px;
     font-weight: 900;
     line-height: 1.25;
   }
