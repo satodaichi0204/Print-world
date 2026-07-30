@@ -5076,6 +5076,21 @@
   }
 }
 
+/* Footer type — ≤425: lighter weights for readability. */
+@media (max-width: 425px) {
+  .site-footer__company,
+  .site-footer__title,
+  .site-footer__leadlink,
+  .site-footer__list--corp a {
+    font-weight: 500 !important;
+  }
+
+  .site-footer__list--dash a,
+  .site-footer__list--dash li::before {
+    font-weight: 500 !important;
+  }
+}
+
 @media (max-width: 480px) {
   .site-footer {
     padding: 40px 20px 64px;
