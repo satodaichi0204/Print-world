@@ -3084,6 +3084,15 @@
   }
 }
 
+/* TOP sec7-list — ≤425 only. */
+@media (max-width: 425px) {
+  .home-page .sec7-list {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
 /* TOP sec8 — 426–768: 768px collage ratios; work covers half of woman with whitespace. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec8-store {
