@@ -5403,6 +5403,15 @@ body.pw-pdp-hydrated .header__bread-crumb {
   display: none !important;
 }
 
+/* The PW item-detail shell now lives in the global ページテーマ, so it is present
+   on every page. Keep it hidden until app.mt.js hydrates it on a real /item page. */
+#pw-pdp-shell {
+  display: none;
+}
+body.pw-pdp-hydrated #pw-pdp-shell {
+  display: block;
+}
+
 .pdp-btn--design {
   background: #00b2c8;
   color: #fff;

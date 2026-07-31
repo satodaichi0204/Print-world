@@ -1,3 +1,8 @@
+// Guard: app.mt.js is now loaded both globally (ページテーマ) and per-page (HTML blocks).
+// Run the whole file only once per page load to avoid double-bound handlers.
+if (!window.__pwAppMt) {
+window.__pwAppMt = true;
+
 /**
  * FV マーキー：3行がそれぞれ「独自の画像セット」を表示します（全て別々の画像）。
  * 各行は set+set の2連結でシームレスにループ（translateX(-50%)）。行2はCSSで逆方向。
@@ -989,6 +994,14 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     const shell = document.querySelector("[data-pw-pdp-shell]");
     if (!shell) return;
 
+    // Activate ONLY on a real MT item page: MT's native detail is the data source.
+    // The shell now lives in the global ページテーマ, so on any other page (top/list/…)
+    // there is no MT detail → leave the shell hidden (CSS keeps it display:none).
+    const mtDetail = document.querySelector(
+      ".make__detail__box, .make__detail__main__item, #js-item-detail-image"
+    );
+    if (!mtDetail) return;
+
     document.body.classList.add("product-detail-page", "pw-pdp-hydrated");
     document.body.classList.remove("product-list-page");
 
@@ -1116,3 +1129,5 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     hydratePdpShell();
   }
 })();
+
+} // end guard: if (!window.__pwAppMt)
