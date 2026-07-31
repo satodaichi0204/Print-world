@@ -5398,16 +5398,25 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 
 /* When the PW item-detail shell is on the page, hide MT's stock detail chrome
    (it remains in the DOM as the data + design-button source). */
-body.pw-pdp-hydrated .make__detail__box,
+/* Item detail (/item): MT renders its native detail server-side. Hide it from the
+   FIRST paint (before app.mt.js runs) so it never flashes before our shell — it stays
+   in the DOM as the data source + design button. `.make__detail__box` only exists on
+   item pages, so hiding it unconditionally is safe and immediate. */
+.make__detail__box {
+  display: none !important;
+}
+body:has(.make__detail__box) .header__bread-crumb,
 body.pw-pdp-hydrated .header__bread-crumb {
   display: none !important;
 }
 
-/* The PW item-detail shell now lives in the global ページテーマ, so it is present
-   on every page. Keep it hidden until app.mt.js hydrates it on a real /item page. */
+/* The PW item-detail shell lives in the global ページテーマ, so it is present on every
+   page. Show it only on item pages. `:has()` makes this immediate (no flash); the
+   body.pw-pdp-hydrated variant is the JS fallback for browsers without :has(). */
 #pw-pdp-shell {
   display: none;
 }
+body:has(.make__detail__box) #pw-pdp-shell,
 body.pw-pdp-hydrated #pw-pdp-shell {
   display: block;
 }
@@ -6277,7 +6286,8 @@ main.mcPage__main,
 
 /* /item (商品詳細) pages use MT's plain <main> (no .mcPage__main class), so rule (A)
    above misses it and MT's headerFix `main{padding-top:70px}` leaves a 70px gap above
-   our shell. Zero it — scoped to the hydrated PDP so other pages are untouched. */
+   our shell. Zero it — scoped to item pages (:has immediate, pw-pdp-hydrated fallback). */
+body:has(.make__detail__box) main,
 body.pw-pdp-hydrated main {
   padding-top: 0 !important;
   margin-top: 0 !important;
