@@ -6046,6 +6046,11 @@ body.pw-pdp-hydrated #pw-pdp-shell {
 
 /* colored backgrounds */
 .pdp-main .pdp-gallery__main { background-color: #ececec !important; }
+/* Product photos are white-background JPGs, so on the gray box they read as a white
+   square. multiply blends the white into the gray box → uniform gray with the garment
+   floating on it (matches the original design). Garment/colored pixels stay. */
+.pdp-main .pdp-gallery__main-img,
+.pdp-main .pdp-gallery__thumb img { mix-blend-mode: multiply; }
 .pdp-main .pdp-point__label { background-color: #f15a24 !important; }
 .pdp-main .pdp-btn--design { background-color: #00b2c8 !important; }
 .pdp-main .pdp-btn--support { background-color: #eef9fb !important; }
