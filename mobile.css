@@ -10049,3 +10049,12 @@ html.is-guide-flow-zoom-open body {
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
+
+/* PDP: from tablet down (<=768px) stack image over info like the mobile layout,
+   instead of the 426-1919 two-column rule. (<=425px already stacks.) */
+@media (min-width: 426px) and (max-width: 768px) {
+  .product-detail-page .pdp-body__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
