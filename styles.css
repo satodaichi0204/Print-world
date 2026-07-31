@@ -6275,6 +6275,14 @@ main.mcPage__main,
 /* confirmed culprit: .mcPage__contentBlock .contentBlock__text { margin-top:6px } */
 .mcPage__contentBlock .contentBlock__text { margin-top: 0 !important; }
 
+/* /item (商品詳細) pages use MT's plain <main> (no .mcPage__main class), so rule (A)
+   above misses it and MT's headerFix `main{padding-top:70px}` leaves a 70px gap above
+   our shell. Zero it — scoped to the hydrated PDP so other pages are untouched. */
+body.pw-pdp-hydrated main {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
 /* (B) transparent header bar — DESKTOP ONLY (769+), ページマスタ pages only */
 @media (min-width: 769px) {
   body:has(.mcPage__main) .header_outer,
