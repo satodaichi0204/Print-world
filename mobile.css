@@ -6646,12 +6646,6 @@ html.is-guide-flow-zoom-open body {
     gap: calc(10px * var(--pdp-pc-s));
     margin-top: calc(12px * var(--pdp-pc-s));
   }
-  /* desktop widens the thumbnail grid to 10 columns (design intent) */
-  @media (min-width: 1024px) {
-    .product-detail-page .pdp-gallery__thumbs {
-      grid-template-columns: repeat(10, minmax(0, 1fr));
-    }
-  }
 
   .product-detail-page .pdp-gallery__thumb {
     border-width: calc(2px * var(--pdp-pc-s));
@@ -10037,5 +10031,13 @@ html.is-guide-flow-zoom-open body {
     min-height: calc(6px * var(--pw-hdr-5icon-s, 1));
     margin: 0;
     background: #f15a24;
+  }
+}
+
+/* PDP thumbnails: 10 columns on every screen wider than the mobile breakpoint
+   (>=769px, no upper bound so 4K/ultrawide match); <=768px keeps 4 columns. */
+@media (min-width: 769px) {
+  .product-detail-page .pdp-gallery__thumbs {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
   }
 }
