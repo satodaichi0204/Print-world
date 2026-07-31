@@ -10041,3 +10041,11 @@ html.is-guide-flow-zoom-open body {
     grid-template-columns: repeat(10, minmax(0, 1fr));
   }
 }
+
+/* PDP thumbnails: 8 columns on tablet / large phone (426-768px).
+   Ladder: <=425px = 4, 426-768px = 8, >=769px = 10. */
+@media (min-width: 426px) and (max-width: 768px) {
+  .product-detail-page .pdp-gallery__thumbs {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
