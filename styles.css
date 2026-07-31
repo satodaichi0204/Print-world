@@ -6681,3 +6681,9 @@ body {
   color: #ff6700 !important;
   -webkit-text-fill-color: #ff6700 !important;
 }
+
+/* Simulation confirm page (/simulation/confirm) — MT's fixed header overlaps the top
+   of the content. Push the page's <main> down. Scoped to body.make__confirm only. */
+body.make__confirm main {
+  padding-top: 175px !important;
+}
