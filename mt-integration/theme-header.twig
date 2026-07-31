@@ -1,18 +1,44 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260731makecf2">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260731makecf2">
-<!-- make_confirm (design→cart): MT headerFix only reserves 70px; our fixed header needs 175px.
-     Inline so it still wins on system pages even if stylesheet order/cache fights us. -->
-<style id="pw-make-confirm-clearance">
-html body.make_confirm main,
-html body.make_confirm #l-wrapper > main,
-html body.make_confirm .L-wrapper > main {
-  padding-top: 175px !important;
-  margin-top: 0 !important;
-}
-</style>
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260731makecf3">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260731makecf3">
+<script>
+/* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
+   MT may strip <style> from ヘッダ Twig, and Styles panel showed only headerFix —
+   so force via JS (element.style) which always wins and is easy to verify. */
+(function () {
+  var CSS_V = "20260731makecf3";
+  function ensureSheet(name) {
+    if (document.querySelector('link[data-pw-css="' + name + '"]')) return;
+    var l = document.createElement("link");
+    l.rel = "stylesheet";
+    l.href = "https://print-world-blond.vercel.app/" + name + "?v=" + CSS_V;
+    l.setAttribute("data-pw-css", name);
+    (document.head || document.documentElement).appendChild(l);
+  }
+  ensureSheet("styles.css");
+  ensureSheet("mobile.css");
+
+  function applyMakeConfirmPad() {
+    var b = document.body;
+    if (!b || !b.classList.contains("make_confirm")) return;
+    var mains = document.querySelectorAll("main");
+    for (var i = 0; i < mains.length; i++) {
+      mains[i].style.setProperty("padding-top", "175px", "important");
+      mains[i].style.setProperty("margin-top", "0px", "important");
+    }
+  }
+  applyMakeConfirmPad();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyMakeConfirmPad);
+  }
+  window.addEventListener("load", applyMakeConfirmPad);
+  setTimeout(applyMakeConfirmPad, 0);
+  setTimeout(applyMakeConfirmPad, 200);
+  setTimeout(applyMakeConfirmPad, 800);
+})();
+</script>
 <script>document.body.classList.add("product-list-page");</script>
 <!-- Pre-launch: keep the whole site OUT of search engines (noindex).
      Injected into <head> via JS (Google renders pages and honours it).
