@@ -3671,7 +3671,7 @@
   }
 
   .product-detail-page .pdp-gallery__thumbs {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
     gap: 6px;
   }
 
@@ -6642,7 +6642,7 @@ html.is-guide-flow-zoom-open body {
   }
 
   .product-detail-page .pdp-gallery__thumbs {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
     gap: calc(10px * var(--pdp-pc-s));
     margin-top: calc(12px * var(--pdp-pc-s));
   }
