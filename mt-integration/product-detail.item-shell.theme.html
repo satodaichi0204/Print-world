@@ -102,28 +102,120 @@
       </div>
     </section>
 
-    <section class="pdp-price" data-pw-pdp="price-section" hidden aria-labelledby="pdp-price-title">
+    <!-- 価格表（テンプレート：後で商品ごとの内容に差し替え予定） -->
+    <section class="pdp-price" aria-labelledby="pdp-price-title">
       <div class="pdp-inner">
         <div class="pdp-table-block">
           <div class="pdp-table-block__head">
             <div class="pdp-table-block__intro">
               <h2 id="pdp-price-title" class="pdp-section-title">価格表</h2>
+              <p class="pdp-table-block__lead">※下記の価格は、無地商品1枚あたりの税込価格です。</p>
+              <p class="pdp-table-block__lead">※プリント代・版代・送料は含まれておりません。</p>
             </div>
+            <p class="pdp-table-block__meta">税込／1枚あたり</p>
           </div>
-          <div class="pdp-table-block__scroll" data-pw-pdp="price-table"></div>
+          <div class="pdp-table-block__scroll">
+            <table class="pdp-data-table pdp-data-table--price">
+              <thead>
+                <tr>
+                  <th scope="col">色</th>
+                  <th scope="col">100cm～150cm</th>
+                  <th scope="col">WM～XL</th>
+                  <th scope="col">XXL～XXXL</th>
+                  <th scope="col">4XL～5XL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">ホワイト</th>
+                  <td>548円</td>
+                  <td>603円</td>
+                  <td>770円</td>
+                  <td>913円</td>
+                </tr>
+                <tr>
+                  <th scope="row">その他のカラー</th>
+                  <td>638円</td>
+                  <td>680円</td>
+                  <td>908円</td>
+                  <td>1029円</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="pdp-size" data-pw-pdp="size-section" hidden aria-labelledby="pdp-size-title">
+    <!-- サイズ表（テンプレート：後で商品ごとの内容に差し替え予定） -->
+    <section class="pdp-size" aria-labelledby="pdp-size-title">
       <div class="pdp-inner">
         <div class="pdp-table-block">
           <div class="pdp-table-block__head">
             <div class="pdp-table-block__intro">
               <h2 id="pdp-size-title" class="pdp-section-title">サイズ</h2>
+              <p class="pdp-table-block__lead">※商品個体差により、表記スペックに多少の誤差が生じる場合がございます。予めご了承ください。</p>
+            </div>
+            <p class="pdp-table-block__meta">単位：cm</p>
+          </div>
+          <div class="pdp-size__tables">
+            <div class="pdp-table-block__scroll">
+              <table class="pdp-data-table pdp-data-table--size">
+                <thead>
+                  <tr>
+                    <th scope="col">サイズ</th>
+                    <th scope="col">100cm</th>
+                    <th scope="col">110cm</th>
+                    <th scope="col">120cm</th>
+                    <th scope="col">130cm</th>
+                    <th scope="col">140cm</th>
+                    <th scope="col">150cm</th>
+                    <th scope="col">WM</th>
+                    <th scope="col">WL</th>
+                    <th scope="col">XS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">身丈</th><td>40</td><td>44</td><td>48</td><td>52</td><td>56</td><td>60</td><td>61</td><td>64</td><td>63</td></tr>
+                  <tr><th scope="row">身幅</th><td>31</td><td>33</td><td>35</td><td>37</td><td>40</td><td>43</td><td>43</td><td>46</td><td>46</td></tr>
+                  <tr><th scope="row">肩幅</th><td>27</td><td>29</td><td>31</td><td>33</td><td>35</td><td>38</td><td>36</td><td>38</td><td>41</td></tr>
+                  <tr><th scope="row">袖丈</th><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>16</td><td>17</td><td>18</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pdp-table-block__scroll">
+              <table class="pdp-data-table pdp-data-table--size">
+                <thead>
+                  <tr>
+                    <th scope="col">サイズ</th>
+                    <th scope="col">S</th>
+                    <th scope="col">M</th>
+                    <th scope="col">L</th>
+                    <th scope="col">XL</th>
+                    <th scope="col">XXL</th>
+                    <th scope="col">XXXL</th>
+                    <th scope="col">4XL</th>
+                    <th scope="col">5XL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">身丈</th><td>66</td><td>70</td><td>74</td><td>78</td><td>82</td><td>84</td><td>84</td><td>84</td></tr>
+                  <tr><th scope="row">身幅</th><td>49</td><td>52</td><td>55</td><td>58</td><td>61</td><td>64</td><td>64</td><td>70</td></tr>
+                  <tr><th scope="row">肩幅</th><td>44</td><td>47</td><td>50</td><td>53</td><td>56</td><td>59</td><td>59</td><td>65</td></tr>
+                  <tr><th scope="row">袖丈</th><td>19</td><td>20</td><td>22</td><td>24</td><td>26</td><td>26</td><td>26</td><td>26</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div class="pdp-size__tables" data-pw-pdp="size-tables"></div>
+        </div>
+
+        <div class="pdp-caution">
+          <h2 class="pdp-caution__title">注意事項</h2>
+          <ul class="pdp-caution__list">
+            <li>※ 001-ホワイトのみ綿糸縫製</li>
+            <li class="pdp-caution__item--alert">※ 生産工場移行に伴い、中国製(旧)とベトナム製(新)の商品が混在する場合がございます。生産国の指定はできかねます旨、予めご了承ください。</li>
+            <li>※ 2026年2月より価格改定しております。</li>
+          </ul>
         </div>
       </div>
     </section>
