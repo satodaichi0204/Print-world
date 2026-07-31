@@ -6304,10 +6304,17 @@ main.mcPage__main,
 
 /* /item (商品詳細) pages use MT's plain <main> (no .mcPage__main class), so rule (A)
    above misses it and MT's headerFix `main{padding-top:70px}` leaves a 70px gap above
-   our shell. Zero it — scoped to item pages (:has immediate, pw-pdp-hydrated fallback). */
-body:has(.make__detail__box) main,
-body.pw-pdp-hydrated main {
+   our shell. Zero it — scoped to item pages (:has immediate, pw-pdp-hydrated fallback).
+   Exclude make_confirm (design→cart): that page needs real top padding for the fixed header. */
+body:has(.make__detail__box):not(.make_confirm) main,
+body.pw-pdp-hydrated:not(.make_confirm) main {
   padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Design-confirm / add-to-cart page: clear tall fixed fv-header + contact strip. */
+body.make_confirm main {
+  padding-top: 175px !important;
   margin-top: 0 !important;
 }
 
