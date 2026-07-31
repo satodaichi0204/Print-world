@@ -3671,7 +3671,7 @@
   }
 
   .product-detail-page .pdp-gallery__thumbs {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 6px;
   }
 
@@ -6213,7 +6213,7 @@
 
   .product-detail-page .pdp-gallery__thumbs {
     margin-top: calc(10px * var(--pdp-body-s));
-    gap: calc(6px * var(--pdp-body-s));
+    gap: 0;
   }
 
   .product-detail-page .pdp-point__label {
