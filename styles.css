@@ -5463,6 +5463,18 @@ body.pw-pdp-hydrated #pw-pdp-shell {
   border-bottom: none;
 }
 
+/* On /item, MT's item-detail CSS overrides table cell borders and strips these
+   row dividers, so the spec box shows no inner lines. Force ours back (scoped to
+   the hydrated PDP so the standalone sample page is unaffected). */
+body.pw-pdp-hydrated .pdp-spec th,
+body.pw-pdp-hydrated .pdp-spec td {
+  border-bottom: 1px solid #ececec !important;
+}
+body.pw-pdp-hydrated .pdp-spec tr:last-child th,
+body.pw-pdp-hydrated .pdp-spec tr:last-child td {
+  border-bottom: none !important;
+}
+
 .pdp-spec th {
   width: 34%;
   background: #fff;
