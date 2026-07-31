@@ -6312,8 +6312,12 @@ body.pw-pdp-hydrated:not(.make_confirm) main {
   margin-top: 0 !important;
 }
 
-/* Design-confirm / add-to-cart page: clear tall fixed fv-header + contact strip. */
-body.make_confirm main {
+/* Design-confirm / add-to-cart page: clear tall fixed fv-header + contact strip.
+   Live MT headerFix is still padding-top:70px; DevTools 175px was a manual edit.
+   Keep this in styles.css AND mirrored inline in theme-header.twig. */
+html body.make_confirm main,
+html body.make_confirm #l-wrapper > main,
+html body.make_confirm .L-wrapper > main {
   padding-top: 175px !important;
   margin-top: 0 !important;
 }

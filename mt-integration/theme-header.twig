@@ -1,8 +1,18 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260731makeconfirm">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260731makeconfirm">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260731makecf2">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260731makecf2">
+<!-- make_confirm (design→cart): MT headerFix only reserves 70px; our fixed header needs 175px.
+     Inline so it still wins on system pages even if stylesheet order/cache fights us. -->
+<style id="pw-make-confirm-clearance">
+html body.make_confirm main,
+html body.make_confirm #l-wrapper > main,
+html body.make_confirm .L-wrapper > main {
+  padding-top: 175px !important;
+  margin-top: 0 !important;
+}
+</style>
 <script>document.body.classList.add("product-list-page");</script>
 <!-- Pre-launch: keep the whole site OUT of search engines (noindex).
      Injected into <head> via JS (Google renders pages and honours it).
