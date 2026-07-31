@@ -1051,13 +1051,13 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     const thumbsWrap = shell.querySelector('[data-pw-pdp="thumbs"]');
     const colors = collectColorThumbs();
     if (thumbsWrap) {
-      const entries = [];
-      if (mainSrc) {
-        entries.push({ src: mainSrc, name: mainAlt || "メイン", mtBox: null });
-      }
-      colors.forEach((c) => {
-        if (!entries.some((e) => e.src === c.src)) entries.push(c);
-      });
+      // Thumbnails = the color swatches only. The 代表画像 is (almost always) the first
+      // color, but its URL differs from that swatch's URL, so prepending it made that
+      // color appear twice. Use the swatches directly; fall back to the main image only
+      // when a product has no color swatches.
+      const entries = colors.length
+        ? colors.slice()
+        : (mainSrc ? [{ src: mainSrc, name: mainAlt || "メイン", mtBox: null }] : []);
 
       thumbsWrap.innerHTML = entries.map((c, i) => {
         const active = i === 0 ? " is-active" : "";
