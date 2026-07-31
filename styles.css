@@ -5288,14 +5288,10 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 
 .pdp-gallery__thumbs {
   display: grid;
-  /* auto-fill small swatches so many colors (up to 61) stay compact and tidy
-     instead of 4 large columns running many rows tall. */
-  grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+  /* base/mobile = 4 columns; desktop (1024–1919px) widens to 10 (mobile.css). */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
   margin-top: 12px;
-  /* cap very long color lists and let them scroll rather than push the page down */
-  max-height: 320px;
-  overflow-y: auto;
 }
 
 .pdp-gallery__thumb {
