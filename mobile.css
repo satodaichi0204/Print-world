@@ -5411,13 +5411,15 @@
   }
 }
 
-/* --- Product list: ranking panel — 768–1919 proportional scale (1920 lock in styles.css) --- */
+/* --- Product list: ranking panel — 768–1919: lock image/type to 1920 size (no shrink) --- */
 @media (min-width: 768px) and (max-width: 1919px) {
   .product-list-page .plp-ranking {
-    --plp-ranking-s: calc(100vw / 1920px);
+    /* Keep panel width fluid; do NOT scale content with viewport */
+    --plp-ranking-s: 1;
+    --plp-ranking-card-w: 488px; /* 1920 three-up card width */
     --plp-ranking-w: min(
-      calc(1440px * var(--plp-ranking-s) * 1.1),
-      calc(100% - 36px * var(--plp-ranking-s))
+      calc(1440px * 1.1),
+      calc(100% - 36px)
     );
   }
 
@@ -5447,11 +5449,11 @@
     white-space: nowrap;
     row-gap: 0;
     gap: 1.4em;
-    font-size: max(calc(24px * var(--plp-ranking-s)), 13px);
+    font-size: 24px;
   }
 
   .product-list-page .plp-ranking__banner-part + .plp-ranking__banner-part {
-    font-size: calc(1em + max(calc(6px * var(--plp-ranking-s)), 3px));
+    font-size: calc(1em + 6px);
   }
 
   .product-list-page .plp-ranking__slider {
@@ -5463,7 +5465,9 @@
   }
 
   .product-list-page .plp-ranking__track .product-card {
-    min-width: 0;
+    flex: 0 0 var(--plp-ranking-card-w);
+    width: var(--plp-ranking-card-w);
+    min-width: var(--plp-ranking-card-w);
     box-sizing: border-box;
   }
 
@@ -5483,24 +5487,24 @@
   }
 
   .product-list-page .plp-ranking__track .plp-rank-badge {
-    font-size: max(calc(12px * var(--plp-ranking-s)), 9px);
+    font-size: 12px;
   }
 
   .product-list-page .plp-ranking__track .product-chip {
-    font-size: max(2.6cqi, 8px);
+    font-size: 14px;
   }
 
   .product-list-page .plp-ranking__track .product-name {
-    font-size: max(3.8cqi, 10px);
+    font-size: 18px;
     line-height: 1.3;
   }
 
   .product-list-page .plp-ranking__track .product-price {
-    font-size: max(7.5cqi, 15px);
+    font-size: 36px;
   }
 
   .product-list-page .plp-ranking__track .product-tags li {
-    font-size: max(2.4cqi, 7px);
+    font-size: 12px;
   }
 
   .product-list-page .plp-ranking__nav {
@@ -5524,14 +5528,15 @@
     margin-right: calc(4px * var(--plp-ranking-s));
   }
 
-  /* 768–1439: 2 cards, side-by-side image + copy */
+  /* 769–1439: 2 cards visible, same locked card size as 1920 */
   @media (max-width: 1439px) {
     .product-list-page .plp-ranking__track .product-card {
-      flex: 0 0 calc((100cqw - calc(12px * var(--plp-ranking-s))) / 2);
-      width: calc((100cqw - calc(12px * var(--plp-ranking-s))) / 2);
+      flex: 0 0 var(--plp-ranking-card-w);
+      width: var(--plp-ranking-card-w);
+      min-width: var(--plp-ranking-card-w);
       flex-direction: row;
       align-items: flex-start;
-      gap: calc(8px * var(--plp-ranking-s));
+      gap: 8px;
     }
 
     .product-list-page .plp-ranking__track .plp-rank-card__media {
@@ -5553,21 +5558,22 @@
     }
   }
 
-  /* 1440–1919: 3 cards, 1920 side-by-side layout */
+  /* 1440–1919: 3 cards, same locked card size */
   @media (min-width: 1440px) {
     .product-list-page .plp-ranking__track {
-      padding-top: calc(38px * var(--plp-ranking-s));
+      padding-top: 38px;
     }
 
     .product-list-page .plp-ranking__track .product-card {
       display: grid;
       grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
-      column-gap: calc(8px * var(--plp-ranking-s));
-      flex: 0 0 calc((100cqw - 32px) / 3);
-      width: calc((100cqw - 32px) / 3);
+      column-gap: 8px;
+      flex: 0 0 var(--plp-ranking-card-w);
+      width: var(--plp-ranking-card-w);
+      min-width: var(--plp-ranking-card-w);
       align-items: start;
       overflow: visible;
-      padding-top: calc(8px * var(--plp-ranking-s));
+      padding-top: 8px;
       box-sizing: border-box;
     }
 
@@ -5583,12 +5589,12 @@
 
     .product-list-page .plp-ranking__track .product-image-wrap {
       overflow: visible;
-      padding-top: calc(10px * var(--plp-ranking-s));
+      padding-top: 10px;
       box-sizing: border-box;
     }
 
     .product-list-page .plp-ranking__track .plp-rank-badge {
-      top: calc(10px * var(--plp-ranking-s));
+      top: 10px;
       left: 0;
       transform: translate(0, -50%);
     }
@@ -5608,15 +5614,16 @@
 
     .product-list-page .plp-ranking__track .product-chip {
       flex-shrink: 0;
+      font-size: 14px;
     }
 
     .product-list-page .plp-ranking__track .product-name {
-      font-size: 3.6cqi;
+      font-size: 18px;
       line-height: 1.25;
     }
 
     .product-list-page .plp-ranking__track .product-price {
-      font-size: 7.2cqi;
+      font-size: 36px;
       flex-shrink: 0;
     }
 
