@@ -5104,6 +5104,14 @@
   }
 }
 
+/* Sec2 products 320–768 only: all text normal weight inside .sec2-products. */
+@media (min-width: 320px) and (max-width: 768px) {
+  .home-page .sec2-products,
+  .home-page .sec2-products * {
+    font-weight: normal !important;
+  }
+}
+
 @media (max-width: 480px) {
   .site-footer {
     padding: 40px 20px 64px;
