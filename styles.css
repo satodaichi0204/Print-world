@@ -2386,7 +2386,8 @@ img {
 
 .sec9-action__label {
   font-size: 32px;
-  font-weight: 900;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
 
 .sec9-sub {
