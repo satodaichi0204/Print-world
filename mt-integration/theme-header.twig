@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank4" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank4" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank5" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank5" data-pw-css="mobile.css">
 <script>
 /* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260804plprank4";
+  var CSS_V = "20260804plprank5";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
 
   function pinPwCss() {
@@ -44,7 +44,7 @@
       s = document.createElement("style");
       s.id = id;
       s.textContent =
-        "@media (min-width: 768px) and (max-width: 1919px){" +
+        "@media (min-width: 769px){" +
         ".plp-main .plp-ranking__track .product-card{" +
         "flex:0 0 488px!important;width:488px!important;" +
         "min-width:488px!important;max-width:488px!important;}" +
