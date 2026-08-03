@@ -10143,3 +10143,24 @@ html.is-guide-flow-zoom-open body {
     object-fit: contain !important;
   }
 }
+
+/* Sec9 staff (two women) ONLY — 320–425: lock to exact size at 426px.
+   At 426, --sec9-scale-s = 0.6 and aside width = lock-w * 0.6; staff uses scale(1.4). */
+@media (min-width: 320px) and (max-width: 425px) {
+  body:is(.home-page, .product-detail-page) .sec9-sub > .sec9-ship-aside {
+    --sec9-staff-lock-s-426: calc(1440px / 1920px);
+    --sec9-aside-lock-w-426: calc(
+      (1320px * var(--sec9-staff-lock-s-426) - 2 * 28px * var(--sec9-staff-lock-s-426)) * 0.78 / 3.1
+    );
+    width: calc(var(--sec9-aside-lock-w-426) * 0.6) !important;
+    max-width: none !important;
+  }
+
+  body:is(.home-page, .product-detail-page) .sec9-ship-aside__staff,
+  body.product-detail-page .sec9-ship-aside__staff {
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: scale(1.4) !important;
+    transform-origin: 100% 100% !important;
+  }
+}
