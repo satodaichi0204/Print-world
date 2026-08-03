@@ -9522,11 +9522,11 @@ html.is-guide-flow-zoom-open body {
 
   body.product-detail-page .sec9-contact__woman {
     position: absolute;
-    left: calc(-98px * var(--pdp-mobile-s));
-    top: calc(-113px * var(--pdp-mobile-s));
+    left: calc(-133px * var(--pdp-mobile-s));
+    top: calc(-175px * var(--pdp-mobile-s));
     bottom: auto;
     /* Scale by width only — fixed height + object-fit:cover was cropping when enlarged */
-    width: calc(389px * var(--pdp-mobile-s));
+    width: calc(506px * var(--pdp-mobile-s));
     height: auto;
     max-height: none;
     object-fit: contain;
@@ -9541,11 +9541,11 @@ html.is-guide-flow-zoom-open body {
   body.product-detail-page .sec9-contact picture {
     display: block;
     position: absolute;
-    left: calc(115px * var(--pdp-mobile-s));
-    top: calc(48px * var(--pdp-mobile-s));
+    left: calc(103px * var(--pdp-mobile-s));
+    top: calc(72px * var(--pdp-mobile-s));
     bottom: auto;
-    width: calc(100% - 197px * var(--pdp-mobile-s));
-    max-width: calc(298px * var(--pdp-mobile-s));
+    width: calc(100% - 179px * var(--pdp-mobile-s));
+    max-width: calc(400px * var(--pdp-mobile-s));
     margin: 0;
     transform: none;
     z-index: 3;
