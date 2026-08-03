@@ -1489,7 +1489,7 @@
 
   .home-page .sec5-card__text {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: normal;
   }
 
   .home-page .sec6-overlap {
@@ -3048,6 +3048,7 @@
     padding: 10px 0 12px;
     font-size: calc(18px + 2.9px * var(--sec5-t));
     line-height: 1.55;
+    font-weight: normal;
   }
 
   .home-page .sec5-cta {
