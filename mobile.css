@@ -7102,7 +7102,7 @@ html.is-guide-flow-zoom-open body {
     --sec9-staff-lock-s: calc(1440px / 1920px);
     --sec9-aside-lock-w: calc((1320px * var(--sec9-staff-lock-s) - 2 * 28px * var(--sec9-staff-lock-s)) * 0.78 / 3.1);
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     margin-bottom: 0;
   }
 
@@ -9617,7 +9617,7 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.product-detail-page .sec9-sub {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   body.product-detail-page .sec9-sub > .sec9-ship-aside {
