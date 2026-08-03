@@ -1889,6 +1889,7 @@ img {
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
+  font-weight: normal;
 }
 /* 769px以上：sec7 と同じ --sec7-pc-s（1920pxで=1）で余白・間隔をスケール */
 @media (min-width: 769px) {
@@ -2014,7 +2015,7 @@ img {
 
 .sec8-dl dt {
   margin: 0;
-  font-weight: 800;
+  font-weight: normal;
   color: #1A1A1A;
 }
 
