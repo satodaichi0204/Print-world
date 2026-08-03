@@ -5929,6 +5929,12 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 .home-mt .sec5-em { color: #c91f2e !important; }
 .home-mt .sec6-copy { color: #666666 !important; }
 .home-mt .sec7-card__text { color: #444 !important; }
+
+@media (max-width: 768px) {
+  .home-mt .sec7-card__text {
+    color: #000 !important;
+  }
+}
 .home-mt .sec8-details__body { color: #666666 !important; }
 
 /* home/TOP: shirt marquee cards are injected by app.js, so they were missed

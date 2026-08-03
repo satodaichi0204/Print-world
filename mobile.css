@@ -843,8 +843,9 @@
   }
 
   .home-page .sec7-card__text {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.55;
+    font-weight: normal;
   }
 
   @keyframes sec7-staff-left {
@@ -919,7 +920,7 @@
     grid-template-columns: 6.2em 1fr;
     gap: 0 14px;
     padding: 6px 0;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.6;
   }
 
@@ -930,7 +931,7 @@
   .home-page .sec8-dl dd {
     margin: 0;
     color: #1A1A1A;
-    font-weight: 500;
+    font-weight: normal;
     line-height: 1.7;
   }
 
@@ -1550,6 +1551,11 @@
     gap: 0 12px;
     padding: 5px 0;
     font-size: 14px;
+  }
+
+  .home-page .sec8-dl dt {
+    white-space: nowrap;
+    font-weight: normal;
   }
 
   .home-page .sec8-dl {
@@ -3087,9 +3093,9 @@
 /* TOP sec7-card__text — 426–768 only. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec7-card__text {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.55;
-    font-weight: 500;
+    font-weight: normal;
   }
 }
 
