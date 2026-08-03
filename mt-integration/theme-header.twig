@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plptab2" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plptab2" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plptab3" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plptab3" data-pw-css="mobile.css">
 <script>
 /* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260804plptab2";
+  var CSS_V = "20260804plptab3";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
 
   function pinPwCss() {
@@ -70,7 +70,18 @@
         ".plp-main .plp-ranking__slider{padding:calc(20px * var(--plp-tab-s)) calc(48px * var(--plp-tab-s)) calc(22px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}" +
         ".plp-main .plp-ranking__track .product-card{" +
-        "flex:0 0 100cqw!important;width:100cqw!important;min-width:0!important;max-width:100cqw!important;}" +
+        "flex:0 0 100cqw!important;width:100cqw!important;min-width:0!important;max-width:100cqw!important;" +
+        "align-items:center!important;gap:calc(22px * var(--plp-tab-s))!important;}" +
+        ".plp-main .plp-ranking__track .plp-rank-card__media{flex:0 0 36%!important;width:36%!important;max-width:36%!important;}" +
+        ".plp-main .plp-ranking__track .plp-rank-card__body{flex:0 1 auto!important;width:auto!important;" +
+        "max-width:calc(64% - 22px * var(--plp-tab-s))!important;align-items:flex-start!important;justify-content:center!important;}" +
+        ".plp-main .plp-ranking__track .product-name{margin:calc(6px * var(--plp-tab-s)) 0 0!important;" +
+        "font-size:max(calc(16px * var(--plp-tab-s)),13px)!important;word-break:keep-all!important;overflow-wrap:normal!important;}" +
+        ".plp-main .plp-ranking__track .product-price{margin:calc(4px * var(--plp-tab-s)) 0 0!important;" +
+        "font-size:max(calc(30px * var(--plp-tab-s)),22px)!important;}" +
+        ".plp-main .plp-ranking__track .product-tags{margin:calc(6px * var(--plp-tab-s)) 0 0!important;width:max-content!important;" +
+        "grid-template-columns:repeat(2,auto)!important;gap:calc(2px * var(--plp-tab-s)) calc(12px * var(--plp-tab-s))!important;}" +
+        ".plp-main .plp-ranking__track .product-tags li{white-space:nowrap!important;}" +
         ".plp-main .plp-ranking__nav{width:calc(40px * var(--plp-tab-s))!important;height:calc(40px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__nav--prev{left:calc(4px * var(--plp-tab-s))!important;transform:translateY(-50%)!important;}" +
         ".plp-main .plp-ranking__nav--next{right:calc(4px * var(--plp-tab-s))!important;transform:translateY(-50%)!important;}" +
