@@ -2922,6 +2922,7 @@
     margin-top: -18px;
     padding: calc(8px + 2px * var(--sec4-t)) 20px calc(8px + 2px * var(--sec4-t)) 12px;
     font-size: calc(11px + 1px * var(--sec4-t));
+    font-weight: normal;
   }
 
   .home-page .sec4-bottom-confetti {
