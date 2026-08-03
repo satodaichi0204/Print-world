@@ -3003,15 +3003,15 @@
 
   .home-page .sec5-intro__lead {
     margin-bottom: 10px;
-    font-size: calc(17px + 2px * var(--sec5-t));
+    font-size: calc(20px + 2px * var(--sec5-t));
     line-height: 1.55;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .home-page .sec5-intro__body {
     font-size: calc(15px + 4px * var(--sec5-t));
     line-height: 1.7;
-    font-weight: 500;
+    font-weight: normal;
   }
 
   .home-page .sec5-grid {
@@ -3417,14 +3417,15 @@
 
   .home-page .sec5-intro__lead {
     margin-bottom: calc(10px * var(--sec5-sp-s));
-    font-size: calc(15px * var(--sec5-sp-s));
+    font-size: calc(16px * var(--sec5-sp-s));
     line-height: 1.55;
+    font-weight: normal;
   }
 
   .home-page .sec5-intro__body {
-    font-size: calc(15px * var(--sec5-sp-s));
+    font-size: calc(14px * var(--sec5-sp-s));
     line-height: 1.7;
-    font-weight: 500;
+    font-weight: normal;
   }
   .home-page .sec8 {
     --sec8-sp-s: calc(100vw / 425px);
