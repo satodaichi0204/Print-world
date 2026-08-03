@@ -1,14 +1,18 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank2">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank2">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank3" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank3" data-pw-css="mobile.css">
 <script>
 /* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
    MT may strip <style> from ヘッダ Twig, and Styles panel showed only headerFix —
-   so force via JS (element.style) which always wins and is easy to verify. */
+   so force via JS (element.style) which always wins and is easy to verify.
+
+   IMPORTANT: CSS_V must match the ?v= on the <link> tags above.
+   ensureSheet used to inject an OLD ?v= after paint (because <link> lacked
+   data-pw-css), which briefly showed the new layout then snapped back. */
 (function () {
-  var CSS_V = "20260731makecf3";
+  var CSS_V = "20260804plprank3";
   function ensureSheet(name) {
     if (document.querySelector('link[data-pw-css="' + name + '"]')) return;
     var l = document.createElement("link");
