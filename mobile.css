@@ -9525,10 +9525,11 @@ html.is-guide-flow-zoom-open body {
     left: calc(-98px * var(--pdp-mobile-s));
     top: calc(-113px * var(--pdp-mobile-s));
     bottom: auto;
+    /* Scale by width only — fixed height + object-fit:cover was cropping when enlarged */
     width: calc(389px * var(--pdp-mobile-s));
-    height: calc(262px * var(--pdp-mobile-s));
-    max-height: calc(262px * var(--pdp-mobile-s));
-    object-fit: cover;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
     object-position: top center;
     max-width: none;
     margin: 0;
@@ -10105,5 +10106,20 @@ html.is-guide-flow-zoom-open body {
     grid-column: 2;
     grid-row: 2;
     text-align: left;
+  }
+}
+
+/* PDP sec9 woman — ≤768: never crop when scaled (override any cover/fixed-height). */
+@media (max-width: 768px) {
+  body.product-detail-page .sec9,
+  body.product-detail-page .sec9-inner,
+  body.product-detail-page .sec9-contact {
+    overflow: visible;
+  }
+
+  body.product-detail-page .sec9-contact__woman {
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
   }
 }
