@@ -5325,8 +5325,9 @@
   }
 }
 
-/* --- Product list: preserve 1920px layout from 768px up (margins scale only) --- */
-@media (min-width: 768px) {
+/* --- Product list: preserve 1920px layout from 769px up (margins scale only).
+   425–768 uses the tablet block at file end (1-up ranking + 3-col grids). --- */
+@media (min-width: 769px) {
   .product-list-page .plp-inner {
     width: min(1440px, calc(100% - clamp(20px, 2.5vw, 48px)));
     padding-inline: 0;
@@ -5414,8 +5415,8 @@
   }
 }
 
-/* --- Product list: ranking panel — 768–1919: lock image/type to 1920 size (no shrink) --- */
-@media (min-width: 768px) and (max-width: 1919px) {
+/* --- Product list: ranking panel — 769–1919: lock image/type to 1920 size (no shrink) --- */
+@media (min-width: 769px) and (max-width: 1919px) {
   .product-list-page .plp-ranking {
     /* Keep panel width fluid; do NOT scale content with viewport */
     --plp-ranking-s: 1;
@@ -5456,7 +5457,7 @@
     font-size: 24px;
   }
 
-  /* 1025–1919: keep banner at 1920 size; 769–1024 scales in final block below */
+  /* 1025–1919: keep banner at 1920 size; 679–1024 scales in final block below */
   @media (min-width: 1025px) {
     .product-list-page .plp-ranking__banner-title {
       font-size: 24px;
@@ -10184,11 +10185,12 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   PLP ranking (おすすめ) FINAL — 768–1919 ONLY
+   PLP ranking (おすすめ) FINAL — 769–1919 ONLY
    Cause of no-op: (1) product-list.block loaded uncached old mobile.css after header
    (2) @media (min-width:768) forced 3×(100cqw) cards. Lock card + type here.
+   425–768 uses the tablet block below (1-up + scale).
    ============================================================================= */
-@media (min-width: 768px) and (max-width: 1919px) {
+@media (min-width: 769px) and (max-width: 1919px) {
   .plp-main .plp-ranking,
   body.product-list-page .plp-ranking {
     --plp-ranking-s: 1;
@@ -10230,11 +10232,11 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* PLP ranking banner ONLY — 769–1024: shrink gradually so it is not clipped */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* PLP ranking banner ONLY — 679–1024: shrink gradually so it is not clipped */
+@media (min-width: 679px) and (max-width: 1024px) {
   .plp-main .plp-ranking,
   body.product-list-page .plp-ranking {
-    --plp-banner-s: calc(0.72 + 0.28 * (100vw - 769px) / (1024px - 769px));
+    --plp-banner-s: calc(0.72 + 0.28 * (100vw - 679px) / (1024px - 679px));
   }
 
   .plp-main .plp-ranking__banner-row,
@@ -10264,5 +10266,208 @@ html.is-guide-flow-zoom-open body {
   .plp-main .plp-ranking__banner-part + .plp-ranking__banner-part,
   body.product-list-page .plp-ranking__banner-part + .plp-ranking__banner-part {
     font-size: calc(1em + 6px * var(--plp-banner-s)) !important;
+  }
+}
+
+/* =============================================================================
+   PLP tablet ONLY — 425–768
+   - Ranking: 1 card, gradual scale (not too small), nav buttons stay on-screen
+   - Subcategory tags + product grid: 3 columns
+   Does not affect ≤424 or ≥769.
+   ============================================================================= */
+@media (min-width: 425px) and (max-width: 768px) {
+  .plp-main .plp-ranking,
+  body.product-list-page .plp-ranking {
+    /* 768 → 1.0 ; 425 → ~0.84 (gentle — text stays readable) */
+    --plp-tab-s: calc(0.84 + 0.16 * (100vw - 425px) / (768px - 425px));
+  }
+
+  .plp-main .plp-inner,
+  body.product-list-page .plp-inner {
+    width: min(1440px, calc(100% - 24px)) !important;
+    padding-inline: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .plp-main .plp-ranking__outer,
+  body.product-list-page .plp-ranking__outer {
+    width: min(1440px, calc(100% - 24px)) !important;
+    padding-inline: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .plp-main .plp-ranking__panel,
+  body.product-list-page .plp-ranking__panel {
+    overflow: visible !important;
+    padding-top: calc(28px * var(--plp-tab-s)) !important;
+    border-radius: calc(14px * var(--plp-tab-s)) !important;
+  }
+
+  .plp-main .plp-ranking__banner-row,
+  body.product-list-page .plp-ranking__banner-row {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-inline: calc(10px * var(--plp-tab-s)) !important;
+    box-sizing: border-box !important;
+  }
+
+  .plp-main .plp-ranking__banner,
+  body.product-list-page .plp-ranking__banner {
+    max-width: 100% !important;
+    width: fit-content !important;
+    padding: calc(12px * var(--plp-tab-s)) calc(18px * var(--plp-tab-s)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .plp-main .plp-ranking__banner-title,
+  body.product-list-page .plp-ranking__banner-title {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    justify-content: center !important;
+    row-gap: calc(4px * var(--plp-tab-s)) !important;
+    gap: calc(0.7em * var(--plp-tab-s)) !important;
+    font-size: calc(15px * var(--plp-tab-s)) !important;
+    line-height: 1.35 !important;
+  }
+
+  .plp-main .plp-ranking__banner-part + .plp-ranking__banner-part,
+  body.product-list-page .plp-ranking__banner-part + .plp-ranking__banner-part {
+    font-size: calc(1em + 4px * var(--plp-tab-s)) !important;
+  }
+
+  .plp-main .plp-ranking__slider,
+  body.product-list-page .plp-ranking__slider {
+    /* Keep room for in-bounds nav buttons */
+    padding: calc(20px * var(--plp-tab-s)) calc(48px * var(--plp-tab-s))
+      calc(22px * var(--plp-tab-s)) !important;
+    box-sizing: border-box !important;
+  }
+
+  .plp-main .plp-ranking__viewport,
+  body.product-list-page .plp-ranking__viewport {
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .plp-main .plp-ranking__track,
+  body.product-list-page .plp-ranking__track {
+    gap: calc(12px * var(--plp-tab-s)) !important;
+    padding: calc(20px * var(--plp-tab-s)) 0 calc(12px * var(--plp-tab-s)) !important;
+  }
+
+  /* 1 recommended product visible (100cqw = ranking viewport width) */
+  .plp-main .plp-ranking__track .product-card,
+  body.product-list-page .plp-ranking__track .product-card {
+    flex: 0 0 100cqw !important;
+    width: 100cqw !important;
+    min-width: 0 !important;
+    max-width: 100cqw !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: calc(10px * var(--plp-tab-s)) !important;
+    box-sizing: border-box !important;
+  }
+
+  .plp-main .plp-ranking__track .plp-rank-card__media,
+  body.product-list-page .plp-ranking__track .plp-rank-card__media {
+    flex: 0 0 42% !important;
+    width: 42% !important;
+    min-width: 0 !important;
+  }
+
+  .plp-main .plp-ranking__track .plp-rank-card__body,
+  body.product-list-page .plp-ranking__track .plp-rank-card__body {
+    flex: 1 1 58% !important;
+    width: 58% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .plp-main .plp-ranking__track .product-chip,
+  body.product-list-page .plp-ranking__track .product-chip {
+    font-size: max(calc(12px * var(--plp-tab-s)), 11px) !important;
+  }
+
+  .plp-main .plp-ranking__track .product-name,
+  body.product-list-page .plp-ranking__track .product-name {
+    font-size: max(calc(15px * var(--plp-tab-s)), 13px) !important;
+    line-height: 1.35 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .plp-main .plp-ranking__track .product-price,
+  body.product-list-page .plp-ranking__track .product-price {
+    font-size: max(calc(28px * var(--plp-tab-s)), 22px) !important;
+  }
+
+  .plp-main .plp-ranking__track .product-tags,
+  body.product-list-page .plp-ranking__track .product-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(3, auto) !important;
+    grid-auto-flow: column !important;
+    gap: calc(3px * var(--plp-tab-s)) calc(8px * var(--plp-tab-s)) !important;
+  }
+
+  .plp-main .plp-ranking__track .product-tags li,
+  body.product-list-page .plp-ranking__track .product-tags li {
+    font-size: max(calc(11px * var(--plp-tab-s)), 10px) !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .plp-main .plp-ranking__track .plp-rank-badge,
+  body.product-list-page .plp-ranking__track .plp-rank-badge {
+    font-size: max(calc(11px * var(--plp-tab-s)), 10px) !important;
+  }
+
+  /* Round nav: keep fully inside the panel (no ±50% overhang) */
+  .plp-main .plp-ranking__nav,
+  body.product-list-page .plp-ranking__nav {
+    width: calc(40px * var(--plp-tab-s)) !important;
+    height: calc(40px * var(--plp-tab-s)) !important;
+    border-width: calc(2px * var(--plp-tab-s)) !important;
+  }
+
+  .plp-main .plp-ranking__nav span,
+  body.product-list-page .plp-ranking__nav span {
+    width: calc(8px * var(--plp-tab-s)) !important;
+    height: calc(8px * var(--plp-tab-s)) !important;
+  }
+
+  .plp-main .plp-ranking__nav--prev,
+  body.product-list-page .plp-ranking__nav--prev {
+    left: calc(4px * var(--plp-tab-s)) !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .plp-main .plp-ranking__nav--next,
+  body.product-list-page .plp-ranking__nav--next {
+    right: calc(4px * var(--plp-tab-s)) !important;
+    transform: translateY(-50%) !important;
+  }
+
+  /* Subcategory + product grid: 3 per row */
+  .plp-main .plp-subcat__grid,
+  body.product-list-page .plp-subcat__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: calc(12px * var(--plp-tab-s)) calc(10px * var(--plp-tab-s)) !important;
+  }
+
+  .plp-main .plp-subcat__link,
+  body.product-list-page .plp-subcat__link {
+    font-size: max(calc(13px * var(--plp-tab-s)), 12px) !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .plp-main .plp-grid,
+  body.product-list-page .plp-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: calc(16px * var(--plp-tab-s)) calc(12px * var(--plp-tab-s)) !important;
   }
 }
