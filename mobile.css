@@ -5084,40 +5084,14 @@
   .site-footer {
     padding: 56px 32px 88px;
   }
-
-  /* Footer type: match PC optical weight on mobile (Hiragino 900 reads too heavy).
-     Same role hierarchy as PC, one step lighter for readability. */
-  .site-footer__company,
-  .site-footer__title,
-  .site-footer__leadlink,
-  .site-footer__list--corp a {
-    font-weight: 700 !important;
-  }
-
-  .site-footer__address,
-  .site-footer__tel,
-  .site-footer__list a {
-    font-weight: 500 !important;
-  }
-
-  .site-footer__list--dash a,
-  .site-footer__list--dash li::before {
-    font-weight: 600 !important;
-  }
 }
 
-/* Footer type — ≤425: lighter weights for readability. */
-@media (max-width: 425px) {
-  .site-footer__company,
-  .site-footer__title,
-  .site-footer__leadlink,
-  .site-footer__list--corp a {
-    font-weight: 500 !important;
-  }
-
-  .site-footer__list--dash a,
-  .site-footer__list--dash li::before {
-    font-weight: 500 !important;
+/* Footer 320–768 only: full opacity + normal weight on all text/parts. */
+@media (min-width: 320px) and (max-width: 768px) {
+  .site-footer,
+  .site-footer * {
+    opacity: 1 !important;
+    font-weight: normal !important;
   }
 }
 
