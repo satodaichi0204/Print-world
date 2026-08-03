@@ -550,6 +550,7 @@
     margin-top: 8px;
     padding: 9px 22px 9px 12px;
     font-size: 12px;
+    font-weight: normal;
   }
 
   .home-page .sec3-card__link::after {
