@@ -10059,15 +10059,17 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* Sec9 phone icon ONLY — 320–768: larger size, same row as phone number.
-   Does not touch LINE/mail or any other breakpoint. */
+/* Sec9 phone icon ONLY — 320–768: larger size, same row as phone number,
+   content group centered in the white box. */
 @media (min-width: 320px) and (max-width: 768px) {
   body:is(.home-page, .product-detail-page) a.sec9-action.sec9-action--phone {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto;
     column-gap: 8px;
     row-gap: 4px;
     align-items: center;
+    justify-content: center;
+    justify-items: start;
   }
 
   body:is(.home-page, .product-detail-page) a.sec9-action.sec9-action--phone > img {
@@ -10088,10 +10090,12 @@ html.is-guide-flow-zoom-open body {
     grid-column: 2;
     grid-row: 1;
     align-self: center;
+    text-align: left;
   }
 
   body:is(.home-page, .product-detail-page) a.sec9-action.sec9-action--phone .sec9-action__sub {
     grid-column: 2;
     grid-row: 2;
+    text-align: left;
   }
 }
