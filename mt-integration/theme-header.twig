@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plptab1" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plptab1" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plptab2" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plptab2" data-pw-css="mobile.css">
 <script>
 /* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260804plptab1";
+  var CSS_V = "20260804plptab2";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
 
   function pinPwCss() {
@@ -44,7 +44,7 @@
       s = document.createElement("style");
       s.id = id;
       s.textContent =
-        /* Cards stay locked from 769 up; banner scales 679–1024; tablet 425–768 is 1-up */
+        /* Cards locked 769+; banner 679–1024; tablet 426–768 1-up/3-col; phone 320–425 1-up/2-col */
         "@media (min-width: 769px){" +
         ".plp-main .plp-ranking__track .product-card{" +
         "flex:0 0 488px!important;width:488px!important;" +
@@ -65,8 +65,8 @@
         "gap:calc(1.4em * var(--plp-banner-s))!important;white-space:nowrap;}" +
         ".plp-main .plp-ranking__banner-part + .plp-ranking__banner-part{font-size:calc(1em + 6px * var(--plp-banner-s))!important;}" +
         "}" +
-        "@media (min-width: 425px) and (max-width: 768px){" +
-        ".plp-main .plp-ranking{--plp-tab-s:calc(0.84 + 0.16 * (100vw - 425px) / (768px - 425px));}" +
+        "@media (min-width: 426px) and (max-width: 768px){" +
+        ".plp-main .plp-ranking{--plp-tab-s:calc(0.84 + 0.16 * (100vw - 426px) / (768px - 426px));}" +
         ".plp-main .plp-ranking__slider{padding:calc(20px * var(--plp-tab-s)) calc(48px * var(--plp-tab-s)) calc(22px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}" +
         ".plp-main .plp-ranking__track .product-card{" +
@@ -76,10 +76,24 @@
         ".plp-main .plp-ranking__nav--next{right:calc(4px * var(--plp-tab-s))!important;transform:translateY(-50%)!important;}" +
         ".plp-main .plp-subcat__grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}" +
         ".plp-main .plp-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}" +
-        /* tablet banner overrides banner-scale nowrap in the 679–768 overlap */
         ".plp-main .plp-ranking__banner{max-width:100%!important;padding:calc(12px * var(--plp-tab-s)) calc(18px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__banner-title{flex-wrap:wrap!important;white-space:normal!important;" +
         "font-size:calc(15px * var(--plp-tab-s))!important;}" +
+        "}" +
+        "@media (min-width: 320px) and (max-width: 425px){" +
+        ".plp-main .plp-ranking{--plp-tab-s:calc(0.78 + 0.06 * (100vw - 320px) / (425px - 320px));}" +
+        ".plp-main .plp-ranking__slider{padding:calc(18px * var(--plp-tab-s)) calc(44px * var(--plp-tab-s)) calc(20px * var(--plp-tab-s))!important;}" +
+        ".plp-main .plp-ranking__viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}" +
+        ".plp-main .plp-ranking__track .product-card{" +
+        "flex:0 0 100cqw!important;width:100cqw!important;min-width:0!important;max-width:100cqw!important;}" +
+        ".plp-main .plp-ranking__nav{width:calc(36px * var(--plp-tab-s))!important;height:calc(36px * var(--plp-tab-s))!important;}" +
+        ".plp-main .plp-ranking__nav--prev{left:calc(4px * var(--plp-tab-s))!important;transform:translateY(-50%)!important;}" +
+        ".plp-main .plp-ranking__nav--next{right:calc(4px * var(--plp-tab-s))!important;transform:translateY(-50%)!important;}" +
+        ".plp-main .plp-subcat__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}" +
+        ".plp-main .plp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}" +
+        ".plp-main .plp-ranking__banner{max-width:100%!important;padding:calc(12px * var(--plp-tab-s)) calc(16px * var(--plp-tab-s))!important;}" +
+        ".plp-main .plp-ranking__banner-title{flex-wrap:wrap!important;white-space:normal!important;" +
+        "font-size:max(calc(14px * var(--plp-tab-s)),12px)!important;}" +
         "}";
     }
     (document.head || document.documentElement).appendChild(s);
