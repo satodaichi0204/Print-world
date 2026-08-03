@@ -5341,11 +5341,6 @@
     padding: 32px 4px 16px;
   }
 
-  .product-list-page .plp-ranking__track .product-card {
-    flex: 0 0 calc((100cqw - 32px) / 3);
-    width: calc((100cqw - 32px) / 3);
-  }
-
   .product-list-page .plp-ranking__track .product-tags {
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(3, auto);
@@ -5360,6 +5355,14 @@
   .product-list-page .plp-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 22px 16px;
+  }
+}
+
+/* Three-up cqw cards only at true 1920+ (do not shrink 768–1919) */
+@media (min-width: 1920px) {
+  .product-list-page .plp-ranking__track .product-card {
+    flex: 0 0 calc((100cqw - 32px) / 3);
+    width: calc((100cqw - 32px) / 3);
   }
 }
 
@@ -10169,5 +10172,49 @@ html.is-guide-flow-zoom-open body {
     max-width: 100% !important;
     transform: scale(1.4) !important;
     transform-origin: 100% 100% !important;
+  }
+}
+
+/* =============================================================================
+   PLP ranking (おすすめ) FINAL — 768–1919 ONLY
+   Cause of no-op: (1) product-list.block loaded uncached old mobile.css after header
+   (2) @media (min-width:768) forced 3×(100cqw) cards. Lock card + type here.
+   ============================================================================= */
+@media (min-width: 768px) and (max-width: 1919px) {
+  body.product-list-page .plp-ranking {
+    --plp-ranking-s: 1;
+    --plp-ranking-card-w: 488px;
+  }
+
+  body.product-list-page .plp-ranking__track .product-card {
+    flex: 0 0 488px !important;
+    width: 488px !important;
+    min-width: 488px !important;
+    max-width: 488px !important;
+  }
+
+  body.product-list-page .plp-ranking__track .product-chip {
+    font-size: 14px !important;
+  }
+
+  body.product-list-page .plp-ranking__track .product-name {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
+
+  body.product-list-page .plp-ranking__track .product-price {
+    font-size: 36px !important;
+  }
+
+  body.product-list-page .plp-ranking__track .product-tags li {
+    font-size: 12px !important;
+  }
+
+  body.product-list-page .plp-ranking__track .plp-rank-badge {
+    font-size: 12px !important;
+  }
+
+  body.product-list-page .plp-ranking__banner-title {
+    font-size: 24px !important;
   }
 }
