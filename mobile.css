@@ -987,6 +987,7 @@
     align-items: flex-start;
     padding: 13px 14px;
     font-size: 13px;
+    font-weight: normal;
   }
 
   .home-page .sec8-details__body {
@@ -1579,6 +1580,7 @@
   .home-page .sec8-summary {
     padding: 12px;
     font-size: 12px;
+    font-weight: normal;
   }
 
   :is(.home-page, .product-detail-page) .sec9, .product-detail-page .sec9 {
