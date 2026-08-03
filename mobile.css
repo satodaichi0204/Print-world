@@ -710,6 +710,7 @@
     margin: 32px auto 0;
     padding: 16px 18px;
     font-size: 14px;
+    font-weight: normal;
   }
 
   .home-page .sec6 {
@@ -3055,6 +3056,7 @@
     margin: calc(32px + 4px * var(--sec5-t)) auto 0;
     padding: calc(16px + 2px * var(--sec5-t)) 18px;
     font-size: calc(14px + 1px * var(--sec5-t));
+    font-weight: normal;
   }
 }
 
