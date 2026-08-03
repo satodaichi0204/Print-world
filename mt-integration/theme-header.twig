@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank5" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank5" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank6" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank6" data-pw-css="mobile.css">
 <script>
 /* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260804plprank5";
+  var CSS_V = "20260804plprank6";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
 
   function pinPwCss() {
@@ -44,6 +44,7 @@
       s = document.createElement("style");
       s.id = id;
       s.textContent =
+        /* Cards stay locked from 769 up; banner scales 769–1024 only */
         "@media (min-width: 769px){" +
         ".plp-main .plp-ranking__track .product-card{" +
         "flex:0 0 488px!important;width:488px!important;" +
@@ -53,6 +54,16 @@
         ".plp-main .plp-ranking__track .product-price{font-size:36px!important;}" +
         ".plp-main .plp-ranking__track .product-tags li{font-size:12px!important;}" +
         ".plp-main .plp-ranking__track .plp-rank-badge{font-size:12px!important;}" +
+        "}" +
+        "@media (min-width: 769px) and (max-width: 1024px){" +
+        ".plp-main .plp-ranking{--plp-banner-s:calc(0.72 + 0.28 * (100vw - 769px) / (1024px - 769px));}" +
+        ".plp-main .plp-ranking__banner-row{padding-inline:calc(12px + 12px * var(--plp-banner-s))!important;max-width:100%;box-sizing:border-box;}" +
+        ".plp-main .plp-ranking__banner{max-width:calc(100% - 8px)!important;width:max-content;" +
+        "padding:calc(17px * var(--plp-banner-s)) calc(58px * var(--plp-banner-s))!important;" +
+        "margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important;}" +
+        ".plp-main .plp-ranking__banner-title{font-size:calc(24px * var(--plp-banner-s))!important;" +
+        "gap:calc(1.4em * var(--plp-banner-s))!important;white-space:nowrap;}" +
+        ".plp-main .plp-ranking__banner-part + .plp-ranking__banner-part{font-size:calc(1em + 6px * var(--plp-banner-s))!important;}" +
         "}";
     }
     (document.head || document.documentElement).appendChild(s);

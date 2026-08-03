@@ -5445,6 +5445,7 @@
     padding: calc(17px * var(--plp-ranking-s)) calc(58px * var(--plp-ranking-s));
     margin-left: 0;
     margin-right: auto;
+    box-sizing: border-box;
   }
 
   .product-list-page .plp-ranking__banner-title {
@@ -5453,6 +5454,13 @@
     row-gap: 0;
     gap: 1.4em;
     font-size: 24px;
+  }
+
+  /* 1025–1919: keep banner at 1920 size; 769–1024 scales in final block below */
+  @media (min-width: 1025px) {
+    .product-list-page .plp-ranking__banner-title {
+      font-size: 24px;
+    }
   }
 
   .product-list-page .plp-ranking__banner-part + .plp-ranking__banner-part {
@@ -10220,9 +10228,41 @@ html.is-guide-flow-zoom-open body {
   body.product-list-page .plp-ranking__track .plp-rank-badge {
     font-size: 12px !important;
   }
+}
+
+/* PLP ranking banner ONLY — 769–1024: shrink gradually so it is not clipped */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .plp-main .plp-ranking,
+  body.product-list-page .plp-ranking {
+    --plp-banner-s: calc(0.72 + 0.28 * (100vw - 769px) / (1024px - 769px));
+  }
+
+  .plp-main .plp-ranking__banner-row,
+  body.product-list-page .plp-ranking__banner-row {
+    padding-inline: calc(12px + 12px * var(--plp-banner-s)) !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .plp-main .plp-ranking__banner,
+  body.product-list-page .plp-ranking__banner {
+    max-width: calc(100% - 8px) !important;
+    width: max-content;
+    padding: calc(17px * var(--plp-banner-s)) calc(58px * var(--plp-banner-s)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
 
   .plp-main .plp-ranking__banner-title,
   body.product-list-page .plp-ranking__banner-title {
-    font-size: 24px !important;
+    font-size: calc(24px * var(--plp-banner-s)) !important;
+    gap: calc(1.4em * var(--plp-banner-s)) !important;
+    white-space: nowrap;
+  }
+
+  .plp-main .plp-ranking__banner-part + .plp-ranking__banner-part,
+  body.product-list-page .plp-ranking__banner-part + .plp-ranking__banner-part {
+    font-size: calc(1em + 6px * var(--plp-banner-s)) !important;
   }
 }
