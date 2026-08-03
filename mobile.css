@@ -770,8 +770,9 @@
   .home-page .sec6-copy {
     margin: 6px 0 2px;
     padding: 0 12px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.55;
+    font-weight: normal;
   }
 
   .home-page .sec7 {
@@ -3079,7 +3080,7 @@
   }
 }
 
-/* TOP sec6-copy — 426–768 only: 16px@426 → ~18.9px@768; weight 500. */
+/* TOP sec6-copy — 426–768 only: 16px@426 → ~18.9px@768; weight normal. */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .sec6-copy {
     --sec5-t: calc((100vw - 426px) / (768px - 426px));
@@ -3087,7 +3088,7 @@
     padding: 0 12px;
     font-size: calc(16px + 2.9px * var(--sec5-t));
     line-height: 1.55;
-    font-weight: 500;
+    font-weight: normal;
   }
 }
 
