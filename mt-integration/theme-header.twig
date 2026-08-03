@@ -1,28 +1,76 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank3" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank3" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plprank4" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plprank4" data-pw-css="mobile.css">
 <script>
 /* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
-   MT may strip <style> from ヘッダ Twig, and Styles panel showed only headerFix —
-   so force via JS (element.style) which always wins and is easy to verify.
-
-   IMPORTANT: CSS_V must match the ?v= on the <link> tags above.
-   ensureSheet used to inject an OLD ?v= after paint (because <link> lacked
-   data-pw-css), which briefly showed the new layout then snapped back. */
+   Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260804plprank3";
-  function ensureSheet(name) {
-    if (document.querySelector('link[data-pw-css="' + name + '"]')) return;
-    var l = document.createElement("link");
-    l.rel = "stylesheet";
-    l.href = "https://print-world-blond.vercel.app/" + name + "?v=" + CSS_V;
-    l.setAttribute("data-pw-css", name);
-    (document.head || document.documentElement).appendChild(l);
+  var CSS_V = "20260804plprank4";
+  var CSS_BASE = "https://print-world-blond.vercel.app/";
+
+  function pinPwCss() {
+    ["styles.css", "mobile.css"].forEach(function (name) {
+      var desired = CSS_BASE + name + "?v=" + CSS_V;
+      var links = document.querySelectorAll('link[rel="stylesheet"]');
+      var keep = null;
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute("href") || "";
+        if (href.indexOf("print-world-blond.vercel.app/" + name) === -1) continue;
+        if (href.indexOf("?v=" + CSS_V) !== -1) {
+          links[i].setAttribute("data-pw-css", name);
+          keep = links[i];
+        } else if (links[i].parentNode) {
+          /* Remove stale/unversioned duplicates that load after paint and undo fixes */
+          links[i].parentNode.removeChild(links[i]);
+        }
+      }
+      if (!keep) {
+        keep = document.createElement("link");
+        keep.rel = "stylesheet";
+        keep.href = desired;
+        keep.setAttribute("data-pw-css", name);
+      }
+      /* Always move current sheet to end of <head> so it wins the cascade */
+      (document.head || document.documentElement).appendChild(keep);
+    });
   }
-  ensureSheet("styles.css");
-  ensureSheet("mobile.css");
+
+  function pinPlpRankingLock() {
+    var id = "pw-plp-ranking-lock";
+    var s = document.getElementById(id);
+    if (!s) {
+      s = document.createElement("style");
+      s.id = id;
+      s.textContent =
+        "@media (min-width: 768px) and (max-width: 1919px){" +
+        ".plp-main .plp-ranking__track .product-card{" +
+        "flex:0 0 488px!important;width:488px!important;" +
+        "min-width:488px!important;max-width:488px!important;}" +
+        ".plp-main .plp-ranking__track .product-chip{font-size:14px!important;}" +
+        ".plp-main .plp-ranking__track .product-name{font-size:18px!important;line-height:1.3!important;}" +
+        ".plp-main .plp-ranking__track .product-price{font-size:36px!important;}" +
+        ".plp-main .plp-ranking__track .product-tags li{font-size:12px!important;}" +
+        ".plp-main .plp-ranking__track .plp-rank-badge{font-size:12px!important;}" +
+        "}";
+    }
+    (document.head || document.documentElement).appendChild(s);
+  }
+
+  function pinAll() {
+    pinPwCss();
+    pinPlpRankingLock();
+  }
+
+  pinAll();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", pinAll);
+  }
+  window.addEventListener("load", pinAll);
+  setTimeout(pinAll, 0);
+  setTimeout(pinAll, 300);
+  setTimeout(pinAll, 1000);
 
   function applyMakeConfirmPad() {
     var b = document.body;
