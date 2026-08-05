@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260805cartpad1" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260805cartpad1" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260805chkpad1" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260805chkpad1" data-pw-css="mobile.css">
 <script>
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260805cartpad1";
+  var CSS_V = "20260805chkpad1";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
 
   function pinPwCss() {
@@ -112,6 +112,12 @@
         "@media only screen and (max-width:959px){" +
         "html body:has(.cart__parent-area) main,html body:has(.cart_parent-area) main{" +
         "padding-top:90px!important;}" +
+        "}" +
+        /* Checkout (届け先等) — DevTools-tuned: 170px / 106px ≤959 */
+        "html body:has(.header__checkout) main{" +
+        "padding-top:170px!important;margin-top:0!important;}" +
+        "@media only screen and (max-width:959px){" +
+        "html body:has(.header__checkout) main{padding-top:106px!important;}" +
         "}";
     }
     (document.head || document.documentElement).appendChild(s);
@@ -138,8 +144,18 @@
     );
   }
 
+  function isCheckoutPage() {
+    if (document.querySelector(".header__checkout")) return true;
+    var p = location.pathname || "";
+    return /^\/checkout(\/|$)/.test(p);
+  }
+
   function cartPadPx() {
     return window.matchMedia("(max-width: 959px)").matches ? "90px" : "190px";
+  }
+
+  function checkoutPadPx() {
+    return window.matchMedia("(max-width: 959px)").matches ? "106px" : "170px";
   }
 
   function applySystemMainPad() {
@@ -155,9 +171,17 @@
       return;
     }
     if (isCartPage()) {
-      var pad = cartPadPx();
+      var cartPad = cartPadPx();
       for (i = 0; i < mains.length; i++) {
-        mains[i].style.setProperty("padding-top", pad, "important");
+        mains[i].style.setProperty("padding-top", cartPad, "important");
+        mains[i].style.setProperty("margin-top", "0px", "important");
+      }
+      return;
+    }
+    if (isCheckoutPage()) {
+      var chkPad = checkoutPadPx();
+      for (i = 0; i < mains.length; i++) {
+        mains[i].style.setProperty("padding-top", chkPad, "important");
         mains[i].style.setProperty("margin-top", "0px", "important");
       }
     }

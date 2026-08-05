@@ -6363,6 +6363,23 @@ html body:has(.cart_parent-area) .L-wrapper > main {
   }
 }
 
+/* Checkout (届け先 / 決済 etc.): DevTools-tuned clearance for fixed fv-header.
+   Default 170px; ≤959px → 106px. */
+html body:has(.header__checkout) main,
+html body:has(.header__checkout) #l-wrapper > main,
+html body:has(.header__checkout) .L-wrapper > main {
+  padding-top: 170px !important;
+  margin-top: 0 !important;
+}
+
+@media only screen and (max-width: 959px) {
+  html body:has(.header__checkout) main,
+  html body:has(.header__checkout) #l-wrapper > main,
+  html body:has(.header__checkout) .L-wrapper > main {
+    padding-top: 106px !important;
+  }
+}
+
 /* (B) transparent header bar — DESKTOP ONLY (769+), ページマスタ pages only */
 @media (min-width: 769px) {
   body:has(.mcPage__main) .header_outer,
