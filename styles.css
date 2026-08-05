@@ -6340,6 +6340,29 @@ html body.make_confirm .L-wrapper > main {
   margin-top: 0 !important;
 }
 
+/* Cart: MT headerFix is 70px/50px but our fixed fv-header needs more clearance
+   (DevTools-tuned: 190px desktop, 90px ≤959 — see cart overlap of contact bar). */
+html body:has(.cart__parent-area) main,
+html body:has(.cart_parent-area) main,
+html body:has(.cart__parent-area) #l-wrapper > main,
+html body:has(.cart__parent-area) .L-wrapper > main,
+html body:has(.cart_parent-area) #l-wrapper > main,
+html body:has(.cart_parent-area) .L-wrapper > main {
+  padding-top: 190px !important;
+  margin-top: 0 !important;
+}
+
+@media only screen and (max-width: 959px) {
+  html body:has(.cart__parent-area) main,
+  html body:has(.cart_parent-area) main,
+  html body:has(.cart__parent-area) #l-wrapper > main,
+  html body:has(.cart__parent-area) .L-wrapper > main,
+  html body:has(.cart_parent-area) #l-wrapper > main,
+  html body:has(.cart_parent-area) .L-wrapper > main {
+    padding-top: 90px !important;
+  }
+}
+
 /* (B) transparent header bar — DESKTOP ONLY (769+), ページマスタ pages only */
 @media (min-width: 769px) {
   body:has(.mcPage__main) .header_outer,

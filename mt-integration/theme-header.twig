@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260804plptab3" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260804plptab3" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260805cartpad1" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260805cartpad1" data-pw-css="mobile.css">
 <script>
-/* make_confirm: MT headerFix is 70px; our fixed fv-header needs 175px clearance.
+/* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260804plptab3";
+  var CSS_V = "20260805cartpad1";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
 
   function pinPwCss() {
@@ -105,6 +105,13 @@
         ".plp-main .plp-ranking__banner{max-width:100%!important;padding:calc(12px * var(--plp-tab-s)) calc(16px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__banner-title{flex-wrap:wrap!important;white-space:normal!important;" +
         "font-size:max(calc(14px * var(--plp-tab-s)),12px)!important;}" +
+        "}" +
+        /* Cart main clearance — matches DevTools-tuned headerFix values */
+        "html body:has(.cart__parent-area) main,html body:has(.cart_parent-area) main{" +
+        "padding-top:190px!important;margin-top:0!important;}" +
+        "@media only screen and (max-width:959px){" +
+        "html body:has(.cart__parent-area) main,html body:has(.cart_parent-area) main{" +
+        "padding-top:90px!important;}" +
         "}";
     }
     (document.head || document.documentElement).appendChild(s);
@@ -124,23 +131,46 @@
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
 
-  function applyMakeConfirmPad() {
+  function isCartPage() {
+    return !!(
+      document.querySelector(".cart__parent-area") ||
+      document.querySelector(".cart_parent-area")
+    );
+  }
+
+  function cartPadPx() {
+    return window.matchMedia("(max-width: 959px)").matches ? "90px" : "190px";
+  }
+
+  function applySystemMainPad() {
     var b = document.body;
-    if (!b || !b.classList.contains("make_confirm")) return;
+    if (!b) return;
     var mains = document.querySelectorAll("main");
-    for (var i = 0; i < mains.length; i++) {
-      mains[i].style.setProperty("padding-top", "175px", "important");
-      mains[i].style.setProperty("margin-top", "0px", "important");
+    var i;
+    if (b.classList.contains("make_confirm")) {
+      for (i = 0; i < mains.length; i++) {
+        mains[i].style.setProperty("padding-top", "175px", "important");
+        mains[i].style.setProperty("margin-top", "0px", "important");
+      }
+      return;
+    }
+    if (isCartPage()) {
+      var pad = cartPadPx();
+      for (i = 0; i < mains.length; i++) {
+        mains[i].style.setProperty("padding-top", pad, "important");
+        mains[i].style.setProperty("margin-top", "0px", "important");
+      }
     }
   }
-  applyMakeConfirmPad();
+  applySystemMainPad();
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", applyMakeConfirmPad);
+    document.addEventListener("DOMContentLoaded", applySystemMainPad);
   }
-  window.addEventListener("load", applyMakeConfirmPad);
-  setTimeout(applyMakeConfirmPad, 0);
-  setTimeout(applyMakeConfirmPad, 200);
-  setTimeout(applyMakeConfirmPad, 800);
+  window.addEventListener("load", applySystemMainPad);
+  window.addEventListener("resize", applySystemMainPad);
+  setTimeout(applySystemMainPad, 0);
+  setTimeout(applySystemMainPad, 200);
+  setTimeout(applySystemMainPad, 800);
 })();
 </script>
 <script>document.body.classList.add("product-list-page");</script>
