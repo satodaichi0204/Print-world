@@ -8156,13 +8156,13 @@ html.is-guide-flow-zoom-open body {
 
 /* =============================================================================
    TOP sec1 — 426–768: scale entire 768 lock by --fv-sec1-s (60%@426 → 100%@768).
-   768 lock: 100svh · shirts padding-top 116px · padding-bottom 16px.
+   768 lock: 100svh · shirts padding-top 146px · padding-bottom 16px.
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   .home-page .fv {
     --fv-sec1-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
     --fv-sec1-h: calc(100svh * var(--fv-sec1-s));
-    --fv-shirts-pad-top: calc(116px * var(--fv-sec1-s));
+    --fv-shirts-pad-top: calc(146px * var(--fv-sec1-s));
     --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
     height: var(--fv-sec1-h);
     min-height: var(--fv-sec1-h);
@@ -9430,7 +9430,7 @@ html.is-guide-flow-zoom-open body {
 @media (min-width: 426px) and (max-width: 768px) {
   /* Re-assert 768-lock scale after max-width:768 block resets vars to fixed px */
   body.home-page .fv {
-    --fv-shirts-pad-top: calc(116px * var(--fv-sec1-s));
+    --fv-shirts-pad-top: calc(146px * var(--fv-sec1-s));
     --fv-shirts-pad: calc(16px * var(--fv-sec1-s));
   }
 
