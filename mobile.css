@@ -1670,8 +1670,8 @@
     justify-content: space-between;
     gap: calc(8px * var(--fv-header-s));
     min-height: calc(76px * var(--fv-header-s));
-    padding: calc(12px * var(--fv-header-s)) calc(16px * var(--fv-header-s))
-      calc(12px * var(--fv-header-s)) calc(16px * var(--fv-header-s));
+    padding: calc(30px * var(--fv-header-s)) calc(30px * var(--fv-header-s))
+      calc(30px * var(--fv-header-s)) calc(30px * var(--fv-header-s));
   }
 
   .home-page .fv-header__left {
@@ -7541,7 +7541,7 @@ html.is-guide-flow-zoom-open body {
     justify-content: space-between;
     gap: calc(8px * var(--sp-header-s, 1));
     min-height: var(--sp-header-clear, 76px);
-    padding: calc(12px * var(--sp-header-s, 1)) calc(16px * var(--sp-header-s, 1));
+    padding: calc(30px * var(--sp-header-s, 1)) calc(30px * var(--sp-header-s, 1));
     pointer-events: none;
   }
 
@@ -8214,7 +8214,7 @@ html.is-guide-flow-zoom-open body {
   body.home-page .fv-header {
     gap: calc(8px * var(--fv-sec1-s));
     min-height: calc(76px * var(--fv-sec1-s));
-    padding: calc(22px * var(--fv-sec1-s)) calc(22px * var(--fv-sec1-s));
+    padding: calc(30px * var(--fv-sec1-s)) calc(30px * var(--fv-sec1-s));
   }
 
   body.home-page .fv-header__left {
