@@ -1081,18 +1081,19 @@
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   .delivery-page .info-hero {
-    min-height: 0;
-    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1)));
+    min-height: 0 !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
+    padding-bottom: 0 !important;
   }
 
   .delivery-page .info-hero__inner {
-    width: calc(100% - calc(60px * var(--sp-header-s, 1)));
-    padding-top: calc(80px * var(--sp-header-s, 1));
+    width: calc(100% - calc(60px * var(--sp-header-s, 1))) !important;
+    padding-top: calc(80px * var(--sp-header-s, 1)) !important;
   }
 
   .delivery-page .delivery-title-image {
-    width: min(100%, calc(440px * var(--sp-header-s, 1)));
-    padding-bottom: calc(38px * var(--sp-header-s, 1));
+    width: min(100%, calc(440px * var(--sp-header-s, 1))) !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
   }
 }
 

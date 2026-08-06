@@ -8102,26 +8102,80 @@ html.is-guide-flow-zoom-open body {
     width: 100%;
   }
 
-  body:is(
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page
-    )
-    .guide-flow-hero,
-  body:is(
-      .guide-flow-page,
-      .guide-design-tool-page,
-      .guide-data-submission-page,
-      .guide-print-method-page
-    )
-    .guide-hero {
+  body.guide-data-submission-page .guide-flow-hero,
+  body.guide-data-submission-page .guide-hero {
     padding-top: calc(var(--sp-header-clear, 76px) + 20px);
     min-height: 0;
   }
 
   body.product-detail-page .pdp-hero {
     padding-top: calc(var(--sp-header-clear, 76px) + 12px * var(--sp-header-s, 1));
+  }
+}
+
+/* Re-assert guide title heroes AFTER unified ≤768 header clear rules
+   so delivery-matched padding (clear + 80) is not overridden by +20px. */
+@media (min-width: 426px) and (max-width: 768px) {
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero, .guide-flow-hero) {
+    min-height: 0 !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    ) !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+  }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero, .guide-flow-hero)
+    :is(.guide-flow-inner, .guide-hero__inner, .guide-flow-hero__inner) {
+    width: calc(100% - calc(60px * var(--sp-header-s, 1))) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+    gap: calc(14px * var(--sp-header-s, 1)) !important;
+  }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero__kicker, .guide-flow-hero__kicker) {
+    width: min(calc(220px * var(--sp-header-s, 1)), 48%) !important;
+    height: auto !important;
+  }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero__title-img-wrap, .guide-flow-hero__title-img-wrap)
+    img {
+    width: min(100%, calc(440px * var(--sp-header-s, 1))) !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 425px) {
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-flow-hero, .guide-hero) {
+    padding-top: calc(var(--sp-header-clear, 76px) + 20px);
+    min-height: 0;
   }
 }
 
