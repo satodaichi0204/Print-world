@@ -5036,6 +5036,63 @@
   }
 }
 
+/* =============================================================================
+   Guide title heroes — 426–768: match delivery info-hero title band
+   (print-method / design-tool / guide-flow only; title section only)
+   768 lock: top = header-clear + 80px · bottom 38px · title max 440px · inner 100%-60px
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero, .guide-flow-hero) {
+    min-height: 0;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    );
+    padding-bottom: calc(38px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero, .guide-flow-hero)
+    :is(.guide-flow-inner, .guide-hero__inner, .guide-flow-hero__inner) {
+    width: calc(100% - calc(60px * var(--sp-header-s, 1)));
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    gap: calc(14px * var(--sp-header-s, 1));
+  }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero__kicker, .guide-flow-hero__kicker) {
+    width: min(calc(220px * var(--sp-header-s, 1)), 48%);
+    height: auto;
+  }
+
+  body:is(
+      .guide-flow-page,
+      .guide-design-tool-page,
+      .guide-print-method-page
+    )
+    :is(.guide-hero__title-img-wrap, .guide-flow-hero__title-img-wrap)
+    img {
+    width: min(100%, calc(440px * var(--sp-header-s, 1)));
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* Full-width drawer on phone (reference: corporate JP mobile nav) */
 @media (max-width: 768px) {
   .site-menu__panel {

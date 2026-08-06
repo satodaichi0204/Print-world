@@ -595,6 +595,7 @@
 
   .delivery-title-image {
     width: min(100%, 620px);
+    padding-bottom: 30px;
   }
 
   .info-main {
@@ -1073,3 +1074,25 @@
     margin-bottom: 28px;
   }
 }
+
+/* =============================================================================
+   Subpage title hero — 426–768: lock delivery standard, scale with --sp-header-s
+   768 lock: inner width 100%-60px · padding-top 80px · title max 440px · pad-bottom 38px
+   ============================================================================= */
+@media (min-width: 426px) and (max-width: 768px) {
+  .delivery-page .info-hero {
+    min-height: 0;
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1)));
+  }
+
+  .delivery-page .info-hero__inner {
+    width: calc(100% - calc(60px * var(--sp-header-s, 1)));
+    padding-top: calc(80px * var(--sp-header-s, 1));
+  }
+
+  .delivery-page .delivery-title-image {
+    width: min(100%, calc(440px * var(--sp-header-s, 1)));
+    padding-bottom: calc(38px * var(--sp-header-s, 1));
+  }
+}
+
