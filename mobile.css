@@ -5244,7 +5244,7 @@
 /* --- Product list / detail: tablet (426–767) --- */
 @media (min-width: 426px) and (max-width: 767px) {
   .product-list-page .plp-hero {
-    padding: 108px 20px 32px 0;
+    padding: 150px 29px 25px 0;
   }
 
   .product-list-page .plp-intro {
@@ -5508,6 +5508,15 @@
 
   .product-list-page .plp-hero__title-lg {
     font-size: calc(72.8px * var(--plp-hero-s));
+  }
+}
+
+/* Product list: hero padding — 426–768: keep 768 padding as-is down to 426 */
+@media (min-width: 426px) and (max-width: 768px) {
+  .product-list-page .plp-hero {
+    background-color: var(--plp-header-bg, #efce0a);
+    padding: 150px 29px 25px 0;
+    text-align: left;
   }
 }
 
