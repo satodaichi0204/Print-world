@@ -4,19 +4,20 @@
 }
 
 .company-page .fv-header {
-  background: #f3d500;
+  background: #efce0a;
 }
 
+/* Title hero layout: shared page-title hero (info-pages.css) */
 .company-title {
   min-height: 375px;
   padding-top: 108px;
-  background: #f3d500 !important;
+  background: #efce0a !important;
 }
 
 .company-title__inner {
-  width: min(1200px, calc(100% - 80px));
+  width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
-  padding-top: 130px;
+  padding-top: 135px;
 }
 
 .company-title-image {
@@ -347,19 +348,7 @@
     background: #fff;
   }
 
-  .company-title {
-    min-height: 250px;
-    padding-top: var(--sp-header-clear, 76px);
-  }
-
-  .company-title__inner {
-    width: calc(100% - 40px);
-    padding-top: 82px;
-  }
-
-  .company-title-image {
-    width: min(200px, 48vw);
-  }
+  /* .company-title title layout: shared page-title hero (info-pages.css) */
 
   .company-story {
     padding: 24px 0 64px;

@@ -13,16 +13,17 @@
   margin: 0 auto;
 }
 
-/* ----- 1. Yellow title ----- */
+/* ----- 1. Yellow title — layout from shared page-title hero (info-pages.css) ----- */
 .dh-sec1 {
   background: #efce0a;
-  padding: 0 0 56px;
+  padding: 108px 0 0;
+  min-height: 375px;
 }
 
 .dh-sec1__inner {
-  width: min(1200px, calc(100% - 80px));
+  width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
-  padding-top: 300px;
+  padding-top: 135px;
 }
 
 .dh-sec1__title {
@@ -260,15 +261,7 @@
 
 /* ----- Responsive ----- */
 @media (max-width: 768px) {
-  .dh-sec1 {
-    background: #efce0a;
-    padding: 0 0 56px;
-  }
-
-  .dh-sec1__inner {
-    width: calc(100% - 40px);
-    padding-top: 140px;
-  }
+  /* .dh-sec1 title layout: shared page-title hero (info-pages.css) */
 
   .dh-inner {
     width: calc(100% - 40px);
@@ -338,13 +331,11 @@
   }
 
   .dh-sec1 {
-    background: #efce0a;
-    padding: 0 0 56px;
+    /* title layout: shared page-title hero (info-pages.css) */
   }
 
   .dh-sec1__inner {
-    width: calc(100% - 32px);
-    padding-top: 120px;
+    /* title layout: shared page-title hero (info-pages.css) */
   }
 
   .dh-inner {

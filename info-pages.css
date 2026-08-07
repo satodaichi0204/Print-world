@@ -799,9 +799,7 @@
   background: #efce0a;
 }
 
-.tokushoho-page .info-hero__inner {
-  padding-top: 120px;
-}
+/* .info-hero__inner title layout: shared page-title hero in rules below */
 
 .tokushoho-title-image {
   display: block;
@@ -941,16 +939,6 @@
   background: #efce0a;
 }
 
-.privacy-page .info-hero__inner {
-  padding-top: 120px;
-}
-
-.terms-page .info-hero__inner {
-  width: min(1300px, calc(100% - 40px));
-  margin: 0 auto;
-  padding-top: 135px;
-}
-
 .privacy-title-image {
   display: block;
   width: min(520px, 72vw);
@@ -963,53 +951,271 @@
   height: auto;
 }
 
-/* Terms title only — 1440–1919: scale title + hero padding/margin with 1920 → 1440 */
+/* =============================================================================
+   Shared page-title hero — terms heading layout as standard
+   Pages: terms / privacy / tokushoho / faq / contact / company / about / design-help
+   ============================================================================= */
+:is(
+    .terms-page,
+    .privacy-page,
+    .tokushoho-page,
+    .faq-page,
+    .contact-page,
+    .company-page,
+    .about-page,
+    .design-help-page
+  ) {
+  --page-title-s: 1;
+  --page-title-sp-s: 1;
+}
+
+.terms-page {
+  --page-title-w: 280px;
+  --page-title-w-sp: 200px;
+}
+.privacy-page {
+  --page-title-w: 520px;
+  --page-title-w-sp: 300px;
+}
+.tokushoho-page {
+  --page-title-w: 720px;
+  --page-title-w-sp: 340px;
+}
+.faq-page {
+  --page-title-w: 360px;
+  --page-title-w-sp: 200px;
+}
+.contact-page {
+  --page-title-w: 390px;
+  --page-title-w-sp: 220px;
+}
+.company-page {
+  --page-title-w: 280px;
+  --page-title-w-sp: 200px;
+}
+.about-page {
+  --page-title-w: 640px;
+  --page-title-w-sp: 300px;
+}
+.design-help-page {
+  --page-title-w: 640px;
+  --page-title-w-sp: 300px;
+}
+
+:is(
+    .terms-page,
+    .privacy-page,
+    .tokushoho-page,
+    .faq-page,
+    .contact-page,
+    .company-page,
+    .about-page,
+    .design-help-page
+  )
+  :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
+  background: #efce0a !important;
+  min-height: 375px;
+  padding: 108px 0 0 !important;
+}
+
+:is(
+    .terms-page,
+    .privacy-page,
+    .tokushoho-page,
+    .faq-page,
+    .contact-page,
+    .company-page,
+    .about-page,
+    .design-help-page
+  )
+  :is(
+    .info-hero__inner,
+    .company-title__inner,
+    .ap-hero__inner,
+    .dh-sec1__inner
+  ) {
+  width: min(1300px, calc(100% - 40px)) !important;
+  margin: 0 auto !important;
+  padding-top: 135px !important;
+}
+
+:is(
+    .terms-page,
+    .privacy-page,
+    .tokushoho-page,
+    .faq-page,
+    .contact-page,
+    .company-page,
+    .about-page,
+    .design-help-page
+  )
+  :is(
+    .terms-title-image,
+    .privacy-title-image,
+    .tokushoho-title-image,
+    .faq-title-image,
+    .contact-title-image,
+    .company-title-image,
+    .ap-hero__title,
+    .dh-sec1__title
+  ) {
+  display: block;
+  width: min(var(--page-title-w), 88vw) !important;
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* Shared title hero — 1440–1919: scale from 1920 → 1440 */
 @media (min-width: 1440px) and (max-width: 1919px) {
-  .terms-page {
-    --terms-title-s: calc(100vw / 1920px);
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    ) {
+    --page-title-s: calc(100vw / 1920px);
   }
 
-  .terms-page .info-hero {
-    padding-top: calc(108px * var(--terms-title-s));
-    min-height: calc(375px * var(--terms-title-s));
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
+    padding-top: calc(108px * var(--page-title-s)) !important;
+    min-height: calc(375px * var(--page-title-s)) !important;
   }
 
-  .terms-page .info-hero__inner {
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .info-hero__inner,
+      .company-title__inner,
+      .ap-hero__inner,
+      .dh-sec1__inner
+    ) {
     width: min(
-      calc(1300px * var(--terms-title-s)),
-      calc(100% - calc(40px * var(--terms-title-s)))
-    );
-    margin: 0 auto;
-    padding-top: calc(135px * var(--terms-title-s));
+      calc(1300px * var(--page-title-s)),
+      calc(100% - calc(40px * var(--page-title-s)))
+    ) !important;
+    margin: 0 auto !important;
+    padding-top: calc(135px * var(--page-title-s)) !important;
   }
 
-  .terms-page .terms-title-image {
-    width: calc(280px * var(--terms-title-s));
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .terms-title-image,
+      .privacy-title-image,
+      .tokushoho-title-image,
+      .faq-title-image,
+      .contact-title-image,
+      .company-title-image,
+      .ap-hero__title,
+      .dh-sec1__title
+    ) {
+    width: calc(var(--page-title-w) * var(--page-title-s)) !important;
   }
 }
 
-/* Terms title only — 769–1439: freeze the 1440 layout (size + left edge).
-   Same approach as 1024→769 lock: pin upper-bound position so centering
-   does not shift the title as the viewport narrows toward 1024/769. */
+/* Shared title hero — 769–1439: freeze 1440 layout (size + left edge) */
 @media (min-width: 769px) and (max-width: 1439px) {
-  .terms-page {
-    --terms-title-s: calc(1440 / 1920);
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    ) {
+    --page-title-s: calc(1440 / 1920);
   }
 
-  .terms-page .info-hero {
-    padding-top: calc(108px * var(--terms-title-s));
-    min-height: calc(375px * var(--terms-title-s));
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
+    padding-top: calc(108px * var(--page-title-s)) !important;
+    min-height: calc(375px * var(--page-title-s)) !important;
   }
 
-  .terms-page .info-hero__inner {
-    width: calc(1300px * var(--terms-title-s));
-    margin-left: calc((1440px - (1300px * 1440 / 1920)) / 2);
-    margin-right: auto;
-    padding-top: calc(135px * var(--terms-title-s));
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .info-hero__inner,
+      .company-title__inner,
+      .ap-hero__inner,
+      .dh-sec1__inner
+    ) {
+    width: calc(1300px * var(--page-title-s)) !important;
+    margin-left: calc((1440px - (1300px * 1440 / 1920)) / 2) !important;
+    margin-right: auto !important;
+    padding-top: calc(135px * var(--page-title-s)) !important;
   }
 
-  .terms-page .terms-title-image {
-    width: calc(280px * var(--terms-title-s));
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .terms-title-image,
+      .privacy-title-image,
+      .tokushoho-title-image,
+      .faq-title-image,
+      .contact-title-image,
+      .company-title-image,
+      .ap-hero__title,
+      .dh-sec1__title
+    ) {
+    width: calc(var(--page-title-w) * var(--page-title-s)) !important;
   }
 }
 
@@ -1130,65 +1336,166 @@
   }
 }
 
-/* Terms title only — 320–768: keep the 768 heading layout; scale padding/size together */
+/* Shared title hero — 320–768: keep 768 heading layout; scale padding/size together */
 @media (min-width: 320px) and (max-width: 768px) {
-  .terms-page {
-    --terms-sp-s: calc(100vw / 768px);
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    ) {
+    --page-title-sp-s: calc(100vw / 768px);
   }
 
-  .terms-page .info-hero {
-    min-height: calc(260px * var(--terms-sp-s)) !important;
-    padding-top: var(--sp-header-clear, calc(76px * var(--terms-sp-s))) !important;
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
+    min-height: calc(260px * var(--page-title-sp-s)) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--page-title-sp-s))) !important;
     padding-bottom: 0 !important;
   }
 
-  .terms-page .info-hero__inner {
-    width: calc(100% - calc(40px * var(--terms-sp-s))) !important;
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .info-hero__inner,
+      .company-title__inner,
+      .ap-hero__inner,
+      .dh-sec1__inner
+    ) {
+    width: calc(100% - calc(40px * var(--page-title-sp-s))) !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-top: calc(62px * var(--terms-sp-s)) !important;
+    padding-top: calc(62px * var(--page-title-sp-s)) !important;
   }
 
-  .terms-page .terms-title-image {
-    width: calc(200px * var(--terms-sp-s)) !important;
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .terms-title-image,
+      .privacy-title-image,
+      .tokushoho-title-image,
+      .faq-title-image,
+      .contact-title-image,
+      .company-title-image,
+      .ap-hero__title,
+      .dh-sec1__title
+    ) {
+    width: calc(var(--page-title-w-sp) * var(--page-title-sp-s)) !important;
     max-width: none !important;
     height: auto !important;
   }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
-  .terms-page .info-hero__inner {
-    width: calc(100% - calc(40px * var(--terms-sp-s))) !important;
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .info-hero__inner,
+      .company-title__inner,
+      .ap-hero__inner,
+      .dh-sec1__inner
+    ) {
+    width: calc(100% - calc(40px * var(--page-title-sp-s))) !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-top: calc(94px * var(--terms-sp-s)) !important;
+    padding-top: calc(94px * var(--page-title-sp-s)) !important;
   }
 }
 
-/* Terms title only — 320–530: lock character/title size at 530 (no further shrink) */
+/* Shared title hero — 320–530: lock title size at 530 */
 @media (min-width: 320px) and (max-width: 530px) {
-  .terms-page {
-    --terms-sp-s: calc(530 / 768);
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    ) {
+    --page-title-sp-s: calc(530 / 768);
   }
 }
 
-/* Terms title only — 320–425: keep 425 state as start; ease to 320 targets
-   min-height 260→190 · inner padding-top 62→35 (× --terms-sp-s) */
+/* Shared title hero — 320–425: keep 425 start; ease to 320 targets */
 @media (min-width: 320px) and (max-width: 425px) {
-  .terms-page .info-hero {
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
     min-height: calc(
-      (190px + 70px * (100vw - 320px) / (425px - 320px)) * var(--terms-sp-s)
+      (190px + 70px * (100vw - 320px) / (425px - 320px)) * var(--page-title-sp-s)
     ) !important;
-    padding-top: var(--sp-header-clear, calc(76px * var(--terms-sp-s))) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--page-title-sp-s))) !important;
     padding-bottom: 0 !important;
   }
 
-  .terms-page .info-hero__inner {
-    width: calc(100% - calc(40px * var(--terms-sp-s))) !important;
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .info-hero__inner,
+      .company-title__inner,
+      .ap-hero__inner,
+      .dh-sec1__inner
+    ) {
+    width: calc(100% - calc(40px * var(--page-title-sp-s))) !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding-top: calc(
-      (35px + 27px * (100vw - 320px) / (425px - 320px)) * var(--terms-sp-s)
+      (35px + 27px * (100vw - 320px) / (425px - 320px)) * var(--page-title-sp-s)
     ) !important;
   }
 }

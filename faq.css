@@ -3,9 +3,7 @@
   background: #efce0a;
 }
 
-.faq-page .info-hero__inner {
-  padding-top: 120px;
-}
+/* .info-hero__inner title layout: shared page-title hero (info-pages.css) */
 
 .faq-title-image {
   display: block;

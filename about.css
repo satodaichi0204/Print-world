@@ -13,16 +13,17 @@
   margin: 0 auto;
 }
 
-/* ----- Hero title (yellow) ----- */
+/* ----- Hero title (yellow) — layout from shared page-title hero (info-pages.css) ----- */
 .ap-hero {
   background: #efce0a;
-  padding: 0 0 56px;
+  padding: 108px 0 0;
+  min-height: 375px;
 }
 
 .ap-hero__inner {
-  width: min(1200px, calc(100% - 80px));
+  width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
-  padding-top: 300px;
+  padding-top: 135px;
 }
 
 .ap-hero__title {
@@ -563,14 +564,11 @@
 }
 
 @media (max-width: 768px) {
-  .ap-inner,
-  .ap-hero__inner {
+  .ap-inner {
     width: calc(100% - 40px);
   }
 
-  .ap-hero__inner {
-    padding-top: 140px;
-  }
+  /* .ap-hero__inner title layout: shared page-title hero (info-pages.css) */
 
   .ap-sec1 {
     padding: 32px 0 80px;
@@ -668,10 +666,7 @@
 }
 
 @media (max-width: 768px) and (min-width: 320px) {
-  .ap-hero {
-    background: #efce0a;
-    padding: 0 0 56px;
-  }
+  /* .ap-hero title layout: shared page-title hero (info-pages.css) */
 
   .ap-sec3 .sec6-grid {
     grid-template-columns: 1fr;
@@ -679,14 +674,11 @@
 }
 
 @media (max-width: 480px) {
-  .ap-inner,
-  .ap-hero__inner {
+  .ap-inner {
     width: calc(100% - 32px);
   }
 
-  .ap-hero__inner {
-    padding-top: 120px;
-  }
+  /* .ap-hero__inner title layout: shared page-title hero (info-pages.css) */
 
   .ap-method__btn,
   .ap-method__phone {
