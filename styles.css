@@ -107,8 +107,16 @@ img {
   gap: 50px;
 }
 
-/* Header — 769–1919: lock 1920 composition via uniform zoom. */
-@media (min-width: 769px) and (max-width: 1919px) {
+/* Header — 1440–1919: keep 1920 element sizes; middle gap absorbs width. */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .fv-header {
+    width: 100%;
+    zoom: 1;
+  }
+}
+
+/* Header — 769–1439: lock 1920 composition via uniform zoom. */
+@media (min-width: 769px) and (max-width: 1439px) {
   .fv-header {
     width: 1920px;
     zoom: calc(100vw / 1920px);
