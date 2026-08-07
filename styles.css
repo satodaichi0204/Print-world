@@ -2842,8 +2842,8 @@ img {
   height: auto;
 }
 
-/* Guide title hero — 1440–1919: scale title (kicker + title img) from 1920 → 1440.
-   guide-flow / design-tool / print-method only. */
+/* Guide title hero — 1440–1919: shrink title images only; keep padding
+   (175/25) so position matches the 1440 reference. Three guide pages only. */
 @media (min-width: 1440px) and (max-width: 1919px) {
   body:is(
       .guide-flow-page,
@@ -2859,8 +2859,8 @@ img {
       .guide-print-method-page
     )
     :is(.guide-flow-hero, .guide-hero) {
-    padding: calc(175px * var(--guide-title-s)) 0 calc(25px * var(--guide-title-s));
-    min-height: calc(400px * var(--guide-title-s));
+    padding: 175px 0 25px;
+    min-height: 400px;
   }
 
   body:is(
@@ -2870,8 +2870,8 @@ img {
     )
     :is(.guide-flow-hero, .guide-hero)
     :is(.guide-flow-inner, .guide-hero__inner, .guide-flow-hero__inner) {
-    padding: calc(30px * var(--guide-title-s)) calc(36px * var(--guide-title-s));
-    gap: calc(14px * var(--guide-title-s));
+    padding: 30px 36px;
+    gap: 14px;
   }
 
   body:is(
