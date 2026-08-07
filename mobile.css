@@ -5244,7 +5244,8 @@
 /* --- Product list / detail: tablet (426–767) --- */
 @media (min-width: 426px) and (max-width: 767px) {
   .product-list-page .plp-hero {
-    padding: 148px 29px 25px 0;
+    padding: calc(92px + 56px * (100vw - 426px) / (768px - 426px)) 29px
+      calc(18px + 7px * (100vw - 426px) / (768px - 426px)) 0;
   }
 
   .product-list-page .plp-intro {
@@ -5385,7 +5386,8 @@
 /* --- Product list: tablet layout tuning (426–767) --- */
 @media (min-width: 426px) and (max-width: 767px) {
   .product-list-page .plp-hero {
-    padding: 148px 29px 25px 0;
+    padding: calc(92px + 56px * (100vw - 426px) / (768px - 426px)) 29px
+      calc(18px + 7px * (100vw - 426px) / (768px - 426px)) 0;
   }
 
   .product-list-page .plp-hero__inner {
@@ -5504,13 +5506,15 @@
   }
 }
 
-/* Product list: hero — 426–768: freeze exact 768 composition (no further shrink) */
+/* Product list: hero — 426–768: padding lerps 768→426; title/inner stay at 768 lock */
 @media (min-width: 426px) and (max-width: 768px) {
   .product-list-page .plp-hero,
   body.product-list-page .plp-hero {
     --plp-hero-s: calc(768 / 1920);
+    --plp-hero-pad-t: calc(92px + 56px * (100vw - 426px) / (768px - 426px));
+    --plp-hero-pad-b: calc(18px + 7px * (100vw - 426px) / (768px - 426px));
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding: 148px 29px 25px 0 !important;
+    padding: var(--plp-hero-pad-t) 29px var(--plp-hero-pad-b) 0 !important;
     text-align: left !important;
   }
 
@@ -9536,11 +9540,13 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* Product list: hero padding — 426–768 lock (wins over earlier scale rules) */
+/* Product list: hero — 426–768: padding lerps 768→426 (wins over earlier rules) */
 @media (min-width: 426px) and (max-width: 768px) {
   body.product-list-page .plp-hero {
+    --plp-hero-pad-t: calc(92px + 56px * (100vw - 426px) / (768px - 426px));
+    --plp-hero-pad-b: calc(18px + 7px * (100vw - 426px) / (768px - 426px));
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding: 148px 29px 25px 0 !important;
+    padding: var(--plp-hero-pad-t) 29px var(--plp-hero-pad-b) 0 !important;
     text-align: left !important;
   }
 

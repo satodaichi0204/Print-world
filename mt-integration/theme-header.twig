@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808plp768lock" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808plp768lock" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808plppadlerp" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808plppadlerp" data-pw-css="mobile.css">
 <script>
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260808plp768lock";
+  var CSS_V = "20260808plppadlerp";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -72,10 +72,12 @@
         ".plp-main .plp-ranking__banner-part + .plp-ranking__banner-part{font-size:calc(1em + 6px * var(--plp-banner-s))!important;}" +
         "}" +
         "@media (min-width: 426px) and (max-width: 768px){" +
-        /* PLP hero — freeze 768 composition down to 426 */
+        /* PLP hero — padding lerps 148/25@768 → 92/18@426; title stays at 768 lock */
         "body.product-list-page .plp-hero,.product-list-page .plp-hero{" +
         "background-color:var(--plp-header-bg,#efce0a)!important;" +
-        "padding:148px 29px 25px 0!important;text-align:left!important;}" +
+        "padding:calc(92px + 56px * (100vw - 426px) / (768px - 426px)) 29px " +
+        "calc(18px + 7px * (100vw - 426px) / (768px - 426px)) 0!important;" +
+        "text-align:left!important;}" +
         "body.product-list-page .plp-hero__inner,.product-list-page .plp-hero__inner{" +
         "width:min(calc(1440px * 768 / 1920),calc(100% - 48px * 768 / 1920))!important;" +
         "padding-inline:calc(29px * 768 / 1920)!important;}" +
