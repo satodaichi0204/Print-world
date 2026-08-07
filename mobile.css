@@ -5244,7 +5244,7 @@
 /* --- Product list / detail: tablet (426–767) --- */
 @media (min-width: 426px) and (max-width: 767px) {
   .product-list-page .plp-hero {
-    padding: 150px 29px 25px 0;
+    padding: 148px 29px 25px 0;
   }
 
   .product-list-page .plp-intro {
@@ -5515,7 +5515,7 @@
 @media (min-width: 426px) and (max-width: 768px) {
   .product-list-page .plp-hero {
     background-color: var(--plp-header-bg, #efce0a);
-    padding: 150px 29px 25px 0;
+    padding: 148px 29px 25px 0;
     text-align: left;
   }
 }
