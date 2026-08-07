@@ -2843,12 +2843,13 @@ img {
 }
 
 /* Guide title hero — 1440–1919: scale title (kicker + title img) from 1920 → 1440.
-   guide-flow / design-tool / print-method only. */
+   guide-flow / design-tool / print-method / delivery only. */
 @media (min-width: 1440px) and (max-width: 1919px) {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     ) {
     --guide-title-s: calc(100vw / 1920px);
   }
@@ -2856,7 +2857,8 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     )
     :is(.guide-flow-hero, .guide-hero) {
     padding: calc(175px * var(--guide-title-s)) 0 calc(25px * var(--guide-title-s));
@@ -2866,7 +2868,8 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     )
     :is(.guide-flow-hero, .guide-hero)
     :is(.guide-flow-inner, .guide-hero__inner, .guide-flow-hero__inner) {
@@ -2877,14 +2880,16 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     )
     :is(.guide-flow-hero__kicker, .guide-hero__kicker) {
     width: min(calc(280px * var(--guide-title-s)), 52%);
     height: auto;
   }
 
-  body.guide-flow-page .guide-flow-hero__title-img-wrap img {
+  body.guide-flow-page .guide-flow-hero__title-img-wrap img,
+  body.delivery-page .guide-flow-hero__title-img-wrap img {
     width: min(calc(780px * var(--guide-title-s)), 88%);
     height: auto;
   }
@@ -2905,7 +2910,8 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     ) {
     --guide-title-s: calc(1440 / 1920);
   }
@@ -2913,7 +2919,8 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     )
     :is(.guide-flow-hero, .guide-hero) {
     padding: calc(175px * var(--guide-title-s)) 0 calc(25px * var(--guide-title-s));
@@ -2923,7 +2930,8 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     )
     :is(.guide-flow-hero, .guide-hero)
     :is(.guide-flow-inner, .guide-hero__inner, .guide-flow-hero__inner) {
@@ -2934,14 +2942,16 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
-      .guide-print-method-page
+      .guide-print-method-page,
+      .delivery-page
     )
     :is(.guide-flow-hero__kicker, .guide-hero__kicker) {
     width: min(calc(280px * var(--guide-title-s)), 52%);
     height: auto;
   }
 
-  body.guide-flow-page .guide-flow-hero__title-img-wrap img {
+  body.guide-flow-page .guide-flow-hero__title-img-wrap img,
+  body.delivery-page .guide-flow-hero__title-img-wrap img {
     width: min(calc(780px * var(--guide-title-s)), 88%);
     height: auto;
   }
