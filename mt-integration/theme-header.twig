@@ -1,21 +1,23 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808plppadstick" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808plppadstick" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808noflicker" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808noflicker" data-pw-css="mobile.css">
 <script>
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260808plppadstick";
+  var CSS_V = "20260808noflicker";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
-  var pinTimer = null;
+  var pinning = false;
 
   function pinPwCss() {
+    var head = document.head || document.documentElement;
     ["styles.css", "mobile.css"].forEach(function (name) {
       var desired = CSS_BASE + name + "?v=" + CSS_V;
       var links = document.querySelectorAll('link[rel="stylesheet"]');
       var keep = null;
+      var removedStale = false;
       for (var i = 0; i < links.length; i++) {
         var href = links[i].getAttribute("href") || "";
         if (href.indexOf("print-world-blond.vercel.app/" + name) === -1) continue;
@@ -25,6 +27,7 @@
         } else if (links[i].parentNode) {
           /* Remove stale/unversioned duplicates that load after paint and undo fixes */
           links[i].parentNode.removeChild(links[i]);
+          removedStale = true;
         }
       }
       if (!keep) {
@@ -32,21 +35,21 @@
         keep.rel = "stylesheet";
         keep.href = desired;
         keep.setAttribute("data-pw-css", name);
+        head.appendChild(keep);
+        return;
       }
-      /* Always move current sheet to end of <head> so it wins the cascade */
-      (document.head || document.documentElement).appendChild(keep);
+      /* Never reshuffle an already-correct sheet (causes FOUC). Only re-append after removing a stale rival. */
+      if (removedStale) {
+        head.appendChild(keep);
+      }
     });
   }
 
   function pinPlpRankingLock() {
     var id = "pw-plp-ranking-lock";
+    var head = document.head || document.documentElement;
     var s = document.getElementById(id);
-    if (!s) {
-      s = document.createElement("style");
-      s.id = id;
-    }
-    /* Always refresh text so header Twig updates replace a stale #pw-plp-ranking-lock. */
-    s.textContent =
+    var css =
         /* Cards locked 769+; banner 679–1024; tablet 426–768 1-up/3-col; phone 320–425 1-up/2-col */
         "@media (min-width: 769px){" +
         ".plp-main .plp-ranking__track .product-card{" +
@@ -69,7 +72,7 @@
         ".plp-main .plp-ranking__banner-part + .plp-ranking__banner-part{font-size:calc(1em + 6px * var(--plp-banner-s))!important;}" +
         "}" +
         "@media (min-width: 426px) and (max-width: 768px){" +
-        /* PLP hero padding lock — !important + last in head so late MT CSS cannot snap back */
+        /* PLP hero padding lock — !important so late MT CSS cannot snap back */
         "body.product-list-page .plp-hero,.product-list-page .plp-hero{" +
         "background-color:var(--plp-header-bg,#efce0a)!important;" +
         "padding:148px 29px 25px 0!important;text-align:left!important;}" +
@@ -126,17 +129,32 @@
         "@media only screen and (max-width:959px){" +
         "html body:has(.header__checkout) main{padding-top:106px!important;}" +
         "}";
-    (document.head || document.documentElement).appendChild(s);
+    if (!s) {
+      s = document.createElement("style");
+      s.id = id;
+      s.setAttribute("data-pw-lock", CSS_V);
+      s.textContent = css;
+      head.appendChild(s);
+      return;
+    }
+    if (s.getAttribute("data-pw-lock") !== CSS_V) {
+      s.setAttribute("data-pw-lock", CSS_V);
+      s.textContent = css;
+    }
+    if (s.parentNode !== head || head.lastElementChild !== s) {
+      head.appendChild(s);
+    }
   }
 
   function pinAll() {
-    pinPwCss();
-    pinPlpRankingLock();
-  }
-
-  function schedulePin() {
-    if (pinTimer) clearTimeout(pinTimer);
-    pinTimer = setTimeout(pinAll, 50);
+    if (pinning) return;
+    pinning = true;
+    try {
+      pinPwCss();
+      pinPlpRankingLock();
+    } finally {
+      pinning = false;
+    }
   }
 
   pinAll();
@@ -147,12 +165,43 @@
   setTimeout(pinAll, 0);
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
-  setTimeout(pinAll, 2500);
-  setTimeout(pinAll, 5000);
-  /* MT may inject stale styles.css/mobile.css into the body after 1s — keep pinning. */
+  /* Watch only for late MT <link> injects — ignore our own pin moves to prevent flicker loops. */
   if (typeof MutationObserver === "function") {
     try {
-      var mo = new MutationObserver(schedulePin);
+      var moTimer = null;
+      var mo = new MutationObserver(function (mutations) {
+        if (pinning) return;
+        var needs = false;
+        for (var i = 0; i < mutations.length; i++) {
+          var nodes = mutations[i].addedNodes;
+          for (var j = 0; j < nodes.length; j++) {
+            var n = nodes[j];
+            if (!n || n.nodeType !== 1) continue;
+            if (n.getAttribute && n.getAttribute("data-pw-css")) continue;
+            if (n.id === "pw-plp-ranking-lock") continue;
+            var href = (n.tagName === "LINK" && n.getAttribute("href")) || "";
+            if (href.indexOf("print-world-blond.vercel.app/") !== -1 && href.indexOf("?v=" + CSS_V) === -1) {
+              needs = true;
+              break;
+            }
+            if (n.querySelectorAll) {
+              var bad = n.querySelectorAll('link[rel="stylesheet"]');
+              for (var k = 0; k < bad.length; k++) {
+                var h = bad[k].getAttribute("href") || "";
+                if (h.indexOf("print-world-blond.vercel.app/") !== -1 && h.indexOf("?v=" + CSS_V) === -1) {
+                  needs = true;
+                  break;
+                }
+              }
+            }
+            if (needs) break;
+          }
+          if (needs) break;
+        }
+        if (!needs) return;
+        if (moTimer) clearTimeout(moTimer);
+        moTimer = setTimeout(pinAll, 100);
+      });
       mo.observe(document.documentElement, { childList: true, subtree: true });
     } catch (e) {}
   }
