@@ -107,8 +107,27 @@ img {
   gap: 50px;
 }
 
-/* Header — 769–1919: lock 1920 composition via uniform zoom. */
-@media (min-width: 769px) and (max-width: 1919px) {
+/* Header — 1440–1919: scale from 1920 (unchanged). */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .fv-header {
+    width: 1920px;
+    zoom: calc(100vw / 1920px);
+    transform-origin: top left;
+  }
+}
+
+/* Header — 1024–1439: lock all header sizes at 1440 scale;
+   middle yellow gap absorbs the narrower viewport. */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .fv-header {
+    width: calc(100vw * 1920 / 1440);
+    zoom: calc(1440 / 1920);
+    transform-origin: top left;
+  }
+}
+
+/* Header — 769–1023: scale from 1920 (unchanged). */
+@media (min-width: 769px) and (max-width: 1023px) {
   .fv-header {
     width: 1920px;
     zoom: calc(100vw / 1920px);
