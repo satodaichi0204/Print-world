@@ -2870,7 +2870,7 @@ img {
     )
     :is(.guide-flow-hero, .guide-hero)
     :is(.guide-flow-inner, .guide-hero__inner, .guide-flow-hero__inner) {
-    padding: calc(30px * var(--guide-title-s)) calc(36px * var(--guide-title-s));
+    padding: calc(30px * var(--guide-title-s)) calc(200px * var(--guide-title-s));
     gap: calc(14px * var(--guide-title-s));
   }
 
