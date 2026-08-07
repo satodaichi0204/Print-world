@@ -1172,6 +1172,27 @@
   }
 }
 
+/* Terms title only — 320–425: keep 425 state as start; ease to 320 targets
+   min-height 260→190 · inner padding-top 62→35 (× --terms-sp-s) */
+@media (min-width: 320px) and (max-width: 425px) {
+  .terms-page .info-hero {
+    min-height: calc(
+      (190px + 70px * (100vw - 320px) / (425px - 320px)) * var(--terms-sp-s)
+    ) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--terms-sp-s))) !important;
+    padding-bottom: 0 !important;
+  }
+
+  .terms-page .info-hero__inner {
+    width: calc(100% - calc(40px * var(--terms-sp-s))) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: calc(
+      (35px + 27px * (100vw - 320px) / (425px - 320px)) * var(--terms-sp-s)
+    ) !important;
+  }
+}
+
 /* Delivery title only — 320–425: guide-flow-inner padding */
 @media (min-width: 320px) and (max-width: 425px) {
   body.delivery-page .guide-flow-hero .guide-flow-inner {
