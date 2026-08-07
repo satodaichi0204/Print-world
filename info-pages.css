@@ -988,6 +988,31 @@
   }
 }
 
+/* Terms title only — 769–1439: lock 1440 title size/placement (no further shrink) */
+@media (min-width: 769px) and (max-width: 1439px) {
+  .terms-page {
+    --terms-title-s: calc(1440 / 1920);
+  }
+
+  .terms-page .info-hero {
+    padding-top: calc(108px * var(--terms-title-s));
+    min-height: calc(375px * var(--terms-title-s));
+  }
+
+  .terms-page .info-hero__inner {
+    width: min(
+      calc(1300px * var(--terms-title-s)),
+      calc(100% - calc(40px * var(--terms-title-s)))
+    );
+    margin: 0 auto;
+    padding-top: calc(135px * var(--terms-title-s));
+  }
+
+  .terms-page .terms-title-image {
+    width: calc(280px * var(--terms-title-s));
+  }
+}
+
 .privacy-main {
   width: min(920px, calc(100% - 80px));
   padding-bottom: 100px;
