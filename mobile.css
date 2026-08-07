@@ -5385,11 +5385,11 @@
 /* --- Product list: tablet layout tuning (426–767) --- */
 @media (min-width: 426px) and (max-width: 767px) {
   .product-list-page .plp-hero {
-    padding: 100px 16px 32px 0;
+    padding: 148px 29px 25px 0;
   }
 
   .product-list-page .plp-hero__inner {
-    padding-inline: 16px;
+    padding-inline: 29px;
   }
 
   .product-list-page .plp-hero__title-sm {
@@ -5490,11 +5490,11 @@
   }
 }
 
-/* --- Product list: hero band — 768–1919 proportional scale (1920 lock in styles.css) --- */
+/* --- Product list: hero band — 768–1919 title/inner scale; padding from 769 only.
+   426–768 padding is locked below / at file end. --- */
 @media (min-width: 768px) and (max-width: 1919px) {
   .product-list-page .plp-hero {
     --plp-hero-s: calc(100vw / 1920px);
-    padding: calc(180px * var(--plp-hero-s)) calc(29px * var(--plp-hero-s)) calc(40px * var(--plp-hero-s)) 0;
   }
 
   .product-list-page .plp-hero__inner {
@@ -5511,9 +5511,16 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1919px) {
+  .product-list-page .plp-hero {
+    padding: calc(180px * var(--plp-hero-s)) calc(29px * var(--plp-hero-s)) calc(40px * var(--plp-hero-s)) 0;
+  }
+}
+
 /* Product list: hero padding — 426–768: keep 768 padding as-is down to 426 */
 @media (min-width: 426px) and (max-width: 768px) {
-  .product-list-page .plp-hero {
+  .product-list-page .plp-hero,
+  body.product-list-page .plp-hero {
     background-color: var(--plp-header-bg, #efce0a);
     padding: 148px 29px 25px 0;
     text-align: left;
@@ -9513,15 +9520,27 @@ html.is-guide-flow-zoom-open body {
 }
 
 /* =============================================================================
-   Product list — 320–768 only: header shadow, 40px top gap
+   Product list — ≤768: header shadow; ≤425 only: header-clear top gap
+   (426–768 padding is locked separately; do not override padding-top there)
    ============================================================================= */
 @media (max-width: 768px) {
+  body.product-list-page .fv-header {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 425px) {
   body.product-list-page .plp-hero {
     padding-top: calc(var(--sp-header-clear, 76px) + 40px * var(--sp-header-s, 1));
   }
+}
 
-  body.product-list-page .fv-header {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+/* Product list: hero padding — 426–768 lock (wins over earlier scale rules) */
+@media (min-width: 426px) and (max-width: 768px) {
+  body.product-list-page .plp-hero {
+    background-color: var(--plp-header-bg, #efce0a);
+    padding: 148px 29px 25px 0;
+    text-align: left;
   }
 }
 
