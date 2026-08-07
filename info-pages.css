@@ -963,10 +963,28 @@
   height: auto;
 }
 
-/* Terms title only — 1440–1919: shrink title size as viewport goes 1920 → 1440 */
+/* Terms title only — 1440–1919: scale title + hero padding/margin with 1920 → 1440 */
 @media (min-width: 1440px) and (max-width: 1919px) {
+  .terms-page {
+    --terms-title-s: calc(100vw / 1920px);
+  }
+
+  .terms-page .info-hero {
+    padding-top: calc(108px * var(--terms-title-s));
+    min-height: calc(375px * var(--terms-title-s));
+  }
+
+  .terms-page .info-hero__inner {
+    width: min(
+      calc(1300px * var(--terms-title-s)),
+      calc(100% - calc(40px * var(--terms-title-s)))
+    );
+    margin: 0 auto;
+    padding-top: calc(135px * var(--terms-title-s));
+  }
+
   .terms-page .terms-title-image {
-    width: calc(280px * (100vw / 1920px));
+    width: calc(280px * var(--terms-title-s));
   }
 }
 
