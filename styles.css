@@ -135,6 +135,13 @@ img {
   }
 }
 
+/* Header — 769–1024: hide phone / お問い合わせ / LINE (keep cart・login・menu). */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fv-header__main {
+    display: none;
+  }
+}
+
 .fv-header__compact {
   display: none;
 }
