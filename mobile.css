@@ -5517,13 +5517,13 @@
   }
 }
 
-/* Product list: hero padding — 426–768: keep 768 padding as-is down to 426 */
+/* Product list: hero padding — 426–768 lock (wins over earlier scale rules) */
 @media (min-width: 426px) and (max-width: 768px) {
   .product-list-page .plp-hero,
   body.product-list-page .plp-hero {
-    background-color: var(--plp-header-bg, #efce0a);
-    padding: 148px 29px 25px 0;
-    text-align: left;
+    background-color: var(--plp-header-bg, #efce0a) !important;
+    padding: 148px 29px 25px 0 !important;
+    text-align: left !important;
   }
 }
 
@@ -9538,9 +9538,9 @@ html.is-guide-flow-zoom-open body {
 /* Product list: hero padding — 426–768 lock (wins over earlier scale rules) */
 @media (min-width: 426px) and (max-width: 768px) {
   body.product-list-page .plp-hero {
-    background-color: var(--plp-header-bg, #efce0a);
-    padding: 148px 29px 25px 0;
-    text-align: left;
+    background-color: var(--plp-header-bg, #efce0a) !important;
+    padding: 148px 29px 25px 0 !important;
+    text-align: left !important;
   }
 }
 

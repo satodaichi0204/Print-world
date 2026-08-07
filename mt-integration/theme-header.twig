@@ -1,14 +1,15 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808plppadfix" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808plppadfix" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808plppadstick" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808plppadstick" data-pw-css="mobile.css">
 <script>
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260808plppadfix";
+  var CSS_V = "20260808plppadstick";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
+  var pinTimer = null;
 
   function pinPwCss() {
     ["styles.css", "mobile.css"].forEach(function (name) {
@@ -43,7 +44,9 @@
     if (!s) {
       s = document.createElement("style");
       s.id = id;
-      s.textContent =
+    }
+    /* Always refresh text so header Twig updates replace a stale #pw-plp-ranking-lock. */
+    s.textContent =
         /* Cards locked 769+; banner 679–1024; tablet 426–768 1-up/3-col; phone 320–425 1-up/2-col */
         "@media (min-width: 769px){" +
         ".plp-main .plp-ranking__track .product-card{" +
@@ -66,6 +69,10 @@
         ".plp-main .plp-ranking__banner-part + .plp-ranking__banner-part{font-size:calc(1em + 6px * var(--plp-banner-s))!important;}" +
         "}" +
         "@media (min-width: 426px) and (max-width: 768px){" +
+        /* PLP hero padding lock — !important + last in head so late MT CSS cannot snap back */
+        "body.product-list-page .plp-hero,.product-list-page .plp-hero{" +
+        "background-color:var(--plp-header-bg,#efce0a)!important;" +
+        "padding:148px 29px 25px 0!important;text-align:left!important;}" +
         ".plp-main .plp-ranking{--plp-tab-s:calc(0.84 + 0.16 * (100vw - 426px) / (768px - 426px));}" +
         ".plp-main .plp-ranking__slider{padding:calc(20px * var(--plp-tab-s)) calc(48px * var(--plp-tab-s)) calc(22px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}" +
@@ -119,13 +126,17 @@
         "@media only screen and (max-width:959px){" +
         "html body:has(.header__checkout) main{padding-top:106px!important;}" +
         "}";
-    }
     (document.head || document.documentElement).appendChild(s);
   }
 
   function pinAll() {
     pinPwCss();
     pinPlpRankingLock();
+  }
+
+  function schedulePin() {
+    if (pinTimer) clearTimeout(pinTimer);
+    pinTimer = setTimeout(pinAll, 50);
   }
 
   pinAll();
@@ -136,6 +147,15 @@
   setTimeout(pinAll, 0);
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
+  setTimeout(pinAll, 2500);
+  setTimeout(pinAll, 5000);
+  /* MT may inject stale styles.css/mobile.css into the body after 1s — keep pinning. */
+  if (typeof MutationObserver === "function") {
+    try {
+      var mo = new MutationObserver(schedulePin);
+      mo.observe(document.documentElement, { childList: true, subtree: true });
+    } catch (e) {}
+  }
 
   function isCartPage() {
     return !!(
@@ -197,7 +217,22 @@
   setTimeout(applySystemMainPad, 800);
 })();
 </script>
-<script>document.body.classList.add("product-list-page");</script>
+<script>
+/* product-list-page: only on PLP routes, after <body> exists (head-time body is null). */
+(function () {
+  function markPlp() {
+    if (!document.body) return;
+    var p = location.pathname || "";
+    if (/products?-?list/i.test(p)) {
+      document.body.classList.add("product-list-page");
+    }
+  }
+  markPlp();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", markPlp);
+  }
+})();
+</script>
 <!-- Pre-launch: keep the whole site OUT of search engines (noindex).
      Injected into <head> via JS (Google renders pages and honours it).
      ★公開時はこの <script> ブロックを削除してください★ -->
