@@ -988,8 +988,10 @@
   }
 }
 
-/* Terms title only — 1025–1439: lock 1440 title size/placement (centered) */
-@media (min-width: 1025px) and (max-width: 1439px) {
+/* Terms title only — 769–1439: freeze the 1440 layout (size + left edge).
+   Same approach as 1024→769 lock: pin upper-bound position so centering
+   does not shift the title as the viewport narrows toward 1024/769. */
+@media (min-width: 769px) and (max-width: 1439px) {
   .terms-page {
     --terms-title-s: calc(1440 / 1920);
   }
@@ -1000,34 +1002,8 @@
   }
 
   .terms-page .info-hero__inner {
-    width: min(
-      calc(1000px * var(--terms-title-s)),
-      calc(100% - calc(40px * var(--terms-title-s)))
-    );
-    margin: 0 auto;
-    padding-top: calc(135px * var(--terms-title-s));
-  }
-
-  .terms-page .terms-title-image {
-    width: calc(280px * var(--terms-title-s));
-  }
-}
-
-/* Terms title only — 769–1024: freeze the 1024 layout (logo↔title left edge).
-   Centering would shift the title left as the viewport narrows; pin 1024 offset. */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .terms-page {
-    --terms-title-s: calc(1440 / 1920);
-  }
-
-  .terms-page .info-hero {
-    padding-top: calc(108px * var(--terms-title-s));
-    min-height: calc(375px * var(--terms-title-s));
-  }
-
-  .terms-page .info-hero__inner {
-    width: calc(1000px * var(--terms-title-s));
-    margin-left: calc((1024px - (1000px * 1440 / 1920)) / 2);
+    width: calc(1300px * var(--terms-title-s));
+    margin-left: calc((1440px - (1300px * 1440 / 1920)) / 2);
     margin-right: auto;
     padding-top: calc(135px * var(--terms-title-s));
   }
