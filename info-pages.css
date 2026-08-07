@@ -1156,6 +1156,15 @@
   }
 }
 
+@media (min-width: 426px) and (max-width: 768px) {
+  .terms-page .info-hero__inner {
+    width: calc(100% - calc(40px * var(--terms-sp-s))) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: calc(94px * var(--terms-sp-s)) !important;
+  }
+}
+
 /* Delivery title only — 320–425: guide-flow-inner padding */
 @media (min-width: 320px) and (max-width: 425px) {
   body.delivery-page .guide-flow-hero .guide-flow-inner {
