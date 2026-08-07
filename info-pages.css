@@ -941,9 +941,14 @@
   background: #efce0a;
 }
 
-.privacy-page .info-hero__inner,
-.terms-page .info-hero__inner {
+.privacy-page .info-hero__inner {
   padding-top: 120px;
+}
+
+.terms-page .info-hero__inner {
+  width: min(1500px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-top: 135px;
 }
 
 .privacy-title-image {
