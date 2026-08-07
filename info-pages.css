@@ -981,6 +981,12 @@
   --page-title-w: 720px;
   --page-title-w-sp: 500px;
 }
+@media (min-width: 320px) and (max-width: 375px) {
+  .tokushoho-page {
+    --page-title-w: 728px;
+    --page-title-w-sp: 440px;
+  }
+}
 .faq-page {
   --page-title-w: 360px;
   --page-title-w-sp: 200px;
