@@ -1016,7 +1016,7 @@
 @media (min-width: 320px) and (max-width: 375px) {
   .design-help-page {
     --page-title-w: 648px;
-    --page-title-w-sp: 480px;
+    --page-title-w-sp: 400px;
   }
 }
 
