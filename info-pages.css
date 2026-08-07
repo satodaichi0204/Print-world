@@ -1165,6 +1165,13 @@
   }
 }
 
+/* Terms title only — 320–530: lock character/title size at 530 (no further shrink) */
+@media (min-width: 320px) and (max-width: 530px) {
+  .terms-page {
+    --terms-sp-s: calc(530 / 768);
+  }
+}
+
 /* Delivery title only — 320–425: guide-flow-inner padding */
 @media (min-width: 320px) and (max-width: 425px) {
   body.delivery-page .guide-flow-hero .guide-flow-inner {
