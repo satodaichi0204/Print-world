@@ -2778,7 +2778,7 @@ img {
 .guide-flow-hero,
 .guide-hero {
   background: #efce0a;
-  padding: 130px 0 48px;
+  padding: 175px 0 25px;
   min-height: 400px;
 }
 
@@ -2859,7 +2859,7 @@ img {
       .guide-print-method-page
     )
     :is(.guide-flow-hero, .guide-hero) {
-    padding: calc(130px * var(--guide-title-s)) 0 calc(48px * var(--guide-title-s));
+    padding: calc(175px * var(--guide-title-s)) 0 calc(25px * var(--guide-title-s));
     min-height: calc(400px * var(--guide-title-s));
   }
 
