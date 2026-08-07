@@ -1001,7 +1001,7 @@
 
   .terms-page .info-hero__inner {
     width: min(
-      calc(1300px * var(--terms-title-s)),
+      calc(1000px * var(--terms-title-s)),
       calc(100% - calc(40px * var(--terms-title-s)))
     );
     margin: 0 auto;
