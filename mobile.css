@@ -8183,7 +8183,8 @@ html.is-guide-flow-zoom-open body {
       .guide-print-method-page
     )
     :is(.guide-flow-hero, .guide-hero) {
-    padding: 80px 0 0 !important;
+    /* 80px@425 → 58px@320 */
+    padding: calc(58px + 22px * (100vw - 320px) / (425px - 320px)) 0 0 !important;
     min-height: 0;
   }
 }
