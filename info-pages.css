@@ -963,6 +963,13 @@
   height: auto;
 }
 
+/* Terms title only — 1440–1919: shrink title size as viewport goes 1920 → 1440 */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .terms-page .terms-title-image {
+    width: calc(280px * (100vw / 1920px));
+  }
+}
+
 .privacy-main {
   width: min(920px, calc(100% - 80px));
   padding-bottom: 100px;
