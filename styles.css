@@ -118,7 +118,7 @@ img {
 
 /* Header — 1024–1439: lock all header sizes at 1440 scale;
    middle yellow gap absorbs the narrower viewport. */
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1025px) and (max-width: 1439px) {
   .fv-header {
     width: calc(100vw * 1920 / 1440);
     zoom: calc(1440 / 1920);
@@ -126,19 +126,16 @@ img {
   }
 }
 
-/* Header — 769–1023: scale from 1920 (unchanged). */
-@media (min-width: 769px) and (max-width: 1023px) {
+/* Header — 769–1024: lock sizes at 1024 (1440-scale); hide contact block. */
+@media (min-width: 769px) and (max-width: 1024px) {
   .fv-header {
-    width: 1920px;
-    zoom: calc(100vw / 1920px);
+    width: calc(100vw * 1920 / 1440);
+    zoom: calc(1440 / 1920);
     transform-origin: top left;
   }
-}
 
-/* Header — 769–1024: hide phone / お問い合わせ / LINE (keep cart・login・menu). */
-@media (min-width: 769px) and (max-width: 1024px) {
   .fv-header__main {
-    display: none;
+    display: none !important;
   }
 }
 

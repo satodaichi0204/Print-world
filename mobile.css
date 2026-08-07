@@ -9934,11 +9934,27 @@ html.is-guide-flow-zoom-open body {
     gap: 50px !important;
   }
 
+  .fv-header__compact {
+    display: none !important;
+  }
+}
+
+/* 1025–1919: desktop contact block visible */
+@media (min-width: 1025px) and (max-width: 1919px) {
   .fv-header__main {
     display: flex !important;
   }
+}
 
-  .fv-header__compact {
+/* 769–1024: lock 1024 header size; hide phone / mail / LINE block */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fv-header {
+    width: calc(100vw * 1920 / 1440) !important;
+    zoom: calc(1440 / 1920) !important;
+    transform-origin: top left !important;
+  }
+
+  .fv-header__main {
     display: none !important;
   }
 }
