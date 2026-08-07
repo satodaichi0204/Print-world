@@ -5392,14 +5392,6 @@
     padding-inline: 29px;
   }
 
-  .product-list-page .plp-hero__title-sm {
-    font-size: clamp(19px, 3.8vw, 26px);
-  }
-
-  .product-list-page .plp-hero__title-lg {
-    font-size: clamp(34px, 7.2vw, 50px);
-  }
-
   .product-list-page .plp-intro__catch {
     margin-inline: 20px;
     font-size: clamp(17px, 3vw, 22px);
@@ -5490,11 +5482,12 @@
   }
 }
 
-/* --- Product list: hero band — 768–1919 title/inner scale; padding from 769 only.
-   426–768 padding is locked below / at file end. --- */
-@media (min-width: 768px) and (max-width: 1919px) {
+/* --- Product list: hero band — 769–1919 title/inner scale (768 locked below).
+   426–768 padding/title locked to 768 state. --- */
+@media (min-width: 769px) and (max-width: 1919px) {
   .product-list-page .plp-hero {
     --plp-hero-s: calc(100vw / 1920px);
+    padding: calc(180px * var(--plp-hero-s)) calc(29px * var(--plp-hero-s)) calc(40px * var(--plp-hero-s)) 0;
   }
 
   .product-list-page .plp-hero__inner {
@@ -5511,19 +5504,27 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1919px) {
-  .product-list-page .plp-hero {
-    padding: calc(180px * var(--plp-hero-s)) calc(29px * var(--plp-hero-s)) calc(40px * var(--plp-hero-s)) 0;
-  }
-}
-
-/* Product list: hero padding — 426–768 lock (wins over earlier scale rules) */
+/* Product list: hero — 426–768: freeze exact 768 composition (no further shrink) */
 @media (min-width: 426px) and (max-width: 768px) {
   .product-list-page .plp-hero,
   body.product-list-page .plp-hero {
+    --plp-hero-s: calc(768 / 1920);
     background-color: var(--plp-header-bg, #efce0a) !important;
     padding: 148px 29px 25px 0 !important;
     text-align: left !important;
+  }
+
+  .product-list-page .plp-hero__inner {
+    width: min(calc(1440px * 768 / 1920), calc(100% - 48px * 768 / 1920)) !important;
+    padding-inline: calc(29px * 768 / 1920) !important;
+  }
+
+  .product-list-page .plp-hero__title-sm {
+    font-size: calc(37.6px * 768 / 1920) !important;
+  }
+
+  .product-list-page .plp-hero__title-lg {
+    font-size: calc(72.8px * 768 / 1920) !important;
   }
 }
 
@@ -9541,6 +9542,19 @@ html.is-guide-flow-zoom-open body {
     background-color: var(--plp-header-bg, #efce0a) !important;
     padding: 148px 29px 25px 0 !important;
     text-align: left !important;
+  }
+
+  body.product-list-page .plp-hero__inner {
+    width: min(calc(1440px * 768 / 1920), calc(100% - 48px * 768 / 1920)) !important;
+    padding-inline: calc(29px * 768 / 1920) !important;
+  }
+
+  body.product-list-page .plp-hero__title-sm {
+    font-size: calc(37.6px * 768 / 1920) !important;
+  }
+
+  body.product-list-page .plp-hero__title-lg {
+    font-size: calc(72.8px * 768 / 1920) !important;
   }
 }
 

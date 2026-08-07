@@ -1,13 +1,13 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808noflicker" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808noflicker" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260808plp768lock" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260808plp768lock" data-pw-css="mobile.css">
 <script>
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260808noflicker";
+  var CSS_V = "20260808plp768lock";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -72,10 +72,17 @@
         ".plp-main .plp-ranking__banner-part + .plp-ranking__banner-part{font-size:calc(1em + 6px * var(--plp-banner-s))!important;}" +
         "}" +
         "@media (min-width: 426px) and (max-width: 768px){" +
-        /* PLP hero padding lock — !important so late MT CSS cannot snap back */
+        /* PLP hero — freeze 768 composition down to 426 */
         "body.product-list-page .plp-hero,.product-list-page .plp-hero{" +
         "background-color:var(--plp-header-bg,#efce0a)!important;" +
         "padding:148px 29px 25px 0!important;text-align:left!important;}" +
+        "body.product-list-page .plp-hero__inner,.product-list-page .plp-hero__inner{" +
+        "width:min(calc(1440px * 768 / 1920),calc(100% - 48px * 768 / 1920))!important;" +
+        "padding-inline:calc(29px * 768 / 1920)!important;}" +
+        "body.product-list-page .plp-hero__title-sm,.product-list-page .plp-hero__title-sm{" +
+        "font-size:calc(37.6px * 768 / 1920)!important;}" +
+        "body.product-list-page .plp-hero__title-lg,.product-list-page .plp-hero__title-lg{" +
+        "font-size:calc(72.8px * 768 / 1920)!important;}" +
         ".plp-main .plp-ranking{--plp-tab-s:calc(0.84 + 0.16 * (100vw - 426px) / (768px - 426px));}" +
         ".plp-main .plp-ranking__slider{padding:calc(20px * var(--plp-tab-s)) calc(48px * var(--plp-tab-s)) calc(22px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}" +
