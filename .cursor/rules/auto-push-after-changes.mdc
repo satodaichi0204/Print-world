@@ -1,0 +1,15 @@
+---
+description: Always commit and push after completing code changes
+alwaysApply: true
+---
+
+# Auto push after changes
+
+When code or integration files are modified for this project:
+
+1. After finishing the requested edits, **commit and push to `master` without waiting** for the user to say "push".
+2. Include only the files relevant to the change.
+3. Use a concise commit message focused on why.
+4. After push, briefly tell the user the commit hash and any MakerTown re-paste / cache version notes.
+
+Do not push unrelated untracked assets (csv, modify/, node_modules, etc.).
