@@ -1075,3 +1075,10 @@
   }
 }
 
+/* Delivery title only — 320–425: match guide-flow-inner padding from inspector */
+@media (min-width: 320px) and (max-width: 425px) {
+  body.delivery-page .guide-flow-hero .guide-flow-inner {
+    padding: 12px 16px;
+  }
+}
+
