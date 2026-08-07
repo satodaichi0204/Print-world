@@ -5489,7 +5489,7 @@
 @media (min-width: 769px) and (max-width: 1919px) {
   .product-list-page .plp-hero {
     --plp-hero-s: calc(100vw / 1920px);
-    padding: calc(180px * var(--plp-hero-s)) calc(29px * var(--plp-hero-s)) calc(40px * var(--plp-hero-s)) 0;
+    padding: calc(261px * var(--plp-hero-s)) calc(29px * var(--plp-hero-s)) calc(40px * var(--plp-hero-s)) 0;
   }
 
   .product-list-page .plp-hero__inner {
