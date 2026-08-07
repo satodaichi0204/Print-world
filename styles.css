@@ -4742,25 +4742,25 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 }
 
 .plp-hero__title-sm {
-  /* 1920→1440 で縮小（47px @1920 → 35.25px @1440） */
-  font-size: clamp(23px, calc(100vw * 47 / 1920), 47px);
+  /* 1920基準を現行の80%（37.6px）、1440まで比例縮小 */
+  font-size: clamp(18px, calc(100vw * 37.6 / 1920), 37.6px);
   letter-spacing: 0em;
 }
 
 .plp-hero__title-lg {
-  /* 1920→1440 で縮小（91px @1920 → 68.25px @1440） */
-  font-size: clamp(43px, calc(100vw * 91 / 1920), 91px);
+  /* 1920基準を現行の80%（72.8px）、1440まで比例縮小 */
+  font-size: clamp(34px, calc(100vw * 72.8 / 1920), 72.8px);
   letter-spacing: 0;
 }
 
 /* PLP hero title — 1440–1919: scale from 1920 → 1440 */
 @media (min-width: 1440px) and (max-width: 1919px) {
   .product-list-page .plp-hero__title-sm {
-    font-size: calc(47px * 100vw / 1920px);
+    font-size: calc(37.6px * 100vw / 1920px);
   }
 
   .product-list-page .plp-hero__title-lg {
-    font-size: calc(91px * 100vw / 1920px);
+    font-size: calc(72.8px * 100vw / 1920px);
   }
 }
 

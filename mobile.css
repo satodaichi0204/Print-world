@@ -5503,11 +5503,11 @@
   }
 
   .product-list-page .plp-hero__title-sm {
-    font-size: calc(47px * var(--plp-hero-s));
+    font-size: calc(37.6px * var(--plp-hero-s));
   }
 
   .product-list-page .plp-hero__title-lg {
-    font-size: calc(91px * var(--plp-hero-s));
+    font-size: calc(72.8px * var(--plp-hero-s));
   }
 }
 
