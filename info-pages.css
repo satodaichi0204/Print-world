@@ -1097,3 +1097,11 @@
   }
 }
 
+/* Delivery title only — 320–425 */
+@media (max-width: 425px) {
+  .delivery-page .delivery-title-image {
+    width: min(80%, 620px);
+    padding-bottom: 30px;
+  }
+}
+
