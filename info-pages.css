@@ -1003,6 +1003,12 @@
   --page-title-w: 640px;
   --page-title-w-sp: 450px;
 }
+@media (min-width: 320px) and (max-width: 375px) {
+  .about-page {
+    --page-title-w: 640px;
+    --page-title-w-sp: 400px;
+  }
+}
 .design-help-page {
   --page-title-w: 640px;
   --page-title-w-sp: 300px;
