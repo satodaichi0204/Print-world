@@ -1130,6 +1130,32 @@
   }
 }
 
+/* Terms title only — 320–768: keep the 768 heading layout; scale padding/size together */
+@media (min-width: 320px) and (max-width: 768px) {
+  .terms-page {
+    --terms-sp-s: calc(100vw / 768px);
+  }
+
+  .terms-page .info-hero {
+    min-height: calc(260px * var(--terms-sp-s)) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--terms-sp-s))) !important;
+    padding-bottom: 0 !important;
+  }
+
+  .terms-page .info-hero__inner {
+    width: calc(100% - calc(40px * var(--terms-sp-s))) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: calc(62px * var(--terms-sp-s)) !important;
+  }
+
+  .terms-page .terms-title-image {
+    width: calc(200px * var(--terms-sp-s)) !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+}
+
 /* Delivery title only — 320–425: guide-flow-inner padding */
 @media (min-width: 320px) and (max-width: 425px) {
   body.delivery-page .guide-flow-hero .guide-flow-inner {
