@@ -5614,8 +5614,8 @@ body.pw-pdp-hydrated #pw-pdp-shell {
 
 .pdp-spec {
   margin-top: 0;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
   background: #fff;
   overflow: hidden;
 }
@@ -5628,7 +5628,7 @@ body.pw-pdp-hydrated #pw-pdp-shell {
 
 .pdp-spec th,
 .pdp-spec td {
-  padding: 14px 18px;
+  padding: 16px 20px;
   border-bottom: 1px solid #ececec;
   vertical-align: top;
 }
@@ -5651,22 +5651,22 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 }
 
 .pdp-spec th {
-  width: 34%;
+  width: 6.5em;
   background: #fff;
   color: #888;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.5;
-  text-align: right;
+  text-align: left;
   white-space: nowrap;
 }
 
 .pdp-spec td {
   background: #fff;
-  color: #111;
+  color: #333;
   font-size: 14px;
-  font-weight: 700;
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.7;
   text-align: left;
 }
 
@@ -5687,10 +5687,10 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 
 .pdp-spec__material-note {
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
   color: #666;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 400;
   line-height: 1.65;
 }
 
@@ -5704,15 +5704,23 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 }
 
 .pdp-spec__tags li {
-  color: #e60012;
+  color: #666;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.2;
   white-space: nowrap;
 }
 
 .pdp-spec__hash {
   color: #e60012;
+  margin-right: 0.05em;
+}
+
+.pdp-spec__feature-text {
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 .pdp-spec__brand {
@@ -6267,9 +6275,12 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 .pdp-main .pdp-related__link { color: #3b6dbb !important; }
 .pdp-main .pdp-spec__price,
 .pdp-main .pdp-spec__price-note,
-.pdp-main .pdp-spec__tags li,
 .pdp-main .pdp-spec__hash { color: #e60012 !important; }
+.pdp-main .pdp-spec__tags li { color: #666 !important; }
+.pdp-main .pdp-spec__feature-text { color: #333 !important; }
 .pdp-main .pdp-spec__material-note { color: #666 !important; }
+.pdp-main .pdp-spec th { text-align: left !important; font-weight: 400 !important; }
+.pdp-main .pdp-spec td { font-weight: 400 !important; }
 .pdp-main .pdp-btn--support { color: #00b2c8 !important; }
 
 /* =============================================================================

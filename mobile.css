@@ -6421,7 +6421,7 @@
   }
 
   .product-detail-page .pdp-spec {
-    border-radius: calc(8px * var(--pdp-body-s));
+    border-radius: 0;
   }
 
   .product-detail-page .pdp-spec th,
@@ -6869,7 +6869,7 @@ html.is-guide-flow-zoom-open body {
 
   .product-detail-page .pdp-spec {
     border-width: calc(1px * var(--pdp-pc-s));
-    border-radius: calc(8px * var(--pdp-pc-s));
+    border-radius: 0;
   }
 
   .product-detail-page .pdp-spec th,

@@ -86,23 +86,36 @@
                 </tr>
                 <tr>
                   <th scope="row">販売価格</th>
-                  <td data-pw-pdp="spec-price">—</td>
+                  <td>
+                    <span class="pdp-spec__price" data-pw-pdp="spec-price">—</span><span class="pdp-spec__price-note" data-pw-pdp="spec-price-note"></span>
+                  </td>
                 </tr>
-                <tr>
-                  <th scope="row">素材</th>
-                  <td data-pw-pdp="spec-material">—</td>
+                <tr data-pw-pdp-row="code">
+                  <th scope="row">品番</th>
+                  <td data-pw-pdp="spec-code">—</td>
                 </tr>
                 <tr>
                   <th scope="row">サイズ</th>
                   <td data-pw-pdp="spec-size">—</td>
                 </tr>
-                <tr>
-                  <th scope="row">特徴</th>
-                  <td data-pw-pdp="spec-feature">—</td>
+                <tr data-pw-pdp-row="color">
+                  <th scope="row">カラー</th>
+                  <td data-pw-pdp="spec-color">—</td>
                 </tr>
                 <tr>
-                  <th scope="row">出荷予定日</th>
-                  <td data-pw-pdp="spec-ship">—</td>
+                  <th scope="row">素材</th>
+                  <td data-pw-pdp="spec-material">—</td>
+                </tr>
+                <tr data-pw-pdp-row="tags">
+                  <th scope="row">特徴</th>
+                  <td>
+                    <ul class="pdp-spec__tags" data-pw-pdp="spec-tags" aria-label="商品タグ"></ul>
+                    <span class="pdp-spec__feature-text" data-pw-pdp="spec-feature" hidden></span>
+                  </td>
+                </tr>
+                <tr data-pw-pdp-row="brand">
+                  <th scope="row">特徴</th>
+                  <td><span class="pdp-spec__brand" data-pw-pdp="spec-brand"></span></td>
                 </tr>
               </tbody>
             </table>
@@ -141,4 +154,4 @@
 </div>
 
 <!-- app.mt.js: この骨組みへ MT 商品情報を流し込む（ステップ2済み） -->
-<script src="https://print-world-blond.vercel.app/mt-integration/app.mt.js?v=20260809pdpnav"></script>
+<script src="https://print-world-blond.vercel.app/mt-integration/app.mt.js?v=20260809pdpspec"></script>

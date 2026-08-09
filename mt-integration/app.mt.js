@@ -1044,6 +1044,89 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     }).filter((c) => c.src);
   }
 
+  function setRowVisible(root, key, visible) {
+    const row = root.querySelector('[data-pw-pdp-row="' + key + '"]');
+    if (!row) return;
+    row.hidden = !visible;
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function splitItemCode(name) {
+    const t = (name || "").trim();
+    const m = t.match(/^([0-9A-Za-z]{2,10}-[0-9A-Za-z]{1,10})\s+(.+)$/);
+    if (m) return { code: m[1], name: m[2] };
+    return { code: "", name: t };
+  }
+
+  function fillSpecPrice(root, raw) {
+    const priceEl = root.querySelector('[data-pw-pdp="spec-price"]');
+    const noteEl = root.querySelector('[data-pw-pdp="spec-price-note"]');
+    if (!priceEl) return;
+    const t = (raw || "").trim();
+    if (!t) {
+      priceEl.textContent = "—";
+      if (noteEl) noteEl.textContent = "";
+      return;
+    }
+    const m = t.match(/^([¥￥]\s*[\d,]+)\s*(.*)$/);
+    if (m) {
+      priceEl.textContent = m[1].replace(/\s+/g, "");
+      if (noteEl) noteEl.textContent = m[2];
+    } else {
+      priceEl.textContent = t;
+      if (noteEl) noteEl.textContent = "";
+    }
+  }
+
+  function formatMaterialHtml(material) {
+    const t = (material || "").trim();
+    if (!t) return "—";
+    const parts = t.split(/(?=※)/);
+    const main = parts[0].trim();
+    const notes = parts.slice(1).map((p) => p.trim()).filter(Boolean);
+    if (!notes.length) return escapeHtml(main || "—");
+    return (
+      escapeHtml(main) +
+      notes
+        .map((n) => '<span class="pdp-spec__material-note">' + escapeHtml(n) + "</span>")
+        .join("")
+    );
+  }
+
+  function parseFeatureTags(feature) {
+    const tags = [];
+    const re = /#\s*([^\s#　、,，]+)/g;
+    let m;
+    while ((m = re.exec(feature || ""))) {
+      if (tags.indexOf(m[1]) === -1) tags.push(m[1]);
+    }
+    return tags;
+  }
+
+  function extractBrand(feature, name) {
+    const brands = [
+      "Printstar",
+      "United Athle",
+      "GILDAN",
+      "Champion",
+      "glimmer",
+      "Print Star",
+      "TOMAS"
+    ];
+    const hay = ((feature || "") + " " + (name || "")).toLowerCase();
+    for (let i = 0; i < brands.length; i++) {
+      if (hay.indexOf(brands[i].toLowerCase()) !== -1) return brands[i];
+    }
+    return "";
+  }
+
   function hydratePdpShell() {
     const shell = document.querySelector("[data-pw-pdp-shell]");
     if (!shell) return;
@@ -1059,32 +1142,72 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     document.body.classList.add("product-detail-page", "pw-pdp-hydrated");
     document.body.classList.remove("product-list-page");
 
-    const name =
+    const nameRaw =
       textOf(document.querySelector(".make__detail__main__item")) ||
       textOf(document.querySelector("h1.make__detail__main__item"));
     const price = textOf(document.querySelector(".make__detail__main__price"));
     const mainImg = document.querySelector("#js-item-detail-image");
     const mainSrc = mainImg ? mainImg.getAttribute("src") || "" : "";
-    const mainAlt = mainImg ? mainImg.getAttribute("alt") || name : name;
+    const mainAlt = mainImg ? mainImg.getAttribute("alt") || nameRaw : nameRaw;
 
     const feature = explanationValue("特徴");
     const material = explanationValue("素材");
-    const ship = explanationValue("出荷");
     const size = explanationValue("サイズ");
+    const split = splitItemCode(nameRaw);
+    const colors = collectColorThumbs();
+    const tags = parseFeatureTags(feature);
+    const brand = extractBrand(feature, nameRaw);
 
-    setText(shell, "name", name || "商品詳細");
-    setText(shell, "spec-name", name || "—");
-    setText(shell, "spec-price", price || "—");
-    setText(shell, "spec-material", material || "—");
+    setText(shell, "name", nameRaw || "商品詳細");
+    setText(shell, "spec-name", split.name || nameRaw || "—");
+    fillSpecPrice(shell, price);
+    setText(shell, "spec-code", split.code || "—");
+    setRowVisible(shell, "code", !!split.code);
     setText(shell, "spec-size", size || "—");
-    setText(shell, "spec-feature", feature || "—");
-    setText(shell, "spec-ship", ship || "—");
+    setText(shell, "spec-color", colors.length ? ("全" + colors.length + "色") : "—");
+    setRowVisible(shell, "color", colors.length > 0);
+    setHtml(shell, "spec-material", formatMaterialHtml(material));
+
+    const tagsEl = shell.querySelector('[data-pw-pdp="spec-tags"]');
+    const featureEl = shell.querySelector('[data-pw-pdp="spec-feature"]');
+    if (tags.length && tagsEl) {
+      tagsEl.hidden = false;
+      tagsEl.innerHTML = tags
+        .map((t) => '<li><span class="pdp-spec__hash">#</span>' + escapeHtml(t) + "</li>")
+        .join("");
+      if (featureEl) {
+        featureEl.hidden = true;
+        featureEl.textContent = "";
+      }
+      setRowVisible(shell, "tags", true);
+    } else if (feature && featureEl) {
+      if (tagsEl) {
+        tagsEl.hidden = true;
+        tagsEl.innerHTML = "";
+      }
+      featureEl.hidden = false;
+      featureEl.textContent = feature;
+      setRowVisible(shell, "tags", true);
+    } else {
+      if (tagsEl) {
+        tagsEl.hidden = true;
+        tagsEl.innerHTML = "";
+      }
+      if (featureEl) {
+        featureEl.hidden = true;
+        featureEl.textContent = "";
+      }
+      setRowVisible(shell, "tags", false);
+    }
+
+    setText(shell, "spec-brand", brand);
+    setRowVisible(shell, "brand", !!brand);
 
     // Headline: use first line of feature, or product name
     setText(
       shell,
       "headline",
-      feature ? feature.slice(0, 80) : (name || "商品詳細")
+      feature ? feature.slice(0, 80) : (nameRaw || "商品詳細")
     );
 
     const desc = shell.querySelector('[data-pw-pdp="description"]');
@@ -1103,7 +1226,6 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
 
     // Thumbs from MT color swatches (+ main image as first thumb)
     const thumbsWrap = shell.querySelector('[data-pw-pdp="thumbs"]');
-    const colors = collectColorThumbs();
     if (thumbsWrap) {
       // Thumbnails = the color swatches only. The 代表画像 is (almost always) the first
       // color, but its URL differs from that swatch's URL, so prepending it made that
