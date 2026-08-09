@@ -137,43 +137,97 @@ setupMeasuredLoop(
   });
 })();
 
-// Product detail: gallery thumb switching
+// Product detail: gallery thumb / prev / next
+// Thumbs are often empty at first paint on MakerTown (filled by hydratePdpShell).
+// Bind once with live thumb queries so prev/next work after hydration.
 (() => {
-  const gallery = document.querySelector("[data-pdp-gallery]");
-  if (!gallery) return;
+  function bindPdpGallery(root) {
+    const gallery =
+      (root && root.querySelector && root.querySelector("[data-pdp-gallery]")) ||
+      (root && root.matches && root.matches("[data-pdp-gallery]") && root) ||
+      document.querySelector("[data-pdp-gallery]");
+    if (!gallery || gallery.getAttribute("data-pw-gallery-bound") === "1") return;
 
-  const mainImg = gallery.querySelector(".pdp-gallery__main-img");
-  const thumbs = Array.from(gallery.querySelectorAll(".pdp-gallery__thumb"));
-  const prevBtn = gallery.querySelector(".pdp-gallery__nav--prev");
-  const nextBtn = gallery.querySelector(".pdp-gallery__nav--next");
-  if (!mainImg || thumbs.length === 0) return;
+    const mainImg = gallery.querySelector(".pdp-gallery__main-img");
+    const prevBtn = gallery.querySelector(".pdp-gallery__nav--prev");
+    const nextBtn = gallery.querySelector(".pdp-gallery__nav--next");
+    if (!mainImg) return;
 
-  let activeIndex = Math.max(
-    0,
-    thumbs.findIndex((thumb) => thumb.classList.contains("is-active"))
-  );
+    function getThumbs() {
+      return Array.from(gallery.querySelectorAll(".pdp-gallery__thumb"));
+    }
 
-  const showThumb = (index) => {
-    const thumb = thumbs[index];
-    const src = thumb.getAttribute("data-pdp-src");
-    if (!src) return;
-    mainImg.src = src;
-    thumbs.forEach((t) => t.classList.remove("is-active"));
-    thumb.classList.add("is-active");
-    activeIndex = index;
-  };
+    function activeIndex(thumbs) {
+      const i = thumbs.findIndex((t) => t.classList.contains("is-active"));
+      return i >= 0 ? i : 0;
+    }
 
-  thumbs.forEach((thumb, index) => {
-    thumb.addEventListener("click", () => showThumb(index));
-  });
+    function showThumb(index) {
+      const thumbs = getThumbs();
+      if (!thumbs.length) return;
+      const i = ((index % thumbs.length) + thumbs.length) % thumbs.length;
+      const thumb = thumbs[i];
+      const src = thumb.getAttribute("data-pdp-src");
+      if (!src) return;
 
-  prevBtn?.addEventListener("click", () => {
-    showThumb((activeIndex - 1 + thumbs.length) % thumbs.length);
-  });
+      mainImg.src = src;
+      thumbs.forEach((t) => t.classList.toggle("is-active", t === thumb));
 
-  nextBtn?.addEventListener("click", () => {
-    showThumb((activeIndex + 1) % thumbs.length);
-  });
+      const mtIdx = Number(thumb.getAttribute("data-pw-mt-color-index") || -1);
+      const thumbsWrap =
+        gallery.querySelector('[data-pw-pdp="thumbs"]') ||
+        gallery.querySelector(".pdp-gallery__thumbs");
+      const entry =
+        thumbsWrap &&
+        thumbsWrap._pwColorEntries &&
+        thumbsWrap._pwColorEntries[mtIdx];
+      if (entry && entry.mtBox) {
+        try {
+          entry.mtBox.click();
+        } catch (_) {}
+      }
+    }
+
+    gallery.addEventListener("click", function (e) {
+      const thumb = e.target.closest(".pdp-gallery__thumb");
+      if (!thumb || !gallery.contains(thumb)) return;
+      e.preventDefault();
+      showThumb(getThumbs().indexOf(thumb));
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const thumbs = getThumbs();
+        if (!thumbs.length) return;
+        showThumb(activeIndex(thumbs) - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const thumbs = getThumbs();
+        if (!thumbs.length) return;
+        showThumb(activeIndex(thumbs) + 1);
+      });
+    }
+
+    gallery.setAttribute("data-pw-gallery-bound", "1");
+  }
+
+  window.__pwBindPdpGallery = bindPdpGallery;
+
+  function boot() {
+    bindPdpGallery();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
 
 // Section4 cards: duplicate one full set for continuous left loop.
@@ -1093,25 +1147,9 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
       }
     }
 
-    // Gallery thumb clicks: swap main image; if linked to MT color box, click it
-    if (thumbsWrap) {
-      thumbsWrap.addEventListener("click", function (e) {
-        const thumb = e.target.closest(".pdp-gallery__thumb");
-        if (!thumb || !thumbsWrap.contains(thumb)) return;
-        const src = thumb.getAttribute("data-pdp-src");
-        if (!src || !shellImg) return;
-
-        shellImg.src = src;
-        thumbsWrap.querySelectorAll(".pdp-gallery__thumb").forEach(function (t) {
-          t.classList.toggle("is-active", t === thumb);
-        });
-
-        const idx = Number(thumb.getAttribute("data-pw-mt-color-index") || -1);
-        const entry = thumbsWrap._pwColorEntries && thumbsWrap._pwColorEntries[idx];
-        if (entry && entry.mtBox) {
-          try { entry.mtBox.click(); } catch (_) {}
-        }
-      });
+    // Gallery nav (prev/next/thumbs): bind once with live thumb queries
+    if (typeof window.__pwBindPdpGallery === "function") {
+      window.__pwBindPdpGallery(shell);
     }
 
     // Meta line under gallery

@@ -105,43 +105,65 @@ setupMeasuredLoop(
   });
 })();
 
-// Product detail: gallery thumb switching
+// Product detail: gallery thumb / prev / next (live thumb query — works if thumbs fill later)
 (() => {
-  const gallery = document.querySelector("[data-pdp-gallery]");
-  if (!gallery) return;
+  function bindPdpGallery(root) {
+    const gallery =
+      (root && root.querySelector && root.querySelector("[data-pdp-gallery]")) ||
+      (root && root.matches && root.matches("[data-pdp-gallery]") && root) ||
+      document.querySelector("[data-pdp-gallery]");
+    if (!gallery || gallery.getAttribute("data-pw-gallery-bound") === "1") return;
 
-  const mainImg = gallery.querySelector(".pdp-gallery__main-img");
-  const thumbs = Array.from(gallery.querySelectorAll(".pdp-gallery__thumb"));
-  const prevBtn = gallery.querySelector(".pdp-gallery__nav--prev");
-  const nextBtn = gallery.querySelector(".pdp-gallery__nav--next");
-  if (!mainImg || thumbs.length === 0) return;
+    const mainImg = gallery.querySelector(".pdp-gallery__main-img");
+    const prevBtn = gallery.querySelector(".pdp-gallery__nav--prev");
+    const nextBtn = gallery.querySelector(".pdp-gallery__nav--next");
+    if (!mainImg) return;
 
-  let activeIndex = Math.max(
-    0,
-    thumbs.findIndex((thumb) => thumb.classList.contains("is-active"))
-  );
+    function getThumbs() {
+      return Array.from(gallery.querySelectorAll(".pdp-gallery__thumb"));
+    }
 
-  const showThumb = (index) => {
-    const thumb = thumbs[index];
-    const src = thumb.getAttribute("data-pdp-src");
-    if (!src) return;
-    mainImg.src = src;
-    thumbs.forEach((t) => t.classList.remove("is-active"));
-    thumb.classList.add("is-active");
-    activeIndex = index;
-  };
+    function activeIndex(thumbs) {
+      const i = thumbs.findIndex((t) => t.classList.contains("is-active"));
+      return i >= 0 ? i : 0;
+    }
 
-  thumbs.forEach((thumb, index) => {
-    thumb.addEventListener("click", () => showThumb(index));
-  });
+    function showThumb(index) {
+      const thumbs = getThumbs();
+      if (!thumbs.length) return;
+      const i = ((index % thumbs.length) + thumbs.length) % thumbs.length;
+      const thumb = thumbs[i];
+      const src = thumb.getAttribute("data-pdp-src");
+      if (!src) return;
+      mainImg.src = src;
+      thumbs.forEach((t) => t.classList.toggle("is-active", t === thumb));
+    }
 
-  prevBtn?.addEventListener("click", () => {
-    showThumb((activeIndex - 1 + thumbs.length) % thumbs.length);
-  });
+    gallery.addEventListener("click", (e) => {
+      const thumb = e.target.closest(".pdp-gallery__thumb");
+      if (!thumb || !gallery.contains(thumb)) return;
+      showThumb(getThumbs().indexOf(thumb));
+    });
 
-  nextBtn?.addEventListener("click", () => {
-    showThumb((activeIndex + 1) % thumbs.length);
-  });
+    prevBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const thumbs = getThumbs();
+      if (!thumbs.length) return;
+      showThumb(activeIndex(thumbs) - 1);
+    });
+
+    nextBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const thumbs = getThumbs();
+      if (!thumbs.length) return;
+      showThumb(activeIndex(thumbs) + 1);
+    });
+
+    gallery.setAttribute("data-pw-gallery-bound", "1");
+  }
+
+  window.__pwBindPdpGallery = bindPdpGallery;
+  bindPdpGallery();
 })();
 
 // Section4 cards: duplicate one full set for continuous left loop.

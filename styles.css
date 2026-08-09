@@ -5411,7 +5411,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .pdp-gallery__nav {
   position: absolute;
   top: 50%;
-  z-index: 2;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5424,6 +5424,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .pdp-gallery__nav--prev {
