@@ -5533,11 +5533,11 @@
   }
 
   .product-list-page .plp-hero__title-sm {
-    font-size: calc(37.6px * 768 / 1920) !important;
+    font-size: calc(70px * 768 / 1920) !important;
   }
 
   .product-list-page .plp-hero__title-lg {
-    font-size: calc(72.8px * 768 / 1920) !important;
+    font-size: calc(110px * 768 / 1920) !important;
   }
 }
 
@@ -9571,11 +9571,11 @@ html.is-guide-flow-zoom-open body {
   }
 
   body.product-list-page .plp-hero__title-sm {
-    font-size: calc(37.6px * 768 / 1920) !important;
+    font-size: calc(70px * 768 / 1920) !important;
   }
 
   body.product-list-page .plp-hero__title-lg {
-    font-size: calc(72.8px * 768 / 1920) !important;
+    font-size: calc(110px * 768 / 1920) !important;
   }
 }
 
