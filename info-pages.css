@@ -1628,3 +1628,12 @@
   }
 }
 
+/* Tokushoho title image only — 320–375 */
+@media (min-width: 320px) and (max-width: 375px) {
+  body.tokushoho-page .tokushoho-title-image {
+    margin-left: -10px !important;
+    margin-right: 0 !important;
+    align-self: flex-start !important;
+  }
+}
+
