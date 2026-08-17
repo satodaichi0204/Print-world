@@ -11021,13 +11021,15 @@ html.is-guide-flow-zoom-open body {
 
   body.product-list-page .plp-hero__inner,
   body.product-detail-page .pdp-hero__inner {
-    width: min(1440px, calc(100% - 48px)) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding: 18px 20px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
     min-height: calc(
       min(280px, 0.52 * (100vw - 48px)) * 164 / 511 + 14px +
         min(780px, 0.88 * (100vw - 48px)) * 123 / 1349 + 36px

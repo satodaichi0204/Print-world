@@ -1561,6 +1561,7 @@
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+    align-items: stretch !important;
   }
 
   :is(
@@ -1579,17 +1580,44 @@
       .ap-hero__inner,
       .dh-sec1__inner
     ) {
-    width: min(1440px, calc(100% - 48px)) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding: 18px 20px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
     min-height: calc(
       min(280px, 0.52 * (100vw - 48px)) * 164 / 511 + 14px +
         min(780px, 0.88 * (100vw - 48px)) * 123 / 1349 + 36px
     ) !important;
+  }
+
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(
+      .terms-title-image,
+      .privacy-title-image,
+      .tokushoho-title-image,
+      .faq-title-image,
+      .contact-title-image,
+      .company-title-image,
+      .ap-hero__title,
+      .dh-sec1__title
+    ) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    align-self: flex-start !important;
   }
 }
 
