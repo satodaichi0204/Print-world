@@ -411,11 +411,11 @@
 
 @media (max-width: 480px) {
   .company-title {
-    min-height: 210px;
+    /* yellow band: shared no-kicker hero (info-pages.css) */
   }
 
   .company-title__inner {
-    padding-top: 60px;
+    /* yellow band: shared no-kicker hero (info-pages.css) */
   }
 
   .company-title-image {

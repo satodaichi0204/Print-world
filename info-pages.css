@@ -1430,7 +1430,8 @@
   }
 }
 
-/* Shared title hero — 320–768: keep 768 heading layout; scale padding/size together */
+/* Shared title hero — 320–768: keep 768 heading SIZE.
+   Yellow band height matches guide-flow (kicker + title stack); title is vertically centered. */
 @media (min-width: 320px) and (max-width: 768px) {
   :is(
       .terms-page,
@@ -1443,44 +1444,6 @@
       .design-help-page
     ) {
     --page-title-sp-s: calc(100vw / 768px);
-  }
-
-  :is(
-      .terms-page,
-      .privacy-page,
-      .tokushoho-page,
-      .faq-page,
-      .contact-page,
-      .company-page,
-      .about-page,
-      .design-help-page
-    )
-    :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
-    min-height: calc(260px * var(--page-title-sp-s)) !important;
-    padding-top: var(--sp-header-clear, calc(76px * var(--page-title-sp-s))) !important;
-    padding-bottom: 0 !important;
-  }
-
-  :is(
-      .terms-page,
-      .privacy-page,
-      .tokushoho-page,
-      .faq-page,
-      .contact-page,
-      .company-page,
-      .about-page,
-      .design-help-page
-    )
-    :is(
-      .info-hero__inner,
-      .company-title__inner,
-      .ap-hero__inner,
-      .dh-sec1__inner
-    ) {
-    width: calc(100% - calc(40px * var(--page-title-sp-s))) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-top: calc(62px * var(--page-title-sp-s)) !important;
   }
 
   :is(
@@ -1509,7 +1472,31 @@
   }
 }
 
+/* No-kicker yellow band — 426–768: same padding / inner as guide-flow kicker hero.
+   Content min-height = kicker 220×(164/511) + gap 14 + title 440×(123/1349). */
 @media (min-width: 426px) and (max-width: 768px) {
+  :is(
+      .terms-page,
+      .privacy-page,
+      .tokushoho-page,
+      .faq-page,
+      .contact-page,
+      .company-page,
+      .about-page,
+      .design-help-page
+    )
+    :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
+    min-height: 0 !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    ) !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
   :is(
       .terms-page,
       .privacy-page,
@@ -1526,10 +1513,16 @@
       .ap-hero__inner,
       .dh-sec1__inner
     ) {
-    width: calc(100% - calc(40px * var(--page-title-sp-s))) !important;
+    width: calc(100% - calc(60px * var(--sp-header-s, 1))) !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-top: calc(94px * var(--page-title-sp-s)) !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: calc(
+      (220px * 164 / 511 + 14px + 440px * 123 / 1349) * var(--sp-header-s, 1)
+    ) !important;
   }
 }
 
@@ -1549,8 +1542,9 @@
   }
 }
 
-/* Shared title hero — 320–425: keep 425 start; ease to 320 targets */
-@media (min-width: 320px) and (max-width: 425px) {
+/* No-kicker yellow band — 320–425: same hero padding as guide-flow.
+   Inner keeps guide-flow 18/20 padding (border-box) + kicker/title stack. */
+@media (max-width: 425px) {
   :is(
       .terms-page,
       .privacy-page,
@@ -1562,11 +1556,11 @@
       .design-help-page
     )
     :is(.info-hero, .contact-hero, .company-title, .ap-hero, .dh-sec1) {
-    min-height: calc(
-      (190px + 70px * (100vw - 320px) / (425px - 320px)) * var(--page-title-sp-s)
-    ) !important;
-    padding-top: var(--sp-header-clear, calc(76px * var(--page-title-sp-s))) !important;
-    padding-bottom: 0 !important;
+    min-height: 0 !important;
+    padding: calc(58px + 22px * (100vw - 320px) / (425px - 320px)) 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
   }
 
   :is(
@@ -1585,11 +1579,16 @@
       .ap-hero__inner,
       .dh-sec1__inner
     ) {
-    width: calc(100% - calc(40px * var(--page-title-sp-s))) !important;
+    width: min(1440px, calc(100% - 48px)) !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-top: calc(
-      (35px + 27px * (100vw - 320px) / (425px - 320px)) * var(--page-title-sp-s)
+    padding: 18px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: calc(
+      min(280px, 0.52 * (100vw - 48px)) * 164 / 511 + 14px +
+        min(780px, 0.88 * (100vw - 48px)) * 123 / 1349 + 36px
     ) !important;
   }
 }
