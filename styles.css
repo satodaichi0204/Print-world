@@ -2843,11 +2843,12 @@ img {
 }
 
 /* Guide title hero — 1440–1919: scale title (kicker + title img) from 1920 → 1440.
-   guide-flow / design-tool / print-method / delivery only. */
+   guide-flow / design-tool / data-submission / print-method / delivery. */
 @media (min-width: 1440px) and (max-width: 1919px) {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     ) {
@@ -2857,6 +2858,7 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -2868,6 +2870,7 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -2880,6 +2883,7 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -2894,7 +2898,8 @@ img {
     height: auto;
   }
 
-  body.guide-design-tool-page .guide-hero__title-img-wrap img {
+  body.guide-design-tool-page .guide-hero__title-img-wrap img,
+  body.guide-data-submission-page .guide-hero__title-img-wrap img {
     width: min(calc(756px * var(--guide-title-s)), 92%);
     height: auto;
   }
@@ -2910,6 +2915,7 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     ) {
@@ -2919,6 +2925,7 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -2930,6 +2937,7 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -2942,6 +2950,7 @@ img {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -2956,7 +2965,8 @@ img {
     height: auto;
   }
 
-  body.guide-design-tool-page .guide-hero__title-img-wrap img {
+  body.guide-design-tool-page .guide-hero__title-img-wrap img,
+  body.guide-data-submission-page .guide-hero__title-img-wrap img {
     width: min(calc(756px * var(--guide-title-s)), 92%);
     height: auto;
   }

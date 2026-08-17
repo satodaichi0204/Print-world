@@ -5041,6 +5041,7 @@
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     ) {
@@ -5050,6 +5051,7 @@
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -5061,6 +5063,7 @@
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -5073,6 +5076,7 @@
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -5087,7 +5091,8 @@
     height: auto !important;
   }
 
-  body.guide-design-tool-page .guide-hero__title-img-wrap img {
+  body.guide-design-tool-page .guide-hero__title-img-wrap img,
+  body.guide-data-submission-page .guide-hero__title-img-wrap img {
     width: min(calc(756px * var(--guide-title-s)), 92%) !important;
     height: auto !important;
   }
@@ -5100,13 +5105,14 @@
 
 /* =============================================================================
    Guide title heroes — 426–768: match delivery info-hero title band
-   (print-method / design-tool / guide-flow / delivery; title section only)
+   (print-method / design-tool / data-submission / guide-flow / delivery; title section only)
    768 lock: top = header-clear + 80px · bottom 38px · title max 440px · inner 100%-60px
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -5122,6 +5128,7 @@
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -5137,6 +5144,7 @@
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -5148,6 +5156,7 @@
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -8206,6 +8215,7 @@ html.is-guide-flow-zoom-open body {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -8221,6 +8231,7 @@ html.is-guide-flow-zoom-open body {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -8236,6 +8247,7 @@ html.is-guide-flow-zoom-open body {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -8247,6 +8259,7 @@ html.is-guide-flow-zoom-open body {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
@@ -8262,6 +8275,7 @@ html.is-guide-flow-zoom-open body {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page
     ) {
     --sp-header-s: calc(100vw / 425px);
@@ -8271,6 +8285,7 @@ html.is-guide-flow-zoom-open body {
   body:is(
       .guide-flow-page,
       .guide-design-tool-page,
+      .guide-data-submission-page,
       .guide-print-method-page,
       .delivery-page
     )
