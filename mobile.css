@@ -5532,10 +5532,14 @@
     padding-inline: calc(29px * 768 / 1920) !important;
   }
 
+  #plp-hero-title .plp-hero__title-sm,
+  .plp-hero .plp-hero__title-sm,
   .product-list-page .plp-hero__title-sm {
     font-size: calc(70px * 768 / 1920) !important;
   }
 
+  #plp-hero-title .plp-hero__title-lg,
+  .plp-hero .plp-hero__title-lg,
   .product-list-page .plp-hero__title-lg {
     font-size: calc(110px * 768 / 1920) !important;
   }
@@ -9570,10 +9574,14 @@ html.is-guide-flow-zoom-open body {
     padding-inline: calc(29px * 768 / 1920) !important;
   }
 
+  #plp-hero-title .plp-hero__title-sm,
+  .plp-hero .plp-hero__title-sm,
   body.product-list-page .plp-hero__title-sm {
     font-size: calc(70px * 768 / 1920) !important;
   }
 
+  #plp-hero-title .plp-hero__title-lg,
+  .plp-hero .plp-hero__title-lg,
   body.product-list-page .plp-hero__title-lg {
     font-size: calc(110px * 768 / 1920) !important;
   }
@@ -11006,6 +11014,22 @@ html.is-guide-flow-zoom-open body {
     line-height: 1.3 !important;
     overflow-wrap: anywhere !important;
   }
+
+  /* Last-cascade PLP title lock: ID selector beats late MT h1/span rules.
+     Do not require body.product-list-page (MT may strip that class after paint). */
+  #plp-hero-title .plp-hero__title-sm,
+  .plp-hero .plp-hero__title-sm,
+  .product-list-page .plp-hero__title-sm,
+  body.product-list-page .plp-hero__title-sm {
+    font-size: calc(70px * 768 / 1920) !important;
+  }
+
+  #plp-hero-title .plp-hero__title-lg,
+  .plp-hero .plp-hero__title-lg,
+  .product-list-page .plp-hero__title-lg,
+  body.product-list-page .plp-hero__title-lg {
+    font-size: calc(110px * 768 / 1920) !important;
+  }
 }
 
 @media (max-width: 425px) {
@@ -11042,11 +11066,15 @@ html.is-guide-flow-zoom-open body {
     overflow-wrap: anywhere !important;
   }
 
+  #plp-hero-title .plp-hero__title-sm,
+  .plp-hero .plp-hero__title-sm,
   .product-list-page .plp-hero__title-sm {
-    font-size: calc(20px * var(--sec9-sp-s, 1));
+    font-size: calc(20px * var(--sec9-sp-s, 1)) !important;
   }
 
+  #plp-hero-title .plp-hero__title-lg,
+  .plp-hero .plp-hero__title-lg,
   .product-list-page .plp-hero__title-lg {
-    font-size: calc(40px * var(--sec9-sp-s, 1));
+    font-size: calc(40px * var(--sec9-sp-s, 1)) !important;
   }
 }
