@@ -11202,4 +11202,9 @@ body.product-detail-page .pdp-info .pdp-spec td,
     width: min(1440px, calc(100% - 10px)) !important;
     padding-inline: 5px !important;
   }
+
+  .product-detail-page .pdp-gallery__viewport {
+    width: 70%;
+    margin-inline: auto;
+  }
 }
