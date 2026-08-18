@@ -4799,10 +4799,11 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .pdp-hero__title {
   margin: 0;
   font-size: clamp(32px, 3.2vw, 52px);
-  font-weight: 900;
+  font-weight: 900 !important;
   line-height: 1.2;
-  color: #111;
+  color: #111 !important;
   letter-spacing: 0.02em;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 
 /* Intro copy */

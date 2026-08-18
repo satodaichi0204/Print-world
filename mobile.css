@@ -6331,6 +6331,7 @@
 
   .product-detail-page .pdp-hero__title {
     font-size: calc(17px * var(--pdp-header-s));
+    font-weight: 900 !important;
     line-height: 1.35;
   }
 
@@ -6793,6 +6794,7 @@ html.is-guide-flow-zoom-open body {
 
   .product-detail-page .pdp-hero__title {
     font-size: calc(52px * var(--pdp-pc-s));
+    font-weight: 900 !important;
     line-height: 1.2;
   }
 
@@ -11009,8 +11011,14 @@ html.is-guide-flow-zoom-open body {
     ) !important;
   }
 
-  body.product-detail-page .pdp-hero__title {
+  body.product-detail-page .pdp-hero__title,
+  .product-detail-page .pdp-hero__title,
+  #pdp-title {
     font-size: calc(33px * var(--sp-header-s, 1)) !important;
+    font-weight: 900 !important;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    color: #111 !important;
+    letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
     overflow-wrap: anywhere !important;
   }
@@ -11060,8 +11068,14 @@ html.is-guide-flow-zoom-open body {
     ) !important;
   }
 
-  body.product-detail-page .pdp-hero__title {
+  body.product-detail-page .pdp-hero__title,
+  .product-detail-page .pdp-hero__title,
+  #pdp-title {
     font-size: max(14px, calc(23px * var(--sp-header-s, 1))) !important;
+    font-weight: 900 !important;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    color: #111 !important;
+    letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
     overflow-wrap: anywhere !important;
   }
@@ -11076,5 +11090,16 @@ html.is-guide-flow-zoom-open body {
   .plp-hero .plp-hero__title-lg,
   .product-list-page .plp-hero__title-lg {
     font-size: calc(40px * var(--sec9-sp-s, 1)) !important;
+  }
+}
+
+@media (min-width: 769px) {
+  body.product-detail-page .pdp-hero__title,
+  .product-detail-page .pdp-hero__title,
+  #pdp-title {
+    font-weight: 900 !important;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    color: #111 !important;
+    letter-spacing: 0.02em !important;
   }
 }
