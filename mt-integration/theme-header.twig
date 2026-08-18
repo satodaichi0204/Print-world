@@ -1,14 +1,14 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdpsec3" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdpsec3" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdpsec3" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdprev" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdprev" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdprev" data-pw-css="info-pages.css">
 <script>
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260818pdpsec3";
+  var CSS_V = "20260818pdprev";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -156,14 +156,7 @@
         ".plp-main .plp-ranking__banner-title{flex-wrap:wrap!important;white-space:normal!important;" +
         "font-size:max(calc(14px * var(--plp-tab-s)),12px)!important;}" +
         "}" +
-        "@media (min-width: 769px){" +
-        "body.product-detail-page .pdp-hero,.product-detail-page .pdp-hero{" +
-        "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
-        "min-height:0!important;padding:calc(108px + 36px) 0 40px!important;}" +
-        "body.product-detail-page .pdp-hero__title,.product-detail-page .pdp-hero__title{" +
-        "font-size:clamp(36px,3.4vw,56px)!important;line-height:1.25!important;" +
-        "overflow-wrap:anywhere!important;text-align:center!important;}" +
-        "}" +
+        /* Cart main clearance — matches DevTools-tuned headerFix values */
         "html body:has(.cart__parent-area) main,html body:has(.cart_parent-area) main{" +
         "padding-top:190px!important;margin-top:0!important;}" +
         "@media only screen and (max-width:959px){" +
@@ -225,21 +218,6 @@
     for (i = 0; i < lgs.length; i++) lgs[i].style.setProperty("font-size", lgSize, "important");
   }
 
-  function pinPdpHeroTitleSize() {
-    var els = document.querySelectorAll(".pdp-hero__title");
-    if (!els.length) return;
-    var size = "";
-    if (window.matchMedia("(max-width: 425px)").matches) {
-      size = "max(14px, calc(23px * var(--sp-header-s, 1)))";
-    } else if (window.matchMedia("(min-width: 426px) and (max-width: 768px)").matches) {
-      size = "calc(33px * var(--sp-header-s, 1))";
-    } else {
-      size = "clamp(36px, 3.4vw, 56px)";
-    }
-    var i;
-    for (i = 0; i < els.length; i++) els[i].style.setProperty("font-size", size, "important");
-  }
-
   function pinAll() {
     if (pinning) return;
     pinning = true;
@@ -248,7 +226,6 @@
       pinPlpRankingLock();
       markPlpBody();
       pinPlpHeroTitleSize();
-      pinPdpHeroTitleSize();
     } finally {
       pinning = false;
     }
@@ -259,17 +236,12 @@
     document.addEventListener("DOMContentLoaded", pinAll);
   }
   window.addEventListener("load", pinAll);
-  window.addEventListener("resize", function () {
-    pinPlpHeroTitleSize();
-    pinPdpHeroTitleSize();
-  });
+  window.addEventListener("resize", pinPlpHeroTitleSize);
   setTimeout(pinAll, 0);
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
   setTimeout(pinPlpHeroTitleSize, 2000);
-  setTimeout(pinPdpHeroTitleSize, 2000);
   setTimeout(pinPlpHeroTitleSize, 4000);
-  setTimeout(pinPdpHeroTitleSize, 4000);
   /* Watch late MT <link>/<style> and PLP title nodes — ignore our own pin moves. */
   if (typeof MutationObserver === "function") {
     try {
@@ -317,7 +289,6 @@
         moTimer = setTimeout(needsCss ? pinAll : function () {
           markPlpBody();
           pinPlpHeroTitleSize();
-          pinPdpHeroTitleSize();
         }, 100);
       });
       mo.observe(document.documentElement, { childList: true, subtree: true });
