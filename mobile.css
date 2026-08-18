@@ -11198,6 +11198,10 @@ body.product-detail-page .pdp-info .pdp-spec td,
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
+  .product-detail-page .pdp-body {
+    padding: calc(36px * var(--pdp-pc-s)) 24px calc(52px * var(--pdp-pc-s));
+  }
+
   .product-detail-page .pdp-hero__inner,
   .product-detail-page .pdp-inner {
     width: min(1440px, calc(100% - 10px)) !important;
