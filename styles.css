@@ -1210,6 +1210,15 @@ img {
   align-items: center;
 }
 
+.home-page .sec3-card__hit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .sec3-card__image {
   position: relative;
   width: 100%;

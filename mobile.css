@@ -11078,3 +11078,54 @@ html.is-guide-flow-zoom-open body {
     font-size: calc(40px * var(--sec9-sp-s, 1)) !important;
   }
 }
+
+/* =============================================================================
+   PDP only — PC yellow title band: compact + vertically center (match SP feel).
+   Mobile: keep main image visible; don't let 30+ color thumbs bury the info block.
+   ============================================================================= */
+@media (min-width: 769px) {
+  body.product-detail-page .pdp-hero,
+  .product-detail-page .pdp-hero {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+    padding: calc(108px + 36px) 0 40px !important;
+  }
+
+  body.product-detail-page .pdp-hero__inner,
+  .product-detail-page .pdp-hero__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    width: min(1440px, calc(100% - 48px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 8px 24px !important;
+  }
+
+  body.product-detail-page .pdp-hero__title,
+  .product-detail-page .pdp-hero__title {
+    font-size: clamp(36px, 3.4vw, 56px) !important;
+    line-height: 1.25 !important;
+    overflow-wrap: anywhere !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail-page .pdp-gallery__main {
+    width: 100%;
+    min-height: 220px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .product-detail-page .pdp-gallery__thumbs {
+    max-height: calc((100vw - 48px) * 0.4 + 12px);
+    overflow-y: auto;
+  }
+
+  .product-detail-page .pdp-headline {
+    font-size: max(20px, calc(22px * var(--pdp-body-s, var(--sp-header-s, 1)))) !important;
+  }
+}
