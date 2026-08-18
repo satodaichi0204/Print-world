@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdpinfo" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdpinfo" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdpinfo" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdpspfix" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdpspfix" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdpspfix" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260818pdpinfo";
+  var CSS_V = "20260818pdpspfix";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -203,7 +203,8 @@
         "body.product-detail-page .pdp-hero,.product-detail-page .pdp-hero{" +
         "padding-top:calc(200px * 1440 / 1920)!important;}" +
         "}" +
-        /* PDP info panel: same POINT/headline/spec type + padding on SP and PC. */ +
+        /* PDP info panel: PC/tablet only. Keep smartphone's original lighter type and spacing. */ +
+        "@media (min-width:769px){" +
         "body.product-detail-page .pdp-info,.product-detail-page .pdp-info{" +
         "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;}" +
         "body.product-detail-page .pdp-info .pdp-point__label,.product-detail-page .pdp-info .pdp-point__label{" +
@@ -219,6 +220,7 @@
         "font-size:13px!important;font-weight:700!important;}" +
         "body.product-detail-page .pdp-info .pdp-spec td{" +
         "font-size:14px!important;font-weight:700!important;}" +
+        "}" +
         /* Cart main clearance — matches DevTools-tuned headerFix values */
         "html body:has(.cart__parent-area) main,html body:has(.cart_parent-area) main{" +
         "padding-top:190px!important;margin-top:0!important;}" +
@@ -298,6 +300,7 @@
   var PDP_INFO_FONT =
     '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif';
   function pinPdpInfoStyle() {
+    if (!window.matchMedia("(min-width: 769px)").matches) return;
     var info = document.querySelector(".pdp-info");
     if (!info) return;
     function set(el, props) {
