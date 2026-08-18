@@ -11162,3 +11162,31 @@ body.product-detail-page .pdp-info .pdp-spec td,
   font-size: 14px !important;
   font-weight: 700 !important;
 }
+
+/* PDP body — 426–768: restore button padding/gap and spec cell size to match ≤425. */
+@media (min-width: 426px) and (max-width: 768px) {
+  .product-detail-page .pdp-actions {
+    gap: 10px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .product-detail-page .pdp-btn {
+    padding: 15px 18px !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+  }
+
+  .product-detail-page .pdp-spec th,
+  .product-detail-page .pdp-spec td {
+    padding: 12px 14px !important;
+    font-weight: 400 !important;
+  }
+
+  .product-detail-page .pdp-spec th {
+    font-size: 12px !important;
+  }
+
+  .product-detail-page .pdp-spec td {
+    font-size: 13px !important;
+  }
+}
