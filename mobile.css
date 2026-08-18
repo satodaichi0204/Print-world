@@ -7266,6 +7266,7 @@ html.is-guide-flow-zoom-open body {
 
   .product-detail-page .pdp-inner {
     width: min(calc(1440px * var(--pdp-pc-s)), calc(100% - 2 * var(--pdp-side-inset)));
+    padding-inline: 0;
   }
 
   .product-detail-page .sec9 {
