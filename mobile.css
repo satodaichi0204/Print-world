@@ -6800,7 +6800,7 @@ html.is-guide-flow-zoom-open body {
   .product-detail-page .pdp-body__inner {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: calc(40px * var(--pdp-pc-s));
+    gap: calc(100px * var(--pdp-pc-s));
     align-items: start;
   }
 

@@ -4724,7 +4724,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 
 .plp-inner,
 .pdp-inner {
-  width: min(1440px, calc(100% - 48px));
+  width: min(1024px, calc(100% - 48px));
   margin: 0 auto;
 }
 
@@ -5417,7 +5417,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .pdp-body__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: 40px;
+  gap: 100px;
   align-items: start;
 }
 
