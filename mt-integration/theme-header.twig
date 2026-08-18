@@ -4,6 +4,26 @@
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdpfw" data-pw-css="styles.css">
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdpfw" data-pw-css="mobile.css">
 <link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdpfw" data-pw-css="info-pages.css">
+<!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
+     (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
+     styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
+     キャッシュ済み遷移では即時に表示されるため体感差はない。pinPwCss の貼り替えにも耐性(再適用まで待つ)。 -->
+<style>
+  .fv-header { visibility: hidden; }
+  html.pw-hdr-ready .fv-header { visibility: visible; }
+</style>
+<script>
+(function () {
+  var t0 = Date.now();
+  function reveal() { document.documentElement.classList.add("pw-hdr-ready"); }
+  (function poll() {
+    var h = document.querySelector(".fv-header");
+    if (h && getComputedStyle(h).position === "fixed") return reveal(); // 外部CSS適用済み
+    if (Date.now() - t0 > 4000) return reveal();                        // 安全弁(隠したままにしない)
+    requestAnimationFrame(poll);
+  })();
+})();
+</script>
 <script>
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
