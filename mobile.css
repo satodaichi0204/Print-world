@@ -11111,77 +11111,54 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-@media (min-width: 769px) {
-  /* PDP info panel: match PC info type without affecting smartphone sizing. */
-  body.product-detail-page .pdp-info,
-  .product-detail-page .pdp-info {
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
-      sans-serif !important;
-  }
-
-  body.product-detail-page .pdp-info .pdp-point__label,
-  .product-detail-page .pdp-info .pdp-point__label {
-    font-family: inherit !important;
-    font-size: 13px !important;
-    font-weight: 900 !important;
-    padding: 14px 28px !important;
-    letter-spacing: 0.04em !important;
-    line-height: 1 !important;
-  }
-
-  body.product-detail-page .pdp-info .pdp-headline,
-  .product-detail-page .pdp-info .pdp-headline {
-    font-family: inherit !important;
-    font-size: 28px !important;
-    font-weight: 900 !important;
-    line-height: 1.45 !important;
-  }
-
-  body.product-detail-page .pdp-info .pdp-desc p,
-  .product-detail-page .pdp-info .pdp-desc p {
-    font-family: inherit !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-  }
-
-  body.product-detail-page .pdp-info .pdp-spec th,
-  body.product-detail-page .pdp-info .pdp-spec td,
-  .product-detail-page .pdp-info .pdp-spec th,
-  .product-detail-page .pdp-info .pdp-spec td {
-    font-family: inherit !important;
-    padding: 16px 20px !important;
-  }
-
-  body.product-detail-page .pdp-info .pdp-spec th,
-  .product-detail-page .pdp-info .pdp-spec th {
-    font-size: 13px !important;
-    font-weight: 700 !important;
-  }
-
-  body.product-detail-page .pdp-info .pdp-spec td,
-  .product-detail-page .pdp-info .pdp-spec td {
-    font-size: 14px !important;
-    font-weight: 700 !important;
-  }
+/* PDP info panel: same POINT / headline / spec type and padding on SP and PC. */
+body.product-detail-page .pdp-info,
+.product-detail-page .pdp-info {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+    sans-serif !important;
 }
 
-@media (max-width: 425px) {
-  /* Restore the intended smartphone spacing and lighter table weight. */
-  body.product-detail-page .pdp-actions {
-    gap: calc(10px * var(--pdp-body-s)) !important;
-    margin-bottom: calc(22px * var(--pdp-body-s)) !important;
-  }
+body.product-detail-page .pdp-info .pdp-point__label,
+.product-detail-page .pdp-info .pdp-point__label {
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  padding: 14px 28px !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1 !important;
+}
 
-  body.product-detail-page .pdp-btn {
-    padding: calc(15px * var(--pdp-body-s)) calc(18px * var(--pdp-body-s)) !important;
-    font-size: max(calc(14px * var(--pdp-body-s)), 13px) !important;
-  }
+body.product-detail-page .pdp-info .pdp-headline,
+.product-detail-page .pdp-info .pdp-headline {
+  font-family: inherit !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  line-height: 1.45 !important;
+}
 
-  body.product-detail-page .pdp-spec th {
-    font-weight: 400 !important;
-  }
+body.product-detail-page .pdp-info .pdp-desc p,
+.product-detail-page .pdp-info .pdp-desc p {
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
 
-  body.product-detail-page .pdp-spec td {
-    font-weight: 400 !important;
-  }
+body.product-detail-page .pdp-info .pdp-spec th,
+body.product-detail-page .pdp-info .pdp-spec td,
+.product-detail-page .pdp-info .pdp-spec th,
+.product-detail-page .pdp-info .pdp-spec td {
+  font-family: inherit !important;
+  padding: 16px 20px !important;
+}
+
+body.product-detail-page .pdp-info .pdp-spec th,
+.product-detail-page .pdp-info .pdp-spec th {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+body.product-detail-page .pdp-info .pdp-spec td,
+.product-detail-page .pdp-info .pdp-spec td {
+  font-size: 14px !important;
+  font-weight: 700 !important;
 }
