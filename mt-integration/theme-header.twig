@@ -16,10 +16,21 @@
 (function () {
   var t0 = Date.now();
   function reveal() { document.documentElement.classList.add("pw-hdr-ready"); }
-  (function poll() {
+  function ready() {
     var h = document.querySelector(".fv-header");
-    if (h && getComputedStyle(h).position === "fixed") return reveal(); // 外部CSS適用済み
-    if (Date.now() - t0 > 4000) return reveal();                        // 安全弁(隠したままにしない)
+    if (!h || getComputedStyle(h).position !== "fixed") return false;   // styles.css 適用前
+    /* PC版(.fv-header__main)を隠すのは mobile.css 側。styles.css だけ先に効くと
+       position:fixed でも PC版が残るため、スマホでは main が display:none に
+       なる(=mobile.css 適用)まで表示を待つ。 */
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      var main = h.querySelector(".fv-header__main");
+      if (main && getComputedStyle(main).display !== "none") return false; // mobile.css 未適用
+    }
+    return true;
+  }
+  (function poll() {
+    if (ready()) return reveal();
+    if (Date.now() - t0 > 5000) return reveal();                        // 安全弁(隠したままにしない)
     requestAnimationFrame(poll);
   })();
 })();
