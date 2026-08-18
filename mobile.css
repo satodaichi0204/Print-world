@@ -11190,3 +11190,9 @@ body.product-detail-page .pdp-info .pdp-spec td,
     font-size: 13px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .product-detail-page .pdp-btn {
+    font-weight: inherit !important;
+  }
+}
