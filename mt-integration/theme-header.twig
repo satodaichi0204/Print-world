@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdppad" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdppad" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdppad" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdpinfo" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdpinfo" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdpinfo" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260818pdppad";
+  var CSS_V = "20260818pdpinfo";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -203,6 +203,22 @@
         "body.product-detail-page .pdp-hero,.product-detail-page .pdp-hero{" +
         "padding-top:calc(200px * 1440 / 1920)!important;}" +
         "}" +
+        /* PDP info panel: same POINT/headline/spec type + padding on SP and PC. */ +
+        "body.product-detail-page .pdp-info,.product-detail-page .pdp-info{" +
+        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;}" +
+        "body.product-detail-page .pdp-info .pdp-point__label,.product-detail-page .pdp-info .pdp-point__label{" +
+        "font-family:inherit!important;font-size:13px!important;font-weight:900!important;" +
+        "padding:14px 28px!important;letter-spacing:0.04em!important;line-height:1!important;}" +
+        "body.product-detail-page .pdp-info .pdp-headline,.product-detail-page .pdp-info .pdp-headline{" +
+        "font-family:inherit!important;font-size:28px!important;font-weight:900!important;line-height:1.45!important;}" +
+        "body.product-detail-page .pdp-info .pdp-desc p,.product-detail-page .pdp-info .pdp-desc p{" +
+        "font-family:inherit!important;font-size:14px!important;font-weight:700!important;}" +
+        "body.product-detail-page .pdp-info .pdp-spec th,.product-detail-page .pdp-info .pdp-spec td{" +
+        "font-family:inherit!important;padding:16px 20px!important;}" +
+        "body.product-detail-page .pdp-info .pdp-spec th{" +
+        "font-size:13px!important;font-weight:700!important;}" +
+        "body.product-detail-page .pdp-info .pdp-spec td{" +
+        "font-size:14px!important;font-weight:700!important;}" +
         /* Cart main clearance — matches DevTools-tuned headerFix values */
         "html body:has(.cart__parent-area) main,html body:has(.cart_parent-area) main{" +
         "padding-top:190px!important;margin-top:0!important;}" +
@@ -279,6 +295,51 @@
     el.style.setProperty("letter-spacing", "0.02em", "important");
   }
 
+  var PDP_INFO_FONT =
+    '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif';
+  function pinPdpInfoStyle() {
+    var info = document.querySelector(".pdp-info");
+    if (!info) return;
+    function set(el, props) {
+      if (!el) return;
+      var k;
+      for (k in props) el.style.setProperty(k, props[k], "important");
+    }
+    set(info.querySelector(".pdp-point__label"), {
+      "font-family": PDP_INFO_FONT,
+      "font-weight": "900",
+      "font-size": "13px",
+      padding: "14px 28px",
+      "letter-spacing": "0.04em",
+      "line-height": "1"
+    });
+    set(info.querySelector(".pdp-headline"), {
+      "font-family": PDP_INFO_FONT,
+      "font-weight": "900",
+      "font-size": "28px",
+      "line-height": "1.45"
+    });
+    var i;
+    var ps = info.querySelectorAll(".pdp-desc p");
+    for (i = 0; i < ps.length; i++) {
+      set(ps[i], {
+        "font-family": PDP_INFO_FONT,
+        "font-weight": "700",
+        "font-size": "14px"
+      });
+    }
+    var cells = info.querySelectorAll(".pdp-spec th, .pdp-spec td");
+    for (i = 0; i < cells.length; i++) {
+      var isTh = cells[i].tagName === "TH";
+      set(cells[i], {
+        "font-family": PDP_INFO_FONT,
+        padding: "16px 20px",
+        "font-size": isTh ? "13px" : "14px",
+        "font-weight": "700"
+      });
+    }
+  }
+
   function pinAll() {
     if (pinning) return;
     pinning = true;
@@ -288,6 +349,7 @@
       markPlpBody();
       pinPlpHeroTitleSize();
       pinPdpHeroTitleStyle();
+      pinPdpInfoStyle();
     } finally {
       pinning = false;
     }
@@ -306,6 +368,8 @@
   setTimeout(pinPlpHeroTitleSize, 4000);
   setTimeout(pinPdpHeroTitleStyle, 2000);
   setTimeout(pinPdpHeroTitleStyle, 4000);
+  setTimeout(pinPdpInfoStyle, 2000);
+  setTimeout(pinPdpInfoStyle, 4000);
   /* Watch late MT <link>/<style> and PLP title nodes — ignore our own pin moves. */
   if (typeof MutationObserver === "function") {
     try {
@@ -328,7 +392,7 @@
             }
             if (n.tagName === "STYLE" || n.tagName === "LINK") needsTitle = true;
             var cls = n.classList;
-            if (cls && (cls.contains("plp-hero") || cls.contains("plp-hero__title-sm") || cls.contains("plp-hero__title-lg") || cls.contains("pdp-hero") || cls.contains("pdp-hero__title"))) {
+            if (cls && (cls.contains("plp-hero") || cls.contains("plp-hero__title-sm") || cls.contains("plp-hero__title-lg") || cls.contains("pdp-hero") || cls.contains("pdp-hero__title") || cls.contains("pdp-info"))) {
               needsTitle = true;
             }
             if (n.querySelectorAll) {
@@ -340,7 +404,7 @@
                   break;
                 }
               }
-              if (n.querySelector(".plp-hero__title-sm, .plp-hero__title-lg, .plp-hero, .pdp-hero__title, #pdp-title, style")) {
+              if (n.querySelector(".plp-hero__title-sm, .plp-hero__title-lg, .plp-hero, .pdp-hero__title, #pdp-title, .pdp-info, style")) {
                 needsTitle = true;
               }
             }
@@ -354,6 +418,7 @@
           markPlpBody();
           pinPlpHeroTitleSize();
           pinPdpHeroTitleStyle();
+          pinPdpInfoStyle();
         }, 100);
       });
       mo.observe(document.documentElement, { childList: true, subtree: true });
