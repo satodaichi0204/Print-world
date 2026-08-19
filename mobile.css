@@ -11260,3 +11260,33 @@ body.product-detail-page .pdp-info .pdp-spec td,
     font-weight: 500;
   }
 }
+
+@media (min-width: 1920px) {
+  .product-detail-page .pdp-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .product-detail-page .pdp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    padding: 19px 24px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
