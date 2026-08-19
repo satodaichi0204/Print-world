@@ -11289,4 +11289,10 @@ body.product-detail-page .pdp-info .pdp-spec td,
     appearance: none;
     -webkit-appearance: none;
   }
+
+  .product-detail-page .pdp-btn.pdp-btn--support {
+    background-color: #eef9fb;
+    border: 2px solid #00b2c8;
+    color: #00b2c8;
+  }
 }
