@@ -11243,3 +11243,20 @@ body.product-detail-page .pdp-info .pdp-spec td,
     font-weight: 500;
   }
 }
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .product-detail-page .pdp-actions {
+    flex-direction: column;
+    gap: calc(22px * var(--pdp-pc-s));
+    margin-bottom: calc(28px * var(--pdp-pc-s));
+  }
+
+  .product-detail-page .pdp-btn {
+    width: 100%;
+    padding: calc(22px * var(--pdp-pc-s)) calc(28px * var(--pdp-pc-s));
+    border-width: calc(2px * var(--pdp-pc-s));
+    border-radius: calc(4px * var(--pdp-pc-s));
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
