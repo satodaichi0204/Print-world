@@ -11106,68 +11106,83 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* PDP info panel: same POINT / headline / spec type and padding on SP and PC. */
-body.product-detail-page .pdp-info,
-.product-detail-page .pdp-info {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
-    sans-serif !important;
+@media (min-width: 769px) {
+  /* PDP info panel: PC type lock. Do not apply on 426–768 (it makes type bleed). */
+  body.product-detail-page .pdp-info,
+  .product-detail-page .pdp-info {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+      sans-serif !important;
+  }
+
+  body.product-detail-page .pdp-info .pdp-point__label,
+  .product-detail-page .pdp-info .pdp-point__label {
+    font-family: inherit !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    padding: 14px 28px !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1 !important;
+  }
+
+  body.product-detail-page .pdp-info .pdp-headline,
+  .product-detail-page .pdp-info .pdp-headline {
+    font-family: inherit !important;
+    font-size: 28px !important;
+    font-weight: 900 !important;
+    line-height: 1.45 !important;
+  }
+
+  body.product-detail-page .pdp-info .pdp-desc p,
+  .product-detail-page .pdp-info .pdp-desc p {
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+
+  body.product-detail-page .pdp-info .pdp-spec th,
+  body.product-detail-page .pdp-info .pdp-spec td,
+  .product-detail-page .pdp-info .pdp-spec th,
+  .product-detail-page .pdp-info .pdp-spec td {
+    font-family: inherit !important;
+    padding: 16px 20px !important;
+  }
+
+  body.product-detail-page .pdp-info .pdp-spec th,
+  .product-detail-page .pdp-info .pdp-spec th {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+  }
+
+  body.product-detail-page .pdp-info .pdp-spec td,
+  .product-detail-page .pdp-info .pdp-spec td {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
 }
 
-body.product-detail-page .pdp-info .pdp-point__label,
-.product-detail-page .pdp-info .pdp-point__label {
-  font-family: inherit !important;
-  font-size: 13px !important;
-  font-weight: 900 !important;
-  padding: 14px 28px !important;
-  letter-spacing: 0.04em !important;
-  line-height: 1 !important;
-}
-
-body.product-detail-page .pdp-info .pdp-headline,
-.product-detail-page .pdp-info .pdp-headline {
-  font-family: inherit !important;
-  font-size: 28px !important;
-  font-weight: 900 !important;
-  line-height: 1.45 !important;
-}
-
-body.product-detail-page .pdp-info .pdp-desc p,
-.product-detail-page .pdp-info .pdp-desc p {
-  font-family: inherit !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-}
-
-body.product-detail-page .pdp-info .pdp-spec th,
-body.product-detail-page .pdp-info .pdp-spec td,
-.product-detail-page .pdp-info .pdp-spec th,
-.product-detail-page .pdp-info .pdp-spec td {
-  font-family: inherit !important;
-  padding: 16px 20px !important;
-}
-
-body.product-detail-page .pdp-info .pdp-spec th,
-.product-detail-page .pdp-info .pdp-spec th {
-  font-size: 13px !important;
-  font-weight: 700 !important;
-}
-
-body.product-detail-page .pdp-info .pdp-spec td,
-.product-detail-page .pdp-info .pdp-spec td {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-}
-
-/* PDP body — 426–768: restore button padding/gap and spec cell size to match ≤425. */
+/* 426–768: stop the PC 900 lock, restore button padding/gap like PC. */
 @media (min-width: 426px) and (max-width: 768px) {
+  .product-detail-page .pdp-info .pdp-headline {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+  }
+
+  .product-detail-page .pdp-info .pdp-desc p {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+
   .product-detail-page .pdp-actions {
-    gap: 10px !important;
+    gap: 12px !important;
     margin-bottom: 22px !important;
   }
 
   .product-detail-page .pdp-btn {
-    padding: 15px 18px !important;
+    padding: 18px 24px !important;
     font-size: 16px !important;
+    font-weight: 700 !important;
+    border-width: 2px !important;
     border-radius: 4px !important;
   }
 
