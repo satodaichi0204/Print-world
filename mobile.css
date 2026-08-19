@@ -11210,3 +11210,14 @@ body.product-detail-page .pdp-info .pdp-spec td,
     margin-inline: auto;
   }
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-detail-page .pdp-btn {
+    width: 100%;
+    padding: calc(41px * var(--pdp-pc-s)) calc(28px * var(--pdp-pc-s));
+    border-width: calc(2px * var(--pdp-pc-s));
+    border-radius: calc(4px * var(--pdp-pc-s));
+    font-size: 17px;
+    font-weight: 500;
+  }
+}
