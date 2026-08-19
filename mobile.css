@@ -6865,13 +6865,13 @@ html.is-guide-flow-zoom-open body {
 
   .product-detail-page .pdp-actions {
     flex-direction: column;
-    gap: calc(12px * var(--pdp-pc-s));
+    gap: calc(32px * var(--pdp-pc-s));
     margin-bottom: calc(28px * var(--pdp-pc-s));
   }
 
   .product-detail-page .pdp-btn {
     width: 100%;
-    padding: calc(18px * var(--pdp-pc-s)) calc(24px * var(--pdp-pc-s));
+    padding: calc(28px * var(--pdp-pc-s)) calc(28px * var(--pdp-pc-s));
     border-width: calc(2px * var(--pdp-pc-s));
     border-radius: calc(4px * var(--pdp-pc-s));
     font-size: calc(16px * var(--pdp-pc-s));
@@ -7186,7 +7186,8 @@ html.is-guide-flow-zoom-open body {
   }
 
   .product-detail-page .pdp-btn {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
   }
 
   .product-detail-page .pdp-spec th {
@@ -11161,13 +11162,14 @@ body.product-detail-page .pdp-info .pdp-spec td,
 /* PDP body — 426–768: restore button padding/gap and spec cell size to match ≤425. */
 @media (min-width: 426px) and (max-width: 768px) {
   .product-detail-page .pdp-actions {
-    gap: 10px !important;
-    margin-bottom: 22px !important;
+    gap: calc(32px * var(--pdp-pc-s)) !important;
+    margin-bottom: calc(28px * var(--pdp-pc-s)) !important;
   }
 
   .product-detail-page .pdp-btn {
-    padding: 15px 18px !important;
-    font-size: 16px !important;
+    padding: calc(28px * var(--pdp-pc-s)) calc(28px * var(--pdp-pc-s)) !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
     border-radius: 4px !important;
   }
 
@@ -11186,7 +11188,7 @@ body.product-detail-page .pdp-info .pdp-spec td,
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 425px) {
   .product-detail-page .pdp-btn {
     font-weight: inherit !important;
   }
