@@ -11162,14 +11162,14 @@ body.product-detail-page .pdp-info .pdp-spec td,
 /* PDP body — 426–768: restore button padding/gap and spec cell size to match ≤425. */
 @media (min-width: 426px) and (max-width: 768px) {
   .product-detail-page .pdp-actions {
-    gap: calc(32px * var(--pdp-pc-s)) !important;
+    gap: calc(71px * var(--pdp-pc-s)) !important;
     margin-bottom: calc(28px * var(--pdp-pc-s)) !important;
   }
 
   .product-detail-page .pdp-btn {
-    padding: calc(28px * var(--pdp-pc-s)) calc(28px * var(--pdp-pc-s)) !important;
-    font-size: 18px !important;
-    font-weight: 500 !important;
+    padding: calc(69px * var(--pdp-pc-s)) calc(28px * var(--pdp-pc-s)) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
     border-radius: 4px !important;
   }
 
@@ -11294,5 +11294,19 @@ body.product-detail-page .pdp-info .pdp-spec td,
     background-color: #eef9fb;
     border: 2px solid #00b2c8;
     color: #00b2c8;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .product-detail-page .pdp-actions {
+    gap: calc(71px * var(--pdp-pc-s)) !important;
+    margin-bottom: calc(28px * var(--pdp-pc-s)) !important;
+  }
+
+  .product-detail-page .pdp-btn {
+    padding: calc(69px * var(--pdp-pc-s)) calc(28px * var(--pdp-pc-s)) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    border-radius: 4px !important;
   }
 }
