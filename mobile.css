@@ -11244,7 +11244,7 @@ body.product-detail-page .pdp-info .pdp-spec td,
   }
 }
 
-@media (min-width: 1441px) and (max-width: 1920px) {
+@media (min-width: 1441px) and (max-width: 1919px) {
   .product-detail-page .pdp-actions {
     flex-direction: column;
     gap: calc(22px * var(--pdp-pc-s));
