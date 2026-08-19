@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260819pdptab" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260819pdptab" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260819pdptab" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260818pdpgal" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260818pdpgal" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260818pdpgal" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260819pdptab";
+  var CSS_V = "20260818pdpgal";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -203,8 +203,7 @@
         "body.product-detail-page .pdp-hero,.product-detail-page .pdp-hero{" +
         "padding-top:calc(200px * 1440 / 1920)!important;}" +
         "}" +
-        /* PDP info panel: PC/tablet-wide only. 426–768 uses a lighter lock below. */ +
-        "@media (min-width:769px){" +
+        /* PDP info panel: same POINT/headline/spec type + padding on SP and PC. */ +
         "body.product-detail-page .pdp-info,.product-detail-page .pdp-info{" +
         "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;}" +
         "body.product-detail-page .pdp-info .pdp-point__label,.product-detail-page .pdp-info .pdp-point__label{" +
@@ -220,21 +219,6 @@
         "font-size:13px!important;font-weight:700!important;}" +
         "body.product-detail-page .pdp-info .pdp-spec td{" +
         "font-size:14px!important;font-weight:700!important;}" +
-        "}" +
-        /* 426–768: lighter type + real button padding/gap (PC scale was crushing them). */ +
-        "@media (min-width:426px) and (max-width:768px){" +
-        "body.product-detail-page .pdp-info .pdp-headline,.product-detail-page .pdp-info .pdp-headline{" +
-        "font-size:18px!important;font-weight:700!important;line-height:1.4!important;}" +
-        "body.product-detail-page .pdp-info .pdp-desc p,.product-detail-page .pdp-info .pdp-desc p{" +
-        "font-size:14px!important;font-weight:400!important;}" +
-        ".product-detail-page .pdp-actions{gap:12px!important;margin-bottom:22px!important;}" +
-        ".product-detail-page .pdp-btn{padding:18px 24px!important;font-size:16px!important;" +
-        "font-weight:700!important;border-width:2px!important;border-radius:4px!important;}" +
-        ".product-detail-page .pdp-spec th,.product-detail-page .pdp-spec td{" +
-        "padding:12px 14px!important;font-weight:400!important;}" +
-        ".product-detail-page .pdp-spec th{font-size:12px!important;}" +
-        ".product-detail-page .pdp-spec td{font-size:13px!important;}" +
-        "}" +
         /* Cart main clearance — matches DevTools-tuned headerFix values */
         "html body:has(.cart__parent-area) main,html body:has(.cart_parent-area) main{" +
         "padding-top:190px!important;margin-top:0!important;}" +
@@ -321,86 +305,39 @@
       var k;
       for (k in props) el.style.setProperty(k, props[k], "important");
     }
-    function clear(el, keys) {
-      if (!el) return;
-      var i;
-      for (i = 0; i < keys.length; i++) el.style.removeProperty(keys[i]);
-    }
-    var headline = info.querySelector(".pdp-headline");
-    var ps = info.querySelectorAll(".pdp-desc p");
-    var cells = info.querySelectorAll(".pdp-spec th, .pdp-spec td");
-    var actions = info.querySelector(".pdp-actions");
-    var btns = info.querySelectorAll(".pdp-btn");
+    set(info.querySelector(".pdp-point__label"), {
+      "font-family": PDP_INFO_FONT,
+      "font-weight": "900",
+      "font-size": "13px",
+      padding: "14px 28px",
+      "letter-spacing": "0.04em",
+      "line-height": "1"
+    });
+    set(info.querySelector(".pdp-headline"), {
+      "font-family": PDP_INFO_FONT,
+      "font-weight": "900",
+      "font-size": "28px",
+      "line-height": "1.45"
+    });
     var i;
-    if (window.matchMedia("(min-width: 769px)").matches) {
-      set(info.querySelector(".pdp-point__label"), {
+    var ps = info.querySelectorAll(".pdp-desc p");
+    for (i = 0; i < ps.length; i++) {
+      set(ps[i], {
         "font-family": PDP_INFO_FONT,
-        "font-weight": "900",
-        "font-size": "13px",
-        padding: "14px 28px",
-        "letter-spacing": "0.04em",
-        "line-height": "1"
-      });
-      set(headline, {
-        "font-family": PDP_INFO_FONT,
-        "font-weight": "900",
-        "font-size": "28px",
-        "line-height": "1.45"
-      });
-      for (i = 0; i < ps.length; i++) {
-        set(ps[i], {
-          "font-family": PDP_INFO_FONT,
-          "font-weight": "700",
-          "font-size": "14px"
-        });
-      }
-      for (i = 0; i < cells.length; i++) {
-        var isTh = cells[i].tagName === "TH";
-        set(cells[i], {
-          "font-family": PDP_INFO_FONT,
-          padding: "16px 20px",
-          "font-size": isTh ? "13px" : "14px",
-          "font-weight": "700"
-        });
-      }
-      return;
-    }
-    if (window.matchMedia("(min-width: 426px) and (max-width: 768px)").matches) {
-      set(headline, {
         "font-weight": "700",
-        "font-size": "18px",
-        "line-height": "1.4"
+        "font-size": "14px"
       });
-      for (i = 0; i < ps.length; i++) {
-        set(ps[i], { "font-weight": "400", "font-size": "14px" });
-      }
-      for (i = 0; i < cells.length; i++) {
-        set(cells[i], {
-          padding: "12px 14px",
-          "font-size": cells[i].tagName === "TH" ? "12px" : "13px",
-          "font-weight": "400"
-        });
-      }
-      set(actions, { gap: "12px" });
-      for (i = 0; i < btns.length; i++) {
-        set(btns[i], {
-          padding: "18px 24px",
-          "font-size": "16px",
-          "font-weight": "700",
-          "border-width": "2px"
-        });
-      }
-      return;
     }
-    clear(headline, ["font-weight", "font-size", "line-height", "font-family"]);
-    for (i = 0; i < ps.length; i++) clear(ps[i], ["font-weight", "font-size", "font-family"]);
+    var cells = info.querySelectorAll(".pdp-spec th, .pdp-spec td");
     for (i = 0; i < cells.length; i++) {
-      clear(cells[i], ["padding", "font-size", "font-weight", "font-family"]);
+      var isTh = cells[i].tagName === "TH";
+      set(cells[i], {
+        "font-family": PDP_INFO_FONT,
+        padding: "16px 20px",
+        "font-size": isTh ? "13px" : "14px",
+        "font-weight": "700"
+      });
     }
-    for (i = 0; i < btns.length; i++) {
-      clear(btns[i], ["padding", "font-size", "font-weight", "border-width"]);
-    }
-    clear(actions, ["gap"]);
   }
 
   function pinAll() {
@@ -423,10 +360,7 @@
     document.addEventListener("DOMContentLoaded", pinAll);
   }
   window.addEventListener("load", pinAll);
-  window.addEventListener("resize", function () {
-    pinPlpHeroTitleSize();
-    pinPdpInfoStyle();
-  });
+  window.addEventListener("resize", pinPlpHeroTitleSize);
   setTimeout(pinAll, 0);
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
