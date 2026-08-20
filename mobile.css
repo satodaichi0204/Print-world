@@ -5252,9 +5252,15 @@
 
 /* --- Product list / detail: tablet (426–767) --- */
 @media (min-width: 426px) and (max-width: 767px) {
+  .plp-hero,
   .product-list-page .plp-hero {
-    padding: calc(92px + 56px * (100vw - 426px) / (768px - 426px)) 29px
-      calc(18px + 7px * (100vw - 426px) / (768px - 426px)) 0;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    );
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: calc(38px * var(--sp-header-s, 1));
   }
 
   .product-list-page .plp-intro {
@@ -5394,9 +5400,15 @@
 
 /* --- Product list: tablet layout tuning (426–767) --- */
 @media (min-width: 426px) and (max-width: 767px) {
+  .plp-hero,
   .product-list-page .plp-hero {
-    padding: calc(92px + 56px * (100vw - 426px) / (768px - 426px)) 29px
-      calc(18px + 7px * (100vw - 426px) / (768px - 426px)) 0;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    );
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: calc(38px * var(--sp-header-s, 1));
   }
 
   .product-list-page .plp-hero__inner {
@@ -5517,13 +5529,18 @@
 
 /* Product list: hero — 426–768: padding lerps 768→426; title/inner stay at 768 lock */
 @media (min-width: 426px) and (max-width: 768px) {
+  .plp-hero,
   .product-list-page .plp-hero,
   body.product-list-page .plp-hero {
     --plp-hero-s: calc(768 / 1920);
-    --plp-hero-pad-t: calc(92px + 56px * (100vw - 426px) / (768px - 426px));
-    --plp-hero-pad-b: calc(18px + 7px * (100vw - 426px) / (768px - 426px));
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding: var(--plp-hero-pad-t) 29px var(--plp-hero-pad-b) 0 !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    ) !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
     text-align: left !important;
   }
 
@@ -9556,18 +9573,30 @@ html.is-guide-flow-zoom-open body {
 }
 
 @media (max-width: 425px) {
+  .plp-hero,
   body.product-list-page .plp-hero {
-    padding-top: calc(var(--sp-header-clear, 76px) + 40px * var(--sp-header-s, 1));
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    ) !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
   }
 }
 
 /* Product list: hero — 426–768: padding lerps 768→426 (wins over earlier rules) */
 @media (min-width: 426px) and (max-width: 768px) {
+  .plp-hero,
   body.product-list-page .plp-hero {
-    --plp-hero-pad-t: calc(92px + 56px * (100vw - 426px) / (768px - 426px));
-    --plp-hero-pad-b: calc(18px + 7px * (100vw - 426px) / (768px - 426px));
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding: var(--plp-hero-pad-t) 29px var(--plp-hero-pad-b) 0 !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    ) !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
     text-align: left !important;
   }
 
@@ -10985,6 +11014,7 @@ html.is-guide-flow-zoom-open body {
    Title is vertically centered in the reserved kicker+title stack.
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
+  .plp-hero,
   body.product-list-page .plp-hero,
   body.product-detail-page .pdp-hero {
     min-height: 0 !important;
@@ -11048,7 +11078,22 @@ html.is-guide-flow-zoom-open body {
 }
 
 @media (max-width: 425px) {
-  body.product-list-page .plp-hero,
+  .plp-hero,
+  body.product-list-page .plp-hero {
+    min-height: 0 !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    ) !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+
   body.product-detail-page .pdp-hero {
     min-height: 0 !important;
     padding: calc(58px + 22px * (100vw - 320px) / (425px - 320px)) 0 0 !important;

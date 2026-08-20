@@ -4735,6 +4735,19 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   text-align: left;
 }
 
+/* PLP yellow band — 320–768: same pad as PDP (scales with --sp-header-s). */
+@media (max-width: 768px) {
+  .plp-hero {
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        80px * var(--sp-header-s, 1)
+    ) !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+  }
+}
+
 .pdp-hero {
   background: var(--pdp-header-bg, #efce0a);
   padding: 200px 0 48px;
