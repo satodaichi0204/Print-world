@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plphero5" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plphero5" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plphero5" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plphero6" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plphero6" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plphero6" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260820plphero5";
+  var CSS_V = "20260820plphero6";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -104,8 +104,21 @@
         ".plp-main .plp-ranking__banner-part + .plp-ranking__banner-part{font-size:calc(1em + 6px * var(--plp-banner-s))!important;}" +
         "}" +
         "@media (min-width: 426px) and (max-width: 768px){" +
-        /* PLP/PDP yellow band — match guide-flow kicker hero (pad + content stack) */
-        ".plp-hero,body.product-list-page .plp-hero,.product-list-page .plp-hero," +
+        /* PLP: header-clear only + equal inner gaps so the title sits in the yellow band center */
+        ".plp-hero,body.product-list-page .plp-hero,.product-list-page .plp-hero{" +
+        "min-height:0!important;" +
+        "padding-top:var(--sp-header-clear,calc(76px * var(--sp-header-s,1)))!important;" +
+        "padding-right:0!important;padding-left:0!important;padding-bottom:0!important;" +
+        "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
+        "overflow:visible!important;}" +
+        ".plp-hero .plp-hero__inner,body.product-list-page .plp-hero__inner,.product-list-page .plp-hero__inner{" +
+        "width:calc(100% - calc(60px * var(--sp-header-s,1)))!important;" +
+        "margin-left:auto!important;margin-right:auto!important;" +
+        "padding-top:calc(38px * var(--sp-header-s,1))!important;" +
+        "padding-bottom:calc(38px * var(--sp-header-s,1))!important;" +
+        "padding-right:0!important;padding-left:0!important;" +
+        "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
+        "min-height:0!important;}" +
         "body.product-detail-page .pdp-hero,.product-detail-page .pdp-hero{" +
         "min-height:0!important;" +
         "padding-top:calc(var(--sp-header-clear,calc(76px * var(--sp-header-s,1))) + 80px * var(--sp-header-s,1))!important;" +
@@ -113,7 +126,6 @@
         "padding-bottom:calc(38px * var(--sp-header-s,1))!important;" +
         "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
         "overflow:visible!important;}" +
-        "body.product-list-page .plp-hero__inner,.product-list-page .plp-hero__inner," +
         "body.product-detail-page .pdp-hero__inner,.product-detail-page .pdp-hero__inner{" +
         "width:calc(100% - calc(60px * var(--sp-header-s,1)))!important;" +
         "margin-left:auto!important;margin-right:auto!important;padding:0!important;" +
@@ -158,17 +170,20 @@
         "@media (min-width: 320px) and (max-width: 425px){" +
         ".plp-hero,body.product-list-page .plp-hero,.product-list-page .plp-hero{" +
         "min-height:0!important;" +
-        "padding-top:calc(var(--sp-header-clear,calc(76px * var(--sp-header-s,1))) + 80px * var(--sp-header-s,1))!important;" +
-        "padding-right:0!important;padding-left:0!important;" +
-        "padding-bottom:calc(38px * var(--sp-header-s,1))!important;" +
+        "padding-top:var(--sp-header-clear,calc(76px * var(--sp-header-s,1)))!important;" +
+        "padding-right:0!important;padding-left:0!important;padding-bottom:0!important;" +
         "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
         "overflow:visible!important;}" +
+        ".plp-hero .plp-hero__inner,body.product-list-page .plp-hero__inner,.product-list-page .plp-hero__inner{" +
+        "width:100%!important;margin-left:0!important;margin-right:0!important;" +
+        "padding:calc(38px * var(--sp-header-s,1)) 20px!important;" +
+        "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
+        "align-items:flex-start!important;text-align:left!important;min-height:0!important;}" +
         "body.product-detail-page .pdp-hero,.product-detail-page .pdp-hero{" +
         "min-height:0!important;" +
         "padding:calc(58px + 22px * (100vw - 320px) / (425px - 320px)) 0 0!important;" +
         "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
         "overflow:visible!important;}" +
-        "body.product-list-page .plp-hero__inner,.product-list-page .plp-hero__inner," +
         "body.product-detail-page .pdp-hero__inner,.product-detail-page .pdp-hero__inner{" +
         "width:100%!important;margin-left:0!important;margin-right:0!important;" +
         "padding:18px 20px!important;display:flex!important;flex-direction:column!important;" +

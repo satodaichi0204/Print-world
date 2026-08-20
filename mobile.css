@@ -5254,13 +5254,10 @@
 @media (min-width: 426px) and (max-width: 767px) {
   .plp-hero,
   .product-list-page .plp-hero {
-    padding-top: calc(
-      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
-        80px * var(--sp-header-s, 1)
-    );
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1)));
     padding-right: 0;
     padding-left: 0;
-    padding-bottom: calc(38px * var(--sp-header-s, 1));
+    padding-bottom: 0;
   }
 
   .product-list-page .plp-intro {
@@ -5402,13 +5399,10 @@
 @media (min-width: 426px) and (max-width: 767px) {
   .plp-hero,
   .product-list-page .plp-hero {
-    padding-top: calc(
-      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
-        80px * var(--sp-header-s, 1)
-    );
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1)));
     padding-right: 0;
     padding-left: 0;
-    padding-bottom: calc(38px * var(--sp-header-s, 1));
+    padding-bottom: 0;
   }
 
   .product-list-page .plp-hero__inner {
@@ -5534,19 +5528,19 @@
   body.product-list-page .plp-hero {
     --plp-hero-s: calc(768 / 1920);
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding-top: calc(
-      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
-        80px * var(--sp-header-s, 1)
-    ) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+    padding-bottom: 0 !important;
     text-align: left !important;
   }
 
   .product-list-page .plp-hero__inner {
     width: min(calc(1440px * 768 / 1920), calc(100% - 48px * 768 / 1920)) !important;
+    padding-top: calc(38px * var(--sp-header-s, 1)) !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
     padding-inline: calc(29px * 768 / 1920) !important;
+    min-height: 0 !important;
   }
 
   #plp-hero-title,
@@ -9575,13 +9569,10 @@ html.is-guide-flow-zoom-open body {
 @media (max-width: 425px) {
   .plp-hero,
   body.product-list-page .plp-hero {
-    padding-top: calc(
-      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
-        80px * var(--sp-header-s, 1)
-    ) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+    padding-bottom: 0 !important;
   }
 }
 
@@ -9590,13 +9581,10 @@ html.is-guide-flow-zoom-open body {
   .plp-hero,
   body.product-list-page .plp-hero {
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding-top: calc(
-      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
-        80px * var(--sp-header-s, 1)
-    ) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+    padding-bottom: 0 !important;
     text-align: left !important;
   }
 
@@ -11015,7 +11003,18 @@ html.is-guide-flow-zoom-open body {
    ============================================================================= */
 @media (min-width: 426px) and (max-width: 768px) {
   .plp-hero,
-  body.product-list-page .plp-hero,
+  body.product-list-page .plp-hero {
+    min-height: 0 !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+
   body.product-detail-page .pdp-hero {
     min-height: 0 !important;
     padding-top: calc(
@@ -11031,7 +11030,21 @@ html.is-guide-flow-zoom-open body {
     overflow: visible !important;
   }
 
-  body.product-list-page .plp-hero__inner,
+  .plp-hero .plp-hero__inner,
+  body.product-list-page .plp-hero__inner {
+    width: calc(100% - calc(60px * var(--sp-header-s, 1))) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: calc(38px * var(--sp-header-s, 1)) !important;
+    padding-right: 0 !important;
+    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+    padding-left: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 0 !important;
+  }
+
   body.product-detail-page .pdp-hero__inner {
     width: calc(100% - calc(60px * var(--sp-header-s, 1))) !important;
     margin-left: auto !important;
@@ -11081,13 +11094,10 @@ html.is-guide-flow-zoom-open body {
   .plp-hero,
   body.product-list-page .plp-hero {
     min-height: 0 !important;
-    padding-top: calc(
-      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
-        80px * var(--sp-header-s, 1)
-    ) !important;
+    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
-    padding-bottom: calc(38px * var(--sp-header-s, 1)) !important;
+    padding-bottom: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -11103,7 +11113,20 @@ html.is-guide-flow-zoom-open body {
     overflow: visible !important;
   }
 
-  body.product-list-page .plp-hero__inner,
+  .plp-hero .plp-hero__inner,
+  body.product-list-page .plp-hero__inner {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: calc(38px * var(--sp-header-s, 1)) 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    min-height: 0 !important;
+  }
+
   body.product-detail-page .pdp-hero__inner {
     width: 100% !important;
     margin-left: 0 !important;
