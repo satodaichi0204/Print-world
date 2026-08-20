@@ -7694,7 +7694,7 @@ html.is-guide-flow-zoom-open body {
 @media (min-width: 426px) and (max-width: 768px) {
   body {
     --sp-header-s: calc(0.6 + 0.4 * (100vw - 426px) / (768px - 426px));
-    --sp-header-clear: calc(76px * var(--sp-header-s));
+    --sp-header-clear: calc(104px * var(--sp-header-s));
   }
 }
 
