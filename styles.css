@@ -4710,6 +4710,11 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 
 .product-list-page {
   --plp-header-bg: #efce0a;
+  font-weight: 400;
+}
+
+.product-list-page * {
+  font-weight: inherit !important;
 }
 
 .product-detail-page {
