@@ -744,6 +744,42 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     }[ch]));
   }
 
+  /* Chip label = product type. MT list DOM has no category field, so:
+     1) category PLP URL (/products-list/category/{slug}) is authoritative
+     2) otherwise infer from product name (specific keywords first) */
+  var CHIP_BY_SLUG = {
+    "t-shirt": "Tシャツ",
+    "long-sleeve-t-shirt": "ロングTシャツ",
+    "polo-shirt": "ポロシャツ",
+    "long-sleeve-polo-shirt": "長袖ポロシャツ",
+    hoodie: "パーカー",
+    sweatshirt: "スウェット",
+    "transfer-sheet": "転写シート"
+  };
+
+  function chipFromPath() {
+    var m = (location.pathname || "").match(/\/products?-?list\/category\/([^/?#]+)/i);
+    if (!m) return "";
+    return CHIP_BY_SLUG[m[1]] || "";
+  }
+
+  function chipFromName(name) {
+    var t = String(name || "");
+    if (/転写/.test(t)) return "転写シート";
+    if (/長袖\s*ポロ|ロングスリーブ.*ポロ|長袖ポロ/.test(t)) return "長袖ポロシャツ";
+    if (/ポロ/.test(t)) return "ポロシャツ";
+    if (/パーカー|フーディ|hoodie/i.test(t)) return "パーカー";
+    if (/スウェット|トレーナー/.test(t)) return "スウェット";
+    if (/ロング\s*T|長袖\s*T|ロンT|ロングスリーブ.*T|長袖Tシャツ|ロングTシャツ/.test(t)) {
+      return "ロングTシャツ";
+    }
+    return "Tシャツ";
+  }
+
+  function resolveChip(name) {
+    return chipFromPath() || chipFromName(name);
+  }
+
   function buildCard(item) {
     const href = item.getAttribute("href") || "#";
     const img = item.querySelector(".itemListContent__image");
@@ -751,16 +787,29 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     const alt = img ? img.getAttribute("alt") || "" : "";
     const name = (item.querySelector(".itemListContent__name")?.textContent || "").trim();
     const price = (item.querySelector(".itemListContent__price")?.textContent || "").trim();
+    const chip = resolveChip(name || alt);
     return (
       '<article class="plp-card">' +
         '<a class="plp-card__link" href="' + esc(href) + '">' +
           '<div class="plp-card__image"><img src="' + esc(src) + '" alt="' + esc(alt) + '" width="200" height="200" loading="lazy" /></div>' +
-          '<p class="plp-card__chip">Tシャツ</p>' +
+          '<p class="plp-card__chip">' + esc(chip) + "</p>" +
           '<h2 class="plp-card__name">' + esc(name) + "</h2>" +
           '<p class="plp-card__price">' + esc(price) + "</p>" +
         "</a>" +
       "</article>"
     );
+  }
+
+  /* Ranking / leftover static chips: set from sibling product name (or page category). */
+  function syncExistingChips() {
+    var cards = document.querySelectorAll(".plp-card, .product-card, .plp-rank-card");
+    for (var i = 0; i < cards.length; i++) {
+      var chip = cards[i].querySelector(".plp-card__chip, .product-chip");
+      var nameEl = cards[i].querySelector(".plp-card__name, .product-name");
+      if (!chip) continue;
+      var name = nameEl ? (nameEl.textContent || "").trim() : "";
+      chip.textContent = resolveChip(name);
+    }
   }
 
   // page tokens with ellipsis: 1 … (c-1) c (c+1) … last
@@ -858,12 +907,19 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     window.addEventListener("popstate", () => render(false)); // back/forward
 
     render(false);
+    syncExistingChips();
   }
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initPlpGrid);
   } else {
     initPlpGrid();
+  }
+  /* Ranking chips even when MT grid is absent (e.g. empty category). */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", syncExistingChips);
+  } else {
+    syncExistingChips();
   }
 })();
 
