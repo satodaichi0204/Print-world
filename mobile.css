@@ -11430,7 +11430,7 @@ body.product-detail-page .pdp-info .pdp-spec td,
   }
 }
 
-/* PLP intro — 320–768 only (do not set font-weight / commented margins) */
+/* PLP intro — 320–768 only: kill h2/p margins (styles.css + earlier mobile margins) */
 @media (max-width: 768px) {
   #plp-intro-title,
   .plp-main .plp-intro__catch,
@@ -11438,6 +11438,8 @@ body.product-detail-page .pdp-info .pdp-spec td,
   .product-list-page .plp-intro__catch,
   body.product-list-page .plp-intro__catch,
   body.product-list-page #plp-intro-title {
+    margin: 0 !important;
+    margin-inline: 0 !important;
     max-width: none !important;
     font-size: clamp(18px, 2vw, 26px) !important;
     line-height: 1.55 !important;
@@ -11448,6 +11450,8 @@ body.product-detail-page .pdp-info .pdp-spec td,
   .plp-intro .plp-intro__body,
   .product-list-page .plp-intro__body,
   body.product-list-page .plp-intro__body {
+    margin: 0 !important;
+    margin-inline: 0 !important;
     max-width: none !important;
     font-size: 14px !important;
     line-height: 1.85 !important;
