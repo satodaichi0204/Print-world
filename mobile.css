@@ -9579,6 +9579,7 @@ html.is-guide-flow-zoom-open body {
 /* Product list: hero — 426–768: padding lerps 768→426 (wins over earlier rules) */
 @media (min-width: 426px) and (max-width: 768px) {
   .plp-hero,
+  .product-list-page .plp-hero,
   body.product-list-page .plp-hero {
     background-color: var(--plp-header-bg, #efce0a) !important;
     padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
@@ -11031,6 +11032,7 @@ html.is-guide-flow-zoom-open body {
   }
 
   .plp-hero .plp-hero__inner,
+  .product-list-page .plp-hero__inner,
   body.product-list-page .plp-hero__inner {
     width: calc(100% - calc(60px * var(--sp-header-s, 1))) !important;
     margin-left: auto !important;
