@@ -11429,3 +11429,23 @@ body.product-detail-page .pdp-info .pdp-spec td,
     font-family: inherit !important;
   }
 }
+
+/* PLP intro — 320–768 only (do not set font-weight / commented margins) */
+@media (max-width: 768px) {
+  .plp-intro__catch,
+  .product-list-page .plp-intro__catch {
+    max-width: none;
+    font-size: clamp(18px, 2vw, 26px);
+    line-height: 1.55;
+    color: #111;
+  }
+
+  .plp-intro__body,
+  .product-list-page .plp-intro__body {
+    max-width: none;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #555;
+    padding-top: 20px;
+  }
+}
