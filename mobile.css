@@ -11404,3 +11404,17 @@ body.product-detail-page .pdp-info .pdp-spec td,
     border-radius: 4px !important;
   }
 }
+
+/* PLP product copy: inherit weight even if body.product-list-page is missing. */
+.plp-main .plp-card__chip,
+.plp-main .plp-card__name,
+.plp-main .plp-card__price,
+.plp-main .plp-card__price span,
+.plp-main .plp-card__tags li,
+.plp-main .product-chip,
+.plp-main .product-name,
+.plp-main .product-price,
+.plp-main .product-price span,
+.plp-main .product-tags li {
+  font-weight: inherit !important;
+}
