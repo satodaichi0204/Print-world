@@ -5856,7 +5856,7 @@
     }
 
     .product-list-page .plp-subcat__link {
-      font-size: 13px;
+      font-size: 14px;
     }
   }
 
@@ -5868,7 +5868,7 @@
     }
 
     .product-list-page .plp-subcat__link {
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .product-list-page .plp-subcat__title {
@@ -5884,7 +5884,7 @@
     }
 
     .product-list-page .plp-subcat__link {
-      font-size: max(calc(13px * var(--plp-content-s)), 13px);
+      font-size: max(calc(14px * var(--plp-content-s)), 14px);
     }
 
     .product-list-page .plp-subcat__title {
@@ -10791,7 +10791,7 @@ html.is-guide-flow-zoom-open body {
 
   .plp-main .plp-subcat__link,
   body.product-list-page .plp-subcat__link {
-    font-size: max(calc(13px * var(--plp-tab-s)), 12px) !important;
+    font-size: max(calc(14px * var(--plp-tab-s)), 13px) !important;
     overflow-wrap: anywhere !important;
   }
 
@@ -10993,7 +10993,7 @@ html.is-guide-flow-zoom-open body {
 
   .plp-main .plp-subcat__link,
   body.product-list-page .plp-subcat__link {
-    font-size: max(calc(12px * var(--plp-tab-s)), 11px) !important;
+    font-size: max(calc(13px * var(--plp-tab-s)), 12px) !important;
     overflow-wrap: anywhere !important;
   }
 
