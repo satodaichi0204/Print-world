@@ -5330,8 +5330,8 @@
   }
 }
 
-/* --- Product list: subcategory grid narrow tablet (426–767) --- */
-@media (min-width: 426px) and (max-width: 767px) {
+/* --- Product list: subcategory grid narrow tablet (426–768) --- */
+@media (min-width: 426px) and (max-width: 768px) {
   .product-list-page .plp-subcat__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -10786,7 +10786,7 @@ html.is-guide-flow-zoom-open body {
   .plp-main .plp-subcat__grid,
   body.product-list-page .plp-subcat__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: calc(12px * var(--plp-tab-s)) calc(10px * var(--plp-tab-s)) !important;
+    /* gap: calc(12px * var(--plp-tab-s)) calc(10px * var(--plp-tab-s)) !important; */
   }
 
   .plp-main .plp-subcat__link,
