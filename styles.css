@@ -4787,12 +4787,12 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 @media (min-width: 426px) and (max-width: 768px) {
   #plp-hero-title .plp-hero__title-sm,
   .plp-hero .plp-hero__title-sm {
-    font-size: calc(37.6px * 768 / 1920);
+    font-size: calc(37.6px * 768 / 1920) !important;
   }
 
   #plp-hero-title .plp-hero__title-lg,
   .plp-hero .plp-hero__title-lg {
-    font-size: calc(72.8px * 768 / 1920);
+    font-size: calc(72.8px * 768 / 1920) !important;
   }
 }
 
