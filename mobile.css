@@ -5535,13 +5535,13 @@
   #plp-hero-title .plp-hero__title-sm,
   .plp-hero .plp-hero__title-sm,
   .product-list-page .plp-hero__title-sm {
-    font-size: calc(70px * 768 / 1920) !important;
+    font-size: calc(37.6px * 768 / 1920 * var(--sp-header-s, 1)) !important;
   }
 
   #plp-hero-title .plp-hero__title-lg,
   .plp-hero .plp-hero__title-lg,
   .product-list-page .plp-hero__title-lg {
-    font-size: calc(110px * 768 / 1920) !important;
+    font-size: calc(72.8px * 768 / 1920 * var(--sp-header-s, 1)) !important;
   }
 }
 
@@ -9575,13 +9575,13 @@ html.is-guide-flow-zoom-open body {
   #plp-hero-title .plp-hero__title-sm,
   .plp-hero .plp-hero__title-sm,
   body.product-list-page .plp-hero__title-sm {
-    font-size: calc(70px * 768 / 1920) !important;
+    font-size: calc(37.6px * 768 / 1920 * var(--sp-header-s, 1)) !important;
   }
 
   #plp-hero-title .plp-hero__title-lg,
   .plp-hero .plp-hero__title-lg,
   body.product-list-page .plp-hero__title-lg {
-    font-size: calc(110px * 768 / 1920) !important;
+    font-size: calc(72.8px * 768 / 1920 * var(--sp-header-s, 1)) !important;
   }
 }
 
@@ -11025,14 +11025,14 @@ html.is-guide-flow-zoom-open body {
   .plp-hero .plp-hero__title-sm,
   .product-list-page .plp-hero__title-sm,
   body.product-list-page .plp-hero__title-sm {
-    font-size: calc(70px * 768 / 1920) !important;
+    font-size: calc(37.6px * 768 / 1920 * var(--sp-header-s, 1)) !important;
   }
 
   #plp-hero-title .plp-hero__title-lg,
   .plp-hero .plp-hero__title-lg,
   .product-list-page .plp-hero__title-lg,
   body.product-list-page .plp-hero__title-lg {
-    font-size: calc(110px * 768 / 1920) !important;
+    font-size: calc(72.8px * 768 / 1920 * var(--sp-header-s, 1)) !important;
   }
 }
 

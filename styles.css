@@ -4783,16 +4783,16 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   }
 }
 
-/* PLP hero title — 426–768: lock 70/110 (beats base clamp if mobile.css is late) */
+/* PLP hero title — 426–768: lock 768 state (37.6/72.8 @1920 scaled) */
 @media (min-width: 426px) and (max-width: 768px) {
   #plp-hero-title .plp-hero__title-sm,
   .plp-hero .plp-hero__title-sm {
-    font-size: calc(70px * 768 / 1920);
+    font-size: calc(37.6px * 768 / 1920);
   }
 
   #plp-hero-title .plp-hero__title-lg,
   .plp-hero .plp-hero__title-lg {
-    font-size: calc(110px * 768 / 1920);
+    font-size: calc(72.8px * 768 / 1920);
   }
 }
 
