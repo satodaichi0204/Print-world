@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plpcardw" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plpcardw" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plpcardw" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plpmobilew" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plpmobilew" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plpmobilew" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260820plpcardw";
+  var CSS_V = "20260820plpmobilew";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -221,9 +221,11 @@
         "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;}" +
         "}" +
+        "@media (max-width:768px){" +
         "body.product-list-page,.plp-main{font-weight:400!important;}" +
         "body.product-list-page *,.plp-main *{font-weight:inherit!important;}" +
         ".plp-main .plp-card__chip,.plp-main .plp-card__name,.plp-main .plp-card__price,.plp-main .plp-card__price span,.plp-main .plp-card__tags li,.plp-main .product-chip,.plp-main .product-name,.plp-main .product-price,.plp-main .product-price span,.plp-main .product-tags li{font-weight:inherit!important;font-family:inherit!important;}" +
+        "}" +
         /* PDP hero: 769–1440 header is locked at 1440 zoom; keep 1440 padding-top so the title stays clear. */ +
         "@media (min-width: 769px) and (max-width: 1440px){" +
         "body.product-detail-page .pdp-hero,.product-detail-page .pdp-hero{" +
@@ -315,6 +317,19 @@
     if (!body) return;
     var root = body.querySelector(".plp-main");
     if (!root && !body.classList.contains("product-list-page")) return;
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+      if (body.classList.contains("product-list-page")) {
+        body.style.removeProperty("font-weight");
+      }
+      if (root) {
+        root.style.removeProperty("font-weight");
+        var desktopNodes = root.querySelectorAll("*");
+        for (var j = 0; j < desktopNodes.length; j++) {
+          desktopNodes[j].style.removeProperty("font-weight");
+        }
+      }
+      return;
+    }
     if (body.classList.contains("product-list-page")) {
       body.style.setProperty("font-weight", "400", "important");
     }

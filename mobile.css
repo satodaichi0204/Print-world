@@ -11405,16 +11405,27 @@ body.product-detail-page .pdp-info .pdp-spec td,
   }
 }
 
-/* PLP product copy: inherit weight even if body.product-list-page is missing. */
-.plp-main .plp-card__chip,
-.plp-main .plp-card__name,
-.plp-main .plp-card__price,
-.plp-main .plp-card__price span,
-.plp-main .plp-card__tags li,
-.plp-main .product-chip,
-.plp-main .product-name,
-.plp-main .product-price,
-.plp-main .product-price span,
-.plp-main .product-tags li {
-  font-weight: inherit !important;
+/* PLP product copy: mobile only should inherit weight even if body.product-list-page is missing. */
+@media (max-width: 768px) {
+  .plp-main {
+    font-weight: 400;
+  }
+
+  .plp-main * {
+    font-weight: inherit !important;
+  }
+
+  .plp-main .plp-card__chip,
+  .plp-main .plp-card__name,
+  .plp-main .plp-card__price,
+  .plp-main .plp-card__price span,
+  .plp-main .plp-card__tags li,
+  .plp-main .product-chip,
+  .plp-main .product-name,
+  .plp-main .product-price,
+  .plp-main .product-price span,
+  .plp-main .product-tags li {
+    font-weight: inherit !important;
+    font-family: inherit !important;
+  }
 }
