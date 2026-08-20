@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plphero3" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plphero3" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plphero3" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plphero4" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plphero4" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plphero4" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260820plphero3";
+  var CSS_V = "20260820plphero4";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -119,14 +119,13 @@
         "margin-left:auto!important;margin-right:auto!important;padding:0!important;" +
         "display:flex!important;flex-direction:column!important;justify-content:center!important;" +
         "min-height:calc((220px * 164 / 511 + 14px + 440px * 123 / 1349) * var(--sp-header-s,1))!important;}" +
-        "#plp-hero-title .plp-hero__title-sm,.plp-hero .plp-hero__title-sm," +
-        "body.product-list-page .plp-hero__title-sm,.product-list-page .plp-hero__title-sm{" +
-        "font-size:calc(37.6px * 768 / 1920 * var(--sp-header-s,1))!important;}" +
-        "#plp-hero-title .plp-hero__title-lg,.plp-hero .plp-hero__title-lg," +
+        "#plp-hero-title,#plp-hero-title .plp-hero__title-sm,#plp-hero-title .plp-hero__title-lg," +
+        ".plp-hero .plp-hero__title-sm,.plp-hero .plp-hero__title-lg," +
+        "body.product-list-page .plp-hero__title-sm,.product-list-page .plp-hero__title-sm," +
         "body.product-list-page .plp-hero__title-lg,.product-list-page .plp-hero__title-lg{" +
-        "font-size:calc(72.8px * 768 / 1920 * var(--sp-header-s,1))!important;}" +
-        "#plp-hero-title:not(:has(.plp-hero__title-sm)){" +
-        "font-size:calc(72.8px * 768 / 1920 * var(--sp-header-s,1))!important;}" +
+        "font-size:calc(33px * var(--sp-header-s,1))!important;font-weight:900!important;" +
+        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "color:#111!important;letter-spacing:0.02em!important;line-height:1.3!important;overflow-wrap:anywhere!important;}" +
         "body.product-detail-page .pdp-hero__title,.product-detail-page .pdp-hero__title,#pdp-title{" +
         "font-size:calc(33px * var(--sp-header-s,1))!important;font-weight:900!important;" +
         "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
@@ -173,14 +172,13 @@
         "font-size:max(14px,calc(23px * var(--sp-header-s,1)))!important;font-weight:900!important;" +
         "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;line-height:1.3!important;overflow-wrap:anywhere!important;}" +
-        "#plp-hero-title .plp-hero__title-sm,.plp-hero .plp-hero__title-sm," +
-        "body.product-list-page .plp-hero__title-sm,.product-list-page .plp-hero__title-sm{" +
-        "font-size:calc(20px * var(--sec9-sp-s,1))!important;}" +
-        "#plp-hero-title .plp-hero__title-lg,.plp-hero .plp-hero__title-lg," +
+        "#plp-hero-title,#plp-hero-title .plp-hero__title-sm,#plp-hero-title .plp-hero__title-lg," +
+        ".plp-hero .plp-hero__title-sm,.plp-hero .plp-hero__title-lg," +
+        "body.product-list-page .plp-hero__title-sm,.product-list-page .plp-hero__title-sm," +
         "body.product-list-page .plp-hero__title-lg,.product-list-page .plp-hero__title-lg{" +
-        "font-size:calc(40px * var(--sec9-sp-s,1))!important;}" +
-        "#plp-hero-title:not(:has(.plp-hero__title-sm)){" +
-        "font-size:calc(40px * var(--sec9-sp-s,1))!important;}" +
+        "font-size:max(14px,calc(23px * var(--sp-header-s,1)))!important;font-weight:900!important;" +
+        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "color:#111!important;letter-spacing:0.02em!important;line-height:1.3!important;overflow-wrap:anywhere!important;}" +
         ".plp-main .plp-ranking{--plp-tab-s:calc(0.78 + 0.06 * (100vw - 320px) / (425px - 320px));}" +
         ".plp-main .plp-ranking__slider{padding:calc(18px * var(--plp-tab-s)) calc(44px * var(--plp-tab-s)) calc(20px * var(--plp-tab-s))!important;}" +
         ".plp-main .plp-ranking__viewport{overflow:hidden!important;width:100%!important;max-width:100%!important;}" +
@@ -270,11 +268,11 @@
     var smSize = "";
     var lgSize = "";
     if (window.matchMedia("(max-width: 425px)").matches) {
-      smSize = "calc(20px * var(--sec9-sp-s, 1))";
-      lgSize = "calc(40px * var(--sec9-sp-s, 1))";
+      smSize = "max(14px, calc(23px * var(--sp-header-s, 1)))";
+      lgSize = smSize;
     } else if (window.matchMedia("(min-width: 426px) and (max-width: 768px)").matches) {
-      smSize = "calc(37.6px * 768 / 1920 * var(--sp-header-s, 1))";
-      lgSize = "calc(72.8px * 768 / 1920 * var(--sp-header-s, 1))";
+      smSize = "calc(33px * var(--sp-header-s, 1))";
+      lgSize = smSize;
     }
     var i;
     if (!smSize) {
@@ -285,15 +283,7 @@
     }
     for (i = 0; i < sms.length; i++) sms[i].style.setProperty("font-size", smSize, "important");
     for (i = 0; i < lgs.length; i++) lgs[i].style.setProperty("font-size", lgSize, "important");
-    if (titleEl) {
-      if (sms.length && lgs.length) {
-        titleEl.style.removeProperty("font-size");
-      } else if (lgs.length) {
-        titleEl.style.setProperty("font-size", lgSize, "important");
-      } else if (sms.length) {
-        titleEl.style.setProperty("font-size", smSize, "important");
-      }
-    }
+    if (titleEl) titleEl.style.setProperty("font-size", lgSize || smSize, "important");
   }
 
   /* PDP yellow title: lock weight/family so PC matches SP. Do not touch font-size. */
