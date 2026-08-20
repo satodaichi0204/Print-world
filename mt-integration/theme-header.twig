@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plpweight1" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plpweight1" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plpweight1" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plpweight2" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plpweight2" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plpweight2" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260820plpweight1";
+  var CSS_V = "20260820plpweight2";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -309,6 +309,16 @@
     if (titleEl) titleEl.style.setProperty("font-size", lgSize || smSize, "important");
   }
 
+  function pinPlpInheritedWeights() {
+    var body = document.body;
+    if (!body || !body.classList.contains("product-list-page")) return;
+    body.style.setProperty("font-weight", "400", "important");
+    var nodes = body.querySelectorAll("*");
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].style.setProperty("font-weight", "inherit", "important");
+    }
+  }
+
   /* PDP yellow title: lock weight/family so PC matches SP. Do not touch font-size. */
   function pinPdpHeroTitleStyle() {
     var el = document.getElementById("pdp-title") || document.querySelector(".pdp-hero__title");
@@ -375,6 +385,7 @@
       pinPwCss();
       pinPlpRankingLock();
       markPlpBody();
+      pinPlpInheritedWeights();
       pinPlpHeroTitleSize();
       pinPdpHeroTitleStyle();
       pinPdpInfoStyle();
@@ -392,6 +403,8 @@
   setTimeout(pinAll, 0);
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
+  setTimeout(pinPlpInheritedWeights, 2000);
+  setTimeout(pinPlpInheritedWeights, 4000);
   setTimeout(pinPlpHeroTitleSize, 2000);
   setTimeout(pinPlpHeroTitleSize, 4000);
   setTimeout(pinPdpHeroTitleStyle, 2000);
@@ -444,6 +457,7 @@
         if (moTimer) clearTimeout(moTimer);
         moTimer = setTimeout(needsCss ? pinAll : function () {
           markPlpBody();
+          pinPlpInheritedWeights();
           pinPlpHeroTitleSize();
           pinPdpHeroTitleStyle();
           pinPdpInfoStyle();
