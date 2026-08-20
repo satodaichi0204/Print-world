@@ -5569,8 +5569,8 @@
   }
 }
 
-/* --- Product list: intro copy — 768–1919 proportional scale (1920 lock in styles.css) --- */
-@media (min-width: 768px) and (max-width: 1919px) {
+/* --- Product list: intro copy — 769–1919 proportional scale (1920 lock in styles.css) --- */
+@media (min-width: 769px) and (max-width: 1919px) {
   .product-list-page .plp-intro {
     --plp-intro-s: calc(100vw / 1920px);
   }
@@ -11432,22 +11432,25 @@ body.product-detail-page .pdp-info .pdp-spec td,
 
 /* PLP intro copy — 320–768 only */
 @media (max-width: 768px) {
+  #plp-intro-title,
   .plp-main .plp-intro__catch,
-  .product-list-page .plp-intro__catch {
-    max-width: none;
-    font-size: clamp(18px, 2vw, 26px);
+  .product-list-page .plp-intro__catch,
+  .plp-intro .plp-intro__catch {
+    max-width: none !important;
+    font-size: clamp(18px, 2vw, 26px) !important;
     font-weight: 1000 !important;
-    line-height: 1.55;
-    color: #111;
+    line-height: 1.55 !important;
+    color: #111 !important;
   }
 
   .plp-main .plp-intro__body,
-  .product-list-page .plp-intro__body {
-    max-width: none;
-    font-size: 14px;
+  .product-list-page .plp-intro__body,
+  .plp-intro .plp-intro__body {
+    max-width: none !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
-    line-height: 1.85;
-    color: #555;
-    margin-top: 20px;
+    line-height: 1.85 !important;
+    color: #555 !important;
+    margin-top: 20px !important;
   }
 }

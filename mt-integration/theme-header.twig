@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plpintro" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plpintro" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plpintro" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260820plpintro2" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260820plpintro2" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260820plpintro2" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260820plpintro";
+  var CSS_V = "20260820plpintro2";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -225,6 +225,10 @@
         "body.product-list-page,.plp-main{font-weight:400!important;}" +
         "body.product-list-page *,.plp-main *{font-weight:inherit!important;}" +
         ".plp-main .plp-card__chip,.plp-main .plp-card__name,.plp-main .plp-card__price,.plp-main .plp-card__price span,.plp-main .plp-card__tags li,.plp-main .product-chip,.plp-main .product-name,.plp-main .product-price,.plp-main .product-price span,.plp-main .product-tags li{font-weight:inherit!important;font-family:inherit!important;}" +
+        "#plp-intro-title,.plp-intro .plp-intro__catch,.plp-main .plp-intro__catch,.product-list-page .plp-intro__catch{" +
+        "max-width:none!important;font-size:clamp(18px,2vw,26px)!important;font-weight:1000!important;line-height:1.55!important;color:#111!important;}" +
+        ".plp-intro .plp-intro__body,.plp-main .plp-intro__body,.product-list-page .plp-intro__body{" +
+        "max-width:none!important;font-size:14px!important;font-weight:700!important;line-height:1.85!important;color:#555!important;margin-top:20px!important;}" +
         "}" +
         /* PDP hero: 769–1440 header is locked at 1440 zoom; keep 1440 padding-top so the title stays clear. */ +
         "@media (min-width: 769px) and (max-width: 1440px){" +
@@ -337,7 +341,53 @@
     var scope = root || body;
     var nodes = scope.querySelectorAll("*");
     for (var i = 0; i < nodes.length; i++) {
+      if (isPlpIntroCopy(nodes[i])) continue;
       nodes[i].style.setProperty("font-weight", "inherit", "important");
+    }
+  }
+
+  function isPlpIntroCopy(el) {
+    if (!el || el.nodeType !== 1) return false;
+    if (el.id === "plp-intro-title") return true;
+    return !!(el.classList && (el.classList.contains("plp-intro__catch") || el.classList.contains("plp-intro__body")));
+  }
+
+  function pinPlpIntroCopy() {
+    var catches = document.querySelectorAll("#plp-intro-title, .plp-intro__catch");
+    var bodies = document.querySelectorAll(".plp-intro__body");
+    var i;
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+      for (i = 0; i < catches.length; i++) {
+        catches[i].style.removeProperty("max-width");
+        catches[i].style.removeProperty("font-size");
+        catches[i].style.removeProperty("font-weight");
+        catches[i].style.removeProperty("line-height");
+        catches[i].style.removeProperty("color");
+      }
+      for (i = 0; i < bodies.length; i++) {
+        bodies[i].style.removeProperty("max-width");
+        bodies[i].style.removeProperty("font-size");
+        bodies[i].style.removeProperty("font-weight");
+        bodies[i].style.removeProperty("line-height");
+        bodies[i].style.removeProperty("color");
+        bodies[i].style.removeProperty("margin-top");
+      }
+      return;
+    }
+    for (i = 0; i < catches.length; i++) {
+      catches[i].style.setProperty("max-width", "none", "important");
+      catches[i].style.setProperty("font-size", "clamp(18px, 2vw, 26px)", "important");
+      catches[i].style.setProperty("font-weight", "1000", "important");
+      catches[i].style.setProperty("line-height", "1.55", "important");
+      catches[i].style.setProperty("color", "#111", "important");
+    }
+    for (i = 0; i < bodies.length; i++) {
+      bodies[i].style.setProperty("max-width", "none", "important");
+      bodies[i].style.setProperty("font-size", "14px", "important");
+      bodies[i].style.setProperty("font-weight", "700", "important");
+      bodies[i].style.setProperty("line-height", "1.85", "important");
+      bodies[i].style.setProperty("color", "#555", "important");
+      bodies[i].style.setProperty("margin-top", "20px", "important");
     }
   }
 
@@ -408,6 +458,7 @@
       pinPlpRankingLock();
       markPlpBody();
       pinPlpInheritedWeights();
+      pinPlpIntroCopy();
       pinPlpHeroTitleSize();
       pinPdpHeroTitleStyle();
       pinPdpInfoStyle();
@@ -421,12 +472,17 @@
     document.addEventListener("DOMContentLoaded", pinAll);
   }
   window.addEventListener("load", pinAll);
-  window.addEventListener("resize", pinPlpHeroTitleSize);
+  window.addEventListener("resize", function () {
+    pinPlpHeroTitleSize();
+    pinPlpIntroCopy();
+  });
   setTimeout(pinAll, 0);
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
   setTimeout(pinPlpInheritedWeights, 2000);
   setTimeout(pinPlpInheritedWeights, 4000);
+  setTimeout(pinPlpIntroCopy, 2000);
+  setTimeout(pinPlpIntroCopy, 4000);
   setTimeout(pinPlpHeroTitleSize, 2000);
   setTimeout(pinPlpHeroTitleSize, 4000);
   setTimeout(pinPdpHeroTitleStyle, 2000);
@@ -467,7 +523,7 @@
                   break;
                 }
               }
-              if (n.querySelector(".plp-hero__title-sm, .plp-hero__title-lg, .plp-hero, .pdp-hero__title, #pdp-title, .pdp-info, style")) {
+              if (n.querySelector(".plp-hero__title-sm, .plp-hero__title-lg, .plp-hero, .plp-intro__catch, .plp-intro__body, .pdp-hero__title, #pdp-title, .pdp-info, style")) {
                 needsTitle = true;
               }
             }
@@ -480,6 +536,7 @@
         moTimer = setTimeout(needsCss ? pinAll : function () {
           markPlpBody();
           pinPlpInheritedWeights();
+          pinPlpIntroCopy();
           pinPlpHeroTitleSize();
           pinPdpHeroTitleStyle();
           pinPdpInfoStyle();
