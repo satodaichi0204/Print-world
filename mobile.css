@@ -10988,7 +10988,7 @@ html.is-guide-flow-zoom-open body {
   .plp-main .plp-subcat__grid,
   body.product-list-page .plp-subcat__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: calc(10px * var(--plp-tab-s)) calc(8px * var(--plp-tab-s)) !important;
+    /* gap: calc(10px * var(--plp-tab-s)) calc(8px * var(--plp-tab-s)) !important; */
   }
 
   .plp-main .plp-subcat__link,
