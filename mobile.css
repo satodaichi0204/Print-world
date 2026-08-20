@@ -5528,7 +5528,10 @@
   body.product-list-page .plp-hero {
     --plp-hero-s: calc(768 / 1920);
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        24px * var(--sp-header-s, 1)
+    ) !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
     padding-bottom: 0 !important;
@@ -9582,7 +9585,10 @@ html.is-guide-flow-zoom-open body {
   .product-list-page .plp-hero,
   body.product-list-page .plp-hero {
     background-color: var(--plp-header-bg, #efce0a) !important;
-    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        24px * var(--sp-header-s, 1)
+    ) !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
     padding-bottom: 0 !important;
@@ -11006,7 +11012,10 @@ html.is-guide-flow-zoom-open body {
   .plp-hero,
   body.product-list-page .plp-hero {
     min-height: 0 !important;
-    padding-top: var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) !important;
+    padding-top: calc(
+      var(--sp-header-clear, calc(76px * var(--sp-header-s, 1))) +
+        24px * var(--sp-header-s, 1)
+    ) !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
     padding-bottom: 0 !important;
