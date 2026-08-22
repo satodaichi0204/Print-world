@@ -2082,15 +2082,7 @@
     width: calc(80% - 8px * var(--sec4-pc-s));
     min-height: calc(32px * var(--sec4-pc-s));
     font-size: calc(13px * var(--sec4-pc-s));
-    padding: calc(16px * var(--sec4-pc-s)) calc(16px * var(--sec4-pc-s)) calc(16px * var(--sec4-pc-s))
-      calc(10px * var(--sec4-pc-s));
-  }
-
-  .home-page .sec4-card__link::after {
-    right: calc(10px * var(--sec4-pc-s));
-    border-top-width: calc(3px * var(--sec4-pc-s));
-    border-bottom-width: calc(3px * var(--sec4-pc-s));
-    border-left-width: calc(5px * var(--sec4-pc-s));
+    padding: calc(16px * var(--sec4-pc-s)) calc(12px * var(--sec4-pc-s));
   }
 
   .home-page .sec4-bottom-confetti {
