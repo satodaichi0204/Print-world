@@ -230,14 +230,54 @@ setupMeasuredLoop(
   }
 })();
 
-// Section4 cards: duplicate one full set for continuous left loop.
-const sec4Track = document.querySelector(".sec4-track");
-const sec4Set = sec4Track?.querySelector(".sec4-list");
+// Section4 cards: fix labels (MT HTML paste can stay stale), then duplicate for loop.
+(function () {
+  var SEC4_LABEL_BY_RESOURCE = {
+    "233d11dbacdbd7c6516987f2c231e51784293291": "クラブTシャツ",
+    "9daacb8dd90762f95c646f4d912a481784293362": "スポーツトレーナー",
+    "6810fdd5e0ca59908a2c97c2f556f91784293511": "学園祭Tシャツ",
+    "b5f7388532e2f3d9cbb349ade3e8e81784297619": "クラスTシャツ",
+    "13817739655e754387358f6d8052e91784293459": "スタッフTシャツ",
+    "6c2f0afbd1e66aec1200ab15dd2b411784344392": "企業ポロシャツ",
+    "cfa4b0839f363623a78d0df0d3ca4c1784293771": "チームパーカー",
+    "39fff4e492e9ec863d310e80b18b701784344511": "チームポロシャツ",
+    "946d54050b551f498b57de0f2b06c01784293549": "デザインロングTシャツ",
+    "6e194335e4b0cc69517dfff0f17e3f1784344625": "和柄トレーナー"
+  };
 
-if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
-  sec4Track.appendChild(sec4Set.cloneNode(true));
-  sec4Track.dataset.loopReady = "true";
-}
+  function resourceIdFromSrc(src) {
+    var m = String(src || "").match(/\/resource\/([a-f0-9]+)/i);
+    return m ? m[1] : "";
+  }
+
+  function syncSec4Labels(root) {
+    if (!root) return;
+    var cards = root.querySelectorAll(".sec4-card");
+    for (var i = 0; i < cards.length; i++) {
+      var img = cards[i].querySelector(".sec4-card__image img");
+      var link = cards[i].querySelector(".sec4-card__link");
+      if (!img || !link) continue;
+      var label = SEC4_LABEL_BY_RESOURCE[resourceIdFromSrc(img.getAttribute("src"))];
+      if (!label) continue;
+      link.textContent = label;
+      img.setAttribute("alt", label);
+    }
+  }
+
+  var sec4Track = document.querySelector(".sec4-track");
+  var sec4Set = sec4Track && sec4Track.querySelector(".sec4-list");
+  if (!sec4Track || !sec4Set) return;
+
+  syncSec4Labels(sec4Set);
+  if (!sec4Track.dataset.loopReady) {
+    sec4Track.appendChild(sec4Set.cloneNode(true));
+    sec4Track.dataset.loopReady = "true";
+  } else {
+    /* If MT already cloned, fix every list copy. */
+    var lists = sec4Track.querySelectorAll(".sec4-list");
+    for (var j = 0; j < lists.length; j++) syncSec4Labels(lists[j]);
+  }
+})();
 
 // --- Global hamburger menu ---
 // DISABLED on MakerTown: MT provides its own SP menu (js-openSpMenu) on the same
