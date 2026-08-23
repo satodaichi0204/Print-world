@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260823sec4label" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260823sec4label" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260823sec4label" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260822sec4fix" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260822sec4fix" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260822sec4fix" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,9 +39,8 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260823sec4label";
+  var CSS_V = "20260822sec4fix";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
-  var APP_JS = CSS_BASE + "mt-integration/app.mt.js?v=" + CSS_V;
   var pinning = false;
 
   function pinPwCss() {
@@ -76,55 +75,6 @@
         head.appendChild(keep);
       }
     });
-  }
-
-  /* Ensure TOP/home loads the latest app.mt.js even if the HTML block keeps an old ?v=. */
-  function pinPwAppJs() {
-    var head = document.head || document.documentElement;
-    var scripts = document.querySelectorAll("script[src]");
-    var keep = null;
-    for (var i = 0; i < scripts.length; i++) {
-      var src = scripts[i].getAttribute("src") || "";
-      if (src.indexOf("print-world-blond.vercel.app/mt-integration/app.mt.js") === -1) continue;
-      if (src.indexOf("?v=" + CSS_V) !== -1) {
-        keep = scripts[i];
-        continue;
-      }
-      if (scripts[i].parentNode) scripts[i].parentNode.removeChild(scripts[i]);
-    }
-    if (keep) return;
-    var s = document.createElement("script");
-    s.src = APP_JS;
-    s.defer = true;
-    s.setAttribute("data-pw-js", "app.mt.js");
-    head.appendChild(s);
-  }
-
-  /* TOP sec4: labels live in MakerTown HTML paste (not Vercel CSS). Map by image resource id. */
-  function pinSec4Labels() {
-    var map = {
-      "233d11dbacdbd7c6516987f2c231e51784293291": "クラブTシャツ",
-      "9daacb8dd90762f95c646f4d912a481784293362": "スポーツトレーナー",
-      "6810fdd5e0ca59908a2c97c2f556f91784293511": "学園祭Tシャツ",
-      "b5f7388532e2f3d9cbb349ade3e8e81784297619": "クラスTシャツ",
-      "13817739655e754387358f6d8052e91784293459": "スタッフTシャツ",
-      "6c2f0afbd1e66aec1200ab15dd2b411784344392": "企業ポロシャツ",
-      "cfa4b0839f363623a78d0df0d3ca4c1784293771": "チームパーカー",
-      "39fff4e492e9ec863d310e80b18b701784344511": "チームポロシャツ",
-      "946d54050b551f498b57de0f2b06c01784293549": "デザインロングTシャツ",
-      "6e194335e4b0cc69517dfff0f17e3f1784344625": "和柄トレーナー"
-    };
-    var cards = document.querySelectorAll(".sec4-card");
-    for (var i = 0; i < cards.length; i++) {
-      var img = cards[i].querySelector(".sec4-card__image img");
-      var link = cards[i].querySelector(".sec4-card__link");
-      if (!img || !link) continue;
-      var m = String(img.getAttribute("src") || "").match(/\/resource\/([a-f0-9]+)/i);
-      var label = m ? map[m[1]] : "";
-      if (!label) continue;
-      if (link.textContent !== label) link.textContent = label;
-      if (img.getAttribute("alt") !== label) img.setAttribute("alt", label);
-    }
   }
 
   function pinPlpRankingLock() {
@@ -459,14 +409,12 @@
     pinning = true;
     try {
       pinPwCss();
-      pinPwAppJs();
       pinPlpRankingLock();
       markPlpBody();
       pinPlpInheritedWeights();
       pinPlpHeroTitleSize();
       pinPdpHeroTitleStyle();
       pinPdpInfoStyle();
-      pinSec4Labels();
     } finally {
       pinning = false;
     }
@@ -489,8 +437,6 @@
   setTimeout(pinPdpHeroTitleStyle, 4000);
   setTimeout(pinPdpInfoStyle, 2000);
   setTimeout(pinPdpInfoStyle, 4000);
-  setTimeout(pinSec4Labels, 2000);
-  setTimeout(pinSec4Labels, 4000);
   /* Watch late MT <link>/<style> and PLP title nodes — ignore our own pin moves. */
   if (typeof MutationObserver === "function") {
     try {
@@ -513,7 +459,7 @@
             }
             if (n.tagName === "STYLE" || n.tagName === "LINK") needsTitle = true;
             var cls = n.classList;
-            if (cls && (cls.contains("plp-hero") || cls.contains("plp-hero__title-sm") || cls.contains("plp-hero__title-lg") || cls.contains("pdp-hero") || cls.contains("pdp-hero__title") || cls.contains("pdp-info") || cls.contains("sec4-card") || cls.contains("sec4-list") || cls.contains("sec4-track"))) {
+            if (cls && (cls.contains("plp-hero") || cls.contains("plp-hero__title-sm") || cls.contains("plp-hero__title-lg") || cls.contains("pdp-hero") || cls.contains("pdp-hero__title") || cls.contains("pdp-info"))) {
               needsTitle = true;
             }
             if (n.querySelectorAll) {
@@ -541,7 +487,6 @@
           pinPlpHeroTitleSize();
           pinPdpHeroTitleStyle();
           pinPdpInfoStyle();
-          pinSec4Labels();
         }, 100);
       });
       mo.observe(document.documentElement, { childList: true, subtree: true });
