@@ -736,7 +736,9 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
 // available from the block, so the generated cards omit the tag list.
 // ---------------------------------------------------------------------------
 (() => {
-  const PER_PAGE = 12; // cards per page
+  const PER_PAGE = 20; // cards per page — MUST be a multiple of the desktop column count (.plp-grid = 5 cols)
+                       // so a page never ends with a half-empty row that pushes products onto the next page.
+                       // 20 = 4 full rows at 5 cols (also divides 4 and 2 col breakpoints).
 
   function esc(value) {
     return String(value == null ? "" : value).replace(/[&<>"']/g, (ch) => ({
