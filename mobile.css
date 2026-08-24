@@ -11193,56 +11193,58 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* PDP info panel: same POINT / headline / spec type and padding on SP and PC. */
-body.product-detail-page .pdp-info,
-.product-detail-page .pdp-info {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
-    sans-serif !important;
-}
+/* PDP info panel: PC/tablet-wide only (769+). Mobile uses site-type inherit lock. */
+@media (min-width: 769px) {
+  body.product-detail-page .pdp-info,
+  .product-detail-page .pdp-info {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+      sans-serif !important;
+  }
 
-body.product-detail-page .pdp-info .pdp-point__label,
-.product-detail-page .pdp-info .pdp-point__label {
-  font-family: inherit !important;
-  font-size: 13px !important;
-  font-weight: 900 !important;
-  padding: 14px 28px !important;
-  letter-spacing: 0.04em !important;
-  line-height: 1 !important;
-}
+  body.product-detail-page .pdp-info .pdp-point__label,
+  .product-detail-page .pdp-info .pdp-point__label {
+    font-family: inherit !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    padding: 14px 28px !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1 !important;
+  }
 
-body.product-detail-page .pdp-info .pdp-headline,
-.product-detail-page .pdp-info .pdp-headline {
-  font-family: inherit !important;
-  font-size: 28px !important;
-  font-weight: 900 !important;
-  line-height: 1.45 !important;
-}
+  body.product-detail-page .pdp-info .pdp-headline,
+  .product-detail-page .pdp-info .pdp-headline {
+    font-family: inherit !important;
+    font-size: 28px !important;
+    font-weight: 900 !important;
+    line-height: 1.45 !important;
+  }
 
-body.product-detail-page .pdp-info .pdp-desc p,
-.product-detail-page .pdp-info .pdp-desc p {
-  font-family: inherit !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-}
+  body.product-detail-page .pdp-info .pdp-desc p,
+  .product-detail-page .pdp-info .pdp-desc p {
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
 
-body.product-detail-page .pdp-info .pdp-spec th,
-body.product-detail-page .pdp-info .pdp-spec td,
-.product-detail-page .pdp-info .pdp-spec th,
-.product-detail-page .pdp-info .pdp-spec td {
-  font-family: inherit !important;
-  padding: 16px 20px !important;
-}
+  body.product-detail-page .pdp-info .pdp-spec th,
+  body.product-detail-page .pdp-info .pdp-spec td,
+  .product-detail-page .pdp-info .pdp-spec th,
+  .product-detail-page .pdp-info .pdp-spec td {
+    font-family: inherit !important;
+    padding: 16px 20px !important;
+  }
 
-body.product-detail-page .pdp-info .pdp-spec th,
-.product-detail-page .pdp-info .pdp-spec th {
-  font-size: 13px !important;
-  font-weight: 700 !important;
-}
+  body.product-detail-page .pdp-info .pdp-spec th,
+  .product-detail-page .pdp-info .pdp-spec th {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+  }
 
-body.product-detail-page .pdp-info .pdp-spec td,
-.product-detail-page .pdp-info .pdp-spec td {
-  font-size: 14px !important;
-  font-weight: 700 !important;
+  body.product-detail-page .pdp-info .pdp-spec td,
+  .product-detail-page .pdp-info .pdp-spec td {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
 }
 
 /* PDP body — 426–768: restore button padding/gap and spec cell size to match ≤425. */
@@ -11458,10 +11460,45 @@ body.product-detail-page .pdp-info .pdp-spec td,
   body:not(.home-page):not(.product-list-page) {
     font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased;
   }
 
-  body:not(.home-page):not(.product-list-page) *:not(script):not(style) {
+  body:not(.home-page):not(.product-list-page) main *:not(script):not(style),
+  body.info-page main *:not(script):not(style),
+  body.company-page main *:not(script):not(style),
+  body.legal-page main *:not(script):not(style),
+  body.guide-flow-page .guide-flow-main *:not(script):not(style),
+  body.guide-print-method-page .guide-flow-main *:not(script):not(style),
+  body.guide-design-tool-page .guide-flow-main *:not(script):not(style),
+  body.guide-data-submission-page .guide-flow-main *:not(script):not(style),
+  body.product-detail-page .pdp-main *:not(script):not(style) {
     font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     font-weight: inherit !important;
+  }
+}
+
+/* Desktop: re-assert authored delivery/info weights (must not inherit from mobile rules). */
+@media (min-width: 769px) {
+  body.info-page .delivery-overview__block p,
+  body.info-page .delivery-text-block p,
+  body.info-page .payment-method p,
+  body.info-page .delivery-shipping__lead,
+  body.info-page .delivery-notes,
+  body.delivery-page .delivery-fee-table th,
+  body.delivery-page .delivery-fee-table td,
+  body.delivery-page .cod-table th,
+  body.delivery-page .cod-table td {
+    font-weight: 600 !important;
+  }
+
+  body.info-page .delivery-overview__block h3,
+  body.info-page .delivery-text-block h3,
+  body.info-page .payment-method h3,
+  body.info-page .delivery-shipping__free {
+    font-weight: 900 !important;
+  }
+
+  body.info-page .payment-bank {
+    font-weight: 800 !important;
   }
 }
