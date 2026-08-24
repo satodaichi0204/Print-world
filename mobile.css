@@ -11451,3 +11451,17 @@ body.product-detail-page .pdp-info .pdp-spec td,
     padding-top: 20px !important;
   }
 }
+
+/* Mobile site type: all pages except TOP / product-list / category → PC font + inherit weight.
+   MT mobile often falls back to system 「ヒラギノ角ゴ Pro」; force ProN stack like PC. */
+@media (max-width: 768px) {
+  body:not(.home-page):not(.product-list-page) {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-weight: 400 !important;
+  }
+
+  body:not(.home-page):not(.product-list-page) *:not(script):not(style) {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-weight: inherit !important;
+  }
+}

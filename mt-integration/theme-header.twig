@@ -1,9 +1,9 @@
 <!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260823restore" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260823restore" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260823restore" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260824sitefont" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260824sitefont" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260824sitefont" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +39,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260823restore";
+  var CSS_V = "20260824sitefont";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -229,6 +229,20 @@
         "margin:0!important;margin-inline:0!important;max-width:none!important;font-size:clamp(18px,2vw,26px)!important;line-height:1.55!important;color:#111!important;}" +
         ".plp-main .plp-intro__body,.plp-intro .plp-intro__body,body.product-list-page .plp-intro__body{" +
         "margin:0!important;margin-inline:0!important;max-width:none!important;font-size:14px!important;line-height:1.85!important;color:#555!important;padding-top:20px!important;}" +
+        /* Non-TOP / non-PLP / non-category: PC ProN stack + inherit weight on mobile */ +
+        "body:not(.home-page):not(.product-list-page){" +
+        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "font-weight:400!important;}" +
+        "body:not(.home-page):not(.product-list-page) *:not(script):not(style)," +
+        "body.product-detail-page *:not(script):not(style)," +
+        "body.product-detail-page .pdp-info .pdp-point__label," +
+        "body.product-detail-page .pdp-info .pdp-headline," +
+        "body.product-detail-page .pdp-info .pdp-desc p," +
+        "body.product-detail-page .pdp-info .pdp-spec th," +
+        "body.product-detail-page .pdp-info .pdp-spec td," +
+        "body.product-detail-page .pdp-hero__title,#pdp-title{" +
+        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "font-weight:inherit!important;}" +
         "}" +
         /* PDP hero: 769–1440 header is locked at 1440 zoom; keep 1440 padding-top so the title stays clear. */ +
         "@media (min-width: 769px) and (max-width: 1440px){" +
@@ -345,11 +359,15 @@
     }
   }
 
-  /* PDP yellow title: lock weight/family so PC matches SP. Do not touch font-size. */
+  /* PDP yellow title: lock family (and weight on PC only). Do not touch font-size. */
   function pinPdpHeroTitleStyle() {
     var el = document.getElementById("pdp-title") || document.querySelector(".pdp-hero__title");
     if (!el) return;
-    el.style.setProperty("font-weight", "900", "important");
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      el.style.setProperty("font-weight", "inherit", "important");
+    } else {
+      el.style.setProperty("font-weight", "900", "important");
+    }
     el.style.setProperty(
       "font-family",
       '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif',
@@ -364,6 +382,7 @@
   function pinPdpInfoStyle() {
     var info = document.querySelector(".pdp-info");
     if (!info) return;
+    var mobileInherit = window.matchMedia("(max-width: 768px)").matches;
     function set(el, props) {
       if (!el) return;
       var k;
@@ -371,7 +390,7 @@
     }
     set(info.querySelector(".pdp-point__label"), {
       "font-family": PDP_INFO_FONT,
-      "font-weight": "900",
+      "font-weight": mobileInherit ? "inherit" : "900",
       "font-size": "13px",
       padding: "14px 28px",
       "letter-spacing": "0.04em",
@@ -379,7 +398,7 @@
     });
     set(info.querySelector(".pdp-headline"), {
       "font-family": PDP_INFO_FONT,
-      "font-weight": "900",
+      "font-weight": mobileInherit ? "inherit" : "900",
       "font-size": "28px",
       "line-height": "1.45"
     });
@@ -388,7 +407,7 @@
     for (i = 0; i < ps.length; i++) {
       set(ps[i], {
         "font-family": PDP_INFO_FONT,
-        "font-weight": "700",
+        "font-weight": mobileInherit ? "inherit" : "700",
         "font-size": "14px"
       });
     }
@@ -399,8 +418,50 @@
         "font-family": PDP_INFO_FONT,
         padding: "16px 20px",
         "font-size": isTh ? "13px" : "14px",
-        "font-weight": "700"
+        "font-weight": mobileInherit ? "inherit" : "700"
       });
+    }
+  }
+
+  var SITE_PC_FONT =
+    '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif';
+  function isExcludedSiteTypePage(body) {
+    if (!body) return true;
+    if (body.classList.contains("home-page") || body.classList.contains("product-list-page")) return true;
+    if (body.querySelector(".home-mt") && !body.classList.contains("info-page") && !body.classList.contains("product-detail-page")) {
+      /* TOP without delayed home-page class */
+      if (body.querySelector(".fv") && body.querySelector(".sec4")) return true;
+    }
+    return false;
+  }
+
+  /* Mobile: non-TOP / non-PLP / non-category → PC font + inherit weight (beats MT + late pins). */
+  function pinSiteInheritedType() {
+    var body = document.body;
+    if (!body) return;
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+      if (body.getAttribute("data-pw-site-type") === "1") {
+        body.style.removeProperty("font-weight");
+        body.style.removeProperty("font-family");
+        body.removeAttribute("data-pw-site-type");
+        var clear = body.querySelectorAll("[data-pw-site-type-node]");
+        for (var c = 0; c < clear.length; c++) {
+          clear[c].style.removeProperty("font-weight");
+          clear[c].style.removeProperty("font-family");
+          clear[c].removeAttribute("data-pw-site-type-node");
+        }
+      }
+      return;
+    }
+    if (isExcludedSiteTypePage(body)) return;
+    body.setAttribute("data-pw-site-type", "1");
+    body.style.setProperty("font-family", SITE_PC_FONT, "important");
+    body.style.setProperty("font-weight", "400", "important");
+    var nodes = body.querySelectorAll("*:not(script):not(style)");
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].setAttribute("data-pw-site-type-node", "1");
+      nodes[i].style.setProperty("font-family", SITE_PC_FONT, "important");
+      nodes[i].style.setProperty("font-weight", "inherit", "important");
     }
   }
 
@@ -415,6 +476,7 @@
       pinPlpHeroTitleSize();
       pinPdpHeroTitleStyle();
       pinPdpInfoStyle();
+      pinSiteInheritedType();
     } finally {
       pinning = false;
     }
@@ -425,7 +487,10 @@
     document.addEventListener("DOMContentLoaded", pinAll);
   }
   window.addEventListener("load", pinAll);
-  window.addEventListener("resize", pinPlpHeroTitleSize);
+  window.addEventListener("resize", function () {
+    pinPlpHeroTitleSize();
+    pinSiteInheritedType();
+  });
   setTimeout(pinAll, 0);
   setTimeout(pinAll, 300);
   setTimeout(pinAll, 1000);
@@ -437,6 +502,8 @@
   setTimeout(pinPdpHeroTitleStyle, 4000);
   setTimeout(pinPdpInfoStyle, 2000);
   setTimeout(pinPdpInfoStyle, 4000);
+  setTimeout(pinSiteInheritedType, 2000);
+  setTimeout(pinSiteInheritedType, 4000);
   /* Watch late MT <link>/<style> and PLP title nodes — ignore our own pin moves. */
   if (typeof MutationObserver === "function") {
     try {
@@ -487,6 +554,7 @@
           pinPlpHeroTitleSize();
           pinPdpHeroTitleStyle();
           pinPdpInfoStyle();
+          pinSiteInheritedType();
         }, 100);
       });
       mo.observe(document.documentElement, { childList: true, subtree: true });
