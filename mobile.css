@@ -11454,51 +11454,22 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* Mobile site type: all pages except TOP / product-list / category → PC font + inherit weight.
-   MT mobile often falls back to system 「ヒラギノ角ゴ Pro」; force ProN stack like PC. */
-@media (max-width: 768px) {
-  body:not(.home-page):not(.product-list-page) {
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
-    font-weight: 400 !important;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  body:not(.home-page):not(.product-list-page) main *:not(script):not(style),
-  body.info-page main *:not(script):not(style),
-  body.company-page main *:not(script):not(style),
-  body.legal-page main *:not(script):not(style),
-  body.guide-flow-page .guide-flow-main *:not(script):not(style),
-  body.guide-print-method-page .guide-flow-main *:not(script):not(style),
-  body.guide-design-tool-page .guide-flow-main *:not(script):not(style),
-  body.guide-data-submission-page .guide-flow-main *:not(script):not(style),
-  body.product-detail-page .pdp-main *:not(script):not(style) {
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
-    font-weight: inherit !important;
-  }
+/* Site-wide PC ProN stack (all pages). Display fonts kept as Arial Black / Mincho. */
+html,
+body,
+body *:not(script):not(style) {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 
-/* Desktop: re-assert authored delivery/info weights (must not inherit from mobile rules). */
-@media (min-width: 769px) {
-  body.info-page .delivery-overview__block p,
-  body.info-page .delivery-text-block p,
-  body.info-page .payment-method p,
-  body.info-page .delivery-shipping__lead,
-  body.info-page .delivery-notes,
-  body.delivery-page .delivery-fee-table th,
-  body.delivery-page .delivery-fee-table td,
-  body.delivery-page .cod-table th,
-  body.delivery-page .cod-table td {
-    font-weight: 600 !important;
-  }
+.phone-box__number,
+.product-price,
+.plp-ranking__track .product-price,
+.plp-card__price,
+.pdp-spec__price,
+.mcPage__itemListContent-grid .itemListContent__price {
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+}
 
-  body.info-page .delivery-overview__block h3,
-  body.info-page .delivery-text-block h3,
-  body.info-page .payment-method h3,
-  body.info-page .delivery-shipping__free {
-    font-weight: 900 !important;
-  }
-
-  body.info-page .payment-bank {
-    font-weight: 800 !important;
-  }
+.pdp-spec__brand {
+  font-family: "Times New Roman", "Hiragino Mincho ProN", serif !important;
 }

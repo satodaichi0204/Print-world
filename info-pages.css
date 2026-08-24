@@ -1636,16 +1636,3 @@
     align-self: flex-start !important;
   }
 }
-
-/* Mobile (≤768): match PC ProN stack; inherit weight so iOS Pro does not read heavier. */
-@media (max-width: 768px) {
-  body.info-page {
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
-    font-weight: 400 !important;
-  }
-
-  body.info-page main *:not(script):not(style) {
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
-    font-weight: inherit !important;
-  }
-}

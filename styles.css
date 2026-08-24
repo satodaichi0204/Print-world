@@ -6966,3 +6966,25 @@ body {
 body.make__confirm main {
   padding-top: 175px !important;
 }
+
+/* Site-wide: match PC Hiragino ProN. MakerTown `body *` uses Helvetica / ヒラギノ角ゴ Pro
+   on mobile; that is not a Print World switch. Beat it on every page. */
+html,
+body,
+body *:not(script):not(style) {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+    sans-serif !important;
+}
+
+.phone-box__number,
+.product-price,
+.plp-ranking__track .product-price,
+.plp-card__price,
+.pdp-spec__price,
+.mcPage__itemListContent-grid .itemListContent__price {
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.pdp-spec__brand {
+  font-family: "Times New Roman", "Hiragino Mincho ProN", serif !important;
+}
