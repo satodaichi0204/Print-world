@@ -4088,7 +4088,7 @@
   }
 
   .guide-flow-page .guide-flow-steps__text {
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 500;
   }
 
@@ -4111,6 +4111,10 @@
   }
 
   .guide-flow-page .guide-flow-order3__card-text {
+    font-weight: 500;
+  }
+
+  .guide-flow-page .guide-flow-order3__btn {
     font-weight: 500;
   }
 
