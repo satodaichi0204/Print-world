@@ -4789,11 +4789,12 @@
     font-size: 15px;
   }
 
-  /* Title images: 100% at 1024px → 66% at 320px (linear) */
+  /* Title images only (not h2): 100% at 1024px → 66% at 320px (linear).
+     Must keep units consistent in calc (length + length), or browsers reject the rule. */
   .guide-print-method-page .print-method-inkjet__page-title-img {
     width: clamp(
-      calc(360px * 0.66),
-      calc(360px * (0.66 + 0.34 * (100vw - 320px) / 704)),
+      237.6px,
+      calc(237.6px + 122.4px * (100vw - 320px) / 704),
       360px
     );
     max-width: 100%;
@@ -4802,8 +4803,8 @@
 
   .guide-print-method-page .print-method-embroidery__title-img {
     width: clamp(
-      calc(140px * 0.66),
-      calc(140px * (0.66 + 0.34 * (100vw - 320px) / 704)),
+      92.4px,
+      calc(92.4px + 47.6px * (100vw - 320px) / 704),
       140px
     );
     max-width: 100%;
