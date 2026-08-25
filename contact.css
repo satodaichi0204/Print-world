@@ -28,7 +28,7 @@
   margin: 0;
   color: #444;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.95;
 }
 
@@ -160,14 +160,14 @@
   margin: 11px 0 10px;
   color: #444;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .contact-message-guide {
   margin: 0 0 18px;
   color: #444;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.7;
 }
 
