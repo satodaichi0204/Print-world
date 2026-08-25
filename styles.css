@@ -1796,7 +1796,7 @@ img {
   font-size: clamp(11px, 0.92vw, 16px);
   line-height: 1.45;
   color: #666666;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 
