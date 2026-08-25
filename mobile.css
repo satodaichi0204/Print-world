@@ -4786,8 +4786,7 @@
 
   .guide-print-method-page .print-method-inkjet__body {
     margin-bottom: 48px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 15px;
   }
 
   .guide-print-method-page .print-method-inkjet__features {
@@ -4851,6 +4850,12 @@
 
   .guide-print-method-page .print-method-inkjet {
     padding: 16px 0 56px;
+  }
+
+  .guide-print-method-page .print-method-inkjet__body {
+    margin-bottom: 48px;
+    font-size: 15px;
+    font-weight: 500;
   }
 
   .guide-print-method-page .print-method-inkjet__page-title-img {
