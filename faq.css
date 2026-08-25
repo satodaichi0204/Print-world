@@ -107,7 +107,7 @@
   background: #f7ebe6;
   color: #222;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: inherit;
   line-height: 1.85;
 }
 
@@ -131,13 +131,14 @@
   .faq-category__title {
     margin-bottom: 16px;
     font-size: 19px;
+    font-weight: 500;
   }
 
   .faq-item__question {
     min-height: 56px;
     padding: 14px 14px 14px 18px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: inherit;
   }
 
   .faq-item__answer {
