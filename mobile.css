@@ -4038,8 +4038,8 @@
   }
 }
 
-/* --- guide-flow: small phone --- */
-@media (max-width: 480px) {
+/* --- guide-flow: tablet portrait / phone (≤768) --- */
+@media (max-width: 768px) {
   .guide-flow-page .guide-flow-inner {
     width: min(1440px, calc(100% - 48px));
   }
