@@ -4243,7 +4243,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   width: 100%;
   margin-top: 16px;
   padding: 0px 12px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 900;
   color: #111;
   text-align: center;
@@ -4252,8 +4252,8 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .guide-flow-steps__text {
   width: 100%;
   margin: 12px 0;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 1.65;
   color: #666666;
   text-align: left;
@@ -4420,8 +4420,8 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .guide-design-flow__body,
 .guide-template-flow__body,
 .guide-post-submission-flow__body {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 1.75;
   color: #666666;
 }
@@ -4644,7 +4644,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 
 .guide-flow-order3__card-title {
   margin: 0 0 12px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 900;
   color: #111;
   text-align: center;
@@ -4654,8 +4654,8 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .guide-flow-order3__card-text {
   margin: 0 0 18px;
   flex: 1 1 auto;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 1.65;
   color: #666666;
 }
@@ -4667,7 +4667,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   text-align: center;
   text-decoration: none;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 16px;
   color: #fff !important;
   background: #3b6dbb !important; /* MT strips button background/padding */
   border-radius: 8px !important;
