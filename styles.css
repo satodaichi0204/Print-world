@@ -88,7 +88,7 @@ img {
   margin: 0 auto;
   padding: 8px 88px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
   background: #f15a24;
   border-radius: 999px;
@@ -237,13 +237,13 @@ img {
   line-height: 1.2;
   white-space: nowrap;
   color: #111;
-  font-weight: 700;
+  font-weight: 600;
   padding-left: calc(var(--phone-icon) + var(--phone-gap));
 }
 
 .phone-box__number {
   font-size: clamp(26px, 2.1vw, 40px);
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 0.95;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
@@ -258,7 +258,7 @@ img {
   padding: 8px 8px;
   width: 144px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
   text-decoration: none;
   white-space: nowrap;
@@ -285,7 +285,7 @@ img {
 .cta__label {
   font-size: 16px;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 /* Orange utility cluster: cart + login + hamburger */
@@ -323,7 +323,7 @@ img {
   color: #fff !important;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
   white-space: nowrap;
 }
@@ -340,7 +340,7 @@ img {
 
 .fv-cart-label {
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.02em;
 }
 
@@ -361,7 +361,7 @@ img {
   color: #fff !important;
   background: transparent !important;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
@@ -1079,7 +1079,7 @@ img {
   background: #8f8f8f;
   color: #fff;
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
   transform: translateY(8px);
   margin-left: 6px;
   position: relative;
@@ -1130,7 +1130,7 @@ img {
   color: #141414;
   font-size: clamp(12px, 1.02vw, 16px);
   line-height: 1.28;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0;
 }
 
@@ -1139,13 +1139,13 @@ img {
   color: #c91f2e;
   font-size: clamp(24px, 2.75vw, 44px);
   line-height: 0.95;
-  font-weight: 900;
+  font-weight: 600;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
 }
 
 .product-price span {
   font-size: clamp(9px, 0.72vw, 12px);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .product-tags {
@@ -1160,7 +1160,7 @@ img {
 .product-tags li {
   color: #8a8a8a;
   font-size: clamp(9px, 0.72vw, 12px);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.15;
   white-space: nowrap;
 }
@@ -1270,7 +1270,7 @@ img {
   color: #fff;
   text-decoration: none;
   font-size: clamp(10px, 0.86vw, 13px);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   display: flex;
   align-items: center;
@@ -1392,7 +1392,7 @@ img {
   color: #fff;
   text-decoration: none;
   font-size: clamp(10px, 0.86vw, 13px);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   display: flex;
   align-items: center;
@@ -1533,7 +1533,7 @@ img {
 .sec5-intro__lead {
   margin: 0 0 14px;
   font-size: 23px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.65;
 }
 
@@ -1546,7 +1546,7 @@ img {
 
 .sec5-em {
   color: #c91f2e;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .sec5-grid {
@@ -1588,7 +1588,7 @@ img {
   color: #fff;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -1641,7 +1641,7 @@ img {
   text-align: center;
   text-decoration: none;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 
@@ -1698,14 +1698,14 @@ img {
   border-radius: 999px;
   background: #fff;
   font-size: clamp(14px, 1.3vw, 22px);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1;
 }
 
 .sec6-title {
   margin: 0;
   font-size: clamp(38px, 5.3vw, 76px);
-  font-weight: 900;
+  font-weight: 600;
   color: #111;
   line-height: 0.95;
   letter-spacing: 0.01em;
@@ -1795,7 +1795,7 @@ img {
   align-items: center;
   justify-content: center;
   font-size: 22px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1;
   flex-shrink: 0;
 }
@@ -1803,7 +1803,7 @@ img {
 .sec6-label {
   min-width: 0;
   font-size: clamp(13px, 1vw, 20px);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1891,7 +1891,7 @@ img {
 .sec7-card__name {
   margin: 12px 0 6px;
   font-size: clamp(13px, 1vw, 18px);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.35;
   color: #111;
   white-space: nowrap;
@@ -1904,12 +1904,12 @@ img {
   margin-left: 8px;
   margin-top: 0;
   font-size: clamp(11px, 0.9vw, 14px);
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .sec7-card__text {
   margin: 0;
-  font-weight: 800;
+  font-weight: 600;
   opacity: 0.85;
   font-size: clamp(11px, 0.85vw, 13px);
   line-height: 1.65;
@@ -1931,7 +1931,7 @@ img {
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
-  font-weight: normal;
+  font-weight: 500;
 }
 /* 769px以上：sec7 と同じ --sec7-pc-s（1920pxで=1）で余白・間隔をスケール */
 @media (min-width: 769px) {
@@ -2006,7 +2006,7 @@ img {
 .sec8-store__title {
   margin: 0 0 clamp(18px, 2.5vw, 28px);
   font-size: clamp(18px, 2vw, 26px);
-  font-weight: 900;
+  font-weight: 600;
   color: #111;
 }
 
@@ -2057,14 +2057,14 @@ img {
 
 .sec8-dl dt {
   margin: 0;
-  font-weight: normal;
+  font-weight: 500;
   color: #1A1A1A;
 }
 
 .sec8-dl dd {
   margin: 0;
   color: #1A1A1A;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .sec8-collage {
@@ -2110,7 +2110,7 @@ img {
   background: #FF6700;
   color: #fff;
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 600;
   text-align: center;
   text-decoration: none;
 }
@@ -2129,7 +2129,7 @@ img {
 .sec8-faq__title {
   margin: 4px 0 0;
   font-size: clamp(22px, 2.6vw, 34px);
-  font-weight: 900;
+  font-weight: 600;
   color: #111;
 }
 
@@ -2165,7 +2165,7 @@ img {
   gap: 12px;
   padding: 14px 18px;
   font-size: clamp(13px, 1.1vw, 16px);
-  font-weight: 800;
+  font-weight: 600;
   cursor: pointer;
   list-style: none;
   background: #EFCE70;
@@ -2185,7 +2185,7 @@ img {
   background: #F29318;
   color: #ffffff;
   font-size: 10px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 28px;
   text-align: center;
 }
@@ -2314,7 +2314,7 @@ img {
 .sec9-contact__lead {
   margin: 0 0 clamp(16px, 2vw, 22px);
   font-size: clamp(15px, 1.25vw, 19px);
-  font-weight: 900;
+  font-weight: 600;
   color: #111;
 }
 
@@ -2337,7 +2337,7 @@ img {
 
 .sec9-bullets li {
   margin: 0 0 10px;
-  font-weight: 800;
+  font-weight: 600;
   font-size: medium;
 }
 
@@ -2358,7 +2358,7 @@ img {
   padding: 24px 14px;
   border-radius: 16px;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 600;
   box-sizing: border-box;
 }
 
@@ -2391,13 +2391,13 @@ img {
 
 .sec9-action__main {
   font-size: clamp(17px, 2vw, 36px);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.1;
 }
 
 .sec9-action__sub {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .sec9-action--line {
@@ -2487,7 +2487,7 @@ img {
   margin: 0;
   writing-mode: vertical-rl;
   font-size: clamp(11px, 0.95vw, 13px);
-  font-weight: 900;
+  font-weight: 600;
   color: #111;
   letter-spacing: 0.18em;
   line-height: 1.2;
@@ -2522,7 +2522,7 @@ img {
 .sec9-card__head-main {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
-  font-weight: 900;
+  font-weight: 600;
   font-size: clamp(15px, 1.4vw, 24px);
   letter-spacing: 0.02em;
 }
@@ -2533,7 +2533,7 @@ img {
   background: #fff;
   color: var(--sec9-orange) !important;
   -webkit-text-fill-color: var(--sec9-orange) !important;
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(11px, 0.92vw, 18px);
   line-height: 1.35;
   padding: 10px 14px;
@@ -2555,7 +2555,7 @@ img {
   align-items: center;
   margin: 0 0 14px;
   font-size: clamp(13px, 1.12vw, 24px);
-  font-weight: 900;
+  font-weight: 600;
   color: #222;
 }
 
@@ -2566,7 +2566,7 @@ img {
   border-radius: 50%;
   background: #ff9b64;
   color: #fff;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 15px;
   line-height: 38px;
   text-align: center;
@@ -2593,7 +2593,7 @@ img {
   border-radius: 999px;
   background: var(--sec9-peach);
   color: #fff;
-  font-weight: 900;
+  font-weight: 600;
   text-decoration: none;
   font-size: 15px;
   border: 0;
@@ -2619,7 +2619,7 @@ img {
   margin: 0 0 14px;
   color: var(--sec9-orange) !important;
   -webkit-text-fill-color: var(--sec9-orange) !important;
-  font-weight: 900;
+  font-weight: 600;
   font-size: clamp(14px, 1.12vw, 24px);
   line-height: 1.6;
   text-align: left;
@@ -2637,13 +2637,13 @@ img {
   line-height: 1.7;
   color: #222;
   text-align: left;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .sec9-ship__ems {
   margin: 0;
   color: var(--sec9-orange);
-  font-weight: 900;
+  font-weight: 600;
   font-size: clamp(12px, 1.12vw, 24px);
   line-height: 1.6;
   text-align: left;
@@ -4829,7 +4829,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.35em 0.5em;
-  font-weight: 1000;
+  font-weight: 600;
   line-height: 1.05;
   color: #111;
 }
@@ -4898,7 +4898,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 0 32px;
   max-width: none;
   font-size: clamp(18px, 2vw, 26px);
-  font-weight: 1000;
+  font-weight: 600;
   line-height: 1.55;
   color: #111;
 }
@@ -4907,7 +4907,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 20px 35px 0;
   max-width: none;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.85;
   color: #555;
 }
@@ -4968,7 +4968,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   justify-content: center;
   gap: 1.4em;
   color: #fff;
-  font-weight: 900;
+  font-weight: 600;
   font-size: clamp(18px, 1.6vw, 24px);
   letter-spacing: 0;
   line-height: 1.2;
@@ -5108,7 +5108,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   box-shadow: none;
   color: #fff;
   font-size: clamp(9px, 2.8cqi, 12px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: 0;
   transform: translate(0, -50%);
@@ -5185,7 +5185,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 0.45em 0 0;
   font-size: 18px;
   line-height: 1.35;
-  font-weight: 800;
+  font-weight: 600;
   color: #141414;
   letter-spacing: 0;
 }
@@ -5194,14 +5194,14 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 0.35em 0 0;
   font-size: 36px;
   line-height: 0.95;
-  font-weight: 900;
+  font-weight: 600;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
   color: #c91f2e;
 }
 
 .plp-ranking__track .product-price span {
   font-size: 0.32em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .plp-ranking__track .product-tags {
@@ -5217,7 +5217,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .plp-ranking__track .product-tags li {
   font-size: 12px;
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 600;
   color: #9a8578;
   white-space: nowrap;
 }
@@ -5296,7 +5296,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .plp-subcat__title {
   margin: 0 0 18px;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.4;
   color: #111;
 }
@@ -5317,7 +5317,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   gap: 0;
   text-decoration: none;
   font-size: 16px;
-  font-weight: inherit;
+  font-weight: 500;
   line-height: 1.45;
   letter-spacing: 0.04em;
   color: #c91f2e;
@@ -5376,13 +5376,13 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   background: #fff;
   color: #606060;
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .plp-card__name {
   margin: 8px 8px 0;
   font-size: clamp(12px, 1vw, 15px);
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.35;
   color: #141414;
 }
@@ -5391,14 +5391,14 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 6px 8px 0;
   color: #c91f2e;
   font-size: clamp(22px, 2.2vw, 36px);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
 }
 
 .plp-card__price span {
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .plp-card__tags {
@@ -5413,7 +5413,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .plp-card__tags li {
   color: #8a8a8a;
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Pagination */
@@ -5432,7 +5432,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   background: #efce0a;
   color: #111;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -5459,7 +5459,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   background: #fff;
   color: #111;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -5481,89 +5481,164 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   background: #fff;
   color: #111;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
 }
 
-/* Home + PLP/category — 769px+: ≥600 → 600, <600 → 500 */
+/* Home + PLP/category — 769px+: force ≥600→600 / <600→500 (beat MT + late sheets) */
 @media (min-width: 769px) {
-  :is(.home-page, .product-list-page) :is(
-    .fv-pill,
-    .phone-box__label,
-    .phone-box__number,
-    .cta,
-    .cta__label,
-    .fv-cart-link,
-    .fv-cart-label,
-    .fv-login,
-    .product-rank,
-    .product-name,
-    .product-price,
-    .product-price span,
-    .product-tags li,
-    .sec3-card__link,
-    .sec4-card__link,
-    .sec5-intro__lead,
-    .sec5-intro__body,
-    .sec5-em,
-    .sec5-card::before,
-    .sec5-cta,
-    .sec6-kicker,
-    .sec6-title,
-    .sec6-num,
-    .sec6-label,
-    .sec7-card__name,
-    .sec7-card__role,
-    .sec7-card__text,
-    .sec8-store__title,
-    .sec8-dl dd,
-    .sec8-btn,
-    .sec8-faq__title,
-    .sec8-summary,
-    .sec8-summary::after,
-    .sec9-contact__lead,
-    .sec9-bullets li,
-    .sec9-action,
-    .sec9-action__main,
-    .sec9-action__sub,
-    .sec9-ship-aside__vertical,
-    .sec9-card__head-main,
-    .sec9-card__head-pill,
-    .sec9-pay-list li,
-    .sec9-pay-list li::before,
-    .sec9-card__btn,
-    .sec9-ship__lead,
-    .sec9-ship__note,
-    .sec9-ship__ems,
-    .plp-hero__title,
-    .plp-hero__title-sm,
-    .plp-hero__title-lg,
-    .plp-intro__catch,
-    .plp-intro__body,
-    .plp-ranking__banner-title,
-    .plp-rank-badge,
-    .plp-subcat__title,
-    .plp-card__chip,
-    .plp-card__name,
-    .plp-card__price,
-    .plp-card__price span,
-    .plp-card__tags li,
-    .plp-pagination__prev,
-    .plp-pagination__next,
-    .plp-pagination__page,
-    .plp-pagination__ellipsis
-  ) {
-    font-weight: 600;
+  body.home-page .fv-pill,
+  body.home-page .phone-box__label,
+  body.home-page .phone-box__number,
+  body.home-page .cta,
+  body.home-page .cta__label,
+  body.home-page .fv-cart-link,
+  body.home-page .fv-cart-label,
+  body.home-page .fv-header__util .header__login .btn--login,
+  body.home-page .product-rank,
+  body.home-page .product-name,
+  body.home-page .product-price,
+  body.home-page .product-price span,
+  body.home-page .product-tags li,
+  body.home-page .sec3-card__link,
+  body.home-page .sec4-card__link,
+  body.home-page .sec5-intro__lead,
+  body.home-page .sec5-intro__body,
+  body.home-page .sec5-em,
+  body.home-page .sec5-card::before,
+  body.home-page .sec5-cta,
+  body.home-page .sec6-kicker,
+  body.home-page .sec6-title,
+  body.home-page .sec6-num,
+  body.home-page .sec6-label,
+  body.home-page .sec7-card__name,
+  body.home-page .sec7-card__role,
+  body.home-page .sec7-card__text,
+  body.home-page .sec8-store__title,
+  body.home-page .sec8-dl dd,
+  body.home-page .sec8-btn,
+  body.home-page .sec8-faq__title,
+  body.home-page .sec8-summary,
+  body.home-page .sec8-summary::after,
+  body.home-page .sec9-contact__lead,
+  body.home-page .sec9-bullets li,
+  body.home-page .sec9-action,
+  body.home-page .sec9-action__main,
+  body.home-page .sec9-action__sub,
+  body.home-page .sec9-ship-aside__vertical,
+  body.home-page .sec9-card__head-main,
+  body.home-page .sec9-card__head-pill,
+  body.home-page .sec9-pay-list li,
+  body.home-page .sec9-pay-list li::before,
+  body.home-page .sec9-card__btn,
+  body.home-page .sec9-ship__lead,
+  body.home-page .sec9-ship__note,
+  body.home-page .sec9-ship__ems,
+  .home-mt .fv-pill,
+  .home-mt .product-rank,
+  .home-mt .product-name,
+  .home-mt .product-price,
+  .home-mt .product-price span,
+  .home-mt .product-tags li,
+  .home-mt .sec3-card__link,
+  .home-mt .sec4-card__link,
+  .home-mt .sec5-intro__lead,
+  .home-mt .sec5-intro__body,
+  .home-mt .sec5-em,
+  .home-mt .sec5-card::before,
+  .home-mt .sec5-cta,
+  .home-mt .sec6-kicker,
+  .home-mt .sec6-title,
+  .home-mt .sec6-num,
+  .home-mt .sec6-label,
+  .home-mt .sec7-card__name,
+  .home-mt .sec7-card__role,
+  .home-mt .sec7-card__text,
+  .home-mt .sec8-store__title,
+  .home-mt .sec8-dl dd,
+  .home-mt .sec8-btn,
+  .home-mt .sec8-faq__title,
+  .home-mt .sec8-summary,
+  .home-mt .sec8-summary::after,
+  .home-mt .sec9-contact__lead,
+  .home-mt .sec9-bullets li,
+  .home-mt .sec9-action,
+  .home-mt .sec9-action__main,
+  .home-mt .sec9-action__sub,
+  .home-mt .sec9-ship-aside__vertical,
+  .home-mt .sec9-card__head-main,
+  .home-mt .sec9-card__head-pill,
+  .home-mt .sec9-pay-list li,
+  .home-mt .sec9-pay-list li::before,
+  .home-mt .sec9-card__btn,
+  .home-mt .sec9-ship__lead,
+  .home-mt .sec9-ship__note,
+  .home-mt .sec9-ship__ems,
+  body.product-list-page .fv-pill,
+  body.product-list-page .phone-box__label,
+  body.product-list-page .phone-box__number,
+  body.product-list-page .cta,
+  body.product-list-page .cta__label,
+  body.product-list-page .fv-cart-link,
+  body.product-list-page .fv-cart-label,
+  body.product-list-page .fv-header__util .header__login .btn--login,
+  body.product-list-page .plp-hero__title,
+  body.product-list-page .plp-hero__title-sm,
+  body.product-list-page .plp-hero__title-lg,
+  body.product-list-page .plp-intro__catch,
+  body.product-list-page .plp-intro__body,
+  body.product-list-page .plp-ranking__banner-title,
+  body.product-list-page .plp-rank-badge,
+  body.product-list-page .product-name,
+  body.product-list-page .product-price,
+  body.product-list-page .product-price span,
+  body.product-list-page .product-tags li,
+  body.product-list-page .product-rank,
+  body.product-list-page .plp-subcat__title,
+  body.product-list-page .plp-card__chip,
+  body.product-list-page .plp-card__name,
+  body.product-list-page .plp-card__price,
+  body.product-list-page .plp-card__price span,
+  body.product-list-page .plp-card__tags li,
+  body.product-list-page .plp-pagination__prev,
+  body.product-list-page .plp-pagination__next,
+  body.product-list-page .plp-pagination__page,
+  body.product-list-page .plp-pagination__ellipsis,
+  .plp-main .plp-hero__title,
+  .plp-main .plp-hero__title-sm,
+  .plp-main .plp-hero__title-lg,
+  .plp-main .plp-intro__catch,
+  .plp-main .plp-intro__body,
+  .plp-main .plp-ranking__banner-title,
+  .plp-main .plp-rank-badge,
+  .plp-main .product-name,
+  .plp-main .product-price,
+  .plp-main .product-price span,
+  .plp-main .product-tags li,
+  .plp-main .plp-subcat__title,
+  .plp-main .plp-card__chip,
+  .plp-main .plp-card__name,
+  .plp-main .plp-card__price,
+  .plp-main .plp-card__price span,
+  .plp-main .plp-card__tags li,
+  .plp-main .plp-pagination__prev,
+  .plp-main .plp-pagination__next,
+  .plp-main .plp-pagination__page,
+  .plp-main .plp-pagination__ellipsis {
+    font-weight: 600 !important;
   }
 
-  :is(.home-page, .product-list-page) :is(
-    .sec6-copy,
-    .sec9-action__label,
-    .sec8-dl dt,
-    .plp-subcat__link
-  ),
-  .home-page .sec7-list .sec7-card__name {
-    font-weight: 500;
+  body.home-page .sec6-copy,
+  body.home-page .sec9-action__label,
+  body.home-page .sec8-dl dt,
+  body.home-page .sec7-list .sec7-card__name,
+  .home-mt .sec6-copy,
+  .home-mt .sec9-action__label,
+  .home-mt .sec8-dl dt,
+  .home-mt .sec7-list .sec7-card__name,
+  body.product-list-page .plp-subcat__link,
+  .plp-main .plp-subcat__link {
+    font-weight: 500 !important;
   }
 }
 
