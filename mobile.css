@@ -4076,6 +4076,7 @@
 
   .guide-flow-page .guide-flow-steps__num {
     font-size: 17px;
+    font-weight: 500;
   }
 
   .guide-flow-page .guide-flow-steps__icon {
@@ -4085,15 +4086,17 @@
 
   .guide-flow-page .guide-flow-steps__heading {
     font-size: 17px;
+    font-weight: 500;
   }
 
   .guide-flow-page .guide-flow-steps__text {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: inherit;
   }
 
   .guide-flow-page .guide-flow-steps__notes p {
     font-size: 13px;
+    font-weight: 500;
   }
 
   .guide-flow-page .guide-flow-order3__inner {
@@ -4112,11 +4115,12 @@
 
   .guide-flow-page .guide-flow-order3__card-text {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: inherit;
   }
 
   .guide-flow-page .guide-flow-order3__card-title {
     font-size: 18px;
+    font-weight: 500;
   }
 
   .guide-flow-page .guide-flow-order3__btn {
@@ -4147,11 +4151,17 @@
     margin-bottom: 24px;
   }
 
+  .guide-flow-page .guide-design-flow__heading,
+  .guide-flow-page .guide-template-flow__heading,
+  .guide-flow-page .guide-post-submission-flow__heading {
+    font-weight: 500;
+  }
+
   .guide-flow-page .guide-design-flow__body,
   .guide-flow-page .guide-template-flow__body,
   .guide-flow-page .guide-post-submission-flow__body {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: inherit;
   }
 
   .guide-flow-page .guide-design-flow__card,
@@ -4169,7 +4179,7 @@
 
   .guide-flow-page .guide-design-flow__cta-title {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: inherit;
   }
 
   .guide-flow-page .guide-design-flow__note--strong {
