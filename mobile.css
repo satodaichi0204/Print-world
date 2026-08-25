@@ -4201,6 +4201,7 @@
   .guide-design-tool-page .guide-design-tool-nav__lead {
     margin-bottom: 36px;
     font-size: 14px;
+    font-weight: 500;
   }
 
   .guide-design-tool-page .text-guide__inner,
@@ -4278,6 +4279,7 @@
     min-height: 56px;
     padding: 14px 40px 14px 16px;
     font-size: 15px;
+    font-weight: 500;
   }
 
   .guide-design-tool-page .text-guide__title-img,
@@ -4321,6 +4323,7 @@
 
   .guide-design-tool-page .design-simulator__desc {
     font-size: 15px;
+    font-weight: 500;
   }
 
   .guide-design-tool-page .design-simulator__screen {
@@ -4351,6 +4354,7 @@
   .guide-design-tool-page .stamp-guide__card-text,
   .guide-design-tool-page .save-guide__card-text {
     font-size: 15px;
+    font-weight: 500;
   }
 
   .guide-design-tool-page .text-guide__media {
