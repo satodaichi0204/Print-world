@@ -714,7 +714,8 @@
 
   .payment-bank {
     padding: 24px 20px;
-    font-size: 13px !important;
+    font-size: 18px !important;
+    font-weight: inherit !important;
   }
 
   .payment-card-logos {

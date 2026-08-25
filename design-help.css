@@ -291,6 +291,7 @@
   .dh-sec2__text,
   .dh-sec3__text {
     font-size: 16px;
+    font-weight: inherit;
   }
 
   .dh-case__label {
@@ -298,11 +299,17 @@
     width: 100%;
     font-size: 15px;
     padding: 12px 18px;
+    font-weight: inherit;
   }
 
   .dh-case__text,
   .dh-sec5__text {
     font-size: 16px;
+    font-weight: inherit;
+  }
+
+  .dh-sec5__heading {
+    font-weight: 500;
   }
 
   .dh-sec5 {
@@ -318,11 +325,17 @@
     transform: translateY(calc(-124px * var(--dh-sec5-768-s)));
   }
 
+  .dh-sec5__btn,
+  .dh-sec5__btn span {
+    color: #ffffff !important;
+    font-weight: inherit;
+  }
+
   .dh-sec5__btn {
     min-width: min(100%, 320px);
     min-height: 56px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: inherit;
   }
 }
 
