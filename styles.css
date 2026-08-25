@@ -775,6 +775,29 @@ img {
   overflow: hidden;
 }
 
+/* site-menu — ≥769: ≥600→600 / <600→500; ≤768: 600→500 / 500→inherit */
+@media (min-width: 769px) {
+  .site-menu .site-menu__link,
+  .site-menu .site-menu__action {
+    font-weight: 600;
+  }
+
+  .site-menu .site-menu__link::after {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-menu .site-menu__link,
+  .site-menu .site-menu__action {
+    font-weight: 500;
+  }
+
+  .site-menu .site-menu__link::after {
+    font-weight: inherit;
+  }
+}
+
 /* --- Shirt rows: behind content --- */
 .shirts-layer {
   position: absolute;

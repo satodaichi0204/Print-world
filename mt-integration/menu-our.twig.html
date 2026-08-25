@@ -92,6 +92,24 @@
   #pwMenu .pwm__action--mail  { background: #f15a24 !important; }
   #pwMenu .pwm__action--line  { background: #06c755 !important; }
   #pwMenu .pwm__action:hover { filter: brightness(1.06) !important; }
+
+  /* Menu type weights: ≥769 → 600/500; ≤768 → 500/inherit */
+  @media (min-width: 769px) {
+    #pwMenu .pwm__brand,
+    #pwMenu .pwm__group-title,
+    #pwMenu .pwm__link,
+    #pwMenu .pwm__action {
+      font-weight: 600 !important;
+    }
+  }
+  @media (max-width: 768px) {
+    #pwMenu .pwm__brand,
+    #pwMenu .pwm__group-title,
+    #pwMenu .pwm__link,
+    #pwMenu .pwm__action {
+      font-weight: 500 !important;
+    }
+  }
 </style>
 
 <div id="pwMenu" role="dialog" aria-modal="true" aria-label="サイトメニュー" aria-hidden="true">
