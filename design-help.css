@@ -99,7 +99,7 @@
 .dh-sec2__text {
   margin: 0;
   color: #333;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 2;
   text-align: left;
@@ -129,7 +129,7 @@
   margin: 0 0 56px;
   max-width: 760px;
   color: #444;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.95;
   text-align: left;
@@ -174,7 +174,7 @@
   margin: 0;
   max-width: 760px;
   color: #333;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.9;
   text-align: left;
@@ -213,7 +213,7 @@
   margin: 0 auto 36px;
   max-width: 720px;
   color: #333;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.95;
   /* text-align: center; */
@@ -290,7 +290,7 @@
 
   .dh-sec2__text,
   .dh-sec3__text {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .dh-case__label {
@@ -302,7 +302,7 @@
 
   .dh-case__text,
   .dh-sec5__text {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .dh-sec5 {
@@ -322,6 +322,7 @@
     min-width: min(100%, 320px);
     min-height: 56px;
     font-size: 16px;
+    font-weight: 500;
   }
 }
 
