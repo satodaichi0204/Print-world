@@ -246,6 +246,22 @@
     line-height: 1.5;
   }
 
+  .contact-confirm-label {
+    display: block;
+    margin: 11px 0 10px;
+    color: #444;
+    font-size: 16px;
+    font-weight: inherit;
+  }
+
+  .contact-message-guide {
+    margin: 0 0 18px;
+    color: #444;
+    font-size: 16px;
+    font-weight: inherit;
+    line-height: 1.7;
+  }
+
   .contact-field__body--medium {
     max-width: none;
   }
