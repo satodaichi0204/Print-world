@@ -104,8 +104,9 @@
 .company-message p {
   margin: 0 0 24px;
   color: #333;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 2.05;
+  font-weight: 500;
 }
 
 .company-message__sign {
@@ -153,12 +154,13 @@
 .company-profile dt,
 .company-profile dd {
   margin: 0;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.85;
+  font-weight: 500;
 }
 
 .company-profile dt {
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .company-profile dd span {
@@ -166,7 +168,7 @@
 }
 
 .company-profile dd b {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .company-gallery {
@@ -380,12 +382,30 @@
   }
 
   .company-message p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.9;
   }
 
   .company-profile {
     padding: 60px 0 68px;
+    padding-top: 0;
+  }
+
+  .company-profile dt,
+  .company-profile dd {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.85;
+    font-weight: inherit;
+  }
+
+  .company-profile dd b {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .company-profile dt {
+    font-weight: 500;
   }
 
   .company-profile__inner {
