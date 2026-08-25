@@ -335,7 +335,7 @@
 .about-page .ap-card__title,
 .about-mt .ap-card__title {
   font-size: 18px !important;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.25 !important;
   color: #111 !important;
 }
@@ -574,6 +574,25 @@
     padding: 32px 0 80px;
   }
 
+  .ap-sec1__heading {
+    font-weight: 500;
+  }
+
+  .ap-sec1__text {
+    font-weight: inherit;
+  }
+
+  .ap-sec3__heading {
+    font-weight: 500;
+  }
+
+  .ap-sec3__lead,
+  .ap-sec3 .sec6-copy,
+  .ap-method__text,
+  .ap-method__btn {
+    font-weight: inherit;
+  }
+
   .ap-guide-grid {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -650,7 +669,7 @@
   .about-mt .ap-sec2__body .ap-card__title,
   .ap-sec2__body .ap-card__title {
     font-size: calc(21px * var(--ap-s)) !important;
-    font-weight: 900;
+    font-weight: 500;
     line-height: 1.25 !important;
     color: #111 !important;
   }
@@ -659,7 +678,7 @@
   .about-mt .ap-sec2__body .ap-card__text,
   .ap-sec2__body .ap-card__text {
     font-size: calc(19px * var(--ap-s)) !important;
-    font-weight: 500 !important;
+    font-weight: inherit !important;
     line-height: 1.65 !important;
     color: #222 !important;
   }
@@ -733,7 +752,7 @@
   .about-page .ap-card__title,
   .about-mt .ap-card__title {
     font-size: 30px !important;
-    font-weight: 900;
+    font-weight: 500;
     line-height: 1.25 !important;
     color: #111 !important;
   }
@@ -741,7 +760,7 @@
   .about-page .ap-card__text,
   .about-mt .ap-card__text {
     font-size: 27px !important;
-    font-weight: 500 !important;
+    font-weight: inherit !important;
     line-height: 1.65 !important;
     color: #222 !important;
   }
