@@ -4172,6 +4172,11 @@
     font-weight: 500;
   }
 
+  .guide-flow-page .guide-design-flow__note--strong {
+    margin-bottom: 0.35em;
+    font-weight: 500;
+  }
+
   .guide-flow-page .guide-design-flow__cta-btn {
     min-width: 0;
     width: 100%;
