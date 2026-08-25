@@ -4850,6 +4850,7 @@
 @media (max-width: 768px) {
   .guide-print-method-page .guide-flow-inner {
     width: min(1440px, calc(100% - 48px));
+    font-weight: inherit;
   }
 
   .guide-print-method-page .guide-hero,
@@ -4870,7 +4871,7 @@
   .guide-print-method-page .print-method-intro__lead {
     margin-bottom: 36px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: inherit;
     color: black;
   }
 
@@ -4893,11 +4894,12 @@
   .guide-print-method-page .print-method-inkjet__body {
     margin-bottom: 48px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: inherit;
   }
 
   .guide-print-method-page .print-method-inkjet__subheading {
     font-size: 19px;
+    font-weight: 500;
   }
 
   .guide-print-method-page .print-method-inkjet__features {
@@ -4933,7 +4935,8 @@
 
   .guide-print-method-page .print-method-embroidery__lead {
     margin-bottom: 48px;
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: inherit;
   }
 
   .guide-print-method-page .print-method-embroidery__photos {

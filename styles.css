@@ -3037,7 +3037,7 @@ img {
 .print-method-inkjet__subheading {
   margin: 0 0 16px;
   font-size: 22px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.45;
   color: #111;
 }
@@ -3045,7 +3045,7 @@ img {
 .print-method-inkjet__body {
   margin: 0 0 64px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.85;
   color: #666666;
 }
@@ -3189,7 +3189,7 @@ img {
 .print-method-embroidery__notes {
   color: #e92b2b;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: inherit;
   line-height: 1.35;
 }
 
@@ -3671,8 +3671,8 @@ img {
   border-radius: 12px;
   background: #fff;
   color: #111;
-  font-size: 16px;
-  font-weight: 900;
+  font-size: 20px;
+  font-weight: 600;
   text-decoration: none;
   text-align: center;
 }
