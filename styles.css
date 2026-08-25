@@ -2768,8 +2768,8 @@ img {
   text-decoration: underline;
 }
 
-/* Footer — >769: ≥600 → 500, ≥500 (<600) → inherit */
-@media (min-width: 770px) {
+/* Footer — 769px+: ≥600 → 500, ≥500 (<600) → inherit */
+@media (min-width: 769px) {
   .site-footer .site-footer__company,
   .site-footer .site-footer__title,
   .site-footer .site-footer__leadlink,
