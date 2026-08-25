@@ -3156,8 +3156,8 @@ img {
 .print-method-embroidery__lead {
   margin: 0 0 64px;
   color: #666666;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 1.85;
 }
 
@@ -3189,7 +3189,7 @@ img {
 .print-method-embroidery__notes {
   color: #e92b2b;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.35;
 }
 
