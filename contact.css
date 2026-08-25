@@ -27,7 +27,7 @@
 .contact-introduction p {
   margin: 0;
   color: #444;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.95;
 }
@@ -66,7 +66,7 @@
   padding: 2px 5px;
   background: #c91b2c;
   color: #fff;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   line-height: 1.3;
 }
@@ -159,7 +159,7 @@
   display: block;
   margin: 11px 0 10px;
   color: #444;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -214,8 +214,9 @@
   }
 
   .contact-introduction p {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.85;
+    font-weight: inherit;
   }
 
   .contact-field {
@@ -224,8 +225,25 @@
     margin-bottom: 44px;
   }
 
+  .contact-required {
+    flex: 0 0 auto;
+    padding: 2px 5px;
+    background: #c91b2c;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
   .contact-field__label {
-    padding-top: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 14px;
+    color: #222;
+    font-size: 16px;
+    font-weight: inherit;
+    line-height: 1.5;
   }
 
   .contact-field__body--medium {
