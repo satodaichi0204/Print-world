@@ -184,7 +184,7 @@
 .payment-method h3 {
   margin: 0 0 14px;
   font-size: 21px;
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.45;
 }
 
@@ -206,7 +206,7 @@
 .delivery-shipping__free {
   margin: 0 40px 56px;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 1.7;
 }
 
@@ -657,6 +657,7 @@
   .delivery-text-block h3,
   .payment-method h3 {
     font-size: 18px;
+    font-weight: 500;
   }
 
   .delivery-text-block p,
@@ -664,6 +665,7 @@
   .delivery-shipping__lead,
   .delivery-notes {
     font-size: 16px;
+    font-weight: inherit;
   }
 
   .delivery-section {
@@ -677,7 +679,9 @@
 
   .delivery-shipping__free {
     margin: 0 0 38px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: inherit;
+    line-height: 1.7;
   }
 
   .delivery-shipping__lead,
@@ -694,6 +698,14 @@
 
   .delivery-fee-table {
     min-width: 680px;
+  }
+
+  .delivery-fee-table th,
+  .delivery-fee-table td,
+  .cod-table th,
+  .cod-table td {
+    font-size: 16px;
+    font-weight: inherit;
   }
 
   .payment-method {
