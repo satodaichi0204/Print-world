@@ -4794,7 +4794,7 @@
   .guide-print-method-page .print-method-inkjet__page-title-img {
     width: clamp(
       237.6px,
-      calc(237.6px + 122.4px * (100vw - 320px) / 704),
+      calc(237.6px + (100vw - 320px) * 122.4 / 704),
       360px
     );
     max-width: 100%;
@@ -4893,9 +4893,10 @@
     border-top-width: 6px;
   }
 
-  /* Embroidery title h2: 140px at 768 → 80px at 320; img fills h2 */
+  /* Embroidery title h2: 140px at 768 → 80px at 320; img fills h2.
+     calc must use unitless coefficient (length * length is invalid). */
   .guide-print-method-page .print-method-embroidery__title {
-    width: clamp(80px, calc(80px + 60px * (100vw - 320px) / 448), 140px);
+    width: clamp(80px, calc(80px + (100vw - 320px) * 60 / 448), 140px);
   }
 
   .guide-print-method-page .print-method-embroidery__title-img {
