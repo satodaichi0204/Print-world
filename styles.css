@@ -2745,6 +2745,21 @@ img {
   text-decoration: underline;
 }
 
+/* Footer — 769px+: clamp weights (≥600 → 600, <600 → 500) */
+@media (min-width: 769px) {
+  .site-footer .site-footer__company,
+  .site-footer .site-footer__title,
+  .site-footer .site-footer__leadlink,
+  .site-footer .site-footer__address,
+  .site-footer .site-footer__tel,
+  .site-footer .site-footer__list a,
+  .site-footer .site-footer__list--dash li::before,
+  .site-footer .site-footer__list--dash a,
+  .site-footer .site-footer__list--corp a {
+    font-weight: 600;
+  }
+}
+
 /* --- Guide: ご注文から到着までの流れ (PC) --- */
 .guide-flow-page {
   position: relative;
