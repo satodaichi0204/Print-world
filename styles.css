@@ -4763,8 +4763,11 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   font-weight: 400;
 }
 
-.product-list-page * {
-  font-weight: inherit !important;
+/* Flatten PLP weights on mobile only; desktop uses declared / clamped weights. */
+@media (max-width: 768px) {
+  .product-list-page * {
+    font-weight: inherit !important;
+  }
 }
 
 .product-detail-page {
@@ -5480,6 +5483,88 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   font-size: 13px;
   font-weight: 800;
   line-height: 1;
+}
+
+/* Home + PLP/category — 769px+: ≥600 → 600, <600 → 500 */
+@media (min-width: 769px) {
+  :is(.home-page, .product-list-page) :is(
+    .fv-pill,
+    .phone-box__label,
+    .phone-box__number,
+    .cta,
+    .cta__label,
+    .fv-cart-link,
+    .fv-cart-label,
+    .fv-login,
+    .product-rank,
+    .product-name,
+    .product-price,
+    .product-price span,
+    .product-tags li,
+    .sec3-card__link,
+    .sec4-card__link,
+    .sec5-intro__lead,
+    .sec5-intro__body,
+    .sec5-em,
+    .sec5-card::before,
+    .sec5-cta,
+    .sec6-kicker,
+    .sec6-title,
+    .sec6-num,
+    .sec6-label,
+    .sec7-card__name,
+    .sec7-card__role,
+    .sec7-card__text,
+    .sec8-store__title,
+    .sec8-dl dd,
+    .sec8-btn,
+    .sec8-faq__title,
+    .sec8-summary,
+    .sec8-summary::after,
+    .sec9-contact__lead,
+    .sec9-bullets li,
+    .sec9-action,
+    .sec9-action__main,
+    .sec9-action__sub,
+    .sec9-ship-aside__vertical,
+    .sec9-card__head-main,
+    .sec9-card__head-pill,
+    .sec9-pay-list li,
+    .sec9-pay-list li::before,
+    .sec9-card__btn,
+    .sec9-ship__lead,
+    .sec9-ship__note,
+    .sec9-ship__ems,
+    .plp-hero__title,
+    .plp-hero__title-sm,
+    .plp-hero__title-lg,
+    .plp-intro__catch,
+    .plp-intro__body,
+    .plp-ranking__banner-title,
+    .plp-rank-badge,
+    .plp-subcat__title,
+    .plp-card__chip,
+    .plp-card__name,
+    .plp-card__price,
+    .plp-card__price span,
+    .plp-card__tags li,
+    .plp-pagination__prev,
+    .plp-pagination__next,
+    .plp-pagination__page,
+    .plp-pagination__ellipsis
+  ) {
+    font-weight: 600;
+  }
+
+  :is(.home-page, .product-list-page) :is(
+    .sec6-copy,
+    .sec9-action__label,
+    .sec8-dl dt,
+    .plp-subcat__link
+  ),
+  .home-page .sec7-list .sec7-card__name {
+    font-weight: 500;
+  }
 }
 
 /* Product detail */
