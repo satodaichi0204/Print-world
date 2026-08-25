@@ -1402,12 +1402,15 @@
   }
 
   .privacy-section h2 {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 18px !important;
+    font-weight: 500 !important;
   }
 
+  /* MT page CSS defines .bold{font-weight:bold} later — beat it on mobile. */
+  body.info-page .bold,
+  body.privacy-page .bold,
   .bold {
-    font-weight: inherit;
+    font-weight: inherit !important;
   }
 
   .terms-title-image {
