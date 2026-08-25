@@ -4676,6 +4676,31 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   filter: brightness(1.05);
 }
 
+/* guide-flow — 769px+: clamp weights (≥600 → 600, <600 → 500) */
+@media (min-width: 769px) {
+  .guide-flow-page .guide-flow-steps__num,
+  .guide-flow-page .guide-flow-steps__heading,
+  .guide-flow-page .guide-flow-steps__notes p,
+  .guide-flow-page .guide-flow-order3__card-title,
+  .guide-flow-page .guide-flow-order3__btn,
+  .guide-flow-page .guide-design-flow__heading,
+  .guide-flow-page .guide-template-flow__heading,
+  .guide-flow-page .guide-post-submission-flow__heading,
+  .guide-flow-page .guide-design-flow__note--strong,
+  .guide-flow-page .guide-design-flow__cta-btn {
+    font-weight: 600;
+  }
+
+  .guide-flow-page .guide-flow-steps__text,
+  .guide-flow-page .guide-flow-order3__card-text,
+  .guide-flow-page .guide-design-flow__body,
+  .guide-flow-page .guide-template-flow__body,
+  .guide-flow-page .guide-post-submission-flow__body,
+  .guide-flow-page .guide-design-flow__cta-title {
+    font-weight: 500;
+  }
+}
+
 /* --- Product list & detail (PC) --- */
 .visually-hidden {
   position: absolute;
