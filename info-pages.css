@@ -194,8 +194,8 @@
 .delivery-notes {
   margin: 0;
   color: #333;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.8;
 }
 
@@ -258,7 +258,7 @@
 
 .delivery-section--shipping > .delivery-notes {
   margin: 18px 40px 0;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .delivery-section--payment {
@@ -310,7 +310,7 @@
 }
 
 .payment-method--cod .delivery-notes {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .delivery-print-note {
