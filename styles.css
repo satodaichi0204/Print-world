@@ -2768,8 +2768,8 @@ img {
   text-decoration: underline;
 }
 
-/* Footer — 769px+: clamp weights (≥600 → 600, <600 → 500) */
-@media (min-width: 769px) {
+/* Footer — >769: ≥600 → 500, ≥500 (<600) → inherit */
+@media (min-width: 770px) {
   .site-footer .site-footer__company,
   .site-footer .site-footer__title,
   .site-footer .site-footer__leadlink,
@@ -2779,7 +2779,7 @@ img {
   .site-footer .site-footer__list--dash li::before,
   .site-footer .site-footer__list--dash a,
   .site-footer .site-footer__list--corp a {
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
