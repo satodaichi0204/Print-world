@@ -4832,7 +4832,9 @@
 
   .guide-print-method-page .print-method-intro__lead {
     margin-bottom: 36px;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
   }
 
   .guide-print-method-page .guide-design-tool-nav__grid {
@@ -4843,7 +4845,8 @@
   .guide-print-method-page .guide-design-tool-nav__card {
     min-height: 56px;
     padding: 14px 40px 14px 16px;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 500;
   }
 
   .guide-print-method-page .print-method-inkjet {
