@@ -1314,13 +1314,13 @@
 }
 
 .privacy-main {
-  width: min(920px, calc(100% - 80px));
+  width: min(1024px, calc(100% - 80px));
   padding-bottom: 100px;
 }
 
 .privacy-content {
   color: #222;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.9;
 }
@@ -1339,7 +1339,7 @@
 
 .privacy-section h2 {
   margin: 0 0 14px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.5;
   color: #111;
