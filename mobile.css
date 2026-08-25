@@ -5597,7 +5597,7 @@
   .product-list-page .plp-hero__title-lg {
     font-size: calc(33px * var(--sp-header-s, 1)) !important;
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
@@ -9651,7 +9651,7 @@ html.is-guide-flow-zoom-open body {
   body.product-list-page .plp-hero__title-lg {
     font-size: calc(33px * var(--sp-header-s, 1)) !important;
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
@@ -11116,7 +11116,7 @@ html.is-guide-flow-zoom-open body {
   #pdp-title {
     font-size: calc(33px * var(--sp-header-s, 1)) !important;
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
@@ -11135,7 +11135,7 @@ html.is-guide-flow-zoom-open body {
   body.product-list-page .plp-hero__title-lg {
     font-size: calc(33px * var(--sp-header-s, 1)) !important;
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
@@ -11201,7 +11201,7 @@ html.is-guide-flow-zoom-open body {
   #pdp-title {
     font-size: max(14px, calc(23px * var(--sp-header-s, 1))) !important;
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
@@ -11217,7 +11217,7 @@ html.is-guide-flow-zoom-open body {
   .product-list-page .plp-hero__title-lg {
     font-size: max(14px, calc(23px * var(--sp-header-s, 1))) !important;
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
@@ -11230,7 +11230,7 @@ html.is-guide-flow-zoom-open body {
   .product-detail-page .pdp-hero__title,
   #pdp-title {
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
   }
@@ -11247,7 +11247,7 @@ html.is-guide-flow-zoom-open body {
 @media (min-width: 769px) {
   body.product-detail-page .pdp-info,
   .product-detail-page .pdp-info {
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
       sans-serif !important;
   }
 
@@ -11504,11 +11504,11 @@ html.is-guide-flow-zoom-open body {
   }
 }
 
-/* Site-wide PC ProN stack (all pages). Display fonts kept as Arial Black / Mincho. */
+/* Site-wide Noto Sans JP stack (all pages). Display fonts kept as Arial Black / Mincho. */
 html,
 body,
 body *:not(script):not(style) {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 
 .phone-box__number,

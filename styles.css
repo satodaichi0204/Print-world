@@ -24,7 +24,7 @@ body {
   min-height: 100%;
   min-height: 100dvh;
   overflow-x: hidden;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
   font-feature-settings: "palt";
   -webkit-font-feature-settings: "palt";
 }
@@ -2761,8 +2761,7 @@ img {
    selector out-specifies MT's `body *`, restoring the design font across the
    whole guide-flow content. */
 .guide-flow-main * {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-    "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 .guide-flow-inner {
@@ -4801,7 +4800,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   .plp-hero .plp-hero__title-lg {
     font-size: calc(33px * var(--sp-header-s, 1)) !important;
     font-weight: 900 !important;
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     color: #111 !important;
     letter-spacing: 0.02em !important;
     line-height: 1.3 !important;
@@ -4816,7 +4815,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   line-height: 1.2;
   color: #111 !important;
   letter-spacing: 0.02em;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 
 /* Intro copy */
@@ -5552,7 +5551,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   color: #fff;
   font-size: 13px;
   font-weight: 900 !important;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
   line-height: 1;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -5562,7 +5561,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 0 0 18px;
   font-size: 28px;
   font-weight: 900 !important;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
   line-height: 1.45;
   color: #111;
 }
@@ -5576,7 +5575,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   color: #333;
   font-size: 14px;
   font-weight: 700 !important;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
   line-height: 1.75;
 }
 
@@ -5924,8 +5923,7 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
    font-family:Helvetica... }`. Re-assert the design inside this page.
    ========================================================================= */
 .guide-print-method-main * {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-    "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 .guide-print-method-main img {
   background-color: transparent !important;
@@ -5966,8 +5964,7 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
    font:Helvetica }` for this page's colored elements.
    ========================================================================= */
 .guide-data-submission-main * {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-    "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 .guide-data-submission-main img {
   background-color: transparent !important;
@@ -6030,8 +6027,7 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
    font:Helvetica }` for this page's colored elements.
    ========================================================================= */
 .guide-design-tool-main * {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-    "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 .guide-design-tool-main img {
   background-color: transparent !important;
@@ -6085,7 +6081,7 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
    elements + white text. MT does not strip background-image or ::before/
    ::after, so FV/sec2 bg images and pseudo decorations are preserved.
    ========================================================================= */
-.home-mt * { font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif; }
+.home-mt * { font-family: "Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo",sans-serif; }
 .home-mt * { background-color: transparent !important; }
 
 .home-mt .fv { background-color: #efd31d !important; }
@@ -6205,8 +6201,7 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
    font:Helvetica }` for this page. Scoped to .plp-main.
    ========================================================================= */
 .plp-main * {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-    "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 .plp-main img { background-color: transparent !important; }
 
@@ -6289,8 +6284,7 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
    Maker Town defense: product-detail (PDP). Scoped to .pdp-main.
    ========================================================================= */
 .pdp-main * {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-    "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 .pdp-main img { background-color: transparent !important; }
 
@@ -6716,7 +6710,7 @@ body {
   background: #efce0a !important;
 }
 .info-page main * {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 .info-page main img {
   background-color: transparent !important;
@@ -6968,12 +6962,12 @@ body.make__confirm main {
   padding-top: 175px !important;
 }
 
-/* Site-wide: match PC Hiragino ProN. MakerTown `body *` uses Helvetica / ヒラギノ角ゴ Pro
+/* Site-wide: Noto Sans JP (AI data default). MakerTown `body *` uses Helvetica / ヒラギノ角ゴ Pro
    on mobile; that is not a Print World switch. Beat it on every page. */
 html,
 body,
 body *:not(script):not(style) {
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
     sans-serif !important;
 }
 

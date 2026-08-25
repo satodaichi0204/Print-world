@@ -1,9 +1,12 @@
-<!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
+﻿<!-- ===== Print World ヘッダー（ページテーマ「ヘッダ」Twig 貼り付け用） ===== -->
 <!-- 私たちの fv-header デザイン + MTのカート/ログイン/SPメニュー/ロゴ(wa_top)。 -->
 <!-- このTwigが全ページ共通でCSSを読み込む（フッターもこのCSSで描画される）。 -->
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825gflow7" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825gflow7" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825gflow7" data-pw-css="info-pages.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825noto" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825noto" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825noto" data-pw-css="info-pages.css">
 <!-- Header FOUC guard: ヘッダーのレイアウトは外部CSS(非同期)にあるため、効く前に一瞬
      (1)PC版の赤=お問い合わせ/緑=LINE のフラッシュ、(2)SPアイコンの整列前レイアウト(縦ズレ) が出る。
      styles.css が適用され .fv-header が position:fixed になるまでヘッダーを隠し、その瞬間に一度だけ表示して両方を防ぐ。
@@ -39,7 +42,7 @@
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260825gflow7";
+  var CSS_V = "20260825noto";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -136,11 +139,11 @@
         "body.product-list-page .plp-hero__title-sm,.product-list-page .plp-hero__title-sm," +
         "body.product-list-page .plp-hero__title-lg,.product-list-page .plp-hero__title-lg{" +
         "font-size:calc(33px * var(--sp-header-s,1))!important;font-weight:900!important;" +
-        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;line-height:1.3!important;overflow-wrap:anywhere!important;}" +
         "body.product-detail-page .pdp-hero__title,.product-detail-page .pdp-hero__title,#pdp-title{" +
         "font-size:calc(33px * var(--sp-header-s,1))!important;font-weight:900!important;" +
-        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;line-height:1.3!important;overflow-wrap:anywhere!important;}" +
         ".plp-main .plp-ranking{--plp-tab-s:calc(0.84 + 0.16 * (100vw - 426px) / (768px - 426px));}" +
         ".plp-main .plp-ranking__slider{padding:calc(20px * var(--plp-tab-s)) calc(48px * var(--plp-tab-s)) calc(22px * var(--plp-tab-s))!important;}" +
@@ -191,14 +194,14 @@
         "min-height:calc(min(280px,0.52 * (100vw - 48px)) * 164 / 511 + 14px + min(780px,0.88 * (100vw - 48px)) * 123 / 1349 + 36px)!important;}" +
         "body.product-detail-page .pdp-hero__title,.product-detail-page .pdp-hero__title,#pdp-title{" +
         "font-size:max(14px,calc(23px * var(--sp-header-s,1)))!important;font-weight:900!important;" +
-        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;line-height:1.3!important;overflow-wrap:anywhere!important;}" +
         "#plp-hero-title,#plp-hero-title .plp-hero__title-sm,#plp-hero-title .plp-hero__title-lg," +
         ".plp-hero .plp-hero__title-sm,.plp-hero .plp-hero__title-lg," +
         "body.product-list-page .plp-hero__title-sm,.product-list-page .plp-hero__title-sm," +
         "body.product-list-page .plp-hero__title-lg,.product-list-page .plp-hero__title-lg{" +
         "font-size:max(14px,calc(23px * var(--sp-header-s,1)))!important;font-weight:900!important;" +
-        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;line-height:1.3!important;overflow-wrap:anywhere!important;}" +
         ".plp-main .plp-ranking{--plp-tab-s:calc(0.78 + 0.06 * (100vw - 320px) / (425px - 320px));}" +
         ".plp-main .plp-ranking__slider{padding:calc(18px * var(--plp-tab-s)) calc(44px * var(--plp-tab-s)) calc(20px * var(--plp-tab-s))!important;}" +
@@ -218,7 +221,7 @@
         "@media (min-width: 769px){" +
         "body.product-detail-page .pdp-hero__title,.product-detail-page .pdp-hero__title,#pdp-title{" +
         "font-weight:900!important;" +
-        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
+        "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;}" +
         "}" +
         "@media (max-width:768px){" +
@@ -238,7 +241,7 @@
         /* PDP info panel: PC (769+) keeps designed weights; mobile uses inherit block above. */ +
         "@media (min-width:769px){" +
         "body.product-detail-page .pdp-info,.product-detail-page .pdp-info{" +
-        "font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;}" +
+        "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;}" +
         "body.product-detail-page .pdp-info .pdp-point__label,.product-detail-page .pdp-info .pdp-point__label{" +
         "font-family:inherit!important;font-size:13px!important;font-weight:900!important;" +
         "padding:14px 28px!important;letter-spacing:0.04em!important;line-height:1!important;}" +
@@ -283,14 +286,14 @@
     }
   }
 
-  /* All pages: force PC ProN stack so MT body* cannot fall back to ヒラギノ角ゴ Pro.
+  /* All pages: force Noto Sans JP (AI data default) so MT body* cannot fall back to Helvetica / ヒラギノ.
      Last in <head>. Does not change font-weight or font-size. */
   function pinSiteTypeLock() {
     var id = "pw-site-type-lock";
     var head = document.head || document.documentElement;
     var s = document.getElementById(id);
     var f =
-      "'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif";
+      "'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif";
     var css =
       "html,body,body *:not(script):not(style){" +
       "font-family:" +
@@ -395,7 +398,7 @@
     }
     el.style.setProperty(
       "font-family",
-      '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif',
+      '"Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif',
       "important"
     );
     el.style.setProperty("color", "#111", "important");
@@ -403,7 +406,7 @@
   }
 
   var PDP_INFO_FONT =
-    '"Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif';
+    '"Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif';
   function pinPdpInfoStyle() {
     var info = document.querySelector(".pdp-info");
     if (!info) return;
@@ -651,7 +654,7 @@
     if (document.getElementById("pwGate")) return;
     var g = document.createElement("div");
     g.id = "pwGate";
-    g.style.cssText = "position:fixed;inset:0;z-index:2147483600;background:#ffffff;display:flex;align-items:center;justify-content:center;font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;";
+    g.style.cssText = "position:fixed;inset:0;z-index:2147483600;background:#ffffff;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;";
     g.innerHTML =
       '<div style="width:min(360px,88vw);text-align:center;padding:34px 26px;border:1px solid #eee;border-radius:16px;box-shadow:0 12px 44px rgba(0,0,0,.10);">' +
       '<div style="font-size:20px;font-weight:900;color:#111;margin-bottom:8px;">プリントワールド</div>' +
