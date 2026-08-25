@@ -4853,8 +4853,16 @@
     padding: 16px 0 56px;
   }
 
-  .guide-print-method-page .print-method-inkjet__page-title-img {
-    width: min(280px, 100%);
+  /* Title images: 100% at 768px → 66% at 320px (same size for DTF + embroidery) */
+  .guide-print-method-page .print-method-inkjet__page-title,
+  .guide-print-method-page .print-method-embroidery__title {
+    width: clamp(66%, calc(66% + 34% * (100vw - 320px) / 448), 100%);
+  }
+
+  .guide-print-method-page .print-method-inkjet__page-title-img,
+  .guide-print-method-page .print-method-embroidery__title-img {
+    width: 100%;
+    height: auto;
   }
 
   .guide-print-method-page .print-method-inkjet__subheading {
@@ -4878,11 +4886,6 @@
   .guide-print-method-page .print-method-embroidery {
     padding: 16px 0 56px;
     border-top-width: 6px;
-  }
-
-  .guide-print-method-page .print-method-embroidery__title-img {
-    width: 109px;
-    height: auto;
   }
 
   .guide-print-method-page .print-method-embroidery__lead {
