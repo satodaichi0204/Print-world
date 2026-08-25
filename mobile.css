@@ -4789,6 +4789,27 @@
     font-size: 15px;
   }
 
+  /* Title images: 100% at 1024px → 66% at 320px (linear) */
+  .guide-print-method-page .print-method-inkjet__page-title-img {
+    width: clamp(
+      calc(360px * 0.66),
+      calc(360px * (0.66 + 0.34 * (100vw - 320px) / 704)),
+      360px
+    );
+    max-width: 100%;
+    height: auto;
+  }
+
+  .guide-print-method-page .print-method-embroidery__title-img {
+    width: clamp(
+      calc(140px * 0.66),
+      calc(140px * (0.66 + 0.34 * (100vw - 320px) / 704)),
+      140px
+    );
+    max-width: 100%;
+    height: auto;
+  }
+
   .guide-print-method-page .print-method-inkjet__features {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 40px 28px;
@@ -4858,10 +4879,6 @@
     font-weight: 500;
   }
 
-  .guide-print-method-page .print-method-inkjet__page-title-img {
-    width: min(280px, 100%);
-  }
-
   .guide-print-method-page .print-method-inkjet__subheading {
     font-size: 19px;
   }
@@ -4883,11 +4900,6 @@
   .guide-print-method-page .print-method-embroidery {
     padding: 16px 0 56px;
     border-top-width: 6px;
-  }
-
-  .guide-print-method-page .print-method-embroidery__title-img {
-    width: 109px;
-    height: auto;
   }
 
   .guide-print-method-page .print-method-embroidery__lead {
