@@ -11476,16 +11476,26 @@ html.is-guide-flow-zoom-open body {
 
   .plp-main .plp-card__chip,
   .plp-main .plp-card__name,
-  .plp-main .plp-card__price,
-  .plp-main .plp-card__price span,
   .plp-main .plp-card__tags li,
   .plp-main .product-chip,
   .plp-main .product-name,
-  .plp-main .product-price,
-  .plp-main .product-price span,
   .plp-main .product-tags li {
     font-weight: inherit !important;
     font-family: inherit !important;
+  }
+
+  .plp-main .product-price,
+  .plp-main .plp-ranking__track .product-price,
+  .plp-main .plp-card__price {
+    font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 900 !important;
+  }
+
+  .plp-main .product-price span,
+  .plp-main .plp-ranking__track .product-price span,
+  .plp-main .plp-card__price span {
+    font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 400 !important;
   }
 }
 

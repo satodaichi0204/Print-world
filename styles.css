@@ -1139,13 +1139,13 @@ img {
   color: #c91f2e;
   font-size: clamp(24px, 2.75vw, 44px);
   line-height: 0.95;
-  font-weight: 500;
+  font-weight: 900;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
 }
 
 .product-price span {
   font-size: clamp(9px, 0.72vw, 12px);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .product-tags {
@@ -5194,14 +5194,14 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 0.35em 0 0;
   font-size: 36px;
   line-height: 0.95;
-  font-weight: 500;
+  font-weight: 900;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
   color: #c91f2e;
 }
 
 .plp-ranking__track .product-price span {
   font-size: 0.32em;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .plp-ranking__track .product-tags {
@@ -5391,14 +5391,14 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   margin: 6px 8px 0;
   color: #c91f2e;
   font-size: clamp(22px, 2.2vw, 36px);
-  font-weight: 500;
+  font-weight: 900;
   line-height: 1;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
 }
 
 .plp-card__price span {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .plp-card__tags {
@@ -6223,6 +6223,28 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 .home-mt .sec6-copy { color: #000 !important; }
 .home-mt .sec7-card__text { color: #444 !important; }
 
+/* product cards: MT forces all text to #000 — restore design colors */
+.home-mt .product-name {
+  color: #141414 !important;
+  -webkit-text-fill-color: #141414 !important;
+}
+.home-mt .product-price {
+  color: #c91f2e !important;
+  -webkit-text-fill-color: #c91f2e !important;
+}
+.home-mt .product-price span {
+  color: #c91f2e !important;
+  -webkit-text-fill-color: #c91f2e !important;
+}
+.home-mt .product-tags li {
+  color: #8a8a8a !important;
+  -webkit-text-fill-color: #8a8a8a !important;
+}
+.home-mt .tag-hash {
+  color: #c91f2e !important;
+  -webkit-text-fill-color: #c91f2e !important;
+}
+
 @media (max-width: 768px) {
   .home-mt .sec7-card__text {
     color: #000 !important;
@@ -6313,10 +6335,30 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 }
 
 /* colored text */
-.plp-main .product-price { color: #c91f2e !important; }
+.plp-main .product-name,
+.plp-main .plp-ranking__track .product-name,
+.plp-main .plp-card__name {
+  color: #141414 !important;
+  -webkit-text-fill-color: #141414 !important;
+}
+.plp-main .product-price,
+.plp-main .plp-ranking__track .product-price,
+.plp-main .plp-card__price {
+  color: #c91f2e !important;
+  -webkit-text-fill-color: #c91f2e !important;
+}
+.plp-main .product-price span,
+.plp-main .plp-ranking__track .product-price span,
+.plp-main .plp-card__price span {
+  color: #c91f2e !important;
+  -webkit-text-fill-color: #c91f2e !important;
+}
 .plp-main .product-chip { color: #606060 !important; }
-.plp-main .product-tags li { color: #8a8a8a !important; }
-.plp-main .plp-ranking__track .product-tags li { color: #9a8578 !important; }
+.plp-main .product-tags li { color: #8a8a8a !important; -webkit-text-fill-color: #8a8a8a !important; }
+.plp-main .plp-ranking__track .product-tags li { color: #9a8578 !important; -webkit-text-fill-color: #9a8578 !important; }
+.plp-main .tag-hash { color: #c91f2e !important; -webkit-text-fill-color: #c91f2e !important; }
+.plp-main .plp-ranking__track .tag-hash { color: #f15a24 !important; -webkit-text-fill-color: #f15a24 !important; }
+.plp-main .plp-card__tags li { color: #8a8a8a !important; -webkit-text-fill-color: #8a8a8a !important; }
 .plp-main .plp-intro__body { color: #555 !important; }
 
 /* subcategory filter links: MT paints <a> blue — force brand red like standard */
