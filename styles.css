@@ -1115,7 +1115,9 @@ img {
 
 .product-chip {
   margin: 9px 0 0 8px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   background: #fff;
   border: 1px solid #e4e4e4;
   color: #606060;
@@ -1126,47 +1128,59 @@ img {
 }
 
 .product-name {
-  margin: 8px 6px 0;
-  color: #141414;
+  margin: 8px 8px 0;
+  color: #333;
   font-size: clamp(12px, 1.02vw, 16px);
-  line-height: 1.28;
+  line-height: 1.35;
   font-weight: 500;
   letter-spacing: 0;
 }
 
 .product-price {
-  margin: 6px 6px 0;
+  margin: 6px 8px 0;
   color: #c91f2e;
   font-size: clamp(24px, 2.75vw, 44px);
-  line-height: 0.95;
+  line-height: 1;
   font-weight: 900;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .product-price span {
-  font-size: clamp(9px, 0.72vw, 12px);
+  font-size: 0.273em;
   font-weight: 400;
+  line-height: 1;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 .product-tags {
   list-style: none;
-  margin: 10px 6px 0;
+  margin: 10px 8px 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 10px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  gap: 3px 10px;
 }
 
 .product-tags li {
-  color: #8a8a8a;
+  color: #9a8578;
   font-size: clamp(9px, 0.72vw, 12px);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.15;
   white-space: nowrap;
 }
 
-/* Home sec2 product cards — font-family per design (Noto + Arial Black) */
+/* Home sec2 product cards — design lock (1920 canvas) */
+.home-page .sec2-products .product-chip::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f15a24;
+  flex-shrink: 0;
+}
+
 .home-page .sec2-products .product-name,
 .home-page .sec2-products .product-chip,
 .home-page .sec2-products .product-tags li {
@@ -1179,6 +1193,10 @@ img {
 
 .home-page .sec2-products .product-price span {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+.home-page .sec2-products .tag-hash {
+  color: #f15a24;
 }
 
 .tag-hash {
@@ -6242,8 +6260,8 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 
 /* product cards: MT forces all text to #000 — restore design colors */
 .home-mt .product-name {
-  color: #141414 !important;
-  -webkit-text-fill-color: #141414 !important;
+  color: #333 !important;
+  -webkit-text-fill-color: #333 !important;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 .home-mt .product-chip {
@@ -6260,13 +6278,17 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 .home-mt .product-tags li {
-  color: #8a8a8a !important;
-  -webkit-text-fill-color: #8a8a8a !important;
+  color: #9a8578 !important;
+  -webkit-text-fill-color: #9a8578 !important;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 .home-mt .tag-hash {
-  color: #c91f2e !important;
-  -webkit-text-fill-color: #c91f2e !important;
+  color: #f15a24 !important;
+  -webkit-text-fill-color: #f15a24 !important;
+}
+.home-mt .sec2-products .tag-hash {
+  color: #f15a24 !important;
+  -webkit-text-fill-color: #f15a24 !important;
 }
 
 @media (max-width: 768px) {
