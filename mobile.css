@@ -11494,7 +11494,7 @@ html.is-guide-flow-zoom-open body {
   .plp-main .product-price span,
   .plp-main .plp-ranking__track .product-price span,
   .plp-main .plp-card__price span {
-    font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
     font-weight: 400 !important;
   }
 }

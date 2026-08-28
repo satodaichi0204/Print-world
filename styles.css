@@ -1146,6 +1146,7 @@ img {
 .product-price span {
   font-size: clamp(9px, 0.72vw, 12px);
   font-weight: 400;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 .product-tags {
@@ -1163,6 +1164,21 @@ img {
   font-weight: 500;
   line-height: 1.15;
   white-space: nowrap;
+}
+
+/* Home sec2 product cards — font-family per design (Noto + Arial Black) */
+.home-page .sec2-products .product-name,
+.home-page .sec2-products .product-chip,
+.home-page .sec2-products .product-tags li {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+.home-page .sec2-products .product-price {
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+}
+
+.home-page .sec2-products .product-price span {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 .tag-hash {
@@ -6227,18 +6243,25 @@ body.pw-pdp-hydrated .pdp-spec tr:last-child td {
 .home-mt .product-name {
   color: #141414 !important;
   -webkit-text-fill-color: #141414 !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+}
+.home-mt .product-chip {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 .home-mt .product-price {
   color: #c91f2e !important;
   -webkit-text-fill-color: #c91f2e !important;
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
 }
 .home-mt .product-price span {
   color: #c91f2e !important;
   -webkit-text-fill-color: #c91f2e !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 .home-mt .product-tags li {
   color: #8a8a8a !important;
   -webkit-text-fill-color: #8a8a8a !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
 .home-mt .tag-hash {
   color: #c91f2e !important;
@@ -7087,6 +7110,13 @@ body *:not(script):not(style) {
 .pdp-spec__price,
 .mcPage__itemListContent-grid .itemListContent__price {
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.product-price span,
+.plp-ranking__track .product-price span,
+.plp-card__price span {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo",
+    sans-serif !important;
 }
 
 .pdp-spec__brand {

@@ -4,11 +4,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825card1" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825card1" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825card1" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825homefont1" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825homefont1" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825homefont1" data-pw-css="info-pages.css">
 <!-- Site font lock (Noto Sans JP). JS may refresh #pw-site-type-lock; keep this as the source of truth. -->
-<style id="pw-site-type-lock" data-pw-lock="20260825card1">
+<style id="pw-site-type-lock" data-pw-lock="20260825homefont1">
 html, body, body *:not(script):not(style) {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
@@ -18,6 +18,20 @@ html, body, body *:not(script):not(style) {
 .plp-card__price,
 .pdp-spec__price,
 .mcPage__itemListContent-grid .itemListContent__price {
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+}
+.product-price span,
+.home-mt .product-price span,
+.plp-ranking__track .product-price span,
+.plp-card__price span {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+}
+.home-mt .product-name,
+.home-mt .product-chip,
+.home-mt .product-tags li {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
+}
+.home-mt .product-price {
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
 }
 .pdp-spec__brand {
@@ -70,7 +84,7 @@ body.privacy-page .bold,
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260825card1";
+  var CSS_V = "20260825homefont1";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -257,7 +271,7 @@ body.privacy-page .bold,
         "body.product-list-page *,.plp-main *{font-weight:inherit!important;}" +
         ".plp-main .plp-card__chip,.plp-main .plp-card__name,.plp-main .plp-card__tags li,.plp-main .product-chip,.plp-main .product-name,.plp-main .product-tags li{font-weight:inherit!important;font-family:inherit!important;}" +
         ".plp-main .product-price,.plp-main .plp-ranking__track .product-price,.plp-main .plp-card__price{font-family:'Arial Black','Helvetica Neue',Arial,sans-serif!important;font-weight:900!important;}" +
-        ".plp-main .product-price span,.plp-main .plp-ranking__track .product-price span,.plp-main .plp-card__price span{font-family:'Arial Black','Helvetica Neue',Arial,sans-serif!important;font-weight:400!important;}" +
+        ".plp-main .product-price span,.plp-main .plp-ranking__track .product-price span,.plp-main .plp-card__price span{font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;font-weight:400!important;}" +
         "#plp-intro-title,.plp-main .plp-intro__catch,.plp-intro .plp-intro__catch,body.product-list-page .plp-intro__catch,body.product-list-page #plp-intro-title{" +
         "margin:0!important;margin-inline:0!important;max-width:none!important;font-size:clamp(18px,2vw,26px)!important;line-height:1.55!important;color:#111!important;}" +
         ".plp-main .plp-intro__body,.plp-intro .plp-intro__body,body.product-list-page .plp-intro__body{" +
@@ -331,6 +345,11 @@ body.privacy-page .bold,
       "!important;}" +
       ".phone-box__number,.product-price,.plp-ranking__track .product-price,.plp-card__price,.pdp-spec__price,.mcPage__itemListContent-grid .itemListContent__price{" +
       "font-family:'Arial Black','Helvetica Neue',Arial,sans-serif!important;}" +
+      ".product-price span,.home-mt .product-price span,.plp-ranking__track .product-price span,.plp-card__price span{" +
+      "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;}" +
+      ".home-mt .product-name,.home-mt .product-chip,.home-mt .product-tags li{" +
+      "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;}" +
+      ".home-mt .product-price{font-family:'Arial Black','Helvetica Neue',Arial,sans-serif!important;}" +
       ".pdp-spec__brand{font-family:'Times New Roman','Hiragino Mincho ProN',serif!important;}" +
       "body.info-page .bold,body.privacy-page .bold,.bold{font-weight:500!important;}" +
       "@media (max-width:768px){" +
