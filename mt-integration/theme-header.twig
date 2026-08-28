@@ -4,11 +4,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825home2" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825home2" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825home2" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825home3" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825home3" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825home3" data-pw-css="info-pages.css">
 <!-- Site font lock (Noto Sans JP). JS may refresh #pw-site-type-lock; keep this as the source of truth. -->
-<style id="pw-site-type-lock" data-pw-lock="20260825home2">
+<style id="pw-site-type-lock" data-pw-lock="20260825home3">
 html, body, body *:not(script):not(style) {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
@@ -70,7 +70,7 @@ body.privacy-page .bold,
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260825home2";
+  var CSS_V = "20260825home3";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -251,7 +251,7 @@ body.privacy-page .bold,
         "font-weight:900!important;" +
         "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;}" +
-        /* Home + PLP/category desktop type clamp (≥600→600). */ +
+        /* Home + PLP/category desktop type clamp (→500). */ +
         "body.home-page .product-name,body.home-page .product-price,body.home-page .product-price span," +
         "body.home-page .product-tags li,body.home-page .product-rank,body.home-page .sec3-card__link," +
         "body.home-page .sec4-card__link,body.home-page .sec5-intro__lead,body.home-page .sec5-intro__body," +
@@ -290,7 +290,7 @@ body.privacy-page .bold,
         ".plp-main .plp-card__chip,.plp-main .plp-card__name,.plp-main .plp-card__price," +
         ".plp-main .plp-card__price span,.plp-main .plp-card__tags li,.plp-main .plp-pagination__prev," +
         ".plp-main .plp-pagination__next,.plp-main .plp-pagination__page,.plp-main .plp-pagination__ellipsis{" +
-        "font-weight:600!important;}" +
+        "font-weight:500!important;}" +
         "body.home-page .sec6-copy,body.home-page .sec9-action__label,body.home-page .sec8-dl dt," +
         "body.home-page .sec7-list .sec7-card__name,.home-mt .sec6-copy,.home-mt .sec9-action__label," +
         ".home-mt .sec8-dl dt,.home-mt .sec7-list .sec7-card__name," +

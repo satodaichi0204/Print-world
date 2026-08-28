@@ -5485,7 +5485,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   line-height: 1;
 }
 
-/* Home + PLP/category — 769px+: force ≥600→600 / <600→500 (beat MT + late sheets) */
+/* Home + PLP/category — 769px+: force listed text to 500 (beat MT + late sheets) */
 @media (min-width: 769px) {
   body.home-page .fv-pill,
   body.home-page .phone-box__label,
@@ -5625,7 +5625,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
   .plp-main .plp-pagination__next,
   .plp-main .plp-pagination__page,
   .plp-main .plp-pagination__ellipsis {
-    font-weight: 600 !important;
+    font-weight: 500 !important;
   }
 
   body.home-page .sec6-copy,
