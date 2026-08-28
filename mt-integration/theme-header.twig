@@ -4,11 +4,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825home3" data-pw-css="styles.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825home3" data-pw-css="mobile.css">
-<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825home3" data-pw-css="info-pages.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/styles.css?v=20260825home4" data-pw-css="styles.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/mobile.css?v=20260825home4" data-pw-css="mobile.css">
+<link rel="stylesheet" href="https://print-world-blond.vercel.app/info-pages.css?v=20260825home4" data-pw-css="info-pages.css">
 <!-- Site font lock (Noto Sans JP). JS may refresh #pw-site-type-lock; keep this as the source of truth. -->
-<style id="pw-site-type-lock" data-pw-lock="20260825home3">
+<style id="pw-site-type-lock" data-pw-lock="20260825home4">
 html, body, body *:not(script):not(style) {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif !important;
 }
@@ -70,7 +70,7 @@ body.privacy-page .bold,
 /* make_confirm / cart: MT headerFix is 70px/50px; our fixed fv-header needs more clearance.
    Also pin Print World CSS so late/stale sheets from HTML blocks cannot snap the layout back. */
 (function () {
-  var CSS_V = "20260825home3";
+  var CSS_V = "20260825home4";
   var CSS_BASE = "https://print-world-blond.vercel.app/";
   var pinning = false;
 
@@ -251,51 +251,6 @@ body.privacy-page .bold,
         "font-weight:900!important;" +
         "font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif!important;" +
         "color:#111!important;letter-spacing:0.02em!important;}" +
-        /* Home + PLP/category desktop type clamp (→500). */ +
-        "body.home-page .product-name,body.home-page .product-price,body.home-page .product-price span," +
-        "body.home-page .product-tags li,body.home-page .product-rank,body.home-page .sec3-card__link," +
-        "body.home-page .sec4-card__link,body.home-page .sec5-intro__lead,body.home-page .sec5-intro__body," +
-        "body.home-page .sec5-em,body.home-page .sec5-cta,body.home-page .sec6-kicker,body.home-page .sec6-title," +
-        "body.home-page .sec6-num,body.home-page .sec6-label,body.home-page .sec7-card__name," +
-        "body.home-page .sec7-card__role,body.home-page .sec7-card__text,body.home-page .sec8-store__title," +
-        "body.home-page .sec8-dl dd,body.home-page .sec8-btn,body.home-page .sec8-faq__title," +
-        "body.home-page .sec8-summary,body.home-page .sec9-contact__lead,body.home-page .sec9-bullets li," +
-        "body.home-page .sec9-action,body.home-page .sec9-action__main,body.home-page .sec9-action__sub," +
-        "body.home-page .sec9-card__head-main,body.home-page .sec9-card__head-pill,body.home-page .sec9-pay-list li," +
-        "body.home-page .sec9-card__btn,body.home-page .sec9-ship__lead,body.home-page .sec9-ship__note," +
-        "body.home-page .sec9-ship__ems,.home-mt .product-name,.home-mt .product-price,.home-mt .product-price span," +
-        ".home-mt .product-tags li,.home-mt .product-rank,.home-mt .sec3-card__link,.home-mt .sec4-card__link," +
-        ".home-mt .sec5-intro__lead,.home-mt .sec5-intro__body,.home-mt .sec5-em,.home-mt .sec5-cta," +
-        ".home-mt .sec6-kicker,.home-mt .sec6-title,.home-mt .sec6-num,.home-mt .sec6-label," +
-        ".home-mt .sec7-card__name,.home-mt .sec7-card__role,.home-mt .sec7-card__text," +
-        ".home-mt .sec8-store__title,.home-mt .sec8-dl dd,.home-mt .sec8-btn,.home-mt .sec8-faq__title," +
-        ".home-mt .sec8-summary,.home-mt .sec9-contact__lead,.home-mt .sec9-bullets li,.home-mt .sec9-action," +
-        ".home-mt .sec9-action__main,.home-mt .sec9-action__sub,.home-mt .sec9-card__head-main," +
-        ".home-mt .sec9-card__head-pill,.home-mt .sec9-pay-list li,.home-mt .sec9-card__btn," +
-        ".home-mt .sec9-ship__lead,.home-mt .sec9-ship__note,.home-mt .sec9-ship__ems," +
-        "body.product-list-page .plp-hero__title,body.product-list-page .plp-hero__title-sm," +
-        "body.product-list-page .plp-hero__title-lg,body.product-list-page .plp-intro__catch," +
-        "body.product-list-page .plp-intro__body,body.product-list-page .plp-ranking__banner-title," +
-        "body.product-list-page .plp-rank-badge,body.product-list-page .product-name," +
-        "body.product-list-page .product-price,body.product-list-page .product-price span," +
-        "body.product-list-page .product-tags li,body.product-list-page .plp-subcat__title," +
-        "body.product-list-page .plp-card__chip,body.product-list-page .plp-card__name," +
-        "body.product-list-page .plp-card__price,body.product-list-page .plp-card__price span," +
-        "body.product-list-page .plp-card__tags li,body.product-list-page .plp-pagination__prev," +
-        "body.product-list-page .plp-pagination__next,body.product-list-page .plp-pagination__page," +
-        "body.product-list-page .plp-pagination__ellipsis,.plp-main .plp-hero__title," +
-        ".plp-main .plp-intro__catch,.plp-main .plp-intro__body,.plp-main .plp-ranking__banner-title," +
-        ".plp-main .plp-rank-badge,.plp-main .product-name,.plp-main .product-price," +
-        ".plp-main .product-price span,.plp-main .product-tags li,.plp-main .plp-subcat__title," +
-        ".plp-main .plp-card__chip,.plp-main .plp-card__name,.plp-main .plp-card__price," +
-        ".plp-main .plp-card__price span,.plp-main .plp-card__tags li,.plp-main .plp-pagination__prev," +
-        ".plp-main .plp-pagination__next,.plp-main .plp-pagination__page,.plp-main .plp-pagination__ellipsis{" +
-        "font-weight:500!important;}" +
-        "body.home-page .sec6-copy,body.home-page .sec9-action__label,body.home-page .sec8-dl dt," +
-        "body.home-page .sec7-list .sec7-card__name,.home-mt .sec6-copy,.home-mt .sec9-action__label," +
-        ".home-mt .sec8-dl dt,.home-mt .sec7-list .sec7-card__name," +
-        "body.product-list-page .plp-subcat__link,.plp-main .plp-subcat__link{" +
-        "font-weight:500!important;}" +
         "}" +
         "@media (max-width:768px){" +
         "body.product-list-page,.plp-main{font-weight:400!important;}" +
