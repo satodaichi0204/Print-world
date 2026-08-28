@@ -5218,6 +5218,7 @@ img[src="https://print-world.jp/resource/a5cf2a20c446ff4403d6b232e8b9d0178407942
 .plp-ranking__track .product-price span {
   font-size: 0.32em;
   font-weight: 400;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
 }
 
 .plp-ranking__track .product-tags {
