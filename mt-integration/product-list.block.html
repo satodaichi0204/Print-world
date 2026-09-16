@@ -9,48 +9,21 @@
      （CSS全体の重ね読みではない）。値はデスクトップ最終値(1440)と同一、詳細度も低い(.plp-inner)ため、
      styles.css / mobile.css のレスポンシブ上書きは従来どおり優先され、見た目は変わらない。 -->
 <style id="pw-plp-critical">
-  /* 本文FOUCガード（チラつき対策の本命）:
+  /* 本文FOUCガード:
      Print WorldのCSS(/resource/…)はMTの仕様上 <head> ではなく <body> 内で読み込まれ、初回描画に
-     間に合わない。そのため .plp-main が素のまま(全幅=余白小)で描かれ、CSS適用後に揺れる。
-     さらに、余白のレスポンシブ計算は mobile.css 側にあり少し遅れて効くこと、古いVercel CSS(ship14)が
-     残っていると遅れて読み込まれ→JSが削除、という切替も起きる。
-     そこで「/resource/ のCSSが“全部”読み込み完了 かつ 古いVercel CSSがDOMから消えた」時点まで
-     .plp-main を不可視にし、その瞬間に表示する（＝レイアウトが完全確定してから見せる）。
-     領域は確保するので飛びなし。5秒の安全弁で必ず表示。JS無効時は noscript で即表示。 */
-  html:not(.pw-plp-ready) .plp-main{visibility:hidden;}
+     間に合わない（本文が一瞬“素のまま”で描かれる）。ヘッダーがCSS適用を検知して付与する
+     pw-hdr-ready まで .plp-main を不可視にし、適用の瞬間に表示する（領域は確保＝レイアウト飛びなし）。
+     ヘッダー側に5秒の安全弁があるため隠しっぱなしにはならない。JS無効時は noscript で即表示。 */
+  html:not(.pw-hdr-ready) .plp-main{visibility:hidden;}
   html,body{overflow-x:hidden;}
   /* コンテンツ幅を1440に一本化（デスクトップ）:
      mobile.css 内に .plp-inner の「1440固定」と「画面幅で縮小するスケール指定(--plp-content-s)」が
      混在し、読み込み順で 1440⇄1080等 と揺れる。ここで最優先(!important)・最上位詳細度で 1440cap に
-     確定させ、他の矛盾ルールを無効化する。min()なので1440未満の画面では画面幅にフィット（レスポンシブ維持）。 */
+     確定させ、他の矛盾ルール(古いship14含む)を無効化する。min()なので1440未満の画面では画面幅にフィット。 */
   @media (min-width: 769px){
     body.product-list-page .plp-main .plp-inner{ width: min(1440px, calc(100% - 48px)) !important; }
   }
 </style>
-<script>
-(function () {
-  var t0 = Date.now();
-  function ready() {
-    /* 1) 自前CSS(/resource/…)が全て読み込み＆適用済みか（sheet.cssRules が取れる＝適用済み） */
-    var res = document.querySelectorAll('link[rel="stylesheet"][href*="/resource/"]');
-    if (res.length < 2) return false;
-    for (var i = 0; i < res.length; i++) {
-      var s = res[i].sheet;
-      if (!s) return false;
-      try { if (!s.cssRules) return false; } catch (e) { return false; }
-    }
-    /* 2) 古いVercel製の<link>が残っていない（pinPwCssが削除するまで待つ） */
-    if (document.querySelector('link[rel="stylesheet"][href*="print-world-blond.vercel.app"]')) return false;
-    return true;
-  }
-  function reveal() { document.documentElement.classList.add('pw-plp-ready'); }
-  (function poll() {
-    if (ready()) return reveal();
-    if (Date.now() - t0 > 5000) return reveal();   /* 安全弁 */
-    requestAnimationFrame(poll);
-  })();
-})();
-</script>
 <noscript><style>.plp-main{visibility:visible!important;}</style></noscript>
 
 <div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';">
