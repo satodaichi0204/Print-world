@@ -4,6 +4,15 @@
 <!-- ============================================================ -->
 <script>document.body.classList.add('product-list-page');</script>
 
+<!-- 初回描画FOUC対策：外部CSS(styles.css)が効くまでの一瞬、.plp-inner が全幅になり
+     「余白が小さい→大きい」へレイアウトシフトするのを防ぐ。ここで注入するのは幅1ルールだけ
+     （CSS全体の重ね読みではない）。値はデスクトップ最終値(1440)と同一、詳細度も低い(.plp-inner)ため、
+     styles.css / mobile.css のレスポンシブ上書きは従来どおり優先され、見た目は変わらない。 -->
+<style id="pw-plp-critical">
+  .plp-inner{width:min(1440px,calc(100% - 48px));margin-left:auto;margin-right:auto;}
+  html,body{overflow-x:hidden;}
+</style>
+
 <div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';">
 
   <main class="plp-main">
