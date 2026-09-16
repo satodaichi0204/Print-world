@@ -203,7 +203,7 @@
       <div class="plp-inner">
         <h2 id="plp-subcat-title" class="plp-subcat__title">カテゴリーから探す</h2>
         <ul class="plp-subcat__grid" role="list">
-          <li><a class="plp-subcat__link" href="/products-list/category/all"><span class="tag-hash">#</span>全商品<span class="plp-subcat__count"></span></a></li>
+          <li><a class="plp-subcat__link" href="/products-list"><span class="tag-hash">#</span>全商品<span class="plp-subcat__count"></span></a></li>
           <li><a class="plp-subcat__link" href="/products-list/category/t-shirt"><span class="tag-hash">#</span>Tシャツ<span class="plp-subcat__count"></span></a></li>
           <li><a class="plp-subcat__link" href="/products-list/category/long-sleeve-t-shirt"><span class="tag-hash">#</span>ロングTシャツ<span class="plp-subcat__count"></span></a></li>
           <li><a class="plp-subcat__link" href="/products-list/category/polo-shirt"><span class="tag-hash">#</span>ポロシャツ<span class="plp-subcat__count"></span></a></li>
@@ -239,11 +239,11 @@
         span.textContent = "（" + n + "件）";
       }
       function run() {
-        var links = document.querySelectorAll('.plp-subcat__link[href*="/products-list/category/"]');
+        var links = document.querySelectorAll('.plp-subcat__link[href]');
         Array.prototype.forEach.call(links, function (link) {
           var url = link.getAttribute("href");
           if (!url) { return; }
-          var key = "pw_catcount:" + url;
+          var key = "pw_catcount2:" + url;
           var cached = null;
           try { cached = sessionStorage.getItem(key); } catch (e) {}
           if (cached !== null) { fill(link, parseInt(cached, 10)); return; }
