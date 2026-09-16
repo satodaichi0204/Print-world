@@ -9,22 +9,17 @@
      （CSS全体の重ね読みではない）。値はデスクトップ最終値(1440)と同一、詳細度も低い(.plp-inner)ため、
      styles.css / mobile.css のレスポンシブ上書きは従来どおり優先され、見た目は変わらない。 -->
 <style id="pw-plp-critical">
-  /* 本文FOUCガード:
-     Print WorldのCSS(/resource/…)はMTの仕様上 <head> ではなく <body> 内で読み込まれ、初回描画に
-     間に合わない（本文が一瞬“素のまま”で描かれる）。ヘッダーがCSS適用を検知して付与する
-     pw-hdr-ready まで .plp-main を不可視にし、適用の瞬間に表示する（領域は確保＝レイアウト飛びなし）。
-     ヘッダー側に5秒の安全弁があるため隠しっぱなしにはならない。JS無効時は noscript で即表示。 */
-  html:not(.pw-hdr-ready) .plp-main{visibility:hidden;}
   html,body{overflow-x:hidden;}
   /* コンテンツ幅を1440に一本化（デスクトップ）:
-     mobile.css 内に .plp-inner の「1440固定」と「画面幅で縮小するスケール指定(--plp-content-s)」が
-     混在し、読み込み順で 1440⇄1080等 と揺れる。ここで最優先(!important)・最上位詳細度で 1440cap に
-     確定させ、他の矛盾ルール(古いship14含む)を無効化する。min()なので1440未満の画面では画面幅にフィット。 */
+     このルールを最優先(!important)・最上位詳細度で当て、読み込み順やヘッダーJS・mobile.css内の
+     スケール指定(--plp-content-s=1080等)・古いship14 が何を言っても常に 1440cap に確定させる。
+     ブロック先頭(=本文より前)で読むので初回描画から効き、幅が揺れない。
+     min()なので1440未満の画面では画面幅にフィット（レスポンシブ維持）。
+     ※ヘッダー(pw-hdr-ready)に依存する“隠して表示”ガードは撤去。本文は即表示で、幅はこの1本で固定。 */
   @media (min-width: 769px){
     body.product-list-page .plp-main .plp-inner{ width: min(1440px, calc(100% - 48px)) !important; }
   }
 </style>
-<noscript><style>.plp-main{visibility:visible!important;}</style></noscript>
 
 <div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';">
 
