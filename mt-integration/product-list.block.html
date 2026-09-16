@@ -11,14 +11,39 @@
 <style id="pw-plp-critical">
   /* 本文FOUCガード（チラつき対策の本命）:
      Print WorldのCSS(/resource/…)はMTの仕様上 <head> ではなく <body> 内で読み込まれ、初回描画に
-     間に合わない。そのため .plp-main が一瞬「素のまま(.plp-inner が全幅=余白小)」で描かれ、CSS適用後に
-     1440px(余白大)へ揺れる。ヘッダーが付与する pw-hdr-ready(=styles.css適用済み) まで .plp-main を
-     不可視にし(領域は確保するのでレイアウト飛びなし)、適用の瞬間に表示して“素の状態”を見せない。
-     ヘッダー側に 5秒 の安全弁があるため隠しっぱなしにはならない。JS無効環境は noscript で即表示。 */
-  html:not(.pw-hdr-ready) .plp-main{visibility:hidden;}
-  .plp-inner{width:min(1440px,calc(100% - 48px));margin-left:auto;margin-right:auto;}
+     間に合わない。そのため .plp-main が素のまま(全幅=余白小)で描かれ、CSS適用後に揺れる。
+     さらに、余白のレスポンシブ計算は mobile.css 側にあり少し遅れて効くこと、古いVercel CSS(ship14)が
+     残っていると遅れて読み込まれ→JSが削除、という切替も起きる。
+     そこで「/resource/ のCSSが“全部”読み込み完了 かつ 古いVercel CSSがDOMから消えた」時点まで
+     .plp-main を不可視にし、その瞬間に表示する（＝レイアウトが完全確定してから見せる）。
+     領域は確保するので飛びなし。5秒の安全弁で必ず表示。JS無効時は noscript で即表示。 */
+  html:not(.pw-plp-ready) .plp-main{visibility:hidden;}
   html,body{overflow-x:hidden;}
 </style>
+<script>
+(function () {
+  var t0 = Date.now();
+  function ready() {
+    /* 1) 自前CSS(/resource/…)が全て読み込み＆適用済みか（sheet.cssRules が取れる＝適用済み） */
+    var res = document.querySelectorAll('link[rel="stylesheet"][href*="/resource/"]');
+    if (res.length < 2) return false;
+    for (var i = 0; i < res.length; i++) {
+      var s = res[i].sheet;
+      if (!s) return false;
+      try { if (!s.cssRules) return false; } catch (e) { return false; }
+    }
+    /* 2) 古いVercel製の<link>が残っていない（pinPwCssが削除するまで待つ） */
+    if (document.querySelector('link[rel="stylesheet"][href*="print-world-blond.vercel.app"]')) return false;
+    return true;
+  }
+  function reveal() { document.documentElement.classList.add('pw-plp-ready'); }
+  (function poll() {
+    if (ready()) return reveal();
+    if (Date.now() - t0 > 5000) return reveal();   /* 安全弁 */
+    requestAnimationFrame(poll);
+  })();
+})();
+</script>
 <noscript><style>.plp-main{visibility:visible!important;}</style></noscript>
 
 <div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';">
