@@ -19,6 +19,13 @@
      領域は確保するので飛びなし。5秒の安全弁で必ず表示。JS無効時は noscript で即表示。 */
   html:not(.pw-plp-ready) .plp-main{visibility:hidden;}
   html,body{overflow-x:hidden;}
+  /* コンテンツ幅を1440に一本化（デスクトップ）:
+     mobile.css 内に .plp-inner の「1440固定」と「画面幅で縮小するスケール指定(--plp-content-s)」が
+     混在し、読み込み順で 1440⇄1080等 と揺れる。ここで最優先(!important)・最上位詳細度で 1440cap に
+     確定させ、他の矛盾ルールを無効化する。min()なので1440未満の画面では画面幅にフィット（レスポンシブ維持）。 */
+  @media (min-width: 769px){
+    body.product-list-page .plp-main .plp-inner{ width: min(1440px, calc(100% - 48px)) !important; }
+  }
 </style>
 <script>
 (function () {
