@@ -770,7 +770,7 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     if (/転写/.test(t)) return "転写シート";
     if (/長袖\s*ポロ|ロングスリーブ.*ポロ|長袖ポロ/.test(t)) return "長袖ポロシャツ";
     if (/ポロ/.test(t)) return "ポロシャツ";
-    if (/パーカー|フーディ|hoodie/i.test(t)) return "パーカー";
+    if (/パーカ|フーディ|hoodie/i.test(t)) return "パーカー";
     if (/スウェット|トレーナー/.test(t)) return "スウェット";
     if (/ロング\s*T|長袖\s*T|ロンT|ロングスリーブ.*T|長袖Tシャツ|ロングTシャツ/.test(t)) {
       return "ロングTシャツ";
