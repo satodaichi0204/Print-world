@@ -10,16 +10,37 @@
      styles.css / mobile.css のレスポンシブ上書きは従来どおり優先され、見た目は変わらない。 -->
 <style id="pw-plp-critical">
   html,body{overflow-x:hidden;}
-  /* コンテンツ幅を1440に一本化（デスクトップ）:
-     このルールを最優先(!important)・最上位詳細度で当て、読み込み順やヘッダーJS・mobile.css内の
-     スケール指定(--plp-content-s=1080等)・古いship14 が何を言っても常に 1440cap に確定させる。
-     ブロック先頭(=本文より前)で読むので初回描画から効き、幅が揺れない。
-     min()なので1440未満の画面では画面幅にフィット（レスポンシブ維持）。
-     ※ヘッダー(pw-hdr-ready)に依存する“隠して表示”ガードは撤去。本文は即表示で、幅はこの1本で固定。 */
+  /* 自己完結型FOUCガード（ヘッダーに依存しない）:
+     MT仕様でCSS(/resource/…)は <body> 内で読み込まれ初回描画に間に合わないため、高速なブラウザでは
+     一瞬“素の状態(1024等)”が見えてから整う＝揺れる。そこで、このブロック自身が styles.css と mobile.css の
+     読み込み完了を検知するまで .plp-main を不可視にし、完了した瞬間に表示する（＝整ってから見せる）。
+     領域は確保するので飛びなし。4秒の安全弁で必ず表示。JS無効時は noscript で即表示。 */
+  html:not(.pw-css-ok) .plp-main{ visibility:hidden; }
+  /* コンテンツ幅を1440に一本化（デスクトップ）: 最優先(!important)で、読み込み順・mobile.cssのスケール指定・
+     古いship14 が何を言っても常に 1440cap に確定。body クラス非依存にして初回から確実に当てる。 */
   @media (min-width: 769px){
-    body.product-list-page .plp-main .plp-inner{ width: min(1440px, calc(100% - 48px)) !important; }
+    .plp-main .plp-inner{ width: min(1440px, calc(100% - 48px)) !important; }
   }
 </style>
+<script>
+(function () {
+  var t0 = Date.now();
+  function loaded(hash){
+    var l = document.querySelector('link[rel="stylesheet"][href*="' + hash + '"]');
+    if (!l || !l.sheet) return false;
+    try { return !!l.sheet.cssRules; } catch (e) { return false; }
+  }
+  /* styles.css(49d6…) と mobile.css(4b60…) の両方が適用済みになるまで待つ */
+  function ok(){ return loaded('49d6e579') && loaded('4b605bb3'); }
+  function reveal(){ document.documentElement.classList.add('pw-css-ok'); }
+  (function poll(){
+    if (ok()) return reveal();
+    if (Date.now() - t0 > 4000) return reveal();   /* 安全弁 */
+    requestAnimationFrame(poll);
+  })();
+})();
+</script>
+<noscript><style>.plp-main{visibility:visible!important;}</style></noscript>
 
 <div style="width:100vw;position:relative;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);text-align:left;color:#000;line-height:normal;letter-spacing:normal;font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo',sans-serif;font-feature-settings:'palt';-webkit-font-feature-settings:'palt';">
 
