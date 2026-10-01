@@ -374,6 +374,24 @@ img {
   border: 2px solid #fff;
 }
 
+/* Login-state toggle: honor MT login.js `is-show` class.
+   Logged out -> login.js adds is-show to .js-login (show login button).
+   Logged in  -> login.js removes it from .js-login (hide) + adds it to
+   .js-subMenuShow/.btn--user (show user icon). Requires the `js-header`
+   class on the header container (see theme-header.twig). */
+.fv-header__util .header__login .btn--login:not(.is-show) {
+  display: none !important;
+}
+.fv-header__util .header__login .btn--user {
+  display: none;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.fv-header__util .header__login .btn--user.is-show {
+  display: inline-flex;
+}
+
 .fv-login-icon {
   display: none;
   width: 26px;
