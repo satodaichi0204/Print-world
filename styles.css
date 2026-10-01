@@ -357,22 +357,22 @@ img {
 .fv-cart-count {
   display: none;
   position: absolute;
-  top: -8px;
-  right: -11px;
+  top: -9px;
+  right: -12px;
   box-sizing: border-box;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 4px;
-  border-radius: 999px;
-  background: #d8001a;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;          /* min-width=height -> 1桁は正円、2桁以上は角丸 */
+  background: #14233b;           /* ★バッジの色（赤と対照的な濃紺）: ここを変えれば色変更可★ */
   color: #fff;
   font-size: 11px;
   font-weight: 700;
-  line-height: 18px;
+  line-height: 20px;
   text-align: center;
   white-space: nowrap;
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
-  box-shadow: 0 0 0 2px #f15a24;
+  box-shadow: 0 0 0 2px #fff;    /* 白い縁取り: オレンジ地でも丸がはっきり見える */
   pointer-events: none;
 }
 
