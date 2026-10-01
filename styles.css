@@ -344,6 +344,38 @@ img {
   letter-spacing: 0.02em;
 }
 
+/* Cart count badge: MT cart.js auto-fills #js-cart-count (text = quantitySum)
+   and toggles it (shown only when count > 0). The element is position:absolute,
+   so even when jQuery .show() sets display:inline it blockifies -> the circle
+   keeps its size. Starts display:none to avoid an empty-circle flash. */
+.fv-cart-icon-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.fv-cart-count {
+  display: none;
+  position: absolute;
+  top: -8px;
+  right: -11px;
+  box-sizing: border-box;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #d8001a;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  white-space: nowrap;
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 0 0 2px #f15a24;
+  pointer-events: none;
+}
+
 .fv-header__util .header__cart .m-icon.icon--cart,
 .fv-header__util .header__cart a > .m-icon {
   display: none !important;
