@@ -1185,6 +1185,67 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     return "";
   }
 
+  // ---- Mobile design-notice modal ------------------------------------------
+  // The notice text lives in the 説明 field (so the design tool shows it). The
+  // design tool /dt/… is MT's own page and can't host our modal, so on mobile
+  // we show the notice on the product page just before entering the design tool.
+  // Content is read from the same 説明 field (one source of truth).
+  function pwIsMobile() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+  function pwGetNoticeHtml() {
+    var boxes = document.querySelectorAll(
+      ".make__detail__explanation-box .make__detail__explanation__description"
+    );
+    for (var b = 0; b < boxes.length; b++) {
+      var title = textOf(boxes[b].querySelector("h3"));
+      if (!title || title.indexOf("特徴") === -1) continue;
+      var area = boxes[b].querySelector(".detail_area");
+      if (!area) continue;
+      var kids = area.querySelectorAll("div, section, p");
+      for (var i = 0; i < kids.length; i++) {
+        if (kids[i].textContent.indexOf("デザインに関するご注意事項") !== -1) {
+          return kids[i].outerHTML;
+        }
+      }
+    }
+    return "";
+  }
+  function pwInjectNoticeModalCss() {
+    if (document.getElementById("pw-notice-modal-css")) return;
+    var st = document.createElement("style");
+    st.id = "pw-notice-modal-css";
+    st.textContent =
+      ".pw-notice-modal{position:fixed;inset:0;z-index:2147483000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;}" +
+      ".pw-notice-modal__inner{background:#fff;border-radius:12px;max-width:560px;width:100%;max-height:85vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);}" +
+      ".pw-notice-modal__body{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px;}" +
+      ".pw-notice-modal__foot{padding:12px 16px;border-top:1px solid #eee;}" +
+      ".pw-notice-modal__btn{display:block;width:100%;padding:13px;border:0;border-radius:8px;background:#d8001a;color:#fff;font-size:15px;font-weight:700;cursor:pointer;}";
+    document.head.appendChild(st);
+  }
+  function pwShowNoticeModal(onConfirm) {
+    var html = pwGetNoticeHtml();
+    if (!html) { if (onConfirm) onConfirm(); return; }
+    pwInjectNoticeModalCss();
+    var ov = document.createElement("div");
+    ov.className = "pw-notice-modal";
+    ov.innerHTML =
+      '<div class="pw-notice-modal__inner" role="dialog" aria-modal="true" aria-label="デザインに関するご注意事項">' +
+        '<div class="pw-notice-modal__body">' + html + "</div>" +
+        '<div class="pw-notice-modal__foot"><button type="button" class="pw-notice-modal__btn">確認してデザインに進む</button></div>' +
+      "</div>";
+    document.body.appendChild(ov);
+    var prev = document.documentElement.style.overflow;
+    document.documentElement.style.overflow = "hidden";
+    function close(proceed) {
+      if (ov.parentNode) ov.parentNode.removeChild(ov);
+      document.documentElement.style.overflow = prev;
+      if (proceed && onConfirm) onConfirm();
+    }
+    ov.querySelector(".pw-notice-modal__btn").addEventListener("click", function () { close(true); });
+    ov.addEventListener("click", function (e) { if (e.target === ov) close(false); });
+  }
+
   function hydratePdpShell() {
     const shell = document.querySelector("[data-pw-pdp-shell]");
     if (!shell) return;
@@ -1305,21 +1366,27 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
       thumbsWrap._pwColorEntries = entries;
     }
 
-    // Design button → click MT's real button (keeps design-tool flow)
+    // Design button → click MT's real button (keeps design-tool flow).
+    // On mobile, show the design-notice modal first (毎回), then proceed — the
+    // design tool itself can't host our modal, so we show it here before entry.
     const designBtn = shell.querySelector('[data-pw-pdp="design-btn"]');
     const mtDesign = document.querySelector("#js-make-design-btn");
-    if (designBtn && mtDesign) {
+    const designHrefEl = document.querySelector("[data-href*='/item/design/']");
+    function pwProceedDesign() {
+      if (mtDesign) { mtDesign.click(); return; }
+      if (designHrefEl && designHrefEl.getAttribute("data-href")) {
+        location.href = designHrefEl.getAttribute("data-href");
+      }
+    }
+    if (designBtn && (mtDesign || designHrefEl)) {
       designBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        mtDesign.click();
+        if (pwIsMobile()) {
+          pwShowNoticeModal(pwProceedDesign);
+        } else {
+          pwProceedDesign();
+        }
       });
-    } else if (designBtn && mtDesign == null) {
-      const href = document.querySelector("[data-href*='/item/design/']");
-      if (href && href.getAttribute("data-href")) {
-        designBtn.addEventListener("click", function () {
-          location.href = href.getAttribute("data-href");
-        });
-      }
     }
 
     // Gallery nav (prev/next/thumbs): bind once with live thumb queries
