@@ -1208,7 +1208,12 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     const mainSrc = mainImg ? mainImg.getAttribute("src") || "" : "";
     const mainAlt = mainImg ? mainImg.getAttribute("alt") || nameRaw : nameRaw;
 
-    const feature = explanationValue("特徴");
+    let feature = explanationValue("特徴");
+    // The 説明 field also carries the design-data notice so the design tool
+    // (which only renders 説明 and does not load this script) can show it.
+    // On the product page we strip the notice and show only the description.
+    var __niIdx = feature.indexOf("デザインに関するご注意事項");
+    if (__niIdx !== -1) feature = feature.slice(0, __niIdx).trim();
     const material = explanationValue("素材");
     const size = explanationValue("サイズ");
     const split = splitItemCode(nameRaw);
