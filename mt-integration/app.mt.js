@@ -1185,94 +1185,6 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     return "";
   }
 
-  // ---- Design-data notice: PC box + mobile modal --------------------------
-  // Content is client-editable in リソースマスタ (design-notice.js sets
-  // window.PW_DESIGN_NOTICE). Fetched fresh (no-store) so edits show without a
-  // cache clear; the text is extracted from the file's template literal.
-  var PW_NOTICE_URL = "/resource/ebe15b431280eb019dc33cb556d1841791036234";
-  var __pwNoticeHtml = null;
-  var __pwNoticeCbs = null;
-  function pwIsMobileNotice() {
-    return window.matchMedia("(max-width: 768px)").matches;
-  }
-  function pwLoadNotice(cb) {
-    if (__pwNoticeHtml != null) return cb(__pwNoticeHtml);
-    if (__pwNoticeCbs) { __pwNoticeCbs.push(cb); return; }
-    __pwNoticeCbs = [cb];
-    function done(html) {
-      __pwNoticeHtml = html || "";
-      var cbs = __pwNoticeCbs; __pwNoticeCbs = null;
-      cbs.forEach(function (f) { f(__pwNoticeHtml); });
-    }
-    try {
-      fetch(PW_NOTICE_URL, { cache: "no-store" })
-        .then(function (r) { return r.ok ? r.text() : ""; })
-        .then(function (text) {
-          var m = text && text.match(/PW_DESIGN_NOTICE\s*=\s*`([\s\S]*?)`\s*;/);
-          done(m ? m[1] : "");
-        })
-        .catch(function () { done(""); });
-    } catch (e) { done(""); }
-  }
-  function pwInjectNoticeCss() {
-    if (document.getElementById("pw-notice-css")) return;
-    var st = document.createElement("style");
-    st.id = "pw-notice-css";
-    st.textContent =
-      ".pw-notice{border:2px solid #d8001a;border-radius:8px;background:#fff7f7;color:#333;padding:16px 18px;line-height:1.8;font-size:14px;box-sizing:border-box;}" +
-      ".pw-notice__title{margin:0 0 12px;font-weight:700;color:#d8001a;font-size:15px;}" +
-      ".pw-notice__sub{margin-left:6px;font-size:12px;}" +
-      ".pw-notice__item{margin:0 0 12px;}" +
-      ".pw-notice__item:last-child{margin-bottom:0;}" +
-      ".pw-notice__head{margin:0 0 4px;font-weight:700;}" +
-      ".pw-notice__body{margin:0;}" +
-      ".pw-notice--pc{margin-top:20px;}" +
-      "@media (max-width:768px){.pw-notice--pc{display:none;}}" +
-      ".pw-notice-modal{position:fixed;inset:0;z-index:2147483000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;}" +
-      ".pw-notice-modal__inner{background:#fff;border-radius:12px;max-width:560px;width:100%;max-height:85vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);}" +
-      ".pw-notice-modal__body{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px;}" +
-      ".pw-notice-modal__body .pw-notice{border:0;background:transparent;padding:0;}" +
-      ".pw-notice-modal__foot{padding:12px 16px;border-top:1px solid #eee;}" +
-      ".pw-notice-modal__btn{display:block;width:100%;padding:13px;border:0;border-radius:8px;background:#d8001a;color:#fff;font-size:15px;font-weight:700;cursor:pointer;}";
-    document.head.appendChild(st);
-  }
-  function pwRenderNoticePcBox(shell) {
-    pwInjectNoticeCss();
-    pwLoadNotice(function (html) {
-      if (!html) return;
-      var info = (shell && shell.querySelector(".pdp-info")) ||
-        document.querySelector(".pdp-info") || shell;
-      if (!info || info.querySelector(".pw-notice--pc")) return;
-      var box = document.createElement("div");
-      box.className = "pw-notice--pc";
-      box.innerHTML = html;
-      info.appendChild(box);
-    });
-  }
-  function pwShowNoticeModal(onConfirm) {
-    pwInjectNoticeCss();
-    pwLoadNotice(function (html) {
-      if (!html) { if (onConfirm) onConfirm(); return; }
-      var ov = document.createElement("div");
-      ov.className = "pw-notice-modal";
-      ov.innerHTML =
-        '<div class="pw-notice-modal__inner" role="dialog" aria-modal="true" aria-label="デザインに関するご注意事項">' +
-          '<div class="pw-notice-modal__body">' + html + "</div>" +
-          '<div class="pw-notice-modal__foot"><button type="button" class="pw-notice-modal__btn">確認してデザインに進む</button></div>' +
-        "</div>";
-      document.body.appendChild(ov);
-      var prev = document.documentElement.style.overflow;
-      document.documentElement.style.overflow = "hidden";
-      function close(proceed) {
-        if (ov.parentNode) ov.parentNode.removeChild(ov);
-        document.documentElement.style.overflow = prev;
-        if (proceed && onConfirm) onConfirm();
-      }
-      ov.querySelector(".pw-notice-modal__btn").addEventListener("click", function () { close(true); });
-      ov.addEventListener("click", function (e) { if (e.target === ov) close(false); });
-    });
-  }
-
   function hydratePdpShell() {
     const shell = document.querySelector("[data-pw-pdp-shell]");
     if (!shell) return;
@@ -1326,14 +1238,6 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
         featureEl.textContent = "";
       }
       setRowVisible(shell, "tags", true);
-    } else if (feature && featureEl) {
-      if (tagsEl) {
-        tagsEl.hidden = true;
-        tagsEl.innerHTML = "";
-      }
-      featureEl.hidden = false;
-      featureEl.textContent = feature;
-      setRowVisible(shell, "tags", true);
     } else {
       if (tagsEl) {
         tagsEl.hidden = true;
@@ -1349,12 +1253,10 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
     setText(shell, "spec-brand", brand);
     setRowVisible(shell, "brand", !!brand);
 
-    // Headline: use first line of feature, or product name
-    setText(
-      shell,
-      "headline",
-      feature ? feature.slice(0, 80) : (nameRaw || "商品詳細")
-    );
+    // Headline: product name only (NOT the 説明/feature). The description +
+    // notice already shows in the description body; using feature here
+    // duplicated it in the headline.
+    setText(shell, "headline", nameRaw || "商品詳細");
 
     const desc = shell.querySelector('[data-pw-pdp="description"]');
     if (desc) {
@@ -1398,31 +1300,22 @@ if (sec4Track && sec4Set && !sec4Track.dataset.loopReady) {
       thumbsWrap._pwColorEntries = entries;
     }
 
-    // Design button → click MT's real button (keeps design-tool flow).
-    // On mobile, show the design-data notice modal first (毎回), then proceed.
+    // Design button → click MT's real button (keeps design-tool flow)
     const designBtn = shell.querySelector('[data-pw-pdp="design-btn"]');
     const mtDesign = document.querySelector("#js-make-design-btn");
-    const designHrefEl = document.querySelector("[data-href*='/item/design/']");
-    function pwProceedDesign() {
-      if (mtDesign) { mtDesign.click(); return; }
-      if (designHrefEl && designHrefEl.getAttribute("data-href")) {
-        location.href = designHrefEl.getAttribute("data-href");
-      }
-    }
-    if (designBtn && (mtDesign || designHrefEl)) {
+    if (designBtn && mtDesign) {
       designBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        if (pwIsMobileNotice()) {
-          pwShowNoticeModal(pwProceedDesign);
-        } else {
-          pwProceedDesign();
-        }
+        mtDesign.click();
       });
+    } else if (designBtn && mtDesign == null) {
+      const href = document.querySelector("[data-href*='/item/design/']");
+      if (href && href.getAttribute("data-href")) {
+        designBtn.addEventListener("click", function () {
+          location.href = href.getAttribute("data-href");
+        });
+      }
     }
-
-    // Design-data notice: PC shows a box in the info panel (hidden on mobile;
-    // mobile shows the modal above when tapping デザインする).
-    pwRenderNoticePcBox(shell);
 
     // Gallery nav (prev/next/thumbs): bind once with live thumb queries
     if (typeof window.__pwBindPdpGallery === "function") {
